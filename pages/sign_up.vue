@@ -36,9 +36,9 @@
         <gv-col>
           <span class="footnote">
             {{ $t("page.sign_up.has_account") }}
-            <gv-link href="/sign_in" muted>{{
-              $t("page.sign_in.title")
-            }}</gv-link>
+            <gv-link href="/sign_in" muted>
+              {{ $t("page.sign_in.title") }}
+            </gv-link>
           </span>
         </gv-col>
       </gv-row>
@@ -48,8 +48,8 @@
 
 <script>
 import { Email, Feedback, Username, Password } from "@/components/form";
+import { User } from "@/models";
 
-import { User, Token } from "~/models";
 export default {
   layout: "login",
   name: "sign-up",
@@ -78,16 +78,15 @@ export default {
     async sign_up() {
       if (this.hasError) return;
       try {
-        const user = await this.$repository.user.insert(this.user);
-        if (user) {
-          await this.$repository.token.insert(new Token({ user: user.id }));
+        await this.$service.user.insert(this.user);
+        if (this.user) {
           this.$service.session.login({
-            id: user.id,
-            name: user.person.name,
-            username: user.username,
-            locked: true,
+            id: this.user.id,
+            name: this.user.person.name,
+            username: this.user.username,
+            verified: false,
           });
-          this.$router.go();
+          this.$router.push("/");
         } else {
           this.feedback.message = this.$t("message.feedback.error");
         }

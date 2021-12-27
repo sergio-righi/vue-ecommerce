@@ -1,12 +1,13 @@
 <template>
   <gv-input
-    :error="validation"
     :label="$t('label.username')"
-    :data-validation-message="$t('validation.duplicate')"
     v-model="username"
     v-mask="'a*'"
-    v-validation.required="{ minLength: 5 }"
-    @blur="checkUsername"
+    v-validation.required="{
+      minLength: 5,
+      error: { value: this.validation, message: $t('validation.duplicate') },
+    }"
+    @input.native="checkUsername"
   />
 </template>
 
@@ -25,10 +26,7 @@ export default {
   methods: {
     checkUsername: async function (event) {
       try {
-        this.validation = await this.$repository.user.username(
-          this.id,
-          event.target.value
-        );
+        this.validation = await this.$service.user.username(event.target.value);
       } catch {
         this.validation = false;
       }
@@ -36,7 +34,7 @@ export default {
   },
   watch: {
     validation(val) {
-      this.$emit("onchange", val);
+      this.$emit("onerror", val);
     },
     username(val) {
       this.$emit("input", val);

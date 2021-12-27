@@ -4,7 +4,6 @@ import { EnumPayment } from "@/utils/enums";
 
 interface IPayment {
     _id?: string;
-    userId?: string;
     type: EnumPayment;
     info: Card
     default: boolean;
@@ -13,7 +12,6 @@ interface IPayment {
 
 class Payment implements IPayment {
     id?: string;
-    userId?: string;
     type: EnumPayment;
     info: Card;
     default: boolean;
@@ -21,7 +19,6 @@ class Payment implements IPayment {
 
     constructor(o: IPayment = { type: EnumPayment.card, info: new Card(), default: false, deleted: false }) {
         this.id = o._id ?? helpers.generateId();
-        this.userId = o.userId;
         this.type = o.type;
         this.info = o.info;
         this.default = o.default;

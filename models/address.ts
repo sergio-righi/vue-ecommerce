@@ -1,7 +1,7 @@
+import { helpers } from "@/utils";
 
 interface IAddress {
     id?: string;
-    userId?: string;
     type: number;
     street?: string;
     zipcode?: string;
@@ -14,7 +14,6 @@ interface IAddress {
 
 class Address implements IAddress {
     id?: string;
-    userId?: string;
     type: number;
     street?: string;
     zipcode?: string;
@@ -25,8 +24,7 @@ class Address implements IAddress {
     deleted: boolean;
 
     constructor(o: IAddress = { type: -1, deleted: false }) {
-        this.id = o.id;
-        this.userId = o.userId;
+        this.id = o.id ?? helpers.generateId();
         this.type = o.type;
         this.street = o.street;
         this.zipcode = o.zipcode;

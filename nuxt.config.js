@@ -91,12 +91,12 @@ export default {
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: "i18n_redirected",
-      redirectOn: "root"
+      redirectOn: "root",
     },
   },
 
   router: {
-    // middleware: ["auth"],
+    middleware: ["authentitcation"],
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

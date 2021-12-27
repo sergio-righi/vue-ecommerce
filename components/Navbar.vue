@@ -1,7 +1,7 @@
 <template>
   <gv-navbar center fixed>
     <template #brand>
-      <gv-link :href="localePath('/')">Lazy Company</gv-link>
+      <gv-link :href="localePath($resolve.home())">Lazy Company</gv-link>
     </template>
     <template #menu>
       <!-- <gv-navbar-item href="/users" :active="isActive('/users')">
@@ -36,13 +36,16 @@
             </gv-flexbox>
           </template>
           <template #content>
-            <gv-dropdown-item @onclick="sign_out">
+            <gv-dropdown-item :href="localePath($resolve.order())">
+              {{ $t("navbar.order") }}
+            </gv-dropdown-item>
+            <gv-dropdown-item @onclick="signOut">
               {{ $t("navbar.sign_out") }}
             </gv-dropdown-item>
           </template>
         </gv-dropdown>
       </gv-navbar-item>
-      <gv-navbar-item v-else>
+      <gv-navbar-item @onclick="signIn" v-else>
         <gv-icon value="account-circle" />
       </gv-navbar-item>
     </template>
@@ -83,8 +86,11 @@ export default {
     this.setLocale(this.locale);
   },
   methods: {
-    async sign_out() {
+    async signOut() {
       await this.$service.session.logout();
+      this.$router.push("/");
+    },
+    async signIn() {
       this.$router.push("/sign_in");
     },
     isActive(url) {

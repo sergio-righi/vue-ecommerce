@@ -9,6 +9,7 @@ Vue.filter("enumerable", enumerable);
 Vue.filter("greeting", greeting);
 Vue.filter("money", money);
 Vue.filter("timestamp", timestamp);
+Vue.filter("masked", masked);
 
 function age(value: string) {
   if (value === undefined) return "-";
@@ -51,6 +52,10 @@ function basket(value: any, i18n: any) {
 
 function money(value: number) {
   return calculation.toRound(value);
+}
+
+function masked(value: string) {
+  return value.replace(/^[\d-\s]+(?=\d{4})/, "************");
 }
 
 function timestamp(value: number, locale = "en") {

@@ -59,7 +59,7 @@ export default {
   methods: {
     async login() {
       try {
-        const user = await this.$repository.user.login(
+        const user = await this.$service.user.login(
           this.user.username,
           this.user.password
         );
@@ -68,9 +68,9 @@ export default {
             id: user.id,
             name: user.person.name,
             username: user.username,
-            locked: user.locked,
+            verified: false,
           });
-          this.$router.go();
+          this.$router.push('/');
         } else {
           this.feedback.message = this.$t("message.feedback.user_not_found");
         }

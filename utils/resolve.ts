@@ -2,7 +2,9 @@
 const controller = {
     basket: '/basket/',
     book: '/book/',
-    home: '/'
+    checkout: '/checkout/',
+    home: '/',
+    order: '/order/'
 }
 
 const basket = (...args: any[]) => {
@@ -13,8 +15,16 @@ const book = (...args: any[]) => {
     return controller.book + args.join('/');
 }
 
+const checkout = (...args: any[]) => {
+    return controller.checkout + args.join('/');
+}
+
 const home = (...args: any[]) => {
     return controller.home + args.join('/');
+}
+
+const order = (...args: any[]) => {
+    return controller.order + args.join('/');
 }
 
 const image = {
@@ -26,6 +36,8 @@ const image = {
 export const initializeResolve = {
     basket,
     book,
+    checkout,
     home,
+    order,
     image
 };

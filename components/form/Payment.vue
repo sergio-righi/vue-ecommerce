@@ -3,20 +3,22 @@
     <template #header>
       <gv-tile>
         <template #content>
-          <gv-tile-header>{{ $t("label.shipping_address") }}</gv-tile-header>
+          <gv-tile-header>{{ $t("label.payment_method") }}</gv-tile-header>
         </template>
       </gv-tile>
     </template>
-    <template #content>
+    <template #content v-if="addresses.length">
       <gv-tile v-for="(item, index) in items" :key="item.id" activable>
         <template #leading>
-          <gv-input-box name="address" :val="item.id" v-model="selected" radio />
+          <gv-input-box
+            name="payment"
+            :val="item.id"
+            v-model="selected"
+            radio
+          />
         </template>
         <template #content>
-          <gv-tile-header sub>
-            {{ item.number }} {{ item.street }} - {{ item.city }},
-            {{ item.country }} ({{ item.zipcode }})
-          </gv-tile-header>
+          <gv-tile-header sub> {{ item.number | masked }} </gv-tile-header>
         </template>
         <template #trailing>
           <gv-button-group sm>
@@ -32,58 +34,57 @@
       <gv-divider />
       <form @submit.prevent="onSubmit">
         <gv-row>
-          <gv-col sm="4">
+          <gv-col sm="6">
             <gv-input
-              ref="element"
-              :label="$t('label.country')"
-              v-model="address.country"
-              v-validation.required.alpha
-            />
-          </gv-col>
-          <gv-col sm="4">
-            <gv-input
-              :label="$t('label.province')"
-              v-model="address.province"
-              v-mask="'A*'"
-            />
-          </gv-col>
-          <gv-col sm="4">
-            <gv-input
-              :label="$t('label.city')"
-              v-model="address.city"
-              v-validation.required.alpha
-            />
-          </gv-col>
-          <gv-col sm="4">
-            <gv-input
-              :label="$t('label.street')"
-              v-model="address.street"
-              v-validation.required.alpha
+              v-model="payment.cardholder"
               v-validation.required
+              :label="$t('label.cardholder')"
             />
           </gv-col>
-          <gv-col sm="2">
+          <gv-col sm="6">
             <gv-input
-              :label="$t('label.zipcode')"
-              v-model="address.zipcode"
-              v-mask="['#####-###', 'XXX XXX']"
+              v-model="payment.number"
               v-validation.required
-            />
-          </gv-col>
-          <gv-col sm="2">
-            <gv-input
               :label="$t('label.number')"
-              v-model="address.number"
-              v-mask="'#*'"
-              v-validation.required
+              v-mask="'#### #### #### ####'"
             />
           </gv-col>
-          <gv-col sm="2">
-            <gv-input
-              :label="$t('label.unit')"
-              v-model="address.unit"
-              v-mask="'#*'"
+          <gv-col sm="6">
+            <gv-picker
+              v-model="payment.expirationMonth"
+              is-month
+              v-validation.required
+              :locale="currentLocale"
+              :label="$t('label.expiration_month')"
             />
+          </gv-col>
+          <gv-col sm="6">
+            <gv-picker
+              v-model="payment.expirationYear"
+              is-year
+              v-validation.required
+              :locale="currentLocale"
+              :label="$t('label.expiration_year')"
+            />
+          </gv-col>
+          <gv-col v-if="addresses.length">
+            <gv-form-group
+              :label="$t('label.billing_address')"
+              v-validation.group="[1]"
+            >
+              <gv-radio-group>
+                <gv-col v-for="item in addresses" :key="item.id">
+                  <gv-input-box
+                    :val="item.id"
+                    v-model="payment.billingAddress"
+                    radio
+                  >
+                    {{ item.number }} {{ item.street }} - {{ item.city }},
+                    {{ item.country }} ({{ item.zipcode }})
+                  </gv-input-box>
+                </gv-col>
+              </gv-radio-group>
+            </gv-form-group>
           </gv-col>
           <gv-col sm="2">
             <gv-button submit primary fit lg v-if="isUpdate">
@@ -96,14 +97,27 @@
         </gv-row>
       </form>
     </template>
+    <template #content v-else>
+      <gv-alert>
+        <gv-alert-item warning>
+          <template #content>
+            {{ $t("message.feedback.billing_address") }}
+          </template>
+        </gv-alert-item>
+      </gv-alert>
+    </template>
   </gv-card>
 </template>
 
 <script>
-import { Address } from "@/models";
+import { Payment } from "@/models";
 export default {
   props: {
     value: {
+      type: Array,
+      default: () => [],
+    },
+    addresses: {
       type: Array,
       default: () => [],
     },
@@ -113,7 +127,7 @@ export default {
       items: [],
       index: -1,
       selected: null,
-      address: new Address(),
+      payment: new Payment(),
       componentKey: 0,
     };
   },
@@ -123,11 +137,11 @@ export default {
   methods: {
     onSubmit: function () {
       if (this.isUpdate) {
-        this.items[this.index] = this.address;
+        this.items[this.index] = this.payment;
         this.componentKey++;
         this.index = -1;
       } else {
-        this.items.push(this.address);
+        this.items.push(this.payment);
       }
       this.reset();
       this.$emit("input", this.items);
@@ -141,14 +155,17 @@ export default {
     },
     onUpdate: function (index) {
       this.index = index;
-      this.address = { ...this.items[index] };
+      this.payment = { ...this.items[index] };
       this.element.focus();
     },
     reset: function () {
-      this.address = new Address();
+      this.payment = new Payment();
     },
   },
   computed: {
+    currentLocale() {
+      return this.$i18n.locale;
+    },
     element: function () {
       return this.$refs.element;
     },

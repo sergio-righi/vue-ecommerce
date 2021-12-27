@@ -1,4 +1,4 @@
-import { Address } from "@/models";
+import { Address, Document, Payment } from "@/models";
 import { EnumGender } from "@/utils/enums";
 
 interface IPerson {
@@ -8,6 +8,7 @@ interface IPerson {
     gender: EnumGender;
     birthday?: string;
     documents?: Array<Document>;
+    payments?: Array<Payment>;
     addresses?: Array<Address>;
 }
 
@@ -17,6 +18,7 @@ class Person implements IPerson {
     phone?: string;
     gender: EnumGender;
     birthday?: string;
+    payments?: Payment[]
     addresses?: Address[];
     documents?: Document[];
 
@@ -26,6 +28,7 @@ class Person implements IPerson {
         this.phone = o.phone;
         this.gender = o.gender;
         this.birthday = o.birthday;
+        this.payments = o.payments;
         this.addresses = o.addresses;
     }
 }

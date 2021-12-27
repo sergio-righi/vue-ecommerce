@@ -92,7 +92,7 @@
               <gv-divider />
             </template>
             <template #footer>
-              <gv-button primary fit>{{ $t("action.checkout") }}</gv-button>
+              <gv-button primary fit :href="localePath($resolve.checkout())">{{ $t("action.checkout") }}</gv-button>
             </template>
           </gv-card>
         </gv-col>

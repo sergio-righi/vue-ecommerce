@@ -35,6 +35,12 @@
         },
         "book": {
             "title": "Books available"
+        },
+        "order": {
+            "title": "My orders"
+        },
+        "checkout": {
+            "title": "Checkout"
         }
     },
     "action": {
@@ -49,12 +55,15 @@
         "search": "Search",
         "resend": "Send again",
         "continue": "Continue",
-        "checkout": "Checkout"
+        "order": "Place order",
+        "checkout": "Proceed to Checkout"
     },
     "label": {
         "active": "Active",
         "address": "Address | Addresses",
+        "billing_address": "Billing Address",
         "birthday": "Birthday",
+        "cardholder": "Cardholder's Name",
         "city": "City",
         "code": "Code",
         "count": "Count",
@@ -62,16 +71,20 @@
         "detail": "Detail | Details",
         "document": "Document | Documents",
         "email": "Email | Emails",
+        "expiration_month": "Expiration Month",
+        "expiration_year": "Expiration Year",
         "gender": "Gender",
         "inactive": "Inactive",
         "item": "Item | Items",
         "name": "Name",
         "number": "Number",
         "password": "Password",
+        "payment_method": "Payment Method",
         "province": "Province",
         "phone": "Phone | Phones",
         "resume": "Resume",
         "role": "Role | Roles",
+        "shipping_address": "Shipping Address",
         "subtotal": "Subtotal",
         "street": "Street",
         "tax": "HST",
@@ -142,7 +155,8 @@
             "code": "The informed code does not match the expected",
             "email": "An email was sent with the instructions to continue processing your request",
             "item_added": "{0} was added to the basket ({1}x)",
-            "item_removed": "{0} was removed from the basket"
+            "item_removed": "{0} was removed from the basket",
+            "billing_address": "Must have an address to continue"
         },
         "basket": {
             "item_count": "total of items in the basket",

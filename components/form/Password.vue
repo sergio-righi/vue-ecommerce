@@ -8,12 +8,6 @@
         v-model="password"
         v-validation="{ required: required }"
       >
-        <!-- <template #trailing>
-          <gv-button tabindex="-1" @onclick="visible = !visible" primary sm>
-            <gv-icon value="eye-off" v-if="!visible" />
-            <gv-icon value="eye" v-else />
-          </gv-button>
-        </template> -->
       </gv-input>
     </gv-col>
     <gv-col sm="6">
@@ -61,7 +55,7 @@ export default {
   watch: {
     match(val) {
       if (this.hasValue) {
-        this.$emit("onchange", !val);
+        this.$emit("onerror", !val);
       }
     },
     password(val) {
