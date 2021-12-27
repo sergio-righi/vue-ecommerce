@@ -1,0 +1,184 @@
+{
+    "page": {
+        "home": {
+            "title": "Home"
+        },
+        "users": {
+            "title": "Users",
+            "create": "Add User",
+            "update": "Edit User"
+        },
+        "sign_up": {
+            "title": "Sign Up",
+            "has_account": "Already have an account?"
+        },
+        "sign_in": {
+            "title": "Sign In",
+            "remeber_me": "Keep me connected",
+            "forgot_password": "Forgot Password?"
+        },
+        "forgot_password": {
+            "title": "Forgot Password",
+            "remember_it": "Did you remember it?"
+        },
+        "authorization": {
+            "title": "Authorization",
+            "try_again": "Did not receive the code?"
+        },
+        "error": {
+            "401": "Unauthorized access.\n\nIt might indicate that the request lacks valid authentication credentials for the target resource.",
+            "404": "The page you were looking for does not exist. You may have mistyped the URL or the page may have moved.",
+            "500": "Ooops, something went wrong.\n\nWe apologize and are working to fix the problem. Please try again later."
+        },
+        "basket": {
+            "title": "My Basket"
+        },
+        "book": {
+            "title": "Books available"
+        }
+    },
+    "action": {
+        "send": "Send",
+        "done": "Done",
+        "update": "Edit",
+        "create": "Add",
+        "delete": "Delete",
+        "cancel": "Cancel",
+        "undo": "Undo",
+        "clear": "Clear",
+        "search": "Search",
+        "resend": "Send again",
+        "continue": "Continue",
+        "checkout": "Checkout"
+    },
+    "label": {
+        "active": "Active",
+        "address": "Address | Addresses",
+        "birthday": "Birthday",
+        "city": "City",
+        "code": "Code",
+        "count": "Count",
+        "country": "Country",
+        "detail": "Detail | Details",
+        "document": "Document | Documents",
+        "email": "Email | Emails",
+        "gender": "Gender",
+        "inactive": "Inactive",
+        "item": "Item | Items",
+        "name": "Name",
+        "number": "Number",
+        "password": "Password",
+        "province": "Province",
+        "phone": "Phone | Phones",
+        "resume": "Resume",
+        "role": "Role | Roles",
+        "subtotal": "Subtotal",
+        "street": "Street",
+        "tax": "HST",
+        "total": "Total",
+        "unit": "Unit",
+        "username": "Username",
+        "zipcode": "Zipcode"
+    },
+    "placeholder": {
+        "filter_by": "filter by {field}",
+        "select_one": "select one"
+    },
+    "greeting": {
+        "welcome": "Welcome",
+        "good_morning": "Good Morning",
+        "good_afternoon": "Good Afternoon",
+        "good_evening": "Good Evening"
+    },
+    "enum": {
+        "gender": {
+            "male": "male",
+            "female": "female",
+            "other": "other",
+            "omit": "prefer not to say"
+        },
+        "document": {
+            "passport": "passport",
+            "id": "indentity document",
+            "drivers_license": "driver's license"
+        },
+        "role": {
+            "dev": "Developer",
+            "admin": "Administrator",
+            "accountant": "Accountant",
+            "academic_advisor": "Academic Advisor",
+            "instructor": "Instructor",
+            "moderator": "Moderator"
+        }
+    },
+    "message": {
+        "footnote": {
+            "login": "By continuing, you agree to our",
+            "password": "A strong password should have...",
+            "domain": "xyz.ca",
+            "error": "take me to"
+        },
+        "confirmation": {
+            "title": "Confirmation Required",
+            "delete": "Before continuing, make sure this is the item you are willing to delete once this action is permanent"
+        },
+        "recover": {
+            "delete": "was deleted"
+        },
+        "feedback": {
+            "unknown": "unknown",
+            "user_not_found": "User not found",
+            "no_record": "No records were found",
+            "empty_basket": "There is no items in your basket",
+            "error": "Something went wrong while processing your request",
+            "success": "The request was successfully processed",
+            "token": "The informed token is not valid or expired",
+            "code": "The informed code does not match the expected",
+            "email": "An email was sent with the instructions to continue processing your request",
+            "item_added": "{0} was added to the basket ({1}x)",
+            "item_removed": "{0} was removed from the basket"
+        },
+        "basket": {
+            "item_count": "total of items in the basket",
+            "check_detail": "Please, check the details below",
+            "before_discount": "amount before discounts (if applicable)",
+            "before_tax": "amount before taxes",
+            "sum_total": "amount to be paid"
+        }
+    },
+    "locale": {
+        "currency": "BRL"
+    },
+    "navbar": {
+        "sign_out": "Sign out"
+    },
+    "agreement": {
+        "cookie_policy": "Cookie Policy",
+        "privacy_policy": "Privacy Policy",
+        "terms_of_service": "Terms of Service"
+    },
+    "linking_word": {
+        "and": "and",
+        "or": "or"
+    },
+    "password_policy": {
+        "length": "a minimum of 8 characters",
+        "case": "one uppercase and one lowercase letters",
+        "character": "one letter and one number",
+        "special": "one special character, e.g., ! @ # ? * $ % &"
+    },
+    "picker": {
+        "am": "am",
+        "pm": "pm",
+        "day": "day",
+        "month": "month",
+        "year": "year"
+    },
+    "snackbar": {
+        "dismiss": "Dismiss"
+    },
+    "validation": {
+        "match": "do not match",
+        "duplicate": "already exists"
+    }
+}

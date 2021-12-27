@@ -1,0 +1,26 @@
+[
+    {
+        "_id": "61c6af36aeb88ff65e31db2b",
+        "userId": "61c6abf54134f40fd564cb85",
+        "type": 1,
+        "street": "",
+        "zipcode": "",
+        "country": "",
+        "province": "",
+        "city": "",
+        "unit": "",
+        "deleted": false
+    },
+    {
+        "_id": "61c6af7706d2458999cfe93e",
+        "userId": "61c6abf54134f40fd564cb85",
+        "type": 2,
+        "street": "",
+        "zipcode": "",
+        "country": "",
+        "province": "",
+        "city": "",
+        "unit": "",
+        "deleted": false
+    }
+]

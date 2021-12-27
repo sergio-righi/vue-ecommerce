@@ -1,0 +1,23 @@
+[
+    {
+        "_id": "61c6ae51f67a11c8c9a7927e",
+        "userId": "61c6abf54134f40fd564cb85",
+        "status": 1,
+        "paymentStatus": 1,
+        "discount": 0,
+        "couponId": null,
+        "paymentId": "61c6afaa72a0c9795200e282",
+        "addressId": "61c6af36aeb88ff65e31db2b",
+        "paymentDate": 1640411426,
+        "shippingDate": null,
+        "cancelationDate": null,
+        "deliveredDate": null,
+        "books": [
+            {
+                "id": "61c6ac09ceb872d9ee1ca45e",
+                "count": 1,
+                "price": 16.99
+            }
+        ]
+    }
+]

@@ -1,0 +1,32 @@
+@use "../utils/index" as *;
+
+.product-count {
+  height: 32px;
+  align-items: center;
+  @include d-inline-flex;
+  border-radius: $border-radius;
+  border: 1px solid var(--gv-color-border);
+  background-color: var(--gv-secondary-light);
+
+  input {
+    border: 0;
+    max-width: 40px;
+    text-align: center;
+    background: transparent;
+    -moz-appearance: textfield;
+    color: var(--gv-color-font);
+  }
+
+  i {
+    cursor: pointer;
+    line-height: initial;
+
+    &:first-child {
+      padding-left: $default-distance * 0.5;
+    }
+
+    &:last-child {
+      padding-right: $default-distance * 0.5;
+    }
+  }
+}

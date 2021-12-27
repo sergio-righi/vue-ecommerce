@@ -1,0 +1,1 @@
+export const config = { pagination: 12 };

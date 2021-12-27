@@ -1,0 +1,15 @@
+#login {
+  .page-enter-active,
+  .page-leave-active {
+    transition: 300ms;
+  }
+  .page-enter-to {
+    position: relative;
+  }
+  .page-enter {
+    transform: translateX(-100%);
+  }
+  .page-leave-to {
+    transform: translateX(100%);
+  }
+}
