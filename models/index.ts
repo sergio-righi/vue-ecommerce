@@ -7,9 +7,9 @@ import Coupon from "./coupon";
 import Dimension from "./dimension";
 import Document from "./document";
 import Item from "./item";
+import Order from "./order";
 import Payment from "./payment";
 import Person from "./person";
-import Sale from "./sale";
 import User from "./user";
 
-export { Address, Author, Book, Card, Coupon, Dimension, Document, Item, Payment, Person, Sale, User };
+export { Address, Author, Book, Card, Coupon, Dimension, Document, Item, Order, Payment, Person, User };

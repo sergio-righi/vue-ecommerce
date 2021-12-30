@@ -115,9 +115,8 @@
 import { ProductBook, ProductInfo } from "@/components/interface";
 import { NoRecord, Page } from "@/components";
 
-import { mapGetters, mapState } from "vuex";
+import { mapGetters } from "vuex";
 export default {
-  name: "home",
   components: {
     NoRecord,
     Page,

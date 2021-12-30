@@ -1,15 +1,10 @@
 <template>
-  <gv-card :title="item.name">
+  <gv-card :title="item.name" overflow>
     <template #content>
       <gv-image
         :src="$resolve.image.cover(item.id)"
         :href="localePath($resolve.book(item.slug))"
-      >
-        <!-- <gv-inset top right>
-          <gv-icon color="red" value="heart" v-if="isFavorite(item.id)" />
-          <gv-icon v-else color="white" value="heart" />
-        </gv-inset> -->
-      </gv-image>
+      />
       <ProductDiscount
         :price="item.price"
         :discount="item.discount"
@@ -17,18 +12,24 @@
       />
       <gv-divider />
     </template>
-    <template #footer>
+    <template v-if="item.inStock > 0" #footer>
       <ProductCount
+        :min="Math.min(1, item.inStock)"
         :max="item.inStock"
         :value="getCount(item.id)"
         @oninput="setCount(item, ...arguments)"
       />
-      <gv-button error v-if="inBasket(item.id)" @onclick="removeItem(item)">
+      <gv-button error v-if="inBasket(item.id)" @onclick="removeItem(item)" sm>
         <gv-icon value="basket-remove" />
       </gv-button>
-      <gv-button primary v-else @onclick="addItem(item)">
+      <gv-button primary v-else @onclick="addItem(item)" sm>
         <gv-icon value="basket-plus" />
       </gv-button>
+    </template>
+    <template v-else #footer>
+      <gv-flexbox justify="center" flex>
+        {{ $t("message.feedback.not_available") }}
+      </gv-flexbox>
     </template>
   </gv-card>
 </template>
@@ -37,7 +38,7 @@
 import { default as ProductCount } from "./ProductCount.vue";
 import { default as ProductDiscount } from "./ProductDiscount.vue";
 
-import { mapGetters, mapState } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   components: {
     ProductCount,

@@ -1,7 +1,7 @@
 import { helpers } from "@/utils";
 
 interface IAddress {
-    id?: string;
+    _id?: string;
     type: number;
     street?: string;
     zipcode?: string;
@@ -9,6 +9,7 @@ interface IAddress {
     province?: string;
     city?: string;
     unit?: number;
+    cost: number;
     deleted: boolean;
 }
 
@@ -21,10 +22,11 @@ class Address implements IAddress {
     province?: string;
     city?: string;
     unit?: number;
+    cost: number;
     deleted: boolean;
 
-    constructor(o: IAddress = { type: -1, deleted: false }) {
-        this.id = o.id ?? helpers.generateId();
+    constructor(o: IAddress = { _id: helpers.generateId(), type: -1, cost: 0.00, deleted: false }) {
+        this.id = o._id;
         this.type = o.type;
         this.street = o.street;
         this.zipcode = o.zipcode;
@@ -32,6 +34,7 @@ class Address implements IAddress {
         this.province = o.province;
         this.city = o.city;
         this.unit = o.unit;
+        this.cost = o.cost;
         this.deleted = o.deleted;
     }
 

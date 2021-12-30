@@ -13,6 +13,7 @@
       v-model="input"
       @blur="onBlur"
       @focus="onFocus"
+      :disabled="isMin && isMax"
     />
     <gv-icon
       value="plus-circle"
@@ -59,13 +60,13 @@ export default {
       this.input = this.between(this.input);
     },
     increase: function () {
-      this.input = this.input === this.max ? this.max : this.input + 1;
+      this.input = this.input >= this.max ? this.max : this.input + 1;
     },
     decrease: function () {
-      this.input = this.input === this.min ? this.min : this.input - 1;
+      this.input = this.input <= this.min ? this.min : this.input - 1;
     },
     config: function () {
-      this.input = this.between(Number(this.value));
+      this.input = this.between(Number(this.value), this.min, this.max);
     },
     between: function (val) {
       return val < this.min ? this.min : val > this.max ? this.max : val;

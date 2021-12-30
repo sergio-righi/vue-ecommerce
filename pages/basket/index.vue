@@ -76,23 +76,12 @@
                   </small>
                 </template>
               </gv-tile>
-              <gv-tile>
-                <template #content>
-                  <gv-tile-header>
-                    {{ $t("label.total") }} + {{ $t("label.tax") }} ({{ tax }})
-                  </gv-tile-header>
-                  <gv-tile-header sub>
-                    {{ $t("message.basket.sum_total") }}
-                  </gv-tile-header>
-                </template>
-                <template #trailing>
-                  <b class="ws-nowrap"> {{ currency }} {{ taxed | money }} </b>
-                </template>
-              </gv-tile>
               <gv-divider />
             </template>
             <template #footer>
-              <gv-button primary fit :href="localePath($resolve.checkout())">{{ $t("action.checkout") }}</gv-button>
+              <gv-button primary fit :href="localePath($resolve.checkout())">
+                {{ $t("action.checkout") }}
+              </gv-button>
             </template>
           </gv-card>
         </gv-col>
@@ -119,17 +108,26 @@
 </template>
 
 <script>
-import { calculation, helpers } from "@/utils";
+import { helpers } from "@/utils";
 import { ProductCount } from "@/components/interface";
 import { NoRecord, Page } from "@/components";
 
-import { mapGetters, mapState } from "vuex";
+import { mapGetters } from "vuex";
 export default {
-  name: "home",
   components: {
     NoRecord,
     ProductCount,
     Page,
+  },
+  async fetch({ $service, error }) {
+    try {
+      await $service.basket.validate();
+    } catch (err) {
+      error({
+        statusCode: 503,
+        message: "Unable to validate",
+      });
+    }
   },
   computed: {
     ...mapGetters("book", ["books"]),
@@ -138,36 +136,22 @@ export default {
       return this.$refs.snackbar;
     },
     items() {
-      return this.basket.map((item) => {
-        return { ...item, book: this.books.find((x) => x.id === item.bookId) };
-      });
+      return this.$service.basket.list();
     },
     tax() {
-      return `${calculation.HST * 100}%`;
+      return this.$service.basket.tax();
     },
     currency() {
       return this.$t("locale.currency");
     },
     subtotal() {
-      return this.items.reduce(
-        (a, b) =>
-          a + calculation.regularPrice(b.book.price, this.$i18n, b.count),
-        0
-      );
+      return this.$service.basket.subtotal();
     },
     total() {
-      return this.items.reduce(
-        (a, b) =>
-          a +
-          calculation.reducedPrice(
-            calculation.regularPrice(b.book.price, this.$i18n, b.count),
-            b.book.discount
-          ),
-        0
-      );
+      return this.$service.basket.total();
     },
     taxed() {
-      return calculation.applyTax(this.total);
+      return this.$service.basket.taxed();
     },
   },
   methods: {
@@ -183,7 +167,7 @@ export default {
       this.snackbar.show();
     },
     setCount: async function (book, count) {
-      await this.$service.book.set(book.id, { count: count });
+      // await this.$service.book.set(book.id, { count: count });
       await this.$service.basket.set(book.id, count);
     },
   },

@@ -23,6 +23,7 @@ const mutations: MutationTree<RootState> = {
   },
 
   putItem: (state, item: Item) => {
+    state.item = state.basket.find(x => x.bookId === item.bookId) ?? {} as Item;
     state.item = helpers.deepMerge(state.item, item);
   },
 
@@ -42,7 +43,7 @@ const mutations: MutationTree<RootState> = {
   },
 
   clearBasket: state => {
-    state.basket = [];
+    state.basket = [] as Item[];
   }
 };
 
@@ -71,8 +72,8 @@ const actions: ActionTree<RootState, RootState> = {
     commit("addItem", { id, count });
   },
 
-  putItem({ commit, state }) {
-    commit("putItem", state.item);
+  putItem({ commit }, item) {
+    commit("putItem", item);
   },
 
   deleteItem({ commit, }, id) {

@@ -28,10 +28,11 @@
   }
 
   & > .gv-footer {
-    justify-content: space-between;
+    width: 100%;
+    @include justify-content(space-between);
 
-    button {
-      color: var(--gv-color-white);
+    & > .product-count {
+      flex-grow: 1;
     }
   }
 }

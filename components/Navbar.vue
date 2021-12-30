@@ -1,7 +1,7 @@
 <template>
   <gv-navbar center fixed>
     <template #brand>
-      <gv-link :href="localePath($resolve.home())">Lazy Company</gv-link>
+      <gv-link :href="localePath($resolve.home())">TheBookStore</gv-link>
     </template>
     <template #menu>
       <!-- <gv-navbar-item href="/users" :active="isActive('/users')">
@@ -37,7 +37,7 @@
           </template>
           <template #content>
             <gv-dropdown-item :href="localePath($resolve.order())">
-              {{ $t("navbar.order") }}
+              {{ $t("page.order.title") }}
             </gv-dropdown-item>
             <gv-dropdown-item @onclick="signOut">
               {{ $t("navbar.sign_out") }}

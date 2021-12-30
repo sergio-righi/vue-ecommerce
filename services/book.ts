@@ -6,8 +6,12 @@ export const BookService = (store: any) => ({
     store.dispatch("book/fetchBooks");
   },
 
-  set(id: string, book: Book) {
-    store.commit("book/setBook", { id, book });
+  update(book: Book) {
+    store.dispatch("book/putBook", book);
+  },
+
+  set(id: string, count: any) {
+    store.dispatch("book/setBook", { id, count });
   },
 
   find(id: string) {
@@ -17,7 +21,7 @@ export const BookService = (store: any) => ({
   findBySlug(slug: string) {
     store.dispatch("book/fetchBookSlug", slug);
   },
-  
+
   reset() {
     store.dispatch("book/clearBooks");
   },
@@ -26,12 +30,12 @@ export const BookService = (store: any) => ({
     store.dispatch("book/clearBook");
   },
 
-  filtered({ name }: any, page: number, count: number) {
+  filtered({ name }: any, page: number, count: number): Book[] {
     const from = (page - 1) * count;
     const to = from + count;
     return store.state.book.books.filter((x: Book) =>
       name ? x.name ? x.name.toLowerCase().includes(name.toLowerCase()) : false : true
-    ).slice(from, to);
+    ).slice(from, to) as Book[];
   }
 
 });

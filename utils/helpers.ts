@@ -90,11 +90,20 @@ const format = function () {
   );
 };
 
+/**
+ * It returns a random float number between X and Y
+ * @param {number} min
+ * @param {number} max
+ */
+
+const randomFloat = (min: number, max: number): number => Math.random() * (max - min) + min;
+
 export const helpers = {
   format,
   toCapitalize,
   fromUTC,
   generateId,
   toUTC,
-  deepMerge
+  deepMerge,
+  randomFloat,
 };

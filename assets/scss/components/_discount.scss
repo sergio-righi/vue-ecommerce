@@ -2,8 +2,8 @@
 
 .product-discount {
   @include d-flex;
-  align-items: center;
-  justify-content: flex-end;
+  @include align-items(center);
+  @include justify-content(center);
   padding: $default-distance * 0.5 $default-distance;
 
   & > span {

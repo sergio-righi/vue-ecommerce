@@ -1,16 +1,39 @@
+@use "../utils/index" as *;
+
 #main {
-  display: flex;
-  flex-direction: column;
+  @include d-flex;
+  @include flex-direction(column);
 
   .page-enter-active {
-    transition: all 0.2s ease;
+    @include transition(all 200ms ease);
   }
+
   .page-leave-active {
-    transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+    @include transition(all 200ms cubic-bezier(1, 0.5, 0.8, 1));
   }
+
   .page-enter,
   .page-leave-to {
     opacity: 0;
-    transform: translateY(-100px);
+    @include transform(translateY(-100px));
+  }
+
+  #footer {
+    background-color: var(--gv-secondary-light);
+
+    & > .content {
+      width: 100%;
+      font-size: $font-size * 0.875;
+
+      & > * {
+        height: 60px;
+        vertical-align: middle;
+
+        a {
+          vertical-align: middle;
+          margin-left: $default-distance * 0.25;
+        }
+      }
+    }
   }
 }

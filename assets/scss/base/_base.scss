@@ -1,3 +1,5 @@
+@use "../utils/index" as *;
+
 [theme="dark"] {
   html,
   body {
@@ -10,11 +12,20 @@ body {
   height: 100%;
 }
 
+#__nuxt,
+#__layout {
+  height: inherit;
+}
+
 #main,
 #login,
 #__nuxt,
 #content,
 #__layout,
 #container {
-  height: inherit;
+  min-height: 100%;
+}
+
+#content {
+  @include flex(1 0 auto);
 }

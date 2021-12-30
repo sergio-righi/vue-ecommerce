@@ -1,14 +1,14 @@
 @use "../utils/index" as *;
 
 #login {
-  display: flex;
   width: inherit;
+  @include d-flex;
   height: inherit;
-  align-items: center;
   background-size: cover;
-  justify-content: center;
   background-position: center;
   background-repeat: no-repeat;
+  @include align-items(center);
+  @include justify-content(center);
   background-image: url("/login-background-image.jpg");
 
   .login-container {

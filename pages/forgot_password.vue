@@ -39,8 +39,6 @@
 
 <script>
 import { Email, Feedback, Password } from "@/components/form";
-
-import { Token } from "@/models";
 export default {
   layout: "login",
   name: "forgot-password",
@@ -49,18 +47,18 @@ export default {
     Feedback,
     Password,
   },
-  async fetch({ query, redirect }) {
-    try {
-      if ("token" in query) {
-        const token = await this.$repository.token.findByToken(query.token);
-        if (!token) {
-          return redirect("/sign_in");
-        }
-      }
-    } catch (err) {
-      return redirect("/sign_in");
-    }
-  },
+  // async fetch({ query, redirect }) {
+  //   try {
+  //     if ("token" in query) {
+  //       const token = await this.$repository.token.findByToken(query.token);
+  //       if (!token) {
+  //         return redirect("/sign_in");
+  //       }
+  //     }
+  //   } catch (err) {
+  //     return redirect("/sign_in");
+  //   }
+  // },
   data() {
     return {
       feedback: {
@@ -85,53 +83,53 @@ export default {
   },
   methods: {
     async forgot_password() {
-      try {
-        if (this.isUpdate) {
-          if (this.hasError) return;
-          const token = await this.$repository.token.findByToken(
-            this.$route.query.token
-          );
-          if (token) {
-            const user = await this.$repository.user.find(token.user);
-            if (user) {
-              user.password = this.password;
-              //  transaction
-              this.$repository.token.done(token.id);
-              this.$repository.user.update(user.id, user);
-              // end transaction
-              this.$router.push("/");
-              // feedback message
-            } else {
-              this.feedback.error = true;
-              this.feedback.message = this.$t("message.feedback.token");
-            }
-          } else {
-            this.feedback.error = true;
-            this.feedback.message = this.$t("message.feedback.token");
-          }
-        } else {
-          const user = await this.$repository.user.findByEmail(this.email);
-          if (user) {
-            let token = await this.$repository.token.findByUser(user.id);
-            if (token) {
-              token.expires = Token.expireDate();
-              await this.$repository.token.update(token.id, token);
-            } else {
-              token = new Token({
-                user: user.id,
-              });
-              await this.$repository.token.insert(token);
-            }
-            /// must send the email
-          }
+      // try {
+      //   if (this.isUpdate) {
+      //     if (this.hasError) return;
+      //     const token = await this.$repository.token.findByToken(
+      //       this.$route.query.token
+      //     );
+      //     if (token) {
+      //       const user = await this.$repository.user.find(token.user);
+      //       if (user) {
+      //         user.password = this.password;
+      //         //  transaction
+      //         this.$repository.token.done(token.id);
+      //         this.$repository.user.update(user.id, user);
+      //         // end transaction
+      //         this.$router.push("/");
+      //         // feedback message
+      //       } else {
+      //         this.feedback.error = true;
+      //         this.feedback.message = this.$t("message.feedback.token");
+      //       }
+      //     } else {
+      //       this.feedback.error = true;
+      //       this.feedback.message = this.$t("message.feedback.token");
+      //     }
+      //   } else {
+      //     const user = await this.$repository.user.findByEmail(this.email);
+      //     if (user) {
+      //       let token = await this.$repository.token.findByUser(user.id);
+      //       if (token) {
+      //         token.expires = Token.expireDate();
+      //         await this.$repository.token.update(token.id, token);
+      //       } else {
+      //         token = new Token({
+      //           user: user.id,
+      //         });
+      //         await this.$repository.token.insert(token);
+      //       }
+      //       /// must send the email
+      //     }
 
-          this.feedback.error = false;
-          this.feedback.message = this.$t("message.feedback.email");
-        }
-      } catch (err) {
-        this.feedback.error = true;
-        this.feedback.message = this.$t("message.feedback.error");
-      }
+      //     this.feedback.error = false;
+      //     this.feedback.message = this.$t("message.feedback.email");
+      //   }
+      // } catch (err) {
+      //   this.feedback.error = true;
+      //   this.feedback.message = this.$t("message.feedback.error");
+      // }
     },
     passwordValidation: function (error) {
       this.invalidPassword = error;

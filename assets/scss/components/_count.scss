@@ -2,15 +2,15 @@
 
 .product-count {
   height: 32px;
-  align-items: center;
   @include d-inline-flex;
-  border-radius: $border-radius;
+  @include align-items(center);
+  @include border-radius($border-radius);
   border: 1px solid var(--gv-color-border);
   background-color: var(--gv-secondary-light);
 
   input {
     border: 0;
-    max-width: 40px;
+    flex-grow: 1;
     text-align: center;
     background: transparent;
     -moz-appearance: textfield;

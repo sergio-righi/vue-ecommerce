@@ -2,7 +2,7 @@
     {
         "_id": "61c6ac09ceb872d9ee1ca45e",
         "name": "Harry Potter",
-        "description": "The central character in the series is Harry Potter, a boy who lives in the fictional town of Little Whinging, Surrey with his aunt, uncle, and cousin – the Dursleys – and discovers at the age of eleven that he is a wizard, though he lives in the ordinary world of non-magical people known as Muggles. The wizarding world exists parallel to the Muggle world, albeit hidden and in secrecy. His magical ability is inborn, and children with such abilities are invited to attend exclusive magic schools that teach the necessary skills to succeed in the wizarding world.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum a arcu cursus vitae congue. Morbi tincidunt augue interdum velit euismod in. Vulputate sapien nec sagittis aliquam malesuada bibendum arcu. Purus in massa tempor nec feugiat nisl pretium. Vulputate dignissim suspendisse in est. Nisi quis eleifend quam adipiscing vitae proin. Posuere urna nec tincidunt praesent semper. Neque laoreet suspendisse interdum consectetur libero id faucibus nisl. Platea dictumst quisque sagittis purus. Eget dolor morbi non arcu risus quis varius. Proin sed libero enim sed faucibus. Magna fringilla urna porttitor rhoncus dolor purus non enim praesent. Turpis massa tincidunt dui ut ornare lectus.",
         "age": "9+",
         "language": "English",
         "authors": [
@@ -12,9 +12,9 @@
         "price": 16.99,
         "discount": 10,
         "inStock": 36,
-        "publisher": "Bloomsbury Children's Books",
+        "publisher": "XYZ",
         "releaseDate": 867297600,
-        "isbn": "9781408856772",
+        "isbn": "0000000000000",
         "dimension": {
             "width": 13.1,
             "height": 25.5,
@@ -41,6 +41,16 @@
         "price": 15.99,
         "discount": 0,
         "inStock": 23,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -53,6 +63,16 @@
         "price": 13.99,
         "discount": 0,
         "inStock": 37,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -65,6 +85,16 @@
         "price": 23.99,
         "discount": 0,
         "inStock": 6,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -77,6 +107,16 @@
         "price": 24.99,
         "discount": 0,
         "inStock": 73,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -89,6 +129,16 @@
         "price": 12.99,
         "discount": 0,
         "inStock": 46,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -101,6 +151,16 @@
         "price": 21.99,
         "discount": 0,
         "inStock": 10,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -113,6 +173,16 @@
         "price": 35.99,
         "discount": 0,
         "inStock": 8,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -125,6 +195,16 @@
         "price": 45.99,
         "discount": 0,
         "inStock": 5,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -137,6 +217,16 @@
         "price": 57.99,
         "discount": 0,
         "inStock": 3,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -149,6 +239,16 @@
         "price": 11.99,
         "discount": 0,
         "inStock": 57,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -161,6 +261,16 @@
         "price": 20.99,
         "discount": 0,
         "inStock": 32,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -173,6 +283,16 @@
         "price": 17.99,
         "discount": 0,
         "inStock": 43,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -185,6 +305,16 @@
         "price": 37.99,
         "discount": 0,
         "inStock": 43,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -197,6 +327,16 @@
         "price": 23.99,
         "discount": 0,
         "inStock": 8,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -209,6 +349,16 @@
         "price": 15.99,
         "discount": 0,
         "inStock": 11,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -221,6 +371,16 @@
         "price": 21.99,
         "discount": 0,
         "inStock": 16,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -233,6 +393,16 @@
         "price": 31.99,
         "discount": 0,
         "inStock": 19,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -245,6 +415,16 @@
         "price": 25.99,
         "discount": 0,
         "inStock": 31,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -257,6 +437,16 @@
         "price": 12.99,
         "discount": 0,
         "inStock": 12,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -269,6 +459,16 @@
         "price": 34.99,
         "discount": 0,
         "inStock": 44,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -281,6 +481,16 @@
         "price": 41.99,
         "discount": 0,
         "inStock": 13,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -293,6 +503,16 @@
         "price": 7.99,
         "discount": 0,
         "inStock": 44,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -305,6 +525,16 @@
         "price": 51.99,
         "discount": 0,
         "inStock": 12,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -317,6 +547,16 @@
         "price": 42.99,
         "discount": 0,
         "inStock": 57,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -329,6 +569,16 @@
         "price": 19.99,
         "discount": 0,
         "inStock": 36,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -341,6 +591,16 @@
         "price": 6.99,
         "discount": 0,
         "inStock": 95,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -353,6 +613,16 @@
         "price": 11.99,
         "discount": 0,
         "inStock": 26,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -365,6 +635,16 @@
         "price": 17.99,
         "discount": 0,
         "inStock": 58,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -377,6 +657,16 @@
         "price": 16.99,
         "discount": 0,
         "inStock": 51,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -389,6 +679,16 @@
         "price": 12.99,
         "discount": 0,
         "inStock": 61,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -401,6 +701,16 @@
         "price": 27.99,
         "discount": 0,
         "inStock": 52,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -413,6 +723,16 @@
         "price": 31.99,
         "discount": 0,
         "inStock": 72,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -425,6 +745,16 @@
         "price": 16.99,
         "discount": 0,
         "inStock": 65,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -437,6 +767,16 @@
         "price": 19.99,
         "discount": 0,
         "inStock": 57,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -449,6 +789,16 @@
         "price": 13.99,
         "discount": 0,
         "inStock": 16,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -461,6 +811,16 @@
         "price": 24.99,
         "discount": 0,
         "inStock": 45,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -473,6 +833,16 @@
         "price": 5.99,
         "discount": 0,
         "inStock": 26,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -485,6 +855,16 @@
         "price": 8.99,
         "discount": 0,
         "inStock": 87,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -497,6 +877,16 @@
         "price": 18.99,
         "discount": 0,
         "inStock": 47,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -509,6 +899,16 @@
         "price": 21.99,
         "discount": 0,
         "inStock": 24,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -521,6 +921,16 @@
         "price": 22.99,
         "discount": 0,
         "inStock": 45,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -533,6 +943,16 @@
         "price": 33.99,
         "discount": 0,
         "inStock": 51,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -545,6 +965,16 @@
         "price": 11.99,
         "discount": 0,
         "inStock": 25,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -557,6 +987,16 @@
         "price": 9.99,
         "discount": 0,
         "inStock": 21,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -569,6 +1009,16 @@
         "price": 23.99,
         "discount": 0,
         "inStock": 35,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -581,6 +1031,16 @@
         "price": 15.99,
         "discount": 0,
         "inStock": 52,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     },
     {
@@ -593,6 +1053,16 @@
         "price": 11.99,
         "discount": 0,
         "inStock": 45,
+        "publisher": "XYZ",
+        "releaseDate": 867297600,
+        "isbn": "0000000000000",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 3422
+        },
         "deleted": false
     }
 ]

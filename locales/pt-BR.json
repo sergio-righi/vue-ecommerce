@@ -35,9 +35,16 @@
         },
         "book": {
             "title": "Books available"
+        },
+        "order": {
+            "title": "My orders"
+        },
+        "checkout": {
+            "title": "Checkout"
         }
     },
     "action": {
+        "agreed": "I got it",
         "send": "Send",
         "done": "Done",
         "update": "Edit",
@@ -49,12 +56,15 @@
         "search": "Search",
         "resend": "Send again",
         "continue": "Continue",
-        "checkout": "Checkout"
+        "order": "Place order",
+        "checkout": "Proceed to Checkout"
     },
     "label": {
         "active": "Active",
         "address": "Address | Addresses",
+        "billing_address": "Billing Address",
         "birthday": "Birthday",
+        "cardholder": "Cardholder's Name",
         "city": "City",
         "code": "Code",
         "count": "Count",
@@ -62,16 +72,21 @@
         "detail": "Detail | Details",
         "document": "Document | Documents",
         "email": "Email | Emails",
+        "expiration_month": "Expiration Month",
+        "expiration_year": "Expiration Year",
         "gender": "Gender",
         "inactive": "Inactive",
         "item": "Item | Items",
         "name": "Name",
         "number": "Number",
         "password": "Password",
+        "payment_method": "Payment Method",
         "province": "Province",
         "phone": "Phone | Phones",
         "resume": "Resume",
         "role": "Role | Roles",
+        "shipping": "Shipping",
+        "shipping_address": "Shipping Address",
         "subtotal": "Subtotal",
         "street": "Street",
         "tax": "HST",
@@ -91,6 +106,11 @@
         "good_evening": "Good Evening"
     },
     "enum": {
+        "book": {
+            "digital": "Digital",
+            "audio": "Audiobook",
+            "physical": "Physical"
+        },
         "gender": {
             "male": "male",
             "female": "female",
@@ -127,6 +147,7 @@
         },
         "feedback": {
             "unknown": "unknown",
+            "page_loading": "Loading...",
             "user_not_found": "User not found",
             "no_record": "No records were found",
             "empty_basket": "There is no items in your basket",
@@ -136,14 +157,21 @@
             "code": "The informed code does not match the expected",
             "email": "An email was sent with the instructions to continue processing your request",
             "item_added": "{0} was added to the basket ({1}x)",
-            "item_removed": "{0} was removed from the basket"
+            "item_removed": "{0} was removed from the basket",
+            "billing_address": "Must have an address to continue",
+            "checkout": "Must have an address and payment method to continue"
         },
         "basket": {
             "item_count": "total of items in the basket",
             "check_detail": "Please, check the details below",
             "before_discount": "amount before discounts (if applicable)",
-            "before_tax": "amount before taxes",
+            "before_tax": "amount before taxes and shipping",
             "sum_total": "amount to be paid"
+        },
+        "checkout": {
+            "shipping_cost": "amount to be paid for shipping charges",
+            "add_address": "Add a new address",
+            "add_payment": "Add a new payment method"
         }
     },
     "locale": {
@@ -180,5 +208,13 @@
     "validation": {
         "match": "do not match",
         "duplicate": "already exists"
+    },
+    "footer": {
+        "disclaimer": {
+            "title": "Disclaimer",
+            "message": "This application is strictly for demo purposes and is not intended to be used for commercial applications. All the information presented here is not real and all the actions performed are STORED LOCALLY on user's browser ONLY."
+        },
+        "powered_by": "This application is powered by",
+        "available_at": "Check it out on"
     }
 }

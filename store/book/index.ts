@@ -13,18 +13,26 @@ export type RootState = ReturnType<typeof state>
 
 const mutations: MutationTree<RootState> = {
 
-  setBooks: (state, books: Book[]) => {
+  fetchBooks: (state, books: Book[]) => {
     state.books = books;
   },
 
-  setBook: (state, { id, book }) => {
+  fetchBook: (state, id) => {
     state.book = state.books.find(x => x.id === id) ?? {} as Book;
-    state.book = helpers.deepMerge(state.book, book);
   },
 
-  setBookSlug: (state, { slug }) => {
+  fetchBookSlug: (state, slug) => {
     state.book = state.books.find(x => new Book(x).slug === slug) ?? {} as Book;
-    // state.book = helpers.deepMerge(state.book, book);
+  },
+
+  setBook: (state, { id, count }) => {
+    state.book = state.books.find(x => x.id === id) ?? {} as Book;
+    state.book = helpers.deepMerge(state.book, count);
+  },
+
+  putBook: (state, book: Book) => {
+    state.book = state.books.find(x => x.id === book.id) ?? {} as Book;
+    state.book = helpers.deepMerge(state.book, book);
   },
 
   clearBooks: (state) => {
@@ -38,7 +46,7 @@ const mutations: MutationTree<RootState> = {
 };
 
 const getters: GetterTree<RootState, RootState> = {
-  books: (state): Book[] => state.books,//.filter((x: Book) => !x.deleted),
+  books: (state): Book[] => state.books,//.filter((x: Book) => x.inStock > 0),
   book: (state): Book => state.book
 };
 
@@ -46,16 +54,24 @@ const actions: ActionTree<RootState, RootState> = {
 
   fetchBooks({ commit }) {
     return this.$repository.book.all().then((response: Book[]) => {
-      commit("setBooks", response);
+      commit("fetchBooks", response);
     });
   },
 
   fetchBook({ commit }, id) {
-    commit("setBook", { id });
+    commit("fetchBook", id);
   },
 
   fetchBookSlug({ commit }, slug) {
-    commit("setBookSlug", { slug });
+    commit("fetchBookSlug", slug);
+  },
+
+  setBook({ commit }, { id, count }) {
+    commit("setBook", { id, count });
+  },
+
+  putBook({ commit }, book) {
+    commit("putBook", book);
   },
 
   clearBooks({ commit }) {

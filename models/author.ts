@@ -13,8 +13,8 @@ class Author implements IAuthor {
     briefdescription?: string;
     deleted: boolean;
 
-    constructor(o: IAuthor = { deleted: false }) {
-        this.id = o._id ?? helpers.generateId();
+    constructor(o: IAuthor = { _id: helpers.generateId(), deleted: false }) {
+        this.id = o._id;
         this.name = o.name;
         this.briefdescription = o.briefdescription;
         this.deleted = o.deleted;

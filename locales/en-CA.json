@@ -44,6 +44,7 @@
         }
     },
     "action": {
+        "agreed": "I got it",
         "send": "Send",
         "done": "Done",
         "update": "Edit",
@@ -84,6 +85,7 @@
         "phone": "Phone | Phones",
         "resume": "Resume",
         "role": "Role | Roles",
+        "shipping": "Shipping",
         "shipping_address": "Shipping Address",
         "subtotal": "Subtotal",
         "street": "Street",
@@ -156,14 +158,21 @@
             "email": "An email was sent with the instructions to continue processing your request",
             "item_added": "{0} was added to the basket ({1}x)",
             "item_removed": "{0} was removed from the basket",
-            "billing_address": "Must have an address to continue"
+            "billing_address": "Must have an address to continue",
+            "checkout": "Must have an address and payment method to continue",
+            "not_available": "Sold Out"
         },
         "basket": {
             "item_count": "total of items in the basket",
             "check_detail": "Please, check the details below",
             "before_discount": "amount before discounts (if applicable)",
-            "before_tax": "amount before taxes",
+            "before_tax": "amount before taxes and shipping",
             "sum_total": "amount to be paid"
+        },
+        "checkout": {
+            "shipping_cost": "amount to be paid for shipping charges",
+            "add_address": "Add a new address",
+            "add_payment": "Add a new payment method"
         }
     },
     "locale": {
@@ -200,5 +209,13 @@
     "validation": {
         "match": "do not match",
         "duplicate": "already exists"
+    },
+    "footer": {
+        "disclaimer": {
+            "title": "Disclaimer",
+            "message": "This application is strictly for demo purposes and is not intended to be used for commercial applications. All the information presented here is not real and all the actions performed are STORED LOCALLY on user's browser ONLY."
+        },
+        "powered_by": "This application is powered by",
+        "available_at": "Check it out on"
     }
 }

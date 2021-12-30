@@ -2,10 +2,10 @@
 
 .product-info {
   text-align: center;
-  align-items: center;
-  display: inline-flex;
+  @include d-inline-flex;
   vertical-align: middle;
-  justify-content: center;
+  @include align-items(center);
+  @include justify-content(center);
   // border-radius: $border-radius;
   padding: $default-distance * 0.5;
   // background-color: var(--gv-secondary);
@@ -17,10 +17,10 @@
   & > .wrapper {
     width: 120px;
     height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: $border-radius;
+    @include d-flex;
+    @include flex-direction(column);
+    @include justify-content(center);
+    @include border-radius($border-radius);
     background-color: var(--gv-secondary-light);
 
     & > .icon {

@@ -25,8 +25,8 @@ class User implements IUser {
     createdAt: number;
     deleted: boolean;
 
-    constructor(o: IUser = { following: [], person: new Person(), payments: [], roles: [], createdAt: new Date().getTime(), deleted: false }) {
-        this.id = o._id ?? helpers.generateId();
+    constructor(o: IUser = { _id: helpers.generateId(), following: [], person: new Person(), payments: [], roles: [], createdAt: new Date().getTime(), deleted: false }) {
+        this.id = o._id;
         this.username = o.username;
         this.password = o.password;
         this.following = o.following;

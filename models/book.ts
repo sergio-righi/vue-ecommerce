@@ -41,8 +41,8 @@ class Book implements IBook {
   genres: number[];
   deleted: boolean;
 
-  constructor(o: IBook = { authors: [], type: EnumBook.physical, price: 0, discount: 0, inStock: 0, dimension: new Dimension(), reviews: [], genres: [], deleted: false }) {
-    this.id = o._id ?? helpers.generateId();
+  constructor(o: IBook = { _id: helpers.generateId(), authors: [], type: EnumBook.physical, price: 0, discount: 0, inStock: 0, dimension: new Dimension(), reviews: [], genres: [], deleted: false }) {
+    this.id = o._id;
     this.name = o.name;
     this.description = o.description;
     this.age = o.age;

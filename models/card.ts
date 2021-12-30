@@ -1,18 +1,19 @@
+import { Address } from "@/models";
 
 interface ICard {
     cardholder?: string;
     number?: string;
-    expirationMonth?: number;
     expirationYear?: number;
-    billingAddress?: string;
+    expirationMonth?: number;
+    billingAddress?: Address;
 }
 
 class Card implements ICard {
     cardholder?: string;
     number?: string;
-    expirationMonth?: number;
     expirationYear?: number;
-    billingAddress?: string;
+    expirationMonth?: number;
+    billingAddress?: Address;
 
     constructor(o: ICard = {}) {
         this.cardholder = o.cardholder;

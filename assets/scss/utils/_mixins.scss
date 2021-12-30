@@ -11,6 +11,48 @@
   display: inline-flex;
 }
 
+@mixin justify-content($property...) {
+  -webkit-justify-content: $property;
+  justify-content: $property;
+}
+
+@mixin align-items($property...) {
+  -webkit-align-items: $property;
+  align-items: $property;
+}
+
+@mixin flex($property...) {
+  flex: $property;
+  -ms-flex: $property;
+  -webkit-flex: $property;
+  -moz-box-flex: $property;
+}
+
+@mixin flex-direction($property...) {
+  -ms-flex-direction: $property;
+  flex-direction: $property;
+}
+
+@mixin transition($property...) {
+  transition: $property;
+  -o-transition: $property;
+  -moz-transition: $property;
+  -webkit-transition: $property;
+}
+
+@mixin transform($property...) {
+  transform: $property;
+  -ms-transform: $property;
+  -moz-transform: $property;
+  -webkit-transform: $property;
+}
+
+@mixin border-radius($property...) {
+  border-radius: $property;
+  -moz-border-radius: $property;
+  -webkit-border-radius: $property;
+}
+
 @mixin appearance-none {
   -webkit-appearance: none;
   -moz-appearance: none;

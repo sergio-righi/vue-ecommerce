@@ -26,8 +26,8 @@ declare module 'vuex/types/index' {
     }
 }
 
-const service: Plugin = (context, inject) => {
-    inject('service', initializeService(context.store))
+const service: Plugin = (context: any, inject: any) => {
+    inject('service', initializeService(context.store, context.i18n))
 }
 
 export default service

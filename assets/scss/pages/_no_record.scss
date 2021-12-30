@@ -2,10 +2,10 @@
 
 .no-record-container {
   flex: 1;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+  @include d-flex;
+  @include align-items(center);
+  @include flex-direction(column);
+  @include justify-content(center);
 
   .no-record-icon {
     line-height: 1.5;

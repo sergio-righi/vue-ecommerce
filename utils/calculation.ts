@@ -50,6 +50,7 @@ export const calculation = {
     HST,
     applyTax,
     toRound,
+    exchangeRate,
     regularPrice,
     reducedPrice,
 }

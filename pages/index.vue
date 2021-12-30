@@ -18,21 +18,39 @@
           />
         </gv-col>
       </gv-row>
-      <br />
-      <gv-snackbar ref="snackbar" :message="snackbarMessage" left />
     </template>
     <template #content v-else>
       <NoRecord />
+    </template>
+    <template #footer>
+      <!-- <gv-off-canvas ref="disclaimer" active locked required>
+        <template #content>
+          <gv-flexbox align="center">
+            <gv-gap>
+              <div>
+                <h6>
+                  <b>{{ $t("footer.disclaimer.title") }}</b>
+                </h6>
+                <p>{{ $t("footer.disclaimer.message") }}</p>
+              </div>
+              <gv-button primary @onclick="onDismiss">
+                {{ $t("action.agreed") }}
+              </gv-button>
+            </gv-gap>
+          </gv-flexbox>
+        </template>
+      </gv-off-canvas> -->
+      <gv-snackbar ref="snackbar" :message="snackbarMessage" left />
     </template>
   </Page>
 </template>
 
 <script>
 import { config, helpers } from "@/utils";
-import { ProductBook } from "@/components/interface";
 import { NoRecord, Page } from "@/components";
+import { ProductBook } from "@/components/interface";
 
-import { mapGetters, mapState } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   name: "home",
   components: {
@@ -42,7 +60,7 @@ export default {
   },
   async fetch({ $service, error }) {
     try {
-      await $service.book.all();
+      // await $service.book.all();
       // await $service.book.reset();
     } catch (err) {
       error({
@@ -56,6 +74,9 @@ export default {
     ...mapGetters("book", ["book", "books"]),
     snackbar() {
       return this.$refs.snackbar;
+    },
+    disclaimer() {
+      return this.$refs.disclaimer;
     },
     filtered() {
       return this.$service.book.filtered({}, this.page, config.pagination);
@@ -82,6 +103,9 @@ export default {
         name
       );
       this.snackbar.show();
+    },
+    onDismiss: function () {
+      this.disclaimer.close();
     },
   },
   data() {

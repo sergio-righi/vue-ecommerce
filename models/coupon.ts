@@ -18,8 +18,8 @@ class Coupon implements ICoupon {
     discount: number;
     unit: EnumDiscount;
 
-    constructor(o: ICoupon = { discount: 0, unit: EnumDiscount.fixed }) {
-        this.id = o._id ?? helpers.generateId();
+    constructor(o: ICoupon = { _id: helpers.generateId(), discount: 0, unit: EnumDiscount.fixed }) {
+        this.id = o._id;
         this.code = o.code;
         this.startDate = o.startDate;
         this.expireDate = o.expireDate;

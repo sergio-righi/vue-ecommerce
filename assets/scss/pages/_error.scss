@@ -15,9 +15,9 @@
     max-width: 350px;
     position: absolute;
     text-align: center;
-    transform: translate(-50%, -50%);
     padding-left: $default-distance * 0.75;
     padding-right: $default-distance * 0.75;
+    @include transform(translate(-50%, -50%));
 
     .error-code {
       line-height: 1.4;
