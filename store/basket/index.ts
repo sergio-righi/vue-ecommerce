@@ -13,38 +13,39 @@ export type RootState = ReturnType<typeof state>
 
 const mutations: MutationTree<RootState> = {
 
-  setItem: (state, { id, count }) => {
+  set: (state, { id, count }) => {
     const item = state.basket.find(x => x.bookId === id) ?? {} as Item;
     item.count = count;
   },
 
-  addItem: (state, { id, count }) => {
+  add: (state, { id, count }) => {
     state.basket.push(new Item({ bookId: id, count: count, discount: 0, price: 0 }));
   },
 
-  putItem: (state, item: Item) => {
+  put: (state, item: Item) => {
     state.item = state.basket.find(x => x.bookId === item.bookId) ?? {} as Item;
     state.item = helpers.deepMerge(state.item, item);
   },
 
-  deleteItem: (state, id) => {
+  delete: (state, id: string) => {
     state.item = state.basket.find(x => x.bookId === id) ?? {} as Item;
     state.index = state.basket.findIndex(x => x.bookId === id);
     state.basket.splice(state.index, 1);
   },
 
-  recoverItem: state => {
+  recover: state => {
     state.basket.splice(state.index, 0, state.item);
     state.item = {} as Item;
   },
 
-  clearItem: state => {
+  clear: state => {
     state.item = {} as Item;
   },
 
-  clearBasket: state => {
+  reset: state => {
     state.basket = [] as Item[];
   }
+
 };
 
 const getters: GetterTree<RootState, RootState> = {
@@ -56,40 +57,36 @@ const getters: GetterTree<RootState, RootState> = {
 
 const actions: ActionTree<RootState, RootState> = {
 
-  fetchBasket({ commit, state }) {
-    commit("setBasket", state.basket);
+  all({ commit, state }) {
+    commit("all", state.basket);
   },
 
-  fetchItem({ commit }, id) {
-    // commit("setItem", id);
+  set({ commit }, { id, count }) {
+    commit("set", { id, count });
   },
 
-  setItem({ commit }, { id, count }) {
-    commit("setItem", { id, count });
+  add({ commit }, { id, count }) {
+    commit("add", { id, count });
   },
 
-  addItem({ commit }, { id, count }) {
-    commit("addItem", { id, count });
+  put({ commit }, item) {
+    commit("put", item);
   },
 
-  putItem({ commit }, item) {
-    commit("putItem", item);
+  delete({ commit, }, id) {
+    commit("delete", id);
   },
 
-  deleteItem({ commit, }, id) {
-    commit("deleteItem", id);
+  recover({ commit }) {
+    commit("recover");
   },
 
-  recoverItem({ commit }) {
-    commit("recoverItem");
+  clear({ commit }) {
+    commit("clear");
   },
-
-  clearBasket({ commit }) {
-    commit("clearBasket");
-  },
-
-  clearItem({ commit }) {
-    commit("clearItem");
+  
+  reset({ commit }) {
+    commit("reset");
   }
 };
 

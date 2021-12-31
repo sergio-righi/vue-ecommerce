@@ -4,11 +4,11 @@ import { crypto } from "@/utils";
 export const UserService = (store: any) => ({
 
   insert(user: User) {
-    store.dispatch("user/addUser", user);
+    store.dispatch("user/add", user);
   },
 
-  update(prop: any) {
-    store.commit("user/updateUser", prop);
+  update(props: any) {
+    store.dispatch("user/put", props);
   },
 
   username(username: string) {
@@ -19,13 +19,17 @@ export const UserService = (store: any) => ({
     password = crypto.encrypt(password);
     const user = store.state.user.users.find((x: User) => x.username === username && x.password === password);
     if (user) {
-      store.dispatch("user/setUser", user.id);
+      store.dispatch("user/set", user.id);
     }
     return user;
   },
 
   clear() {
-    store.dispatch("user/clearUser");
+    store.dispatch("user/clear");
+  },
+  
+  reset() {
+    store.dispatch("user/reset");
   }
 
 });

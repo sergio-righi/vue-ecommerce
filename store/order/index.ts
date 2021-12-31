@@ -9,28 +9,28 @@ export type RootState = ReturnType<typeof state>
 
 const mutations: MutationTree<RootState> = {
 
-  addOrder: (state, order: Order) => {
+  add: (state, order: Order) => {
     state.orders.push(order);
   },
 
-  clearOrder: (state) => {
+  reset: (state) => {
     state.orders = [] as Order[];
   }
 
 };
 
 const getters: GetterTree<RootState, RootState> = {
-  orders: state => state.orders,
+  orders: state => state.orders as Order[],
 };
 
 const actions: ActionTree<RootState, RootState> = {
 
-  addOrder({ commit }, order) {
-    commit("addOrder", order);
+  add({ commit }, order) {
+    commit("add", order);
   },
 
-  clearOrder({ commit }) {
-    commit("clearOrder");
+  reset({ commit }) {
+    commit("reset");
   }
 };
 

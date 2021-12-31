@@ -12,20 +12,24 @@ export type RootState = ReturnType<typeof state>
 
 const mutations: MutationTree<RootState> = {
 
-  addUser(state, user: User) {
+  add(state, user: User) {
     state.users.push(user);
   },
 
-  updateUser(state, user) {
-    state.user = helpers.deepMerge(state.user, user);
+  put(state, props: any) {
+    state.user = helpers.deepMerge(state.user, props);
   },
 
-  setUser(state, id: string) {
+  set(state, id: string) {
     state.user = state.users.find(user => user.id === id) ?? {} as User;
   },
 
-  clearUser(state) {
+  clear(state) {
     state.user = {} as User;
+  },
+
+  reset(state) {
+    state.users = [] as User[];
   }
 };
 
@@ -36,16 +40,24 @@ const getters: GetterTree<RootState, RootState> = {
 
 const actions: ActionTree<RootState, RootState> = {
 
-  addUser({ commit }, user: User) {
-    commit("addUser", user);
+  add({ commit }, user: User) {
+    commit("add", user);
   },
 
-  setUser({ commit }, id: string) {
-    commit("setUser", id);
+  put({ commit }, props: any) {
+    commit("put", props);
   },
 
-  clearUser({ commit }) {
-    commit("clearUser");
+  set({ commit }, id: string) {
+    commit("set", id);
+  },
+
+  clear({ commit }) {
+    commit("clear");
+  },
+  
+  reset({ commit }) {
+    commit("reset");
   }
 
 };

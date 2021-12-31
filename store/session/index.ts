@@ -21,12 +21,6 @@ const mutations: MutationTree<RootState> = {
     state.user = null;
   },
 
-  release(state, user) {
-    if (user) {
-      state.user.locked = false;
-    }
-  },
-
   clear(state) {
     state.feedback = null;
   }
@@ -46,12 +40,6 @@ const actions: ActionTree<RootState, RootState> = {
 
   logout({ commit }) {
     commit("logout");
-  },
-
-  release({ commit, state }) {
-    return this.$repository.user.release(state.user.id).then((response: any) => {
-      commit("release", response);
-    });
   },
 
   feedback({ commit }, feedback) {

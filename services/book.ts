@@ -4,34 +4,29 @@ export const BookService = (store: any) => ({
 
   all() {
     if (store.state.book.books.length === 0) {
-      store.dispatch("book/fetchBooks");
+      store.dispatch("book/all");
     }
   },
 
   update(book: Book) {
-    store.dispatch("book/putBook", book);
+    store.dispatch("book/put", book);
   },
 
   set(id: string, count: any) {
-    store.dispatch("book/setBook", { id, count });
+    store.dispatch("book/set", { id, count });
   },
 
-  find(id: string): Book {
-    store.dispatch("book/fetchBook", id);
-    return store.state.book.book;
-  },
-
-  findBySlug(slug: string): Book {
-    store.dispatch("book/fetchBookSlug", slug);
-    return store.state.book.book;
-  },
-
-  reset() {
-    store.dispatch("book/clearBooks");
+  find(slug: string): Book {
+    store.dispatch("book/find", slug);
+    return { ...store.state.book.book };
   },
 
   clear() {
-    store.dispatch("book/clearBook");
+    store.dispatch("book/clear");
+  },
+  
+  reset() {
+    store.dispatch("book/reset");
   },
 
   filtered({ name }: any, page: number, count: number): { list: Book[], count: number } {

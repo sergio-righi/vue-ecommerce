@@ -17,10 +17,6 @@ export const SessionService = (store: any) => ({
     store.dispatch("session/logout");
   },
 
-  release() {
-    store.dispatch("session/release");
-  },
-
   clear() {
     store.dispatch("session/clear");
   }

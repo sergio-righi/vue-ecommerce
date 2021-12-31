@@ -130,7 +130,7 @@ export default {
     const { $service, error, params } = this.$nuxt.context;
     try {
       if (params.slug) {
-        this.book = await $service.book.findBySlug(params.slug);
+        this.book = await $service.book.find(params.slug);
       }
     } catch (err) {
       error({

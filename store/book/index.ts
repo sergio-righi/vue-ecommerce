@@ -13,36 +13,33 @@ export type RootState = ReturnType<typeof state>
 
 const mutations: MutationTree<RootState> = {
 
-  fetchBooks: (state, books: Book[]) => {
+  all: (state, books: Book[]) => {
     state.books = books;
   },
 
-  fetchBook: (state, id) => {
-    state.book = state.books.find(x => x.id === id) ?? {} as Book;
+  find: (state, slug) => {
+    state.book = state.books.find(x => x.slug === slug) ?? {} as Book;
   },
 
-  fetchBookSlug: (state, slug) => {
-    state.book = state.books.find(x => new Book(x).slug === slug) ?? {} as Book;
-  },
-
-  setBook: (state, { id, count }) => {
+  set: (state, { id, count }) => {
     state.book = state.books.find(x => x.id === id) ?? {} as Book;
     state.book = helpers.deepMerge(state.book, count);
   },
 
-  putBook: (state, book: Book) => {
+  put: (state, book: Book) => {
     state.book = state.books.find(x => x.id === book.id) ?? {} as Book;
     state.book = helpers.deepMerge(state.book, book);
   },
 
-  clearBooks: (state) => {
-    state.books = [] as Book[]
+  clear: (state) => {
+    state.index = -1;
+    state.book = {} as Book;
   },
 
-  clearBook: (state) => {
-    state.index = -1;
-    state.book = {} as Book
+  reset: (state) => {
+    state.books = [] as Book[];
   }
+
 };
 
 const getters: GetterTree<RootState, RootState> = {
@@ -52,34 +49,30 @@ const getters: GetterTree<RootState, RootState> = {
 
 const actions: ActionTree<RootState, RootState> = {
 
-  fetchBooks({ commit }) {
+  all({ commit }) {
     return this.$repository.book.all().then((response: Book[]) => {
-      commit("fetchBooks", response);
+      commit("all", response);
     });
   },
 
-  fetchBook({ commit }, id) {
-    commit("fetchBook", id);
+  find({ commit }, slug) {
+    commit("find", slug);
   },
 
-  fetchBookSlug({ commit }, slug) {
-    commit("fetchBookSlug", slug);
+  set({ commit }, { id, count }) {
+    commit("set", { id, count });
   },
 
-  setBook({ commit }, { id, count }) {
-    commit("setBook", { id, count });
+  put({ commit }, book) {
+    commit("put", book);
   },
 
-  putBook({ commit }, book) {
-    commit("putBook", book);
+  clear({ commit }) {
+    commit("clear");
   },
 
-  clearBooks({ commit }) {
-    commit("clearBooks");
-  },
-
-  clearBook({ commit }) {
-    commit("clearBook");
+  reset({ commit }) {
+    commit("reset");
   }
 
 };

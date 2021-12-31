@@ -230,7 +230,7 @@ export default {
         const isValid = await this.$service.basket.validate();
         if (isValid) {
           try {
-            await this.$service.order.order(
+            await this.$service.order.add(
               this.shippingAddress,
               this.paymentMethod
             );

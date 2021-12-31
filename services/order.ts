@@ -2,7 +2,12 @@ import { Address, Book, Payment, Order } from "@/models";
 
 export const OrderService = (store: any) => ({
 
-  order(address: Address, payment: Payment) {
+  all() {
+    console.log(store);
+    return store.state.order.orders;
+  },
+
+  add(address: Address, payment: Payment) {
     const order = new Order();
     order.books = store.state.basket.basket;
     order.address = address;
@@ -12,16 +17,16 @@ export const OrderService = (store: any) => ({
     for (const item of order.books) {
       const book = store.state.book.books.find((x: Book) => x.id === item.bookId);
       if (book) {
-        store.dispatch("book/putBook", { ...book, inStock: Math.max(0, book.inStock - item.count) });
+        store.dispatch("book/put", { ...book, inStock: Math.max(0, book.inStock - item.count) });
       }
     }
 
-    store.dispatch("order/addOrder", order);
-    store.dispatch("basket/clearBasket");
+    store.dispatch("order/add", order);
+    store.dispatch("basket/reset");
   },
 
   reset() {
-    store.dispatch("order/clearOrder");
+    store.dispatch("order/reset");
   }
 
 });

@@ -4,38 +4,39 @@ import { calculation } from "@/utils";
 export const BasketService = (store: any, i18n: any) => ({
 
   all() {
-    store.dispatch("basket/fetchBasket");
-  },
-
-  find(id: string) {
-    store.dispatch("basket/fetchItem", id);
+    store.dispatch("basket/all");
   },
 
   insert(id: string, count: number) {
-    store.dispatch("basket/addItem", { id, count });
+    store.dispatch("basket/add", { id, count });
   },
 
   set(id: string, count: number) {
-    store.dispatch("basket/setItem", { id, count });
+    store.dispatch("basket/set", { id, count });
   },
 
   update(item: Item) {
-    store.dispatch("basket/putItem", item);
+    store.dispatch("basket/put", item);
   },
 
   delete(id: string) {
-    store.dispatch("basket/deleteItem", id);
+    console.log(id);
+    store.dispatch("basket/delete", id);
   },
 
   recover() {
-    store.dispatch("basket/recoverItem");
+    store.dispatch("basket/recover");
   },
 
+  clear() {
+    store.dispatch("basket/clear");
+  },
+  
   reset() {
-    store.dispatch("basket/clearBasket");
+    store.dispatch("basket/reset");
   },
 
-  validate() {
+  validate(): boolean {
     const books = store.state.book.books;
     for (const item of store.state.basket.basket) {
       const book = books.find((x: Book) => x.id === item.bookId);

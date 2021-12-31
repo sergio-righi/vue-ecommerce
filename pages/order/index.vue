@@ -32,15 +32,20 @@ export default {
     NoRecord,
     Page,
   },
+  middleware: ["authorization"],
   data: () => ({
-    posts: [],
+    orders: [],
   }),
   async fetch() {
-    // const { $service, error, params } = this.$nuxt.context;
-    console.log(this.orders);
-  },
-  computed: {
-    ...mapGetters("order", ["orders"]),
+    const { $service, error } = this.$nuxt.context;
+    try {
+      this.orders = await $service.order.all();
+    } catch (err) {
+      error({
+        statusCode: 503,
+        message: "Unable to find orders",
+      });
+    }
   },
   data() {
     return {
