@@ -52,7 +52,7 @@
                   <gv-divider />
                   <gv-tile v-for="item in items" :key="item.id">
                     <template #content>
-                      <gv-tile-header> {{ item.book.name }} </gv-tile-header>
+                      <gv-tile-header> {{ item.name }} </gv-tile-header>
                       <gv-tile-header sub>
                         {{ item | basket($i18n) }}
                       </gv-tile-header>

@@ -57,6 +57,7 @@
         "resend": "Send again",
         "continue": "Continue",
         "order": "Place order",
+        "reset_filter": "Reset Filter",
         "checkout": "Proceed to Checkout"
     },
     "label": {
@@ -130,6 +131,19 @@
             "academic_advisor": "Academic Advisor",
             "instructor": "Instructor",
             "moderator": "Moderator"
+        },
+        "status": {
+            "pending": "pending",
+            "awaiting_payment": "awaiting payment",
+            "awaiting_fulfillment": "awaiting fulfillment",
+            "awaiting_shipment": "awaiting shipment",
+            "awaiting_pickup": "awaiting pickup",
+            "completed": "complete",
+            "shipped": "shipped",
+            "cancelled": "cancelled",
+            "declined": "declined",
+            "refunded": "refunded",
+            "disputed": "disputed"
         }
     },
     "message": {

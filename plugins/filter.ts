@@ -45,9 +45,9 @@ function enumerable(value: number, options: Array<any>, i18n: any, index: boolea
 function basket(value: any, i18n: any) {
   if (value === null || i18n === null) return;
   const currency = i18n.t('locale.currency');
-  const unit = calculation.regularPrice(value.book.price, i18n);
-  const sum = calculation.regularPrice(value.book.price, i18n, value.count);
-  return `${value.count} x ${unit} = ${currency} ${money(calculation.reducedPrice(sum, value.book.discount))}`;
+  const unit = calculation.regularPrice(value.price, i18n);
+  const sum = calculation.regularPrice(value.price, i18n, value.count);
+  return `${value.count} x ${unit} = ${currency} ${money(calculation.reducedPrice(sum, value.discount))}`;
 }
 
 function money(value: number) {

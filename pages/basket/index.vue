@@ -7,21 +7,21 @@
             <template #content>
               <gv-tile v-for="item in items" :key="item.id">
                 <template #leading>
-                  <gv-button sm @onclick="removeItem(item.book)">
+                  <gv-button sm @onclick="removeItem(item)">
                     <gv-icon class="c-pointer" value="basket-remove" />
                   </gv-button>
                 </template>
                 <template #content>
-                  <gv-tile-header> {{ item.book.name }} </gv-tile-header>
+                  <gv-tile-header> {{ item.name }} </gv-tile-header>
                   <gv-tile-header sub>
                     {{ item | basket($i18n) }}
                   </gv-tile-header>
                 </template>
                 <template #trailing>
                   <ProductCount
-                    :max="item.book.inStock"
+                    :max="item.inStock"
                     :value="item.count"
-                    @oninput="setCount(item.book, ...arguments)"
+                    @oninput="setCount(item, ...arguments)"
                   />
                 </template>
               </gv-tile>

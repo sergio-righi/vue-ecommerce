@@ -29,7 +29,15 @@
       </gv-row>
     </template>
     <template #content v-else>
-      <NoRecord />
+      <NoRecord>
+        <template #control>
+          <gv-flexbox v-if="filter.name" justify="center">
+            <gv-button @onclick="resetFilter" info sm>
+              {{ $t("action.reset_filter") }}
+            </gv-button>
+          </gv-flexbox>
+        </template>
+      </NoRecord>
     </template>
     <template #action v-if="filtered.count">
       <form @submit.prevent="onFilter">

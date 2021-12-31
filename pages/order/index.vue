@@ -1,15 +1,35 @@
 <template>
   <Page :title="title">
-    <template #content v-if="orders.length">
+    <template #content v-if="$fetchState.pending">
+      <PageLoading />
+    </template>
+    <template v-else-if="orders.length" #content>
       <gv-row>
         <gv-col>
-          <gv-card>
-            <gv-tile v-for="item in orders" :key="item.id">
+          <gv-collapse arrow>
+            <gv-collapse-item v-for="order in orders" :key="order.id">
+              <template #title>#{{ order.id }}</template>
+              <template #subtitle>{{ order.placementDate | utc }}</template>
               <template #content>
-                <gv-tile-header>{{ item.id }}</gv-tile-header>
+                <gv-tile v-for="book in order.books" :key="book.id">
+                  <template #trailing>
+                    <gv-image :src="$resolve.image.cover(book.id)" />
+                  </template>
+                  <template #content>
+                    <gv-tile-header>
+                      {{ book.name }}
+                    </gv-tile-header>
+                    <gv-tile-header sub>
+                      {{ book | basket($i18n) }}
+                    </gv-tile-header>
+                  </template>
+                </gv-tile>
               </template>
-            </gv-tile>
-          </gv-card>
+              <template #trailing>
+                <gv-chip :label="$t($enum.mapper.status[order.status])" />
+              </template>
+            </gv-collapse-item>
+          </gv-collapse>
         </gv-col>
       </gv-row>
     </template>
@@ -25,14 +45,16 @@
 
 <script>
 import { NoRecord, Page } from "@/components";
+import { PageLoading } from "@/components/helper";
 
 import { mapGetters } from "vuex";
 export default {
   components: {
     NoRecord,
     Page,
+    PageLoading,
   },
-  middleware: ["authorization"],
+  // middleware: ["authorization"],
   data: () => ({
     orders: [],
   }),
@@ -59,3 +81,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.gv-tile .gv-trailing {
+  height: 55px;
+}
+.gv-tile .gv-trailing .gv-image {
+  height: 100%;
+}
+</style>

@@ -31,7 +31,7 @@ export const BasketService = (store: any, i18n: any) => ({
   clear() {
     store.dispatch("basket/clear");
   },
-  
+
   reset() {
     store.dispatch("basket/reset");
   },
@@ -55,7 +55,7 @@ export const BasketService = (store: any, i18n: any) => ({
     const books = store.state.book.books;
     return store.state.basket.basket.map((item: Item) => {
       const book = books.find((x: Book) => x.id === item.bookId);
-      return book ? { ...item, book: book } : null;
+      return book ? { ...book, ...item } : null;
     }).filter((x: any) => x);
   },
 
@@ -66,7 +66,7 @@ export const BasketService = (store: any, i18n: any) => ({
   subtotal() {
     return this.list().reduce(
       (a: number, b: any) =>
-        a + calculation.regularPrice(b.book.price, i18n, b.count),
+        a + calculation.regularPrice(b.price, i18n, b.count),
       0
     );
   },
@@ -76,8 +76,8 @@ export const BasketService = (store: any, i18n: any) => ({
       (a: number, b: any) =>
         a +
         calculation.reducedPrice(
-          calculation.regularPrice(b.book.price, i18n, b.count),
-          b.book.discount
+          calculation.regularPrice(b.price, i18n, b.count),
+          b.discount
         ),
       0
     );

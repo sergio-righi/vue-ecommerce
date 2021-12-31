@@ -34,7 +34,7 @@
             "title": "My Basket"
         },
         "book": {
-            "title": "Books available"
+            "title": "List of books"
         },
         "order": {
             "title": "My orders"
@@ -97,7 +97,8 @@
     },
     "placeholder": {
         "filter_by": "filter by {field}",
-        "select_one": "select one"
+        "select_one": "select one",
+        "search_by_name": "search by name"
     },
     "greeting": {
         "welcome": "Welcome",
@@ -129,6 +130,19 @@
             "academic_advisor": "Academic Advisor",
             "instructor": "Instructor",
             "moderator": "Moderator"
+        },
+        "status": {
+            "pending": "pending",
+            "awaiting_payment": "awaiting payment",
+            "awaiting_fulfillment": "awaiting fulfillment",
+            "awaiting_shipment": "awaiting shipment",
+            "awaiting_pickup": "awaiting pickup",
+            "completed": "complete",
+            "shipped": "shipped",
+            "cancelled": "cancelled",
+            "declined": "declined",
+            "refunded": "refunded",
+            "disputed": "disputed"
         }
     },
     "message": {
@@ -159,7 +173,8 @@
             "item_added": "{0} was added to the basket ({1}x)",
             "item_removed": "{0} was removed from the basket",
             "billing_address": "Must have an address to continue",
-            "checkout": "Must have an address and payment method to continue"
+            "checkout": "Must have an address and payment method to continue",
+            "not_available": "Sold Out"
         },
         "basket": {
             "item_count": "total of items in the basket",
@@ -216,5 +231,8 @@
         },
         "powered_by": "This application is powered by",
         "available_at": "Check it out on"
+    },
+    "tooltip": {
+        "reset": "Reset"
     }
 }

@@ -4,7 +4,10 @@
       <slot name="icon" v-if="hasIcon" />
       <gv-icon v-else value="database-search-outline" />
     </div>
-    <div class="no-record-description">{{ description }}</div>
+    <div class="no-record-description">
+      {{ description }}
+      <slot name="control" />
+    </div>
   </div>
 </template>
 

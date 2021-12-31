@@ -1,10 +1,16 @@
-import { Address, Book, Payment, Order } from "@/models";
+import { Address, Book, Item, Payment, Order } from "@/models";
 
 export const OrderService = (store: any) => ({
 
   all() {
-    console.log(store);
-    return store.state.order.orders;
+    const books = store.state.book.books;
+    return store.state.order.orders.map((order: Order) => {
+      return {
+        ...order, books: order.books.map((item: Item) => {
+          return { ...books.find((x: Book) => x.id === item.bookId), ...item };
+        })
+      };
+    });
   },
 
   add(address: Address, payment: Payment) {
@@ -27,6 +33,6 @@ export const OrderService = (store: any) => ({
 
   reset() {
     store.dispatch("order/reset");
-  }
+  },
 
 });
