@@ -27,5 +27,11 @@ body {
 }
 
 #content {
+  @include d-flex;
   @include flex(1 0 auto);
+
+  & > .container,
+  & > .container > .row {
+    min-height: calc(100% - 60px);
+  }
 }

@@ -119,7 +119,8 @@ export default {
     ProductCount,
     Page,
   },
-  async fetch({ $service, error }) {
+  async fetch() {
+    const { $service, error } = this.$nuxt.context;
     try {
       await $service.basket.validate();
     } catch (err) {

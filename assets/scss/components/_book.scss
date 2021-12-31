@@ -34,5 +34,9 @@
     & > .product-count {
       flex-grow: 1;
     }
+    
+    button {
+      color: var(--gv-white);
+    }
   }
 }

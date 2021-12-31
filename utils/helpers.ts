@@ -36,6 +36,23 @@ const toCapitalize = (value: string): string => {
 };
 
 /**
+ * convert a form to pair-value
+ * @param {[Object]} form
+ * @returns {Object}
+ */
+
+const toDictionary = (form: any): object => {
+  if (!form) return {};
+  else if (typeof form !== "object") return {};
+  else {
+    return Object.values(form)
+      .filter((item: any) => item.name && item.value)
+      .map((item: any) => ({ [item.name]: item.value }))
+      .reduce((o, item) => Object.assign(o, item), {});
+  }
+};
+
+/**
  * Simple object check.
  * @param {any} value
  * @returns {boolean}
@@ -100,6 +117,7 @@ const randomFloat = (min: number, max: number): number => Math.random() * (max -
 
 export const helpers = {
   format,
+  toDictionary,
   toCapitalize,
   fromUTC,
   generateId,

@@ -13,6 +13,10 @@ const mutations: MutationTree<RootState> = {
     state.orders.push(order);
   },
 
+  clearOrder: (state) => {
+    state.orders = [] as Order[];
+  }
+
 };
 
 const getters: GetterTree<RootState, RootState> = {
@@ -22,7 +26,11 @@ const getters: GetterTree<RootState, RootState> = {
 const actions: ActionTree<RootState, RootState> = {
 
   addOrder({ commit }, order) {
-    commit("addOrder", order)
+    commit("addOrder", order);
+  },
+
+  clearOrder({ commit }) {
+    commit("clearOrder");
   }
 };
 

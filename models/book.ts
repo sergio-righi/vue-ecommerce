@@ -4,7 +4,7 @@ import { EnumBook } from "@/utils/enums";
 
 interface IBook {
   _id?: string;
-  name?: string;
+  name: string;
   description?: string;
   age?: string;
   language?: string;
@@ -19,12 +19,13 @@ interface IBook {
   dimension: Dimension
   reviews: Array<string>;
   genres: Array<number>;
+  slug: string;
   deleted: boolean;
 }
 
 class Book implements IBook {
   id?: string;
-  name?: string;
+  name: string;
   description?: string;
   age?: string;
   language?: string;
@@ -39,9 +40,10 @@ class Book implements IBook {
   dimension: Dimension;
   reviews: string[];
   genres: number[];
+  slug: string;
   deleted: boolean;
 
-  constructor(o: IBook = { _id: helpers.generateId(), authors: [], type: EnumBook.physical, price: 0, discount: 0, inStock: 0, dimension: new Dimension(), reviews: [], genres: [], deleted: false }) {
+  constructor(o: IBook = { _id: helpers.generateId(), name: "", authors: [], type: EnumBook.physical, price: 0, discount: 0, inStock: 0, dimension: new Dimension(), reviews: [], genres: [], slug: "", deleted: false }) {
     this.id = o._id;
     this.name = o.name;
     this.description = o.description;
@@ -58,6 +60,7 @@ class Book implements IBook {
     this.dimension = o.dimension;
     this.reviews = o.reviews;
     this.genres = o.genres;
+    this.slug = o.slug;
     this.deleted = o.deleted;
   }
 
@@ -69,11 +72,11 @@ class Book implements IBook {
     return this.id;
   }
 
-  get slug() {
-    return this.name?.toLowerCase()
-      .replace(/ /g, '-')
-      .replace(/[^\w-]+/g, '');
-  }
+  // get slug() {
+  //   return this.name?.toLowerCase()
+  //     .replace(/ /g, '-')
+  //     .replace(/[^\w-]+/g, '');
+  // }
 }
 
 export default Book;

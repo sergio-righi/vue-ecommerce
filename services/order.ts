@@ -18,6 +18,10 @@ export const OrderService = (store: any) => ({
 
     store.dispatch("order/addOrder", order);
     store.dispatch("basket/clearBasket");
+  },
+
+  reset() {
+    store.dispatch("order/clearOrder");
   }
 
 });

@@ -1,6 +1,9 @@
 <template>
   <Page :title="title">
-    <template #content v-if="book">
+    <template #content v-if="$fetchState.pending">
+      <PageLoading />
+    </template>
+    <template #content v-else-if="hasValue">
       <gv-row>
         <gv-col sm="4" md="2">
           <ProductBook :item="book" />
@@ -112,36 +115,42 @@
 </template>
 
 <script>
+import { PageLoading } from "@/components/helper";
 import { ProductBook, ProductInfo } from "@/components/interface";
 import { NoRecord, Page } from "@/components";
-
-import { mapGetters } from "vuex";
 export default {
   components: {
     NoRecord,
     Page,
+    PageLoading,
     ProductBook,
     ProductInfo,
   },
-  async fetch({ $service, error, params }) {
+  async fetch() {
+    const { $service, error, params } = this.$nuxt.context;
     try {
       if (params.slug) {
-        await $service.book.findBySlug(params.slug);
+        this.book = await $service.book.findBySlug(params.slug);
       }
     } catch (err) {
       error({
         statusCode: 503,
-        message: "Unable to fetch book #" + params.slug,
+        message: "Unable to fetch book " + params.slug,
       });
     }
   },
+  data: () => ({
+    book: null,
+  }),
   beforeDestroy() {
     this.$service.book.clear();
   },
   computed: {
-    ...mapGetters("book", ["book"]),
+    hasValue() {
+      return this.book !== null && Object.keys(this.book).length > 0;
+    },
     title() {
-      return this.book?.name ?? this.$t("message.feedback.page_loading");
+      return this.book?.name;
     },
   },
   methods: {
@@ -151,7 +160,7 @@ export default {
   },
   head() {
     return {
-      title: this.title,
+      title: this.title ?? this.$t("message.feedback.page_loading"),
     };
   },
 };

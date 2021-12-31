@@ -141,7 +141,8 @@ export default {
     Page,
   },
   middleware: ["authorization"],
-  async fetch({ $service, error }) {
+  async fetch() {
+    const { $service, error } = this.$nuxt.context;
     try {
       await $service.basket.validate();
     } catch (err) {

@@ -31,15 +31,9 @@ export const BasketService = (store: any, i18n: any) => ({
     store.dispatch("basket/recoverItem");
   },
 
-  clear() {
+  reset() {
     store.dispatch("basket/clearBasket");
   },
-
-  // filtered({ name }: any, page: number, count: number) {
-  //   return store.state.basket.basket.filter((x: Book) =>
-  //     name ? x.name ? x.name.toLowerCase().includes(name.toLowerCase()) : false : true
-  //   );
-  // }
 
   validate() {
     const books = store.state.book.books;

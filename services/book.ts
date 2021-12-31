@@ -3,7 +3,9 @@ import { Book } from "@/models";
 export const BookService = (store: any) => ({
 
   all() {
-    store.dispatch("book/fetchBooks");
+    if (store.state.book.books.length === 0) {
+      store.dispatch("book/fetchBooks");
+    }
   },
 
   update(book: Book) {
@@ -14,12 +16,14 @@ export const BookService = (store: any) => ({
     store.dispatch("book/setBook", { id, count });
   },
 
-  find(id: string) {
+  find(id: string): Book {
     store.dispatch("book/fetchBook", id);
+    return store.state.book.book;
   },
 
-  findBySlug(slug: string) {
+  findBySlug(slug: string): Book {
     store.dispatch("book/fetchBookSlug", slug);
+    return store.state.book.book;
   },
 
   reset() {
@@ -30,12 +34,13 @@ export const BookService = (store: any) => ({
     store.dispatch("book/clearBook");
   },
 
-  filtered({ name }: any, page: number, count: number): Book[] {
+  filtered({ name }: any, page: number, count: number): { list: Book[], count: number } {
     const from = (page - 1) * count;
     const to = from + count;
-    return store.state.book.books.filter((x: Book) =>
+    const list = store.state.book.books.filter((x: Book) =>
       name ? x.name ? x.name.toLowerCase().includes(name.toLowerCase()) : false : true
-    ).slice(from, to) as Book[];
+    ).sort((a: Book, b: Book) => a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 1) as Book[];
+    return { list: list.slice(from, to) as Book[], count: list.length };
   }
 
 });

@@ -34,7 +34,7 @@
             "title": "My Basket"
         },
         "book": {
-            "title": "Books available"
+            "title": "List of books"
         },
         "order": {
             "title": "My orders"
@@ -97,7 +97,8 @@
     },
     "placeholder": {
         "filter_by": "filter by {field}",
-        "select_one": "select one"
+        "select_one": "select one",
+        "search_by_name": "search by name"
     },
     "greeting": {
         "welcome": "Welcome",
@@ -217,5 +218,8 @@
         },
         "powered_by": "This application is powered by",
         "available_at": "Check it out on"
+    },
+    "tooltip": {
+        "reset": "Reset"
     }
 }
