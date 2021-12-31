@@ -16,11 +16,9 @@
       />
       <gv-space y lg>
         <gv-flexbox justify="space-evenly" align="center">
-          <gv-input-box
-            :label="$t('page.sign_in.remeber_me')"
-            v-model="user.persist"
-            checkbox
-          />
+          <gv-input-box v-model="user.persist" checkbox>
+            {{ $t("page.sign_in.remeber_me") }}
+          </gv-input-box>
           <gv-link href="/forgot_password" muted>
             {{ $t("page.sign_in.forgot_password") }}
           </gv-link>
@@ -70,7 +68,7 @@ export default {
             username: user.username,
             verified: false,
           });
-          this.$router.push('/');
+          this.$router.push({ path: this.$resolve.home() });
         } else {
           this.feedback.message = this.$t("message.feedback.user_not_found");
         }

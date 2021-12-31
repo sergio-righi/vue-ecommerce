@@ -86,7 +86,7 @@ export default {
             username: this.user.username,
             verified: false,
           });
-          this.$router.push("/");
+          this.$router.push({ path: this.$resolve.home() });
         } else {
           this.feedback.message = this.$t("message.feedback.error");
         }

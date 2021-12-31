@@ -26,7 +26,7 @@ declare module 'vuex/types/index' {
     }
 }
 
-const repository: Plugin = (context, inject) => {
+const repository: Plugin = (context: any, inject: any) => {
     inject('repository', initializeRepository(context.$axios, context.$service))
 }
 

@@ -1,6 +1,15 @@
 <template>
   <Page :title="title">
     <template #content>
+      <gv-row v-if="feedback.error">
+        <gv-col>
+          <Feedback
+            :message="feedback.message"
+            :error="feedback.error"
+            :success="!feedback.error"
+          />
+        </gv-col>
+      </gv-row>
       <gv-row>
         <gv-col md="8">
           <gv-row>
@@ -132,11 +141,12 @@
 <script>
 import { calculation } from "@/utils";
 import { Page } from "@/components";
-import { Address, Payment } from "@/components/form";
+import { Address, Feedback, Payment } from "@/components/form";
 import { mapGetters } from "vuex";
 export default {
   components: {
     Address,
+    Feedback,
     Payment,
     Page,
   },
@@ -154,6 +164,10 @@ export default {
   },
   data() {
     return {
+      feedback: {
+        error: false,
+        message: null,
+      },
       paymentMethod: null,
       shippingAddress: null,
       title: this.$t("page.checkout.title"),
@@ -221,12 +235,11 @@ export default {
               this.paymentMethod
             );
             this.$router.push({
-              path: this.localePath({ path: this.$resolve.home() }),
+              path: this.$resolve.home(),
             });
           } catch (err) {
-            console.log(err);
-            // this.feedback.error = true;
-            // this.feedback.message = this.$t("message.feedback.error");
+            this.feedback.error = true;
+            this.feedback.message = this.$t("message.feedback.error");
           }
         }
       }

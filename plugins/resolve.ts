@@ -26,8 +26,8 @@ declare module 'vuex/types/index' {
     }
 }
 
-const resolve: Plugin = (context, inject) => {
-    inject('resolve', initializeResolve)
+const resolve: Plugin = (context: any, inject: any) => {
+    inject('resolve', initializeResolve(context.localePath));
 }
 
 export default resolve

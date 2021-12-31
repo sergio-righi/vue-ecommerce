@@ -4,6 +4,6 @@ export default ({ store, redirect, route }: any) => {
     const isAuthenticated = Object.keys(user).length > 0;
     const hasProduct = basket.basket.length > 0;
     if (!isAuthenticated || !hasProduct) {
-        return redirect('/');
+        return redirect('/sign_in');
     }
 };

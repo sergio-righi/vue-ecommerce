@@ -1,43 +1,47 @@
 
 const controller = {
-    basket: '/basket/',
-    book: '/book/',
-    checkout: '/checkout/',
-    home: '/',
-    order: '/order/'
+  basket: '/basket/',
+  book: '/book/',
+  checkout: '/checkout/',
+  home: '/',
+  login: '/sign_in/',
+  order: '/order/'
 }
 
-const basket = (...args: any[]) => {
-    return controller.basket + args.join('/');
-}
+const Resolve = (localePath: Function) => ({
 
-const book = (...args: any[]) => {
-    return controller.book + args.join('/');
-}
+  basket: (...args: any[]) => {
+    return localePath({ path: controller.basket + args.join('/') });
+  },
 
-const checkout = (...args: any[]) => {
-    return controller.checkout + args.join('/');
-}
+  book: (...args: any[]) => {
+    return localePath({ path: controller.book + args.join('/') });
+  },
 
-const home = (...args: any[]) => {
-    return controller.home + args.join('/');
-}
+  checkout: (...args: any[]) => {
+    return localePath({ path: controller.checkout + args.join('/') });
+  },
 
-const order = (...args: any[]) => {
-    return controller.order + args.join('/');
-}
+  home: (...args: any[]) => {
+    return localePath({ path: controller.home + args.join('/') });
+  },
 
-const image = {
+  login: (...args: any[]) => {
+    return localePath({ path: controller.login + args.join('/') });
+  },
+
+  order: (...args: any[]) => {
+    return localePath({ path: controller.order + args.join('/') });
+  },
+
+  image: {
     cover: (name: string) => {
-        return `/covers/${name}.jpg`
+      return `/covers/${name}.jpg`
     }
-}
+  }
 
-export const initializeResolve = {
-    basket,
-    book,
-    checkout,
-    home,
-    order,
-    image
-};
+});
+
+export const initializeResolve = (localePath: Function) => ({
+  ...Resolve(localePath)
+});

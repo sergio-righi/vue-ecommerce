@@ -88,10 +88,10 @@ export default {
   methods: {
     async signOut() {
       await this.$service.session.logout();
-      this.$router.push("/");
+      this.$router.push({ path: this.$resolve.home() });
     },
     async signIn() {
-      this.$router.push("/sign_in");
+      this.$router.push({ path: this.$resolve.login() });
     },
     isActive(url) {
       return new RegExp(url).test(this.$route.path);
