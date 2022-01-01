@@ -1,238 +1,236 @@
 {
-    "page": {
-        "home": {
-            "title": "Home"
-        },
-        "users": {
-            "title": "Users",
-            "create": "Add User",
-            "update": "Edit User"
-        },
-        "sign_up": {
-            "title": "Sign Up",
-            "has_account": "Already have an account?"
-        },
-        "sign_in": {
-            "title": "Sign In",
-            "remeber_me": "Keep me connected",
-            "forgot_password": "Forgot Password?"
-        },
-        "forgot_password": {
-            "title": "Forgot Password",
-            "remember_it": "Did you remember it?"
-        },
-        "authorization": {
-            "title": "Authorization",
-            "try_again": "Did not receive the code?"
-        },
-        "error": {
-            "401": "Unauthorized access.\n\nIt might indicate that the request lacks valid authentication credentials for the target resource.",
-            "404": "The page you were looking for does not exist. You may have mistyped the URL or the page may have moved.",
-            "500": "Ooops, something went wrong.\n\nWe apologize and are working to fix the problem. Please try again later."
-        },
-        "basket": {
-            "title": "My Basket"
-        },
-        "book": {
-            "title": "List of books"
-        },
-        "order": {
-            "title": "My orders"
-        },
-        "checkout": {
-            "title": "Checkout"
-        }
+  "page": {
+    "home": {
+      "title": "Início"
     },
-    "action": {
-        "agreed": "I got it",
-        "send": "Send",
-        "done": "Done",
-        "update": "Edit",
-        "create": "Add",
-        "delete": "Delete",
-        "cancel": "Cancel",
-        "undo": "Undo",
-        "clear": "Clear",
-        "search": "Search",
-        "resend": "Send again",
-        "continue": "Continue",
-        "order": "Place order",
-        "checkout": "Proceed to Checkout"
+    "users": {
+      "title": "Usuários",
+      "create": "Novo Usuário",
+      "update": "Editar Usuário"
     },
-    "label": {
-        "active": "Active",
-        "address": "Address | Addresses",
-        "billing_address": "Billing Address",
-        "birthday": "Birthday",
-        "cardholder": "Cardholder's Name",
-        "city": "City",
-        "code": "Code",
-        "count": "Count",
-        "country": "Country",
-        "detail": "Detail | Details",
-        "document": "Document | Documents",
-        "email": "Email | Emails",
-        "expiration_month": "Expiration Month",
-        "expiration_year": "Expiration Year",
-        "gender": "Gender",
-        "inactive": "Inactive",
-        "item": "Item | Items",
-        "name": "Name",
-        "number": "Number",
-        "password": "Password",
-        "payment_method": "Payment Method",
-        "province": "Province",
-        "phone": "Phone | Phones",
-        "resume": "Resume",
-        "role": "Role | Roles",
-        "shipping": "Shipping",
-        "shipping_address": "Shipping Address",
-        "subtotal": "Subtotal",
-        "street": "Street",
-        "tax": "HST",
-        "total": "Total",
-        "unit": "Unit",
-        "username": "Username",
-        "zipcode": "Zipcode"
+    "sign_up": {
+      "title": "Inscrever-se",
+      "has_account": "Já possui uma conta?"
     },
-    "placeholder": {
-        "filter_by": "filter by {field}",
-        "select_one": "select one",
-        "search_by_name": "search by name"
+    "sign_in": {
+      "title": "Entrar",
+      "remeber_me": "Manter conectado",
+      "forgot_password": "Esqueceu a senha?"
     },
-    "greeting": {
-        "welcome": "Welcome",
-        "good_morning": "Good Morning",
-        "good_afternoon": "Good Afternoon",
-        "good_evening": "Good Evening"
+    "forgot_password": {
+      "title": "Esqueceu a senha",
+      "remember_it": "Conseguiu relembrar?"
     },
-    "enum": {
-        "book": {
-            "digital": "Digital",
-            "audio": "Audiobook",
-            "physical": "Physical"
-        },
-        "gender": {
-            "male": "male",
-            "female": "female",
-            "other": "other",
-            "omit": "prefer not to say"
-        },
-        "document": {
-            "passport": "passport",
-            "id": "indentity document",
-            "drivers_license": "driver's license"
-        },
-        "role": {
-            "dev": "Developer",
-            "admin": "Administrator",
-            "accountant": "Accountant",
-            "academic_advisor": "Academic Advisor",
-            "instructor": "Instructor",
-            "moderator": "Moderator"
-        },
-        "status": {
-            "pending": "pending",
-            "awaiting_payment": "awaiting payment",
-            "awaiting_fulfillment": "awaiting fulfillment",
-            "awaiting_shipment": "awaiting shipment",
-            "awaiting_pickup": "awaiting pickup",
-            "completed": "complete",
-            "shipped": "shipped",
-            "cancelled": "cancelled",
-            "declined": "declined",
-            "refunded": "refunded",
-            "disputed": "disputed"
-        }
+    "authorization": {
+      "title": "Confirmação de conta",
+      "try_again": "Não recebeu o código?"
     },
-    "message": {
-        "footnote": {
-            "login": "By continuing, you agree to our",
-            "password": "A strong password should have...",
-            "domain": "xyz.ca",
-            "error": "take me to"
-        },
-        "confirmation": {
-            "title": "Confirmation Required",
-            "delete": "Before continuing, make sure this is the item you are willing to delete once this action is permanent"
-        },
-        "recover": {
-            "delete": "was deleted"
-        },
-        "feedback": {
-            "unknown": "unknown",
-            "page_loading": "Loading...",
-            "user_not_found": "User not found",
-            "no_record": "No records were found",
-            "empty_basket": "There is no items in your basket",
-            "error": "Something went wrong while processing your request",
-            "success": "The request was successfully processed",
-            "token": "The informed token is not valid or expired",
-            "code": "The informed code does not match the expected",
-            "email": "An email was sent with the instructions to continue processing your request",
-            "item_added": "{0} was added to the basket ({1}x)",
-            "item_removed": "{0} was removed from the basket",
-            "billing_address": "Must have an address to continue",
-            "checkout": "Must have an address and payment method to continue",
-            "not_available": "Sold Out"
-        },
-        "basket": {
-            "item_count": "total of items in the basket",
-            "check_detail": "Please, check the details below",
-            "before_discount": "amount before discounts (if applicable)",
-            "before_tax": "amount before taxes and shipping",
-            "sum_total": "amount to be paid"
-        },
-        "checkout": {
-            "shipping_cost": "amount to be paid for shipping charges",
-            "add_address": "Add a new address",
-            "add_payment": "Add a new payment method"
-        }
+    "error": {
+      "401": "Acesso não autorizado.\n\nIsso pode indicar que a requisição não conseguiu identificar as credenciais necessárias para acessar o recurso solicitado.",
+      "404": "A página que você está procurando não existe. Isto pode ter occorido por um erro de digitação ou a página pode ter sido movida.",
+      "500": "Ooops, alguma coisa deu errado.\n\nPedimos desculpas e informamos que estamos trabalhando para corrigir o problema o mais rápido possível. Por favor tente novamente mais tarde."
     },
-    "locale": {
-        "currency": "BRL"
+    "basket": {
+      "title": "Minha cesta"
     },
-    "navbar": {
-        "sign_out": "Sign out"
+    "book": {
+      "title": "Lista de livros"
     },
-    "agreement": {
-        "cookie_policy": "Cookie Policy",
-        "privacy_policy": "Privacy Policy",
-        "terms_of_service": "Terms of Service"
+    "order": {
+      "title": "Meus pedidos"
     },
-    "linking_word": {
-        "and": "and",
-        "or": "or"
-    },
-    "password_policy": {
-        "length": "a minimum of 8 characters",
-        "case": "one uppercase and one lowercase letters",
-        "character": "one letter and one number",
-        "special": "one special character, e.g., ! @ # ? * $ % &"
-    },
-    "picker": {
-        "am": "am",
-        "pm": "pm",
-        "day": "day",
-        "month": "month",
-        "year": "year"
-    },
-    "snackbar": {
-        "dismiss": "Dismiss"
-    },
-    "validation": {
-        "match": "do not match",
-        "duplicate": "already exists"
-    },
-    "footer": {
-        "disclaimer": {
-            "title": "Disclaimer",
-            "message": "This application is strictly for demo purposes and is not intended to be used for commercial applications. All the information presented here is not real and all the actions performed are STORED LOCALLY on user's browser ONLY."
-        },
-        "powered_by": "This application is powered by",
-        "available_at": "Check it out on"
-    },
-    "tooltip": {
-        "reset": "Reset"
+    "checkout": {
+      "title": "Últimos detalhes"
     }
+  },
+  "action": {
+    "agreed": "Entendi",
+    "send": "Enviar",
+    "done": "Completo",
+    "update": "Editar",
+    "create": "Adicionar",
+    "delete": "Deletar",
+    "cancel": "Cancelar",
+    "undo": "Desfazer",
+    "clear": "Limpar",
+    "search": "Pesquisar",
+    "resend": "Enviar novamente",
+    "continue": "Continuar",
+    "order": "Confirmar pedido",
+    "reset_filter": "Limpar filtro",
+    "checkout": "Continuar para o checkout"
+  },
+  "label": {
+    "active": "Ativo",
+    "address": "Endereço | Endereços",
+    "billing_address": "Endereço de cobrança",
+    "birthday": "Aniversário",
+    "cardholder": "Títular do cartão",
+    "city": "Cidade",
+    "code": "Código",
+    "count": "Quantidade",
+    "country": "País",
+    "detail": "Detalhe | Detalhes",
+    "document": "Documento | Documentos",
+    "email": "Email | Emails",
+    "expiration_month": "Mês de expiração",
+    "expiration_year": "Ano de expiração",
+    "gender": "Gênero",
+    "inactive": "Inativo",
+    "item": "Item | Itens",
+    "name": "Nome",
+    "number": "Número",
+    "password": "Senha",
+    "payment_method": "Método de pagamento",
+    "province": "Estado",
+    "phone": "Telefone | Telefones",
+    "resume": "Resumo",
+    "role": "Atribuição | Atribuições",
+    "shipping": "Entraga",
+    "shipping_address": "Endereço de entrega",
+    "subtotal": "Subtotal",
+    "street": "Rua",
+    "tax": "Imposto",
+    "total": "Total",
+    "unit": "Número",
+    "username": "Nome de usuário",
+    "zipcode": "Código postal"
+  },
+  "placeholder": {
+    "filter_by": "filtrar por {field}",
+    "select_one": "selecione uma opção",
+    "search_by_name": "pesquisar por nome"
+  },
+  "greeting": {
+    "welcome": "Bem vindo",
+    "good_morning": "Bom Dia",
+    "good_afternoon": "Boa Tarde",
+    "good_evening": "Boa Noite"
+  },
+  "enum": {
+    "book": {
+      "digital": "Digital",
+      "audio": "Audiobook",
+      "physical": "Físico"
+    },
+    "gender": {
+      "male": "masculino",
+      "female": "feminino",
+      "other": "outro",
+      "omit": "prefiro não informar"
+    },
+    "document": {
+      "passport": "passaporte",
+      "id": "documento de identidade",
+      "drivers_license": "carteira de motorista"
+    },
+    "role": {
+      "dev": "Developer",
+      "adm": "Administrator",
+      "pub": "Publisher"
+    },
+    "status": {
+      "pending": "pendente",
+      "awaiting_payment": "aguardando pagamento",
+      "awaiting_fulfillment": "aguardando finalização",
+      "awaiting_shipment": "aguardando envio",
+      "awaiting_pickup": "aguardando apanhamento",
+      "completed": "finalizado",
+      "shipped": "enviado",
+      "cancelled": "cancelado",
+      "declined": "recusado",
+      "refunded": "reembolsado",
+      "disputed": "em disputa"
+    }
+  },
+  "message": {
+    "footnote": {
+      "login": "Ao continuar, você concorda com o nosso",
+      "password": "Uma senha forte deve conter...",
+      "domain": "xyz.ca",
+      "error": "me leve para"
+    },
+    "confirmation": {
+      "title": "Confirmação Requirida",
+      "delete": "Antes de continuar, tenha certeza de que esse é o item correto uma vez que está ação é permanente"
+    },
+    "recover": {
+      "delete": "foi deletado"
+    },
+    "feedback": {
+      "unknown": "desconhecido",
+      "page_loading": "Carregando...",
+      "user_not_found": "Usuário não encontrado",
+      "no_record": "Nenhum registro foi encontrado",
+      "empty_basket": "Não há nenhum item na cesta",
+      "error": "Algum problema ocorreu ao tentar processar a requisição",
+      "success": "A requisição foi processada com sucesso",
+      "token": "O token informado não é válido ou expirou",
+      "code": "O código informado não corresponde ao esperado",
+      "email": "Um e-mail foi enviado com as instruções para continuar processando sua solicitação",
+      "item_added": "{0} foi adicionado a cesta ({1}x)",
+      "item_removed": "{0} foi removido da cesta",
+      "billing_address": "Deve possuir um endereço para continuar",
+      "checkout": "Deve possuir um endereço e um método de pagamento para continuar",
+      "not_available": "Esgotado"
+    },
+    "basket": {
+      "item_count": "total de itens na cesta",
+      "check_detail": "Por favor, confira os detalhes abaixo",
+      "before_discount": "valor antes dos discontos (se aplicável)",
+      "before_tax": "valor antes dos impostos e do frete",
+      "sum_total": "valor a ser pago"
+    },
+    "checkout": {
+      "shipping_cost": "valor a ser pago pelo frete",
+      "add_address": "Adicionar um novo endereço",
+      "add_payment": "Adicionar um novo método de pagamento"
+    }
+  },
+  "locale": {
+    "currency": "BRL"
+  },
+  "navbar": {
+    "sign_out": "Sair"
+  },
+  "agreement": {
+    "cookie_policy": "Política de Cookies",
+    "privacy_policy": "Política de privacidade",
+    "terms_of_service": "Termos de serviço"
+  },
+  "linking_word": {
+    "and": "e",
+    "or": "ou"
+  },
+  "password_policy": {
+    "length": "um minímo de 8 caracteres",
+    "case": "um caracter maiúsculo e um minúsculo",
+    "character": "uma letra e um número",
+    "special": "um caracter especial, ex.: ! @ # ? * $ % &"
+  },
+  "picker": {
+    "am": "am",
+    "pm": "pm",
+    "day": "dia",
+    "month": "mês",
+    "year": "ano"
+  },
+  "snackbar": {
+    "dismiss": "Esconder"
+  },
+  "validation": {
+    "match": "não é igual",
+    "duplicate": "já existe"
+  },
+  "footer": {
+    "disclaimer": {
+      "title": "Isenção de responsabilidade",
+      "message": "Este aplicativo é estritamente para fins de demonstração e não se destina a ser usado para aplicações comerciais. Todas as informações apresentadas aqui não são reais e todas as ações realizadas são ARMAZENADAS LOCALMENTE no navegador do usuário."
+    },
+    "powered_by": "Este aplicativo é desenvolvido com",
+    "available_at": "Confira em"
+  },
+  "tooltip": {
+    "reset": "Reiniciar"
+  }
 }

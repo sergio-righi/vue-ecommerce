@@ -67,8 +67,7 @@ enum EnumPayment {
 enum EnumRole {
   dev = 1,
   adm = 2,
-  pub = 3,
-  usr = 4,
+  pub = 3
 }
 
 enum EnumStatus {

@@ -3,7 +3,7 @@
     <template #content>
       <gv-image
         :src="$resolve.image.cover(item.id)"
-        :href="localePath($resolve.book(item.slug))"
+        :href="internal ? null : $resolve.book(item.slug)"
       />
       <ProductDiscount
         :price="item.price"
@@ -49,6 +49,7 @@ export default {
       type: Object,
       required: true,
     },
+    internal: Boolean,
   },
   computed: {
     ...mapGetters("basket", ["basket"]),

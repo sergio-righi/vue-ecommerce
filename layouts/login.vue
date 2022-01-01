@@ -2,7 +2,7 @@
   <div id="login">
     <div class="login-container">
       <div class="login-header">
-        <gv-image class="brand" src="logo_horizontal.png" />
+        <gv-image class="brand" :src="$resolve.image.root('logo_horizontal.png')" />
         <!-- <div class="title">{{ $t("page.sign_in.title") }}</div> -->
         <!-- <div class="message">{{ new Date() | greeting($i18n) }}</div> -->
       </div>

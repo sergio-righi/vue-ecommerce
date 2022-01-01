@@ -20,7 +20,6 @@ export const BasketService = (store: any, i18n: any) => ({
   },
 
   delete(id: string) {
-    console.log(id);
     store.dispatch("basket/delete", id);
   },
 

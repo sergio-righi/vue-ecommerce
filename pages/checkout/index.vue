@@ -150,7 +150,6 @@ export default {
     Payment,
     Page,
   },
-  middleware: ["authorization"],
   async fetch() {
     const { $service, error } = this.$nuxt.context;
     try {

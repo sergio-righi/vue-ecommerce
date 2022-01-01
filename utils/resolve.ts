@@ -37,6 +37,9 @@ const Resolve = (localePath: Function) => ({
   image: {
     cover: (name: string) => {
       return `/covers/${name}.jpg`
+    },
+    root: (name: string) => {
+      return `/${name}`
     }
   }
 

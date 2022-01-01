@@ -36,6 +36,7 @@
 
 <script>
 import { Feedback } from "@/components/form";
+import { mapState } from "vuex";
 export default {
   layout: "login",
   name: "sign-in",
@@ -54,6 +55,9 @@ export default {
       },
     };
   },
+  computed: {
+    ...mapState("session", ["redirect"]),
+  },
   methods: {
     async login() {
       try {
@@ -68,7 +72,7 @@ export default {
             username: user.username,
             verified: false,
           });
-          this.$router.push({ path: this.$resolve.home() });
+          this.$router.push({ path: this.redirect ?? this.$resolve.home() });
         } else {
           this.feedback.message = this.$t("message.feedback.user_not_found");
         }
@@ -79,7 +83,3 @@ export default {
   },
 };
 </script>
-
-<!--<style lang="scss">
-@import "scss/pages/login.scss";
-</style>-->

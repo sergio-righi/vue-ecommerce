@@ -54,7 +54,6 @@ export default {
     Page,
     PageLoading,
   },
-  // middleware: ["authorization"],
   data: () => ({
     orders: [],
   }),

@@ -1,12 +1,7 @@
 <template>
   <gv-navbar center fixed>
     <template #brand>
-      <gv-link :href="localePath($resolve.home())">TheBookStore</gv-link>
-    </template>
-    <template #menu>
-      <!-- <gv-navbar-item href="/users" :active="isActive('/users')">
-        {{ $t("page.users.title") }}
-      </gv-navbar-item> -->
+      <gv-link :href="$resolve.home()">TheBookStore</gv-link>
     </template>
     <template #control>
       <gv-navbar-item @onclick="setTheme(!dark)">
@@ -21,7 +16,7 @@
           {{ availableLocale[0].iso.split("-")[0] }}
         </span>
       </gv-navbar-item>
-      <gv-navbar-item :href="localePath('/basket')">
+      <gv-navbar-item :href="$resolve.basket()">
         <gv-badge :value="count">
           <gv-icon value="basket" />
         </gv-badge>
@@ -36,7 +31,7 @@
             </gv-flexbox>
           </template>
           <template #content>
-            <gv-dropdown-item :href="localePath($resolve.order())">
+            <gv-dropdown-item :href="$resolve.order()">
               {{ $t("page.order.title") }}
             </gv-dropdown-item>
             <gv-dropdown-item @onclick="signOut">

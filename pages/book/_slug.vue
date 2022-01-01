@@ -6,7 +6,7 @@
     <template #content v-else-if="hasValue">
       <gv-row>
         <gv-col sm="4" md="2">
-          <ProductBook :item="book" />
+          <ProductBook :item="book" internal />
         </gv-col>
         <gv-col sm="8" md="10">
           <gv-flexbox direction="column" align="center" justify="space-between">

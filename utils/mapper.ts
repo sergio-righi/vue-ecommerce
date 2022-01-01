@@ -34,8 +34,7 @@ const payments: any = {
 };
 
 const roles: any = {
-    [enumerable.EnumRole.pub]: "enum.role.publisher",
-    [enumerable.EnumRole.usr]: "enum.role.user"
+    [enumerable.EnumRole.pub]: "enum.role.publisher"
 };
 
 const status: any = {

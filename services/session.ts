@@ -17,6 +17,10 @@ export const SessionService = (store: any) => ({
     store.dispatch("session/logout");
   },
 
+  redirect(path: string) {
+    store.dispatch("session/redirect", path);
+  },
+
   clear() {
     store.dispatch("session/clear");
   }
