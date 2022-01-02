@@ -11,20 +11,20 @@
     <div id="control">
       <gv-fab sm>
         <template #content>
-          <gv-fab-item @onclick="onOpen">
+          <gv-fab-item
+            @onclick="onOpen"
+            v-tooltip.left="$t('disclaimer.title')"
+          >
             <gv-avatar bg="amber" color="black">
-              <gv-icon
-                value="alert-outline"
-                v-tooltip="$t('disclaimer.title')"
-              />
+              <gv-icon value="alert-outline" />
             </gv-avatar>
           </gv-fab-item>
         </template>
         <template #control>
           <gv-icon
             value="reload"
-            v-tooltip="$t('tooltip.reset')"
             @onclick="onReset"
+            v-tooltip.left="$t('tooltip.reset')"
           />
         </template>
       </gv-fab>
