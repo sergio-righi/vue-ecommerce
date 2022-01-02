@@ -47,9 +47,9 @@
                 <gv-col sm="6">
                   <gv-input
                     v-model="payment.info.number"
-                    v-validation.required
+                    v-validation.required="{ minLength: 16 }"
                     :label="$t('label.number')"
-                    v-mask="'#### #### #### ####'"
+                    v-mask="'################'"
                   />
                 </gv-col>
                 <gv-col sm="6">

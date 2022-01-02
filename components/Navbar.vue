@@ -4,8 +4,8 @@
       <gv-link :href="$resolve.home()">TheBookStore</gv-link>
     </template>
     <template #control>
-      <gv-navbar-item @onclick="setTheme(!dark)">
-        <gv-icon v-if="dark" value="brightness-6" />
+      <gv-navbar-item @onclick="setTheme(!theme)">
+        <gv-icon v-if="theme" value="brightness-6" />
         <gv-icon v-else value="brightness-2" />
       </gv-navbar-item>
       <gv-navbar-item
@@ -55,30 +55,44 @@ export default {
       dark: false,
     };
   },
-  computed: {
-    ...mapGetters("basket", ["count", "basket"]),
-    ...mapGetters("session", ["isAuthenticated", "user"]),
-    letter() {
-      return this.user?.name ? this.user.name[0] : "?";
-    },
-    availableLocale() {
-      return this.$i18n.locales.filter(
-        (item) => item.iso !== this.$i18n.locale
-      );
-    },
-    locale() {
-      return this.$i18n.locales[0].iso;
-    },
-    selectedLocale() {
-      return (
-        this.$i18n.locales.find((item) => item.iso === this.$i18n.locale).iso ||
-        this.locale
-      ).split("-")[0];
-    },
-  },
   beforeMount() {
     this.setTheme(this.theme);
     this.setLocale(this.locale);
+  },
+  computed: {
+    ...mapGetters("basket", ["count", "basket"]),
+    ...mapGetters("user", ["isAuthenticated", "user"]),
+    theme: {
+      set(theme) {
+        this.isAuthenticated
+          ? this.$service.user.update({ theme })
+          : (this.dark = theme);
+      },
+      get() {
+        return this.user.theme ?? this.dark;
+      },
+    },
+    locale: {
+      set(locale) {
+        this.isAuthenticated
+          ? this.$service.user.update({ locale })
+          : (this.$i18n.locale = locale);
+      },
+      get() {
+        return this.user.locale ?? this.$i18n.locale;
+      },
+    },
+    letter() {
+      return this.isAuthenticated ? this.user.person.name[0] : "?";
+    },
+    availableLocale() {
+      return this.$i18n.locales.filter((item) => item.iso !== this.locale);
+    },
+    selectedLocale() {
+      return this.$i18n.locales
+        .find((item) => item.iso === this.locale)
+        .iso.split("-")[0];
+    },
   },
   methods: {
     async signOut() {
@@ -88,18 +102,15 @@ export default {
     async signIn() {
       this.$router.push({ path: this.$resolve.login() });
     },
-    isActive(url) {
-      return new RegExp(url).test(this.$route.path);
-    },
     setLocale(locale) {
-      this.$i18n.locale = locale;
+      this.locale = locale;
       this.$router.push({ path: this.switchLocalePath(locale) });
     },
     setTheme(theme) {
-      this.dark = theme;
+      this.theme = theme;
       document.documentElement.setAttribute(
         "theme",
-        this.dark ? "dark" : "light"
+        this.theme ? "dark" : "light"
       );
     },
   },

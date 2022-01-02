@@ -1,35 +1,49 @@
 <template>
-  <gv-card :title="item.name" overflow>
+  <gv-card
+    :title="item.name"
+    class="product-book"
+    :class="{ 'sold-out': item.inStock <= 0 }"
+    overflow
+  >
     <template #content>
-      <gv-image
-        :src="$resolve.image.cover(item.id)"
-        :href="internal ? null : $resolve.book(item.slug)"
-      />
-      <ProductDiscount
-        :price="item.price"
-        :discount="item.discount"
-        :count="getCount(item.id)"
-      />
-      <gv-divider />
-    </template>
-    <template v-if="item.inStock > 0" #footer>
-      <ProductCount
-        :min="Math.min(1, item.inStock)"
-        :max="item.inStock"
-        :value="getCount(item.id)"
-        @oninput="setCount(item, ...arguments)"
-      />
-      <gv-button error v-if="inBasket(item.id)" @onclick="removeItem(item)" sm>
-        <gv-icon value="basket-remove" />
-      </gv-button>
-      <gv-button primary v-else @onclick="addItem(item)" sm>
-        <gv-icon value="basket-plus" />
-      </gv-button>
-    </template>
-    <template v-else #footer>
-      <gv-flexbox justify="center" flex>
-        {{ $t("message.feedback.not_available") }}
-      </gv-flexbox>
+      <div class="thumbnail">
+        <gv-image
+          :src="$resolve.image.cover(item.id)"
+          :href="$resolve.book(item.slug)"
+        />
+      </div>
+      <div class="side">
+        <div class="info">
+          <div class="title">{{ item.name }}</div>
+          <ProductDiscount
+            :price="item.price"
+            :discount="item.discount"
+            :count="getCount(item.id)"
+          />
+        </div>
+        <div v-if="item.inStock > 0" class="control">
+          <ProductCount
+            :min="Math.min(1, item.inStock)"
+            :max="item.inStock"
+            :value="getCount(item.id)"
+            @oninput="setCount(item, ...arguments)"
+          />
+          <gv-button
+            error
+            v-if="inBasket(item.id)"
+            @onclick="removeItem(item)"
+            sm
+          >
+            <gv-icon value="basket-remove" />
+          </gv-button>
+          <gv-button primary v-else @onclick="addItem(item)" sm>
+            <gv-icon value="basket-plus" />
+          </gv-button>
+        </div>
+        <div v-else class="control">
+          <gv-chip :label="$t('message.feedback.not_available')" sm />
+        </div>
+      </div>
     </template>
   </gv-card>
 </template>
@@ -49,34 +63,29 @@ export default {
       type: Object,
       required: true,
     },
-    internal: Boolean,
   },
   computed: {
-    ...mapGetters("basket", ["basket"]),
-    ...mapGetters("book", ["book", "books"]),
+    ...mapGetters("book", ["book"]),
   },
   methods: {
     inBasket: function (id) {
-      return this.basket.map((x) => x.bookId).indexOf(id) >= 0;
+      return this.$service.basket.exist(id);
     },
-    isFavorite: function (id) {
-      return false;
+    addItem: async function (item) {
+      const count = this.$service.book.count(item.id);
+      await this.$service.basket.insert(item.id, count);
+      this.$emit("onadd", item.name, count);
     },
-    addItem: async function (book) {
-      const count = this.books.find((x) => x.id === book.id).count ?? 1;
-      await this.$service.basket.insert(book.id, count);
-      this.$emit("onadd", book.name, count);
+    removeItem: async function (item) {
+      await this.$service.basket.delete(item.id);
+      this.$emit("onremove", item.name);
     },
-    removeItem: async function (book) {
-      await this.$service.basket.delete(book.id);
-      this.$emit("onremove", book.name);
-    },
-    setCount: async function (book, count) {
-      await this.$service.book.set(book.id, { count: count });
-      await this.$service.basket.set(book.id, count);
+    setCount: async function (item, count) {
+      await this.$service.book.set(item.id, { count: count });
+      await this.$service.basket.set(item.id, count);
     },
     getCount: function (id) {
-      return this.basket.find((x) => x.bookId === id)?.count ?? 1;
+      return this.$service.basket.count(id);
     },
   },
 };

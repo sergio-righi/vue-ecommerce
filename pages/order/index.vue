@@ -12,9 +12,6 @@
               <template #subtitle>{{ order.placementDate | utc }}</template>
               <template #content>
                 <gv-tile v-for="book in order.books" :key="book.id">
-                  <template #trailing>
-                    <gv-image :src="$resolve.image.cover(book.id)" />
-                  </template>
                   <template #content>
                     <gv-tile-header>
                       {{ book.name }}
@@ -22,6 +19,9 @@
                     <gv-tile-header sub>
                       {{ book | basket($i18n) }}
                     </gv-tile-header>
+                  </template>
+                  <template #trailing>
+                    <gv-image :src="$resolve.image.cover(book.id)" />
                   </template>
                 </gv-tile>
               </template>
@@ -46,8 +46,6 @@
 <script>
 import { NoRecord, Page } from "@/components";
 import { PageLoading } from "@/components/helper";
-
-import { mapGetters } from "vuex";
 export default {
   components: {
     NoRecord,
@@ -80,12 +78,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.gv-tile .gv-trailing {
-  height: 55px;
-}
-.gv-tile .gv-trailing .gv-image {
-  height: 100%;
-}
-</style>

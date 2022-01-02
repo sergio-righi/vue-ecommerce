@@ -17,18 +17,14 @@ const mutations: MutationTree<RootState> = {
     state.books = books;
   },
 
-  find: (state, slug) => {
-    state.book = state.books.find(x => x.slug === slug) ?? {} as Book;
-  },
-
   set: (state, { id, count }) => {
-    state.book = state.books.find(x => x.id === id) ?? {} as Book;
-    state.book = helpers.deepMerge(state.book, count);
+    let item = state.books.find(x => x.id === id) ?? {} as Book;
+    item = helpers.deepMerge(item, count);
   },
 
   put: (state, book: Book) => {
-    state.book = state.books.find(x => x.id === book.id) ?? {} as Book;
-    state.book = helpers.deepMerge(state.book, book);
+    let item = state.books.find(x => x.id === book.id) ?? {} as Book;
+    item = helpers.deepMerge(item, book);
   },
 
   clear: (state) => {
@@ -53,10 +49,6 @@ const actions: ActionTree<RootState, RootState> = {
     return this.$repository.book.all().then((response: Book[]) => {
       commit("all", response);
     });
-  },
-
-  find({ commit }, slug) {
-    commit("find", slug);
   },
 
   set({ commit }, { id, count }) {

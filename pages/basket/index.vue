@@ -5,26 +5,12 @@
         <gv-col md="8">
           <gv-card>
             <template #content>
-              <gv-tile v-for="item in items" :key="item.id">
-                <template #leading>
-                  <gv-button sm @onclick="removeItem(item)">
-                    <gv-icon class="c-pointer" value="basket-remove" />
-                  </gv-button>
-                </template>
-                <template #content>
-                  <gv-tile-header> {{ item.name }} </gv-tile-header>
-                  <gv-tile-header sub>
-                    {{ item | basket($i18n) }}
-                  </gv-tile-header>
-                </template>
-                <template #trailing>
-                  <ProductCount
-                    :max="item.inStock"
-                    :value="item.count"
-                    @oninput="setCount(item, ...arguments)"
-                  />
-                </template>
-              </gv-tile>
+              <ProductBasket
+                v-for="item in items"
+                :key="item.id"
+                :item="item"
+                @onremove="onRemove"
+              />
             </template>
           </gv-card>
         </gv-col>
@@ -95,21 +81,15 @@
       </NoRecord>
     </template>
     <template #footer>
-      <gv-snackbar
-        ref="snackbar"
-        :timeout="0"
-        :message="snackbarMessage"
-        left
-        :action="$t('action.undo')"
-        @onclick="onUndo"
-      />
+      <SnackbarUndo ref="recover" :message="recoverMessage" :on-undo="onUndo" />
     </template>
   </Page>
 </template>
 
 <script>
 import { helpers } from "@/utils";
-import { ProductCount } from "@/components/interface";
+import { ProductBasket, ProductCount } from "@/components/interface";
+import { SnackbarUndo } from "@/components/helper";
 import { NoRecord, Page } from "@/components";
 
 import { mapGetters } from "vuex";
@@ -117,6 +97,8 @@ export default {
   components: {
     NoRecord,
     ProductCount,
+    ProductBasket,
+    SnackbarUndo,
     Page,
   },
   async fetch() {
@@ -131,10 +113,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters("book", ["books"]),
-    ...mapGetters("basket", ["sum", "basket"]),
-    snackbar() {
-      return this.$refs.snackbar;
+    ...mapGetters("basket", ["sum"]),
+    recover() {
+      return this.$refs.recover.reference();
     },
     items() {
       return this.$service.basket.list();
@@ -156,25 +137,21 @@ export default {
     },
   },
   methods: {
+    onRemove: function (name) {
+      console.log(name);
+      this.recoverMessage = helpers.format(
+        this.$t("message.feedback.item_removed"),
+        name
+      );
+      this.recover.show();
+    },
     onUndo: async function () {
       await this.$service.basket.recover();
-    },
-    removeItem: async function (book) {
-      await this.$service.basket.delete(book.id);
-      this.snackbarMessage = helpers.format(
-        this.$t("message.feedback.item_removed"),
-        book.name
-      );
-      this.snackbar.show();
-    },
-    setCount: async function (book, count) {
-      // await this.$service.book.set(book.id, { count: count });
-      await this.$service.basket.set(book.id, count);
     },
   },
   data() {
     return {
-      snackbarMessage: "",
+      recoverMessage: "",
       title: this.$t("page.basket.title"),
     };
   },

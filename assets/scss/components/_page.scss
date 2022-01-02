@@ -12,17 +12,19 @@
 
     .section-title {
       @include d-flex;
+      @include flex-wrap(wrap);
       @include align-items(center);
 
       & > span {
         font-weight: 600;
         font-size: $font-size * 1.5;
+        margin-bottom: $default-distance * 0.5;
       }
 
       .section-action {
-        margin-left: auto;
+        width: 100%;
 
-        .gv-input {
+        .gv-field {
           margin: 0;
         }
       }
@@ -38,5 +40,22 @@
     @include d-flex;
     min-height: inherit;
     @include flex-direction(column);
+  }
+}
+
+@media (min-width: $media-sm) {
+  .section-page {
+    .section-header {
+      .section-title {
+        & > span {
+          margin-bottom: 0;
+        }
+
+        .section-action {
+          width: auto;
+          margin-left: auto;
+        }
+      }
+    }
   }
 }

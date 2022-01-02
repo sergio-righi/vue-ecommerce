@@ -66,12 +66,6 @@ export default {
           this.user.password
         );
         if (user) {
-          this.$service.session.login({
-            id: user.id,
-            name: user.person.name,
-            username: user.username,
-            verified: false,
-          });
           this.$router.push({ path: this.redirect ?? this.$resolve.home() });
         } else {
           this.feedback.message = this.$t("message.feedback.user_not_found");

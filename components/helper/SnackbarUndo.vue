@@ -22,7 +22,7 @@ export default {
     },
     onHide: {
       type: Function,
-      required: true,
+      default: () => {},
     },
   },
   methods: {

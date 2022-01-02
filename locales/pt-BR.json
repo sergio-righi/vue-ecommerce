@@ -3,11 +3,6 @@
     "home": {
       "title": "Início"
     },
-    "users": {
-      "title": "Usuários",
-      "create": "Novo Usuário",
-      "update": "Editar Usuário"
-    },
     "sign_up": {
       "title": "Inscrever-se",
       "has_account": "Já possui uma conta?"
@@ -46,13 +41,11 @@
   "action": {
     "agreed": "Entendi",
     "send": "Enviar",
-    "done": "Completo",
     "update": "Editar",
     "create": "Adicionar",
     "delete": "Deletar",
     "cancel": "Cancelar",
     "undo": "Desfazer",
-    "clear": "Limpar",
     "search": "Pesquisar",
     "resend": "Enviar novamente",
     "continue": "Continuar",
@@ -60,35 +53,40 @@
     "reset_filter": "Limpar filtro",
     "checkout": "Continuar para o checkout"
   },
+  "component": {
+    "product": {
+      "content_rating": "classificação indicativa",
+      "years_old": "anos",
+      "weight": "peso",
+      "page": "página | páginas",
+      "publisher": "editora",
+      "release_date": "data de lançamento",
+      "format": "formato",
+      "language": "idoma",
+      "isbn": "ISBN",
+      "dimension": "dimensão | dimensões"
+    }
+  },
   "label": {
-    "active": "Ativo",
     "address": "Endereço | Endereços",
     "billing_address": "Endereço de cobrança",
-    "birthday": "Aniversário",
     "cardholder": "Títular do cartão",
     "city": "Cidade",
-    "code": "Código",
     "count": "Quantidade",
     "country": "País",
-    "detail": "Detalhe | Detalhes",
-    "document": "Documento | Documentos",
     "email": "Email | Emails",
     "expiration_month": "Mês de expiração",
     "expiration_year": "Ano de expiração",
-    "gender": "Gênero",
-    "inactive": "Inativo",
     "item": "Item | Itens",
     "name": "Nome",
     "number": "Número",
     "password": "Senha",
     "payment_method": "Método de pagamento",
     "province": "Estado",
-    "phone": "Telefone | Telefones",
-    "resume": "Resumo",
-    "role": "Atribuição | Atribuições",
     "shipping": "Entraga",
     "shipping_address": "Endereço de entrega",
     "subtotal": "Subtotal",
+    "summary": "Resumo",
     "street": "Rua",
     "tax": "Imposto",
     "total": "Total",
@@ -97,8 +95,6 @@
     "zipcode": "Código postal"
   },
   "placeholder": {
-    "filter_by": "filtrar por {field}",
-    "select_one": "selecione uma opção",
     "search_by_name": "pesquisar por nome"
   },
   "greeting": {

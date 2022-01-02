@@ -84,7 +84,7 @@ const actions: ActionTree<RootState, RootState> = {
   clear({ commit }) {
     commit("clear");
   },
-  
+
   reset({ commit }) {
     commit("reset");
   }

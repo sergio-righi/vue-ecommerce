@@ -3,11 +3,6 @@
     "home": {
       "title": "Home"
     },
-    "users": {
-      "title": "Users",
-      "create": "Add User",
-      "update": "Edit User"
-    },
     "sign_up": {
       "title": "Sign Up",
       "has_account": "Already have an account?"
@@ -46,13 +41,11 @@
   "action": {
     "agreed": "I got it",
     "send": "Send",
-    "done": "Done",
     "update": "Edit",
     "create": "Add",
     "delete": "Delete",
     "cancel": "Cancel",
     "undo": "Undo",
-    "clear": "Clear",
     "search": "Search",
     "resend": "Send again",
     "continue": "Continue",
@@ -60,8 +53,21 @@
     "reset_filter": "Reset Filter",
     "checkout": "Proceed to Checkout"
   },
+  "component": {
+    "product": {
+      "content_rating": "content rating",
+      "years_old": "years old",
+      "weight": "weight",
+      "page": "page | pages",
+      "publisher": "publisher",
+      "release_date": "release date",
+      "format": "format",
+      "language": "language",
+      "isbn": "ISBN",
+      "dimension": "dimension | dimensions"
+    }
+  },
   "label": {
-    "active": "Active",
     "address": "Address | Addresses",
     "billing_address": "Billing Address",
     "birthday": "Birthday",
@@ -71,24 +77,19 @@
     "count": "Count",
     "country": "Country",
     "detail": "Detail | Details",
-    "document": "Document | Documents",
     "email": "Email | Emails",
     "expiration_month": "Expiration Month",
     "expiration_year": "Expiration Year",
-    "gender": "Gender",
-    "inactive": "Inactive",
     "item": "Item | Items",
     "name": "Name",
     "number": "Number",
     "password": "Password",
     "payment_method": "Payment Method",
     "province": "Province",
-    "phone": "Phone | Phones",
-    "resume": "Resume",
-    "role": "Role | Roles",
     "shipping": "Shipping",
     "shipping_address": "Shipping Address",
     "subtotal": "Subtotal",
+    "summary": "Summary",
     "street": "Street",
     "tax": "HST",
     "total": "Total",
@@ -97,8 +98,6 @@
     "zipcode": "Zipcode"
   },
   "placeholder": {
-    "filter_by": "filter by {field}",
-    "select_one": "select one",
     "search_by_name": "search by name"
   },
   "greeting": {

@@ -80,13 +80,7 @@ export default {
       try {
         await this.$service.user.insert(this.user);
         if (this.user) {
-          this.$service.session.login({
-            id: this.user.id,
-            name: this.user.person.name,
-            username: this.user.username,
-            verified: false,
-          });
-          this.$router.push({ path: this.$resolve.home() });
+          this.$router.push({ path: this.redirect ?? this.$resolve.home() });
         } else {
           this.feedback.message = this.$t("message.feedback.error");
         }

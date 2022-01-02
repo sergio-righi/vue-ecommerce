@@ -1,7 +1,6 @@
 export default ({ store, redirect, route, $resolve, $service }: any) => {
   const page = ["checkout", "order"];
-  const user = { ...store.state.session.user };
-  const isAuthenticated = Object.keys(user).length > 0;
+  const isAuthenticated = store.getters["user/isAuthenticated"];
   const matches = page.filter(item => route.path.match(item));
 
   if (!isAuthenticated && matches.length > 0) {

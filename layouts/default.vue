@@ -12,13 +12,13 @@
       <div class="content">
         <gv-container>
           <gv-flexbox align="center" justify="space-between" flex>
-            <div>
+            <gv-flexbox align="center" inline>
               {{ $t("footer.powered_by") }}
-              <gv-link href="http://gratervue.sergiorighi.com/" target="_blank">
+              <gv-link href="http://gratervue.sergiorighi.com/" target="_blank" muted>
                 GraterVue
               </gv-link>
-            </div>
-            <div>
+            </gv-flexbox>
+            <gv-flexbox align="center" inline>
               {{ $t("footer.available_at") }}
               <gv-link
                 href="https://github.com/sergio-righi/vue-ecommerce"
@@ -26,7 +26,7 @@
               >
                 <gv-icon value="github" size="1.5em" />
               </gv-link>
-            </div>
+            </gv-flexbox>
           </gv-flexbox>
         </gv-container>
       </div>
@@ -40,12 +40,5 @@ export default {
   components: {
     Navbar,
   },
-  // beforeMount() {
-  //   document.documentElement.setAttribute("theme", "dark");
-  // },
 };
 </script>
-
-<!--<style scoped lang="scss">
-@import "scss/layouts/default.scss";
-</style>-->

@@ -1,7 +1,6 @@
 import { GetterTree, ActionTree, MutationTree } from 'vuex';
 
 const state = () => ({
-  user: null as any,
   feedback: null as any,
   redirect: null as any,
 });
@@ -14,12 +13,9 @@ const mutations: MutationTree<RootState> = {
     state.feedback = feedback;
   },
 
-  login(state, user: any) {
-    state.user = user;
-  },
-
   logout(state) {
-    state.user = null;
+    state.redirect = null;
+    state.feedback = null;
   },
 
   redirect(state, path: any) {
@@ -33,26 +29,20 @@ const mutations: MutationTree<RootState> = {
 };
 
 const getters: GetterTree<RootState, RootState> = {
-  user: state => state.user,
-  feedback: state => state.feedback,
-  isAuthenticated: state => !!state.user
+  feedback: state => state.feedback
 };
 
 const actions: ActionTree<RootState, RootState> = {
-
-  login({ commit }, user) {
-    commit("login", user);
-  },
 
   logout({ commit }) {
     commit("logout");
   },
 
-  redirect({ commit }, path) {
+  redirect({ commit }, path: any) {
     commit("redirect", path);
   },
 
-  feedback({ commit }, feedback) {
+  feedback({ commit }, feedback: any) {
     commit("feedback", feedback);
   },
 

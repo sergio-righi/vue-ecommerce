@@ -17,16 +17,19 @@ export const BookService = (store: any) => ({
   },
 
   find(slug: string): Book {
-    store.dispatch("book/find", slug);
-    return { ...store.state.book.book };
+    return store.state.book.books.find((x: Book) => x.slug === slug);
   },
 
   clear() {
     store.dispatch("book/clear");
   },
-  
+
   reset() {
     store.dispatch("book/reset");
+  },
+
+  count(id: string) {
+    return store.state.book.books.find((x: Book) => x.id === id)?.count ?? 1;
   },
 
   filtered({ name }: any, page: number, count: number): { list: Book[], count: number } {

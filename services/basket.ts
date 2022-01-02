@@ -35,6 +35,14 @@ export const BasketService = (store: any, i18n: any) => ({
     store.dispatch("basket/reset");
   },
 
+  count(id: string) {
+    return store.state.basket.basket.find((x: Item) => x.bookId === id)?.count ?? 1;
+  },
+
+  exist(id: string): boolean {
+    return store.state.basket.basket.find((x: Item) => x.bookId === id) !== undefined;
+  },
+
   validate(): boolean {
     const books = store.state.book.books;
     for (const item of store.state.basket.basket) {

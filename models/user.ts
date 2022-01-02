@@ -8,8 +8,9 @@ interface IUser {
     password?: string;
     following: Array<string>;
     person: Person;
-    payments: Array<string>;
     roles: Array<EnumRole>;
+    theme: boolean;
+    locale: string;
     createdAt: number;
     deleted: boolean;
 }
@@ -20,19 +21,21 @@ class User implements IUser {
     password?: string;
     following: string[];
     person: Person;
-    payments: string[];
     roles: EnumRole[];
+    theme: boolean;
+    locale: string;
     createdAt: number;
     deleted: boolean;
 
-    constructor(o: IUser = { _id: helpers.generateId(), following: [], person: new Person(), payments: [], roles: [], createdAt: new Date().getTime(), deleted: false }) {
+    constructor(o: IUser = { _id: helpers.generateId(), following: [], person: new Person(), roles: [], theme: false, locale: "en-CA", createdAt: new Date().getTime(), deleted: false }) {
         this.id = o._id;
         this.username = o.username;
         this.password = o.password;
         this.following = o.following;
         this.person = o.person;
-        this.payments = o.payments;
         this.roles = o.roles;
+        this.theme = o.theme;
+        this.locale = o.locale;
         this.createdAt = o.createdAt;
         this.deleted = o.deleted;
     }

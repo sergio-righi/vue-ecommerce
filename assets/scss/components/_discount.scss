@@ -4,7 +4,7 @@
   @include d-flex;
   @include align-items(center);
   @include justify-content(center);
-  padding: $default-distance * 0.5 $default-distance;
+  padding: $default-distance * 0.5;
 
   & > span {
     &.currency {

@@ -14,14 +14,16 @@ const mutations: MutationTree<RootState> = {
 
   add(state, user: User) {
     state.users.push(user);
+    state.user = user;
   },
 
   put(state, props: any) {
+    state.user = state.users.find((user: User) => user.id === state.user.id) as User;
     state.user = helpers.deepMerge(state.user, props);
   },
 
   set(state, id: string) {
-    state.user = state.users.find(user => user.id === id) ?? {} as User;
+    state.user = state.users.find((user: User) => user.id === id) as User;
   },
 
   clear(state) {
@@ -35,7 +37,8 @@ const mutations: MutationTree<RootState> = {
 
 const getters: GetterTree<RootState, RootState> = {
   users: (state): User[] => state.users,
-  user: (state): User => state.user
+  user: (state): User => state.user,
+  isAuthenticated: (state): boolean => Object.keys(state.user).length !== 0
 };
 
 const actions: ActionTree<RootState, RootState> = {
@@ -55,7 +58,7 @@ const actions: ActionTree<RootState, RootState> = {
   clear({ commit }) {
     commit("clear");
   },
-  
+
   reset({ commit }) {
     commit("reset");
   }

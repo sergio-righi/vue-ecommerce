@@ -2,18 +2,15 @@
 export const SessionService = (store: any) => ({
 
   user() {
-    return store.state.session.user.id;
+    return store.state.user.id;
   },
 
   feedback(message: string, error: boolean = false) {
     store.dispatch("session/feedback", { message, error });
   },
 
-  login(user: Object) {
-    store.dispatch("session/login", user);
-  },
-
   logout() {
+    store.dispatch("user/clear");
     store.dispatch("session/logout");
   },
 

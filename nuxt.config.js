@@ -18,7 +18,14 @@ export default {
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/favicon.ico",
+        crossorigin: "anonymous",
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -33,7 +40,8 @@ export default {
     "~/plugins/service",
     "~/plugins/repository",
     "~/plugins/grater-vue",
-    { src: "~/plugins/vuex-persist", ssr: false },
+    "~/plugins/vuex-persist.client",
+    "~/plugins/multi-tab-state.client",
   ],
 
   pageTransition: "page",

@@ -33,6 +33,11 @@
   flex-direction: $property;
 }
 
+@mixin flex-wrap($property...) {
+  flex-wrap: $property;
+  -ms-flex-wrap: $property;
+}
+
 @mixin transition($property...) {
   transition: $property;
   -o-transition: $property;
@@ -57,4 +62,11 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+@mixin user-select-none {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }

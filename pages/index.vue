@@ -10,7 +10,7 @@
           :key="item.id"
           xs="6"
           sm="4"
-          md="2"
+          md="3"
         >
           <ProductBook :item="item" @onadd="onAdd" @onremove="onRemove" />
         </gv-col>

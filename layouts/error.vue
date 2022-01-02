@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <component :is="errorPage" :error="error" :bg="background" />
-    {{ error }}
-  </div>
+  <component :is="errorPage" :error="error" :bg="background" />
 </template>
 
 <script>
