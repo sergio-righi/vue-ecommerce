@@ -8,7 +8,7 @@
         <gv-col>
           <gv-card class="product-item">
             <template #content>
-              <ProductBasket :item="book" @onremove="onRemove" />
+              <ProductBasket :item="book" @onremove="onRemove" @onadd="onAdd" />
               <gv-divider />
               <div class="item-content">
                 <gv-image :src="$resolve.image.cover(book.id)" />
@@ -188,6 +188,9 @@ export default {
     };
   },
   methods: {
+    onAdd: function() {
+      this.recover.hide();
+    },
     onRemove: function (name) {
       this.recoverMessage = helpers.format(
         this.$t("message.feedback.item_removed"),

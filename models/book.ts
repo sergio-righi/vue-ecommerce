@@ -1,4 +1,4 @@
-import { Dimension } from "@/models";
+import { Dimension, Review } from "@/models";
 import { helpers } from "@/utils";
 import { EnumBook } from "@/utils/enums";
 
@@ -17,7 +17,7 @@ interface IBook {
   releaseDate?: number;
   isbn?: string;
   dimension: Dimension
-  reviews: Array<string>;
+  reviews: Array<Review>;
   genres: Array<number>;
   slug: string;
   deleted: boolean;
@@ -38,12 +38,12 @@ class Book implements IBook {
   releaseDate?: number;
   isbn?: string;
   dimension: Dimension;
-  reviews: string[];
+  reviews: Review[];
   genres: number[];
   slug: string;
   deleted: boolean;
 
-  constructor(o: IBook = { _id: helpers.generateId(), name: "", authors: [], type: EnumBook.physical, price: 0, discount: 0, inStock: 0, dimension: new Dimension(), reviews: [], genres: [], slug: "", deleted: false }) {
+  constructor(o: IBook = { _id: helpers.generateId(), name: "", authors: [], type: EnumBook.physical, price: 0, discount: 0, inStock: 0, dimension: new Dimension(), reviews: [] as Review[], genres: [], slug: "", deleted: false }) {
     this.id = o._id;
     this.name = o.name;
     this.description = o.description;

@@ -93,13 +93,13 @@ export default {
       this.disclaimer.close();
     },
     onReset: async function () {
+      this.$router.push(this.$resolve.home());
       await this.$service.book.reset();
       await this.$service.order.reset();
       await this.$service.basket.reset();
       setTimeout(async () => {
         await this.$service.book.all();
       }, 300);
-      this.$router.go();
     },
   },
 };

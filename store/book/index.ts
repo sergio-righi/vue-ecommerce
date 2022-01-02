@@ -22,9 +22,9 @@ const mutations: MutationTree<RootState> = {
     item = helpers.deepMerge(item, count);
   },
 
-  put: (state, book: Book) => {
-    let item = state.books.find(x => x.id === book.id) ?? {} as Book;
-    item = helpers.deepMerge(item, book);
+  put: (state, { id, props }) => {
+    let item = state.books.find(x => x.id === id) ?? {} as Book;
+    item = helpers.deepMerge(item, props);
   },
 
   clear: (state) => {
@@ -55,8 +55,8 @@ const actions: ActionTree<RootState, RootState> = {
     commit("set", { id, count });
   },
 
-  put({ commit }, book) {
-    commit("put", book);
+  put({ commit }, { id, props }) {
+    commit("put", { id, props });
   },
 
   clear({ commit }) {

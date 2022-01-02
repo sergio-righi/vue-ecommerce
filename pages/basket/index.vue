@@ -10,6 +10,7 @@
                 :key="item.id"
                 :item="item"
                 @onremove="onRemove"
+                @onadd="onAdd"
               />
             </template>
           </gv-card>
@@ -65,7 +66,7 @@
               <gv-divider />
             </template>
             <template #footer>
-              <gv-button primary fit :href="$resolve.checkout()">
+              <gv-button primary stretch :href="$resolve.checkout()">
                 {{ $t("action.checkout") }}
               </gv-button>
             </template>
@@ -137,8 +138,10 @@ export default {
     },
   },
   methods: {
+    onAdd: function () {
+      this.recover.hide();
+    },
     onRemove: function (name) {
-      console.log(name);
       this.recoverMessage = helpers.format(
         this.$t("message.feedback.item_removed"),
         name

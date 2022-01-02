@@ -29,7 +29,7 @@ class User implements IUser {
     createdAt: number;
     deleted: boolean;
 
-    constructor(o: IUser = { _id: helpers.generateId(), following: [], wishlist: [], person: new Person(), roles: [], theme: false, locale: "en-CA", createdAt: new Date().getTime(), deleted: false }) {
+    constructor(o: IUser = { _id: helpers.generateId(), following: [], wishlist: [], person: new Person(), roles: [], theme: false, locale: "en-CA", createdAt: Date.now(), deleted: false }) {
         this.id = o._id;
         this.username = o.username;
         this.password = o.password;

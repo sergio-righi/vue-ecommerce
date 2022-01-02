@@ -19,7 +19,10 @@ const mutations: MutationTree<RootState> = {
   },
 
   add: (state, { id, count }) => {
-    state.basket.push(new Item({ bookId: id, count: count, discount: 0, price: 0 }));
+    const item = state.basket.find(x => x.bookId === id);
+    if (!item) {
+      state.basket.push(new Item({ bookId: id, count: count, discount: 0, price: 0 }));
+    }
   },
 
   put: (state, item: Item) => {

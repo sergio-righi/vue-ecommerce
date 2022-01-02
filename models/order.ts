@@ -33,7 +33,7 @@ class Order implements IOrder {
     completedDate?: number;
     books: Item[];
 
-    constructor(o: IOrder = { _id: helpers.generateId(), placementDate: helpers.toUTC(new Date()), status: EnumStatus.pending, discount: 0, books: [] }) {
+    constructor(o: IOrder = { _id: helpers.generateId(), placementDate: Date.now(), status: EnumStatus.cancelled, discount: 0, books: [] }) {
         this.id = o._id;
         this.userId = o.userId;
         this.couponId = o.couponId;

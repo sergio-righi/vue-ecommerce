@@ -1,4 +1,4 @@
-import { Book } from "@/models";
+import { Book, Review } from "@/models";
 
 export const BookService = (store: any) => ({
 
@@ -8,8 +8,8 @@ export const BookService = (store: any) => ({
     }
   },
 
-  update(book: Book) {
-    store.dispatch("book/put", book);
+  update(id: string, props: any) {
+    store.dispatch("book/put", { id, props });
   },
 
   set(id: string, count: any) {
@@ -30,6 +30,21 @@ export const BookService = (store: any) => ({
 
   count(id: string) {
     return store.state.book.books.find((x: Book) => x.id === id)?.count ?? 1;
+  },
+
+  review(id: string) {
+    const userId = store.state.user.user.id ?? "";
+    const reviews = store.state.book.books.find((x: Book) => x.id === id)?.reviews ?? [] as Review[];
+    const user = reviews.find((x: Review) => x.id === userId)?.rating;
+    const sum = reviews.reduce((a: number, b: Review) => a + (b.rating ?? 0), 0);
+    const count = reviews.length;
+    return { sum, count, user, ratio: count > 0 ? sum / count : 0 };
+  },
+
+  setReview(id: string, value: number) {
+    const userId = store.state.user.user.id;
+    const reviews = store.state.book.books.find((x: Book) => x.id === id)?.reviews?.filter((x: Review) => x.id !== userId) ?? [] as Review[];
+    this.update(id, { reviews: [{ id: userId, rating: value }, ...reviews] });
   },
 
   filtered({ name }: any, page: number, count: number): { list: Book[], count: number } {

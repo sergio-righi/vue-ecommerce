@@ -59,7 +59,7 @@ function masked(value: string) {
 }
 
 function timestamp(value: number, locale = "en") {
-  return new Date(value * 1000).toLocaleDateString(locale, {
+  return new Date(value).toLocaleDateString(locale, {
     year: "numeric",
     month: "long",
     day: "numeric"

@@ -1,19 +1,21 @@
 <template>
   <gv-tile>
-    <!-- <template #leading>
-      <gv-image :src="$resolve.image.cover(item.id)" />
-    </template> -->
     <template #content>
       <gv-tile-header>
         {{ item.name }}
       </gv-tile-header>
       <gv-tile-header>
-        <ProductCount
-          :min="Math.min(1, item.inStock)"
-          :max="item.inStock"
-          :value="getCount(item.id)"
-          @oninput="setCount(item, ...arguments)"
-        />
+        <gv-flexbox align="center">
+          <gv-gap>
+            <ProductCount
+              :min="Math.min(1, item.inStock)"
+              :max="item.inStock"
+              :value="getCount(item.id)"
+              @oninput="setCount(item, ...arguments)"
+            />
+            <ProductRating :item="item" :key="item.id" />
+          </gv-gap>
+        </gv-flexbox>
       </gv-tile-header>
     </template>
     <template #trailing>
@@ -42,12 +44,14 @@
 <script>
 import { default as ProductCount } from "./ProductCount.vue";
 import { default as ProductDiscount } from "./ProductDiscount.vue";
+import { default as ProductRating } from "./ProductRating.vue";
 
 import { mapGetters } from "vuex";
 export default {
   components: {
     ProductCount,
     ProductDiscount,
+    ProductRating,
   },
   props: {
     item: {

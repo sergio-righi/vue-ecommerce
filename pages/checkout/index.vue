@@ -119,7 +119,7 @@
             </template>
             <template #footer>
               <form v-if="canSubmit" @submit.prevent="onSubmit">
-                <gv-button submit primary fit>
+                <gv-button submit primary stretch>
                   {{ $t("action.order") }}
                 </gv-button>
               </form>

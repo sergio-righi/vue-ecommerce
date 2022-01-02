@@ -1,0 +1,11 @@
+@use "../utils/index" as *;
+
+.product-rating {
+  @include d-inline-flex;
+  @include align-items(center);
+
+  & > small {
+    font-size: $font-size * 0.875;
+    margin-left: $default-distance * 0.5;
+  }
+}

@@ -6,30 +6,48 @@
     <template v-else-if="orders.length" #content>
       <gv-row>
         <gv-col>
-          <gv-collapse arrow>
-            <gv-collapse-item v-for="order in orders" :key="order.id">
-              <template #title>#{{ generateOrderId(order.id) }}</template>
-              <template #subtitle>{{ order.placementDate | utc }}</template>
-              <template #content>
-                <gv-tile v-for="book in order.books" :key="book.id">
-                  <template #content>
-                    <gv-tile-header>
-                      {{ book.name }}
-                    </gv-tile-header>
-                    <gv-tile-header sub>
-                      {{ book | basket($i18n) }}
-                    </gv-tile-header>
-                  </template>
-                  <template #trailing>
-                    <gv-image :src="$resolve.image.cover(book.id)" />
-                  </template>
-                </gv-tile>
-              </template>
-              <template #trailing>
-                <gv-chip :label="$t($enum.mapper.status[order.status])" />
-              </template>
-            </gv-collapse-item>
-          </gv-collapse>
+          <gv-card>
+            <template #content>
+              <gv-tile v-for="order in orders" :key="order.id">
+                <template #leading>
+                  <gv-avatar sm bg="gray">
+                    {{ order.books.reduce((a, b) => a + b.count, 0) }}x
+                  </gv-avatar>
+                </template>
+                <template #content>
+                  <gv-tile-header>
+                    #{{ generateOrderId(order.id) }}
+                  </gv-tile-header>
+                  <gv-tile-header sub>
+                    {{ order.placementDate | timestamp }}
+                  </gv-tile-header>
+                </template>
+                <template #trailing>
+                  <gv-chip sm>
+                    <template #content>
+                      {{ $t(`${$enum.mapper.status[order.status]}`) }}
+                    </template>
+                  </gv-chip>
+                </template>
+                <template #expandable>
+                  <gv-divider />
+                  <gv-tile v-for="book in order.books" :key="book.id">
+                    <template #content>
+                      <gv-tile-header>
+                        {{ book.name }}
+                      </gv-tile-header>
+                      <gv-tile-header sub>
+                        {{ book | basket($i18n) }}
+                      </gv-tile-header>
+                    </template>
+                    <template #trailing>
+                      <gv-image :src="$resolve.image.cover(book.id)" />
+                    </template>
+                  </gv-tile>
+                </template>
+              </gv-tile>
+            </template>
+          </gv-card>
         </gv-col>
       </gv-row>
     </template>
@@ -73,9 +91,9 @@ export default {
     };
   },
   methods: {
-    generateOrderId: function(id) {
+    generateOrderId: function (id) {
       return helpers.generateOrderId(id);
-    }
+    },
   },
   head() {
     return {

@@ -10,6 +10,7 @@ import Item from "./item";
 import Order from "./order";
 import Payment from "./payment";
 import Person from "./person";
+import Review from "./review";
 import User from "./user";
 
-export { Address, Author, Book, Card, Coupon, Dimension, Document, Item, Order, Payment, Person, User };
+export { Address, Author, Book, Card, Coupon, Dimension, Document, Item, Order, Payment, Person, Review, User };
