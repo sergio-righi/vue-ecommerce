@@ -58,6 +58,15 @@
   -webkit-border-radius: $property;
 }
 
+@mixin line-clamp($property...) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $property;
+  line-clamp: $property;
+  -webkit-box-orient: vertical;
+}
+
 @mixin appearance-none {
   -webkit-appearance: none;
   -moz-appearance: none;

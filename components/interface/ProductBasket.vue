@@ -1,8 +1,8 @@
 <template>
   <gv-tile>
-    <template #leading>
+    <!-- <template #leading>
       <gv-image :src="$resolve.image.cover(item.id)" />
-    </template>
+    </template> -->
     <template #content>
       <gv-tile-header>
         {{ item.name }}
@@ -24,14 +24,14 @@
           :count="getCount(item.id)"
         />
         <gv-button
-          error
           v-if="inBasket(item.id)"
-          @onclick="removeItem(item)"
           sm
+          error
+          @onclick="removeItem(item)"
         >
           <gv-icon value="basket-remove" />
         </gv-button>
-        <gv-button primary v-else @onclick="addItem(item)" sm>
+        <gv-button v-else primary @onclick="addItem(item)" sm>
           <gv-icon value="basket-plus" />
         </gv-button>
       </gv-gap>

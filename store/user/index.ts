@@ -38,6 +38,7 @@ const mutations: MutationTree<RootState> = {
 const getters: GetterTree<RootState, RootState> = {
   users: (state): User[] => state.users,
   user: (state): User => state.user,
+  wishlist: (state): string[] => state.user?.wishlist ?? [],
   isAuthenticated: (state): boolean => Object.keys(state.user).length !== 0
 };
 

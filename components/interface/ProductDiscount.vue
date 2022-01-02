@@ -1,12 +1,14 @@
 <template>
   <div class="product-discount">
     <span class="currency">{{ currency }}</span>
-    <span class="price" :class="{ crossed: hasDiscount }">
-      {{ regularPrice | money }}
-    </span>
-    <span class="discount" v-if="hasDiscount">
-      {{ reducedPrice | money }}
-    </span>
+    <div class="wrapper">
+      <span class="price" :class="{ crossed: hasDiscount }">
+        {{ regularPrice | money }}
+      </span>
+      <span v-if="hasDiscount" class="discount">
+        {{ reducedPrice | money }}
+      </span>
+    </div>
   </div>
 </template>
 

@@ -9,8 +9,8 @@
           v-for="item in filtered.list"
           :key="item.id"
           xs="6"
-          sm="4"
-          md="3"
+          md="4"
+          lg="3"
         >
           <ProductBook :item="item" @onadd="onAdd" @onremove="onRemove" />
         </gv-col>
@@ -55,15 +55,6 @@
       </form>
     </template>
     <template #footer>
-      <gv-fab>
-        <template #control>
-          <gv-icon
-            value="reload"
-            v-tooltip="$t('tooltip.reset')"
-            @onclick="onReset"
-          />
-        </template>
-      </gv-fab>
       <gv-snackbar ref="snackbar" :message="snackbarMessage" left />
     </template>
   </Page>
@@ -101,9 +92,6 @@ export default {
     snackbar() {
       return this.$refs.snackbar;
     },
-    disclaimer() {
-      return this.$refs.disclaimer;
-    },
     filtered() {
       return this.$service.book.filtered(
         this.filter,
@@ -127,14 +115,6 @@ export default {
       this.page = 1;
       this.filter = helpers.toDictionary(event.target);
     },
-    onReset: async function () {
-      await this.$service.book.reset();
-      await this.$service.order.reset();
-      await this.$service.basket.reset();
-      setTimeout(async () => {
-        await this.$service.book.all();
-      }, 300);
-    },
     onAdd: function (name, count) {
       this.snackbarMessage = helpers.format(
         this.$t("message.feedback.item_added"),
@@ -149,9 +129,6 @@ export default {
         name
       );
       this.snackbar.show();
-    },
-    onDismiss: function () {
-      this.disclaimer.close();
     },
   },
   data() {

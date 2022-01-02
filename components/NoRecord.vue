@@ -1,7 +1,7 @@
 <template>
   <div class="no-record-container">
     <div class="no-record-icon">
-      <slot name="icon" v-if="hasIcon" />
+      <slot v-if="hasIcon" name="icon" />
       <gv-icon v-else value="database-search-outline" />
     </div>
     <div class="no-record-description">

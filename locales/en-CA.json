@@ -39,7 +39,7 @@
     }
   },
   "action": {
-    "agreed": "I got it",
+    "agreed": "Understood",
     "send": "Send",
     "update": "Edit",
     "create": "Add",
@@ -55,7 +55,7 @@
   },
   "component": {
     "product": {
-      "content_rating": "content rating",
+      "content_rating": "rating",
       "years_old": "years old",
       "weight": "weight",
       "page": "page | pages",
@@ -222,14 +222,14 @@
     "duplicate": "already exists"
   },
   "footer": {
-    "disclaimer": {
-      "title": "Disclaimer",
-      "message": "This application is strictly for demo purposes and is not intended to be used for commercial applications. All the information presented here is not real and all the actions performed are STORED LOCALLY on user's browser ONLY."
-    },
     "powered_by": "This application is powered by",
     "available_at": "Check it out on"
   },
   "tooltip": {
     "reset": "Reset"
+  },
+  "disclaimer": {
+    "title": "Disclaimer",
+    "message": "This application is strictly for demo purposes and it is not intended to be used for commercial applications. All the information presented here is FAKE and all the actions performed are STORED LOCALLY on user's browser ONLY."
   }
 }

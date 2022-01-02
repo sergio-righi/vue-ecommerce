@@ -19,7 +19,7 @@
             <template #content>
               <gv-tile>
                 <template #content>
-                  <gv-tile-header>{{ $tc("label.resume") }}</gv-tile-header>
+                  <gv-tile-header>{{ $tc("label.summary") }}</gv-tile-header>
                   <gv-tile-header sub>
                     {{ $t("message.basket.check_detail") }}
                   </gv-tile-header>

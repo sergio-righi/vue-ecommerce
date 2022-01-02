@@ -100,10 +100,10 @@
                   />
                 </gv-col>
                 <gv-col sm="2">
-                  <gv-button submit primary fit lg v-if="isUpdate">
+                  <gv-button v-if="isUpdate" submit primary fit lg>
                     {{ $t("action.update") }} <gv-icon value="pencil" />
                   </gv-button>
-                  <gv-button submit primary fit lg v-else>
+                  <gv-button v-else submit primary fit lg>
                     {{ $t("action.create") }} <gv-icon value="plus" />
                   </gv-button>
                 </gv-col>

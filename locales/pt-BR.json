@@ -55,12 +55,12 @@
   },
   "component": {
     "product": {
-      "content_rating": "classificação indicativa",
+      "content_rating": "classificação",
       "years_old": "anos",
       "weight": "peso",
       "page": "página | páginas",
       "publisher": "editora",
-      "release_date": "data de lançamento",
+      "release_date": "lançamento",
       "format": "formato",
       "language": "idoma",
       "isbn": "ISBN",
@@ -219,14 +219,14 @@
     "duplicate": "já existe"
   },
   "footer": {
-    "disclaimer": {
-      "title": "Isenção de responsabilidade",
-      "message": "Este aplicativo é estritamente para fins de demonstração e não se destina a ser usado para aplicações comerciais. Todas as informações apresentadas aqui não são reais e todas as ações realizadas são ARMAZENADAS LOCALMENTE no navegador do usuário."
-    },
     "powered_by": "Este aplicativo é desenvolvido com",
     "available_at": "Confira em"
   },
   "tooltip": {
     "reset": "Reiniciar"
+  },
+  "disclaimer": {
+    "title": "Isenção de responsabilidade",
+    "message": "Este aplicativo é estritamente para fins de demonstração e não se destina a ser usado para aplicações comerciais. Todas as informações apresentadas aqui NÃO são reais e todas as ações realizadas são ARMAZENADAS LOCALMENTE no navegador do usuário."
   }
 }

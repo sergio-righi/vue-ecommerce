@@ -27,9 +27,22 @@ export const UserService = (store: any) => ({
   clear() {
     store.dispatch("user/clear");
   },
-  
+
   reset() {
     store.dispatch("user/reset");
+  },
+
+  inWishlist(id: string) {
+    return store.getters["user/wishlist"].includes(id);
+  },
+
+  manageWishlist(id: string) {
+    const wishlist = store.getters["user/wishlist"];
+    if (this.inWishlist(id)) {
+      this.update({ wishlist: [...wishlist.filter((x: string) => x !== id)] });
+    } else {
+      this.update({ wishlist: [id, ...wishlist] });
+    }
   }
 
 });

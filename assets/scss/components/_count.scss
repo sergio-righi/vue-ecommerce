@@ -6,7 +6,6 @@
   @include align-items(center);
   @include border-radius($border-radius);
   border: 1px solid var(--gv-color-border);
-  background-color: var(--gv-secondary-light);
 
   input {
     border: 0;

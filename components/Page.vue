@@ -1,21 +1,21 @@
 <template>
   <section class="section-page">
-    <section class="section-header" v-if="hasTitle || hasHeader">
-      <div class="section-title" v-if="hasTitle || hasAction">
+    <section v-if="hasTitle || hasHeader" class="section-header">
+      <div v-if="hasTitle || hasAction" class="section-title">
         <span>{{ title }}</span>
-        <div class="section-action" v-if="hasAction">
+        <div v-if="hasAction" class="section-action">
           <slot name="action" />
         </div>
       </div>
       <slot name="header" />
     </section>
-    <section class="section-filter" v-if="hasFilter">
+    <section v-if="hasFilter" class="section-filter">
       <slot name="filter" />
     </section>
-    <section class="section-content" v-if="hasContent">
+    <section v-if="hasContent" class="section-content">
       <slot name="content" />
     </section>
-    <section class="section-footer" v-if="hasFooter">
+    <section v-if="hasFooter" class="section-footer">
       <slot name="footer" />
     </section>
   </section>

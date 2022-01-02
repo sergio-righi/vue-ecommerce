@@ -8,7 +8,7 @@
         <gv-col>
           <gv-collapse arrow>
             <gv-collapse-item v-for="order in orders" :key="order.id">
-              <template #title>#{{ order.id }}</template>
+              <template #title>#{{ generateOrderId(order.id) }}</template>
               <template #subtitle>{{ order.placementDate | utc }}</template>
               <template #content>
                 <gv-tile v-for="book in order.books" :key="book.id">
@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import { helpers } from "@/utils";
 import { NoRecord, Page } from "@/components";
 import { PageLoading } from "@/components/helper";
 export default {
@@ -70,6 +71,11 @@ export default {
     return {
       title: this.$t("page.order.title"),
     };
+  },
+  methods: {
+    generateOrderId: function(id) {
+      return helpers.generateOrderId(id);
+    }
   },
   head() {
     return {

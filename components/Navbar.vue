@@ -40,7 +40,7 @@
           </template>
         </gv-dropdown>
       </gv-navbar-item>
-      <gv-navbar-item @onclick="signIn" v-else>
+      <gv-navbar-item v-else @onclick="signIn">
         <gv-icon value="account-circle" />
       </gv-navbar-item>
     </template>

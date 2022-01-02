@@ -1,13 +1,13 @@
 <template>
   <div class="product-info">
     <div class="wrapper">
-      <div class="title" v-if="hasTitle">
+      <div v-if="hasTitle" class="title">
         <slot name="title" />
       </div>
-      <div class="icon" v-if="hasIcon">
+      <div v-if="hasIcon" class="icon">
         <slot name="icon" />
       </div>
-      <div class="footnote" v-if="hasFootnote">
+      <div v-if="hasFootnote" class="footnote">
         <slot name="footnote" />
       </div>
     </div>

@@ -41,18 +41,19 @@ export default {
     "~/plugins/repository",
     "~/plugins/grater-vue",
     "~/plugins/vuex-persist.client",
-    "~/plugins/multi-tab-state.client",
   ],
 
   pageTransition: "page",
 
   loading: { color: "white" },
 
-  loadingIndicator: {
-    name: "circle",
-    color: "black",
-    background: "white",
-  },
+  loadingIndicator: false,
+
+  // loadingIndicator: {
+  //   name: "circle",
+  //   color: "black",
+  //   background: "white",
+  // },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: false,

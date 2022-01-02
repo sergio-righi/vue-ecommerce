@@ -6,6 +6,7 @@ interface IUser {
     _id?: string;
     username?: string;
     password?: string;
+    wishlist: Array<string>;
     following: Array<string>;
     person: Person;
     roles: Array<EnumRole>;
@@ -19,6 +20,7 @@ class User implements IUser {
     id?: string;
     username?: string;
     password?: string;
+    wishlist: string[];
     following: string[];
     person: Person;
     roles: EnumRole[];
@@ -27,11 +29,12 @@ class User implements IUser {
     createdAt: number;
     deleted: boolean;
 
-    constructor(o: IUser = { _id: helpers.generateId(), following: [], person: new Person(), roles: [], theme: false, locale: "en-CA", createdAt: new Date().getTime(), deleted: false }) {
+    constructor(o: IUser = { _id: helpers.generateId(), following: [], wishlist: [], person: new Person(), roles: [], theme: false, locale: "en-CA", createdAt: new Date().getTime(), deleted: false }) {
         this.id = o._id;
         this.username = o.username;
         this.password = o.password;
         this.following = o.following;
+        this.wishlist = o.wishlist;
         this.person = o.person;
         this.roles = o.roles;
         this.theme = o.theme;

@@ -32,7 +32,7 @@
             <template #content>
               <gv-tile>
                 <template #content>
-                  <gv-tile-header>{{ $tc("label.resume") }}</gv-tile-header>
+                  <gv-tile-header>{{ $tc("label.summary") }}</gv-tile-header>
                   <gv-tile-header sub>
                     {{ $t("message.basket.check_detail") }}
                   </gv-tile-header>
@@ -118,7 +118,7 @@
               <gv-divider />
             </template>
             <template #footer>
-              <form @submit.prevent="onSubmit" v-if="canSubmit">
+              <form v-if="canSubmit" @submit.prevent="onSubmit">
                 <gv-button submit primary fit>
                   {{ $t("action.order") }}
                 </gv-button>
@@ -173,9 +173,8 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("book", ["book", "books"]),
-    ...mapGetters("user", ["user", "users"]),
-    ...mapGetters("basket", ["sum", "basket"]),
+    ...mapGetters("user", ["user"]),
+    ...mapGetters("basket", ["sum"]),
     canSubmit() {
       return this.shippingAddress && this.paymentMethod;
     },

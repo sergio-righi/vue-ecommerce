@@ -3,31 +3,38 @@
 .product-discount {
   @include d-flex;
   @include align-items(center);
-  @include justify-content(center);
-  padding: $default-distance * 0.5;
+  @include justify-content(flex-end);
 
-  & > span {
-    &.currency {
+  & > .currency {
+    margin-top: auto;
+    line-height: 1.5;
+    font-size: $font-size * 0.875;
+    margin-right: $default-distance * 0.5;
+  }
+
+  & > .wrapper {
+    @include d-flex;
+    @include flex-direction(column);
+    @include justify-content(flex-end);
+
+    & > .price {
       font-weight: 500;
-      font-size: $font-size * 0.875;
-      margin-right: $default-distance * 0.5;
-    }
-
-    &.price {
-      font-weight: 600;
-      font-size: $font-size * 1.5;
+      line-height: initial;
+      font-size: $font-size * 1.25;
 
       &.crossed {
+        line-height: 1;
         font-weight: 300;
-        font-size: $font-size * 0.875;
+        text-align: right;
+        font-size: $font-size * 0.75;
         text-decoration: line-through;
-        margin-right: $default-distance * 0.5;
       }
     }
 
-    &.discount {
-      font-weight: 900;
-      color: var(--gv-accent);
+    & > .discount {
+      font-weight: 500;
+      line-height: initial;
+      color: var(--gv-primary);
       font-size: $font-size * 1.5;
     }
   }

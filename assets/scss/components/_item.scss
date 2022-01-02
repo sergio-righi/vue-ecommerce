@@ -1,0 +1,16 @@
+@use "../utils/index" as *;
+
+.product-item {
+  .item-content {
+    & > *:first-child {
+      float: left;
+      width: 150px;
+      margin-right: $default-distance * 1.5;
+      @include border-radius($border-radius !important);
+    }
+
+    & > *:last-child {
+      margin: 0 auto;
+    }
+  }
+}
