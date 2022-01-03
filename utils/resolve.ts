@@ -5,6 +5,7 @@ const controller = {
   checkout: '/checkout/',
   home: '/',
   login: '/sign_in/',
+  subscribe: '/sign_up/',
   order: '/order/'
 }
 
@@ -28,6 +29,10 @@ const Resolve = (localePath: Function) => ({
 
   login: (...args: any[]) => {
     return localePath({ path: controller.login + args.join('/') });
+  },
+
+  subscribe: (...args: any[]) => {
+    return localePath({ path: controller.subscribe + args.join('/') });
   },
 
   order: (...args: any[]) => {

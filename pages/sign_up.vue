@@ -29,7 +29,7 @@
           <Email v-model="user.email" />
         </gv-col>
         <gv-col>
-          <gv-button submit primary fit :disabled="hasError">
+          <gv-button submit primary stretch :disabled="hasError">
             {{ $t("page.sign_up.title") }}
           </gv-button>
         </gv-col>

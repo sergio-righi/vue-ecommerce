@@ -20,7 +20,7 @@
           </gv-ul>
         </gv-col>
         <gv-col>
-          <gv-button primary fit :disabled="hasError">
+          <gv-button primary stretch :disabled="hasError">
             {{ $t("action.send") }}
           </gv-button>
         </gv-col>

@@ -19,14 +19,16 @@
           <gv-input-box v-model="user.persist" checkbox>
             {{ $t("page.sign_in.remeber_me") }}
           </gv-input-box>
-          <gv-link href="/forgot_password" muted>
+          <gv-link href="#" muted>
             {{ $t("page.sign_in.forgot_password") }}
           </gv-link>
         </gv-flexbox>
       </gv-space>
       <gv-flexbox>
-        <gv-button submit primary fit>{{ $t("page.sign_in.title") }}</gv-button>
-        <gv-button href="sign_up" secondary fit>
+        <gv-button submit primary stretch>
+          {{ $t("page.sign_in.title") }}
+        </gv-button>
+        <gv-button :href="$resolve.subscribe()" secondary stretch>
           {{ $t("page.sign_up.title") }}
         </gv-button>
       </gv-flexbox>
