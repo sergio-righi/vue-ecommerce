@@ -8,11 +8,11 @@
       </gv-tile>
     </template>
     <template #content>
-      <gv-tile v-for="(item, index) in items" :key="item.id" activable>
+      <gv-tile v-for="(item, index) in items" :key="item.id">
         <template #leading>
           <gv-input-box
             name="address"
-            :val="item.id"
+            :val="index"
             v-model="selected"
             @change="onChange(item, index)"
             radio
@@ -20,8 +20,7 @@
         </template>
         <template #content>
           <gv-tile-header sub>
-            {{ item.number }} {{ item.street }} - {{ item.city }},
-            {{ item.country }} ({{ item.zipcode }})
+            {{ item | address($i18n) }}
           </gv-tile-header>
         </template>
         <template #trailing>
@@ -29,7 +28,7 @@
             <gv-button @onclick="onUpdate(index)" info>
               {{ $t("action.update") }}
             </gv-button>
-            <gv-button @onclick="onRequestConfirmation(index)" error>
+            <gv-button @onclick="onConfirm(index)" error>
               {{ $t("action.delete") }}
             </gv-button>
           </gv-button-group>
@@ -43,67 +42,75 @@
           </gv-tile-header>
         </template>
         <template #expandable>
-          <gv-space x>
+          <gv-space x y>
             <form @submit.prevent="onSubmit">
               <gv-row>
                 <gv-col sm="4">
-                  <gv-input
+                  <gv-select
                     ref="element"
-                    :label="$t('label.country')"
                     v-model="address.country"
-                    v-validation.required.alpha
+                    v-validation.required
+                    :label="$tc('label.address.country', 1)"
+                    :items="countryDropdown"
                   />
                 </gv-col>
                 <gv-col sm="4">
                   <gv-input
-                    :label="$t('label.province')"
                     v-model="address.province"
-                    v-mask="'A*'"
+                    v-mask="'AA'"
+                    :label="$t('label.address.province')"
                   />
                 </gv-col>
                 <gv-col sm="4">
                   <gv-input
-                    :label="$t('label.city')"
                     v-model="address.city"
                     v-validation.required.alpha
+                    :label="$t('label.address.city')"
                   />
                 </gv-col>
-                <gv-col sm="4">
+                <gv-col sm="8">
                   <gv-input
-                    :label="$t('label.street')"
                     v-model="address.street"
                     v-validation.required.alpha
                     v-validation.required
+                    :label="$t('label.address.street')"
                   />
                 </gv-col>
-                <gv-col sm="2">
+                <gv-col sm="4">
                   <gv-input
-                    :label="$t('label.zipcode')"
-                    v-model="address.zipcode"
-                    v-mask="['#####-###', 'XXX XXX']"
-                    v-validation.required
-                  />
-                </gv-col>
-                <gv-col sm="2">
-                  <gv-input
-                    :label="$t('label.number')"
                     v-model="address.number"
                     v-mask="'#*'"
                     v-validation.required
+                    :label="$t('label.address.number')"
                   />
                 </gv-col>
-                <gv-col sm="2">
+                <gv-col sm="3">
                   <gv-input
-                    :label="$t('label.unit')"
                     v-model="address.unit"
-                    v-mask="'#*'"
+                    :label="$t('label.address.unit')"
+                  />
+                </gv-col>
+                <gv-col sm="3">
+                  <gv-input
+                    v-model="address.zipcode"
+                    v-mask="['#####-###', 'XXX XXX']"
+                    v-validation.required
+                    :label="$t('label.address.zipcode')"
+                  />
+                </gv-col>
+                <gv-col sm="4">
+                  <gv-select
+                    v-model="address.type"
+                    v-validation.required
+                    :label="$tc('label.address.type', 1)"
+                    :items="addressesDropdown"
                   />
                 </gv-col>
                 <gv-col sm="2">
-                  <gv-button v-if="isUpdate" submit primary fit lg>
+                  <gv-button v-if="isUpdate" submit primary stretch lg>
                     {{ $t("action.update") }} <gv-icon value="pencil" />
                   </gv-button>
-                  <gv-button v-else submit primary fit lg>
+                  <gv-button v-else submit primary stretch lg>
                     {{ $t("action.create") }} <gv-icon value="plus" />
                   </gv-button>
                 </gv-col>
@@ -117,85 +124,90 @@
   </gv-card>
 </template>
 
-<script>
-import { Address } from "@/models";
+<script lang="ts">
+import { Component, Prop, Vue } from "vue-property-decorator";
 import { helpers } from "@/utils";
+import { AddressType } from "@/interfaces";
 import { DialogDelete } from "@/components/helper";
-export default {
+
+@Component({
   components: {
     DialogDelete,
   },
-  props: {
-    value: {
-      type: Array,
-      default: () => [],
-    },
-  },
-  data() {
-    return {
-      items: [],
-      index: -1,
-      selected: null,
-      checkedIndex: -1,
-      address: new Address(),
-      componentKey: 0,
-    };
-  },
+})
+export default class Address extends Vue {
+  @Prop({ default: () => [] as Array<AddressType> })
+  value!: Array<AddressType>;
+
+  items: Array<AddressType> = [];
+  index: number = -1;
+  checkedIndex: number = -1;
+  selected: number | null = null;
+  address: AddressType = {} as AddressType;
+  componentKey: number = 0;
+
+  get element(): any {
+    return this.$refs.element;
+  }
+
+  get isUpdate(): boolean {
+    return this.index !== -1;
+  }
+
+  get confirmation(): any {
+    return this.$refs.confirmation;
+  }
+
+  get countryDropdown() {
+    return helpers.toDropdownList(this.$enum.mapper.countries, this.$i18n);
+  }
+
+  get addressesDropdown() {
+    return helpers.toDropdownList(this.$enum.mapper.addresses, this.$i18n);
+  }
+
   mounted() {
     this.items = [...this.value];
-  },
-  computed: {
-    element: function () {
-      return this.$refs.element;
-    },
-    isUpdate: function () {
-      return this.index !== -1;
-    },
-    confirmation: function () {
-      return this.$refs.confirmation.reference();
-    },
-  },
-  methods: {
-    onRequestConfirmation: function (index) {
-      this.index = index;
-      this.confirmation.open();
-    },
-    onChange: function (item, index) {
-      this.checkedIndex = index;
-      this.$emit("onchange", item);
-    },
-    onSubmit: function () {
-      if (this.isUpdate) {
-        this.items[this.index] = this.address;
-        this.componentKey++;
-        this.index = -1;
-      } else {
-        this.address.cost = helpers.randomFloat(10, 40);
-        this.items.push(this.address);
-      }
-      this.reset();
-      this.$emit("input", this.items);
-    },
-    onDelete: function () {
-      if (this.index === this.checkedIndex) {
-        this.$emit("onchange", null);
-        this.checkedIndex = -1;
-      }
-      this.items.splice(this.index, 1);
+  }
+
+  onSubmit() {
+    if (this.isUpdate) {
+      this.items[this.index] = { ...this.address };
+      this.componentKey++;
       this.index = -1;
-      this.selected = null;
-      this.reset();
-      this.$emit("input", this.items);
-      this.confirmation.close();
-    },
-    onUpdate: function (index) {
-      this.index = index;
-      this.address = { ...this.items[index] };
-      this.element.focus();
-    },
-    reset: function () {
-      this.address = new Address();
-    },
-  },
-};
+    } else {
+      this.items.push(this.address);
+    }
+    this.address = {} as AddressType;
+    this.$emit("input", this.items);
+  }
+
+  onConfirm(index: number) {
+    this.index = index;
+    this.confirmation.referece.open();
+  }
+
+  onDelete() {
+    if (this.index === this.checkedIndex) {
+      this.$emit("onchange", null);
+      this.checkedIndex = -1;
+    }
+    this.items.splice(this.index, 1);
+    this.index = -1;
+    this.selected = null;
+    this.$emit("input", this.items);
+    this.confirmation.reference.close();
+  }
+
+  onChange(item: any, index: number) {
+    this.checkedIndex = index;
+    this.$emit("onchange", item);
+  }
+
+  onUpdate(index: number) {
+    this.index = index;
+    this.address = { ...this.items[index] };
+    this.element.focus();
+  }
+}
 </script>

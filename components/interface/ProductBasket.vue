@@ -10,10 +10,10 @@
             <ProductCount
               :min="Math.min(1, item.inStock)"
               :max="item.inStock"
-              :value="getCount(item.id)"
+              :value="getCount(item._id)"
               @oninput="setCount(item, ...arguments)"
             />
-            <ProductRating :item="item" :key="item.id" />
+            <ProductRating :item="item" :key="item._id" />
           </gv-gap>
         </gv-flexbox>
       </gv-tile-header>
@@ -23,10 +23,10 @@
         <ProductDiscount
           :price="item.price"
           :discount="item.discount"
-          :count="getCount(item.id)"
+          :count="getCount(item._id)"
         />
         <gv-button
-          v-if="inBasket(item.id)"
+          v-if="inBasket(item._id)"
           sm
           error
           @onclick="removeItem(item)"
@@ -67,17 +67,17 @@ export default {
       return this.$service.basket.exist(id);
     },
     addItem: async function (item) {
-      const count = this.$service.book.count(item.id);
-      await this.$service.basket.insert(item.id, count);
+      const count = this.$service.session.count(item._id);
+      await this.$service.basket.insert(item._id, count);
       this.$emit("onadd", item.name, count);
     },
     removeItem: async function (item) {
       this.$emit("onremove", item.name);
-      await this.$service.basket.delete(item.id);
+      await this.$service.basket.delete(item._id);
     },
     setCount: async function (item, count) {
-      await this.$service.book.set(item.id, { count: count });
-      await this.$service.basket.set(item.id, count);
+      await this.$service.session.item(item._id, count);
+      await this.$service.basket.set(item._id, count);
     },
     getCount: function (id) {
       return this.$service.basket.count(id);

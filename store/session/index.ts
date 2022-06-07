@@ -1,55 +1,71 @@
+// eslint-disable-next-line import/named
 import { GetterTree, ActionTree, MutationTree } from 'vuex';
+import { FeedbackType } from "@/interfaces"
 
-const state = () => ({
-  feedback: null as any,
-  redirect: null as any,
+interface StateType {
+  auth: any
+  redirect: string | null
+  feedback: FeedbackType
+  items: Array<{ id: string, count: number }>
+}
+
+const state = (): StateType => ({
+  auth: {},
+  redirect: null,
+  feedback: {} as FeedbackType,
+  items: [] as { id: string, count: number }[]
 });
 
 export type RootState = ReturnType<typeof state>
 
 const mutations: MutationTree<RootState> = {
 
-  feedback(state, feedback: any) {
+  item: (state: StateType, params: any) => {
+    const { id, count } = params
+    const index = state.items.findIndex(item => item.id === id)
+    if (index === -1) {
+      state.items.push({ id, count })
+    } else {
+      state.items[index].count = count
+    }
+  },
+
+  feedback: (state: StateType, feedback: FeedbackType) => {
     state.feedback = feedback;
   },
 
-  logout(state) {
-    state.redirect = null;
-    state.feedback = null;
-  },
-
-  redirect(state, path: any) {
+  redirect: (state: StateType, path: string) => {
     state.redirect = path;
   },
 
-  clear(state) {
-    state.feedback = null;
+  clear: (state: StateType) => {
+    state.feedback = {} as FeedbackType;
   }
-
 };
 
 const getters: GetterTree<RootState, RootState> = {
-  feedback: state => state.feedback
+  logged: (state: StateType) => state.auth.user,
+  feedback: (state: StateType) => state.feedback,
+  isAuthenticated: (state: StateType) => state.auth.loggedIn,
 };
 
 const actions: ActionTree<RootState, RootState> = {
 
-  logout({ commit }) {
-    commit("logout");
+  item: ({ commit }, params: any) => {
+    commit("item", params);
   },
 
-  redirect({ commit }, path: any) {
-    commit("redirect", path);
-  },
-
-  feedback({ commit }, feedback: any) {
+  feedback: ({ commit }: any, feedback: FeedbackType) => {
     commit("feedback", feedback);
   },
 
-  clear({ commit }) {
+  redirect: ({ commit }: any, path: string) => {
+    commit("redirect", path);
+  },
+
+  clear: ({ commit }: any) => {
     commit("clear");
   }
-
 };
 
 export default {

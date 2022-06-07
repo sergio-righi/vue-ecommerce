@@ -1,13 +1,9 @@
 <template>
   <Page :title="title">
     <template #content>
-      <gv-row v-if="feedback.error">
+      <gv-row>
         <gv-col>
-          <Feedback
-            :message="feedback.message"
-            :error="feedback.error"
-            :success="!feedback.error"
-          />
+          <Feedback />
         </gv-col>
       </gv-row>
       <gv-row>
@@ -139,7 +135,7 @@
 </template>
 
 <script>
-import { calculation } from "@/utils";
+import { calculation, helpers } from "@/utils";
 import { Page } from "@/components";
 import { Address, Feedback, Payment } from "@/components/form";
 import { mapGetters } from "vuex";
@@ -150,6 +146,7 @@ export default {
     Payment,
     Page,
   },
+  middleware: ["auth", "authorization"],
   async fetch() {
     const { $service, error } = this.$nuxt.context;
     try {
@@ -163,39 +160,37 @@ export default {
   },
   data() {
     return {
-      feedback: {
-        error: false,
-        message: null,
-      },
       paymentMethod: null,
       shippingAddress: null,
       title: this.$t("page.checkout.title"),
     };
   },
   computed: {
-    ...mapGetters("user", ["user"]),
     ...mapGetters("basket", ["sum"]),
+    user() {
+      return this.$auth.user;
+    },
     canSubmit() {
       return this.shippingAddress && this.paymentMethod;
     },
     addresses: {
       set(addresses) {
-        this.$service.user.update({
-          person: { addresses: [...addresses] },
+        this.$service.user.updateDepth({
+          addresses: [...addresses],
         });
       },
       get() {
-        return this.user.person.addresses;
+        return this.user.addresses;
       },
     },
     payments: {
       set(payments) {
-        this.$service.user.update({
-          person: { payments: [...payments] },
+        this.$service.user.updateDepth({
+          payments: [...payments],
         });
       },
       get() {
-        return this.user.person.payments;
+        return this.user.payments;
       },
     },
     items() {
@@ -218,7 +213,7 @@ export default {
     },
     shippingCost() {
       return this.shippingAddress
-        ? this.shippingAddress.cost * calculation.exchangeRate(this.$i18n)
+        ? helpers.randomFloat(5, 40) * calculation.exchangeRate(this.$i18n)
         : 0;
     },
   },
@@ -228,7 +223,7 @@ export default {
         const isValid = await this.$service.basket.validate();
         if (isValid) {
           try {
-            await this.$service.order.add(
+            await this.$service.order.insert(
               this.shippingAddress,
               this.paymentMethod
             );
@@ -236,8 +231,10 @@ export default {
               path: this.$resolve.home(),
             });
           } catch (err) {
-            this.feedback.error = true;
-            this.feedback.message = this.$t("message.feedback.error");
+            this.$service.session.feedback(
+              this.$t("message.feedback.error"),
+              true
+            );
           }
         }
       }

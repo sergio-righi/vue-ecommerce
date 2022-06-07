@@ -1,44 +1,51 @@
 <template>
   <gv-input
-    :label="$t('label.username')"
     v-model="username"
     v-mask="'a*'"
-    v-validation.required="{
-      minLength: 5,
-      error: { value: this.validation, message: $t('validation.duplicate') },
-    }"
-    @input.native="checkUsername"
+    :error="validation"
+    :label="$t('label.username')"
+    :data-validation-message="$t('validation.duplicate')"
+    minlength="5"
+    required
+    @blur="checkUsername"
   />
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { Component, Vue, Watch } from 'vue-property-decorator'
+
+const Props = Vue.extend({
   props: {
-    id: String,
-    value: String,
-  },
-  data() {
-    return {
-      validation: false,
-      username: this.value,
-    };
-  },
-  methods: {
-    checkUsername: async function (event) {
-      try {
-        this.validation = await this.$service.user.username(event.target.value);
-      } catch {
-        this.validation = false;
-      }
+    id: {
+      type: String,
+      default: null,
+    },
+    value: {
+      type: String,
+      default: null,
     },
   },
-  watch: {
-    validation(val) {
-      this.$emit("onerror", val);
-    },
-    username(val) {
-      this.$emit("input", val);
-    },
-  },
-};
+})
+
+@Component
+export default class Username extends Props {
+  validation: boolean = false
+  username: string = this.value
+
+  @Watch('validation')
+  onValidationChanged(value: string) {
+    this.$emit('onchange', value)
+  }
+
+  @Watch('username')
+  onUsernameChanged(value: string) {
+    this.$emit('input', value)
+  }
+
+  async checkUsername(event: any) {
+    this.validation = await this.$service.user.exists(this.id, {
+      username: event.target.value,
+    })
+  }
+}
 </script>

@@ -1,58 +1,31 @@
 <template>
-  <gv-alert v-if="s.message" v-bind="{ dismissible: b.dismissible }">
-    <gv-alert-item v-bind="{ success: !b.error, error: b.error }">
+  <gv-alert v-if="message" v-bind="{ dismissible: dismissible }">
+    <gv-alert-item v-bind="{ success: !error, error: error }">
       <template #content>
-        {{ s.message }}
+        {{ message }}
       </template>
     </gv-alert-item>
   </gv-alert>
 </template>
 
-<script>
-import { mapState } from "vuex";
-export default {
-  props: {
-    error: Boolean,
-    message: String,
-    dismissible: Boolean
-  },
-  data() {
-    return {
-      b: {
-        error: this.error,
-        dismissible: this.dismissible
-      },
-      s: {
-        message: this.message
-      }
-    };
-  },
-  created() {
-    this.setFeedback();
-  },
-  computed: {
-    ...mapState("session", ["feedback"])
-  },
-  methods: {
-    setFeedback() {
-      if (this.feedback) {
-        this.b.dismissible = true;
-        this.s.message = this.feedback.message;
-        this.b.error = this.feedback.error ?? false;
-        this.$service.session.clear();
-      }
-    }
-  },
-  watch: {
-    error(val) {
-      this.b.error = val;
-    },
-    message(val) {
-      this.s.message = val;
-    },
-    feedback() {
-      this.setFeedback();
-    }
+<script lang="ts">
+import { State } from 'vuex-class'
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
+import { FeedbackType } from '@/interfaces'
+
+@Component
+export default class Feedback extends Vue {
+  @Prop({ default: false }) dismissible!: boolean
+  @State('feedback', { namespace: 'session' }) feedback!: FeedbackType
+
+  error: boolean = false
+  message: string | null = null
+
+  @Watch('feedback')
+  onFeedbackChanged(value: FeedbackType) {
+    if (Object.keys(value).length === 0) return
+    ;({ error: this.error, message: this.message } = value)
+    this.$service.session.clear()
   }
-};
+}
 </script>

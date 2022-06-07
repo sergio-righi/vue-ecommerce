@@ -4,8 +4,11 @@
   </gv-flexbox>
 </template>
 
-<script>
-export default {};
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component
+export default class PageLoading extends Vue {}
 </script>
 
 <style scoped>

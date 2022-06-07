@@ -82,7 +82,7 @@
       </NoRecord>
     </template>
     <template #footer>
-      <SnackbarUndo ref="recover" :message="recoverMessage" :on-undo="onUndo" />
+      <SnackbarUndo ref="restore" :message="restoreMessage" :on-undo="onUndo" />
     </template>
   </Page>
 </template>
@@ -115,8 +115,8 @@ export default {
   },
   computed: {
     ...mapGetters("basket", ["sum"]),
-    recover() {
-      return this.$refs.recover.reference();
+    restore() {
+      return this.$refs.restore.reference;
     },
     items() {
       return this.$service.basket.list();
@@ -139,22 +139,22 @@ export default {
   },
   methods: {
     onAdd: function () {
-      this.recover.hide();
+      this.restore.hide();
     },
     onRemove: function (name) {
-      this.recoverMessage = helpers.format(
+      this.restoreMessage = helpers.format(
         this.$t("message.feedback.item_removed"),
         name
       );
-      this.recover.show();
+      this.restore.show();
     },
     onUndo: async function () {
-      await this.$service.basket.recover();
+      await this.$service.basket.restore();
     },
   },
   data() {
     return {
-      recoverMessage: "",
+      restoreMessage: "",
       title: this.$t("page.basket.title"),
     };
   },

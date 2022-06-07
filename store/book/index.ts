@@ -1,72 +1,76 @@
 import { GetterTree, ActionTree, MutationTree } from 'vuex';
 
-import { Book } from "@/models";
 import { helpers } from "@/utils";
+import { BookType } from "@/interfaces";
 
-const state = () => ({
+interface StateType {
+  index: number
+  book: BookType
+  books: BookType[]
+}
+
+const state = (): StateType => ({
   index: -1 as number,
-  books: [] as Book[],
-  book: {} as Book
+  book: {} as BookType,
+  books: [] as BookType[]
 });
 
 export type RootState = ReturnType<typeof state>
 
 const mutations: MutationTree<RootState> = {
 
-  all: (state, books: Book[]) => {
+  all: (state: StateType, books: BookType[]) => {
     state.books = books;
   },
 
-  set: (state, { id, count }) => {
-    let item = state.books.find(x => x.id === id) ?? {} as Book;
-    item = helpers.deepMerge(item, count);
+  set: (state: StateType, params: any) => {
+    const { id, ...options } = params;
+    let item = state.books.find(x => x._id === id) ?? {} as BookType;
+    item = helpers.deepMerge(item, options);
   },
 
-  put: (state, { id, props }) => {
-    let item = state.books.find(x => x.id === id) ?? {} as Book;
-    item = helpers.deepMerge(item, props);
+  update: (state: StateType, response: any) => {
+    const { _id, ...options } = response;
+    let item = state.books.find(x => x._id === _id) ?? {} as BookType;
+    item = helpers.deepMerge(item, options);
   },
 
-  clear: (state) => {
+  clear: (state: StateType) => {
     state.index = -1;
-    state.book = {} as Book;
+    state.book = {} as BookType;
   },
 
-  reset: (state) => {
-    state.books = [] as Book[];
+  reset: (state: StateType) => {
+    state.books = [] as BookType[];
   }
-
 };
 
 const getters: GetterTree<RootState, RootState> = {
-  books: (state): Book[] => state.books,//.filter((x: Book) => x.inStock > 0),
-  book: (state): Book => state.book
+  books: (state: StateType): BookType[] => state.books,//.filter((x: Book) => x.inStock > 0),
+  book: (state: StateType): BookType => state.book
 };
 
 const actions: ActionTree<RootState, RootState> = {
 
-  all({ commit }) {
-    return this.$repository.book.all().then((response: Book[]) => {
-      commit("all", response);
-    });
+  all: ({ commit }: any, response: any) => {
+    commit("all", response);
   },
 
-  set({ commit }, { id, count }) {
-    commit("set", { id, count });
+  set: ({ commit }: any, params: any) => {
+    commit("set", params);
   },
 
-  put({ commit }, { id, props }) {
-    commit("put", { id, props });
+  update: ({ commit }: any, response: any) => {
+    commit("update", response)
   },
 
-  clear({ commit }) {
+  clear: ({ commit }: any) => {
     commit("clear");
   },
 
-  reset({ commit }) {
+  reset: ({ commit }: any) => {
     commit("reset");
   }
-
 };
 
 export default {

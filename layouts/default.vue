@@ -10,21 +10,11 @@
     </div>
     <div id="control">
       <gv-fab sm>
-        <template #content>
-          <gv-fab-item
-            @onclick="onOpen"
-            v-tooltip.left="$t('disclaimer.title')"
-          >
-            <gv-avatar bg="amber" color="black">
-              <gv-icon value="alert-outline" />
-            </gv-avatar>
-          </gv-fab-item>
-        </template>
         <template #control>
           <gv-icon
-            value="reload"
-            @onclick="onReset"
-            v-tooltip.left="$t('tooltip.reset')"
+            value="alert-outline"
+            @onclick="onOpen"
+            v-tooltip.left="$t('disclaimer.title')"
           />
         </template>
       </gv-fab>
@@ -51,7 +41,7 @@
             <gv-flexbox align="center" inline>
               {{ $t("footer.powered_by") }}
               <gv-link
-                href="http://gratervue.sergiorighi.com/"
+                href="https://gratervue.sergiorighi.com/"
                 target="_blank"
                 muted
               >
@@ -91,15 +81,6 @@ export default {
     },
     onClose: function () {
       this.disclaimer.close();
-    },
-    onReset: async function () {
-      this.$router.push(this.$resolve.home());
-      await this.$service.book.reset();
-      await this.$service.order.reset();
-      await this.$service.basket.reset();
-      setTimeout(async () => {
-        await this.$service.book.all();
-      }, 300);
     },
   },
 };

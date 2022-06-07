@@ -46,7 +46,7 @@ const toRound = function (value: number) {
     return (Math.round(value * 100) / 100).toFixed(2);
 };
 
-export const calculation = {
+export default {
     HST,
     applyTax,
     toRound,

@@ -1,35 +1,38 @@
 import { GetterTree, ActionTree, MutationTree } from 'vuex';
-import { Order } from '@/models';
+import { OrderType } from '@/interfaces';
 
-const state = () => ({
-  orders: [] as Order[]
+interface StateType {
+  orders: OrderType[]
+}
+
+const state = (): StateType => ({
+  orders: [] as OrderType[]
 });
 
 export type RootState = ReturnType<typeof state>
 
 const mutations: MutationTree<RootState> = {
 
-  add: (state, order: Order) => {
+  add: (state: StateType, order: OrderType) => {
     state.orders.push(order);
   },
 
-  reset: (state) => {
-    state.orders = [] as Order[];
+  reset: (state: StateType) => {
+    state.orders = [] as OrderType[];
   }
-
 };
 
 const getters: GetterTree<RootState, RootState> = {
-  orders: state => state.orders as Order[],
+  orders: (state: StateType) => state.orders as OrderType[],
 };
 
 const actions: ActionTree<RootState, RootState> = {
 
-  add({ commit }, order) {
+  add: ({ commit }: any, order: OrderType) => {
     commit("add", order);
   },
 
-  reset({ commit }) {
+  reset: ({ commit }: any) => {
     commit("reset");
   }
 };

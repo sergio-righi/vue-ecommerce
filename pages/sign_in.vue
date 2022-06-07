@@ -1,79 +1,73 @@
 <template>
   <div class="login-content">
-    <Feedback :message="feedback.message" error />
-    <form @submit.prevent="login">
+    <Feedback />
+    <form @submit.prevent="signIn">
       <gv-input
-        :label="$t('label.username')"
         v-model="user.username"
         v-validation.required
+        :label="$t('label.username')"
         autofocus
       />
       <gv-input
-        :label="$t('label.password')"
-        type="password"
         v-model="user.password"
         v-validation.required
+        :label="$t('label.password')"
+        type="password"
       />
-      <gv-space y lg>
-        <gv-flexbox justify="space-evenly" align="center">
-          <gv-input-box v-model="user.persist" checkbox>
-            {{ $t("page.sign_in.remeber_me") }}
-          </gv-input-box>
-          <gv-link href="#" muted>
-            {{ $t("page.sign_in.forgot_password") }}
+      <gv-flexbox>
+        <gv-button submit primary stretch>
+          {{ $t("page.authentication.sign_in") }}
+        </gv-button>
+        <gv-button :href="$resolve.subscribe()" stretch>
+          {{ $t("page.authentication.sign_up") }}
+        </gv-button>
+      </gv-flexbox>
+      <gv-space y sm>
+        <gv-flexbox justify="center">
+          <gv-link class="footnote" :href="$resolve.password()" muted>
+            {{ $t("page.authentication.forget_password") }}
           </gv-link>
         </gv-flexbox>
       </gv-space>
-      <gv-flexbox>
-        <gv-button submit primary stretch>
-          {{ $t("page.sign_in.title") }}
-        </gv-button>
-        <gv-button :href="$resolve.subscribe()" secondary stretch>
-          {{ $t("page.sign_up.title") }}
-        </gv-button>
-      </gv-flexbox>
     </form>
   </div>
 </template>
 
 <script>
 import { Feedback } from "@/components/form";
-import { mapState } from "vuex";
 export default {
-  layout: "login",
-  name: "sign-in",
+  name: "SignIn",
   components: {
     Feedback,
   },
+  layout: "login",
   data() {
     return {
-      feedback: {
-        message: null,
-      },
       user: {
-        persist: false,
         username: null,
         password: null,
       },
     };
   },
-  computed: {
-    ...mapState("session", ["redirect"]),
-  },
+  // computed: {
+  //   ...mapState("session", ["redirect"]),
+  // },
   methods: {
-    async login() {
+    async signIn() {
       try {
-        const user = await this.$service.user.login(
+        await this.$service.session.login(
           this.user.username,
           this.user.password
         );
-        if (user) {
-          this.$router.push({ path: this.redirect ?? this.$resolve.home() });
-        } else {
-          this.feedback.message = this.$t("message.feedback.user_not_found");
-        }
       } catch (err) {
-        this.feedback.message = this.$t("message.feedback.error");
+        this.$service.session.feedback(
+          this.$t(
+            /401/.test(err)
+              ? "message.feedback.user_not_found"
+              : "message.feedback.error"
+          ),
+          true
+        );
       }
     },
   },

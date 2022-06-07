@@ -3,22 +3,13 @@
     "home": {
       "title": "Home"
     },
-    "sign_up": {
-      "title": "Sign Up",
-      "has_account": "Already have an account?"
-    },
-    "sign_in": {
-      "title": "Sign In",
-      "remeber_me": "Keep me connected",
-      "forgot_password": "Forgot Password?"
-    },
-    "forgot_password": {
-      "title": "Forgot Password",
-      "remember_it": "Did you remember it?"
-    },
-    "authorization": {
-      "title": "Authorization",
-      "try_again": "Did not receive the code?"
+    "authentication": {
+      "sign_in": "Sign in",
+      "sign_up": "Sign up",
+      "sign_out": "Sign out",
+      "remember_it": "I've remember it! I'd like to go back.",
+      "has_account": "Already have an account?",
+      "forget_password": "Forget your password?"
     },
     "error": {
       "401": "Unauthorized access.\n\nIt might indicate that the request lacks valid authentication credentials for the target resource.",
@@ -53,6 +44,11 @@
     "reset_filter": "Reset Filter",
     "checkout": "Proceed to Checkout"
   },
+  "agreement": {
+    "cookie_policy": "Cookie Policy",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service"
+  },
   "component": {
     "product": {
       "content_rating": "rating",
@@ -68,14 +64,22 @@
     }
   },
   "label": {
-    "address": "Address | Addresses",
+    "address": {
+      "self": "Address | Addresses",
+      "type": "Type",
+      "city": "City",
+      "number": "Number",
+      "country": "Country",
+      "province": "Province",
+      "street": "Street",
+      "unit": "Unit",
+      "zipcode": "Zipcode"
+    },
     "billing_address": "Billing Address",
     "birthday": "Birthday",
     "cardholder": "Cardholder's Name",
-    "city": "City",
     "code": "Code",
     "count": "Count",
-    "country": "Country",
     "detail": "Detail | Details",
     "email": "Email | Emails",
     "expiration_month": "Expiration Month",
@@ -86,18 +90,14 @@
     "overall": "Overall",
     "password": "Password",
     "payment_method": "Payment Method",
-    "province": "Province",
     "review": "Review | Reviews",
     "shipping": "Shipping",
     "shipping_address": "Shipping Address",
     "subtotal": "Subtotal",
     "summary": "Summary",
-    "street": "Street",
     "tax": "HST",
     "total": "Total",
-    "unit": "Unit",
-    "username": "Username",
-    "zipcode": "Zipcode"
+    "username": "Username"
   },
   "placeholder": {
     "search_by_name": "search by name"
@@ -114,6 +114,10 @@
       "audio": "Audiobook",
       "physical": "Physical"
     },
+    "country": {
+      "canada": "Canada",
+      "brazil": "Brazil"
+    },
     "gender": {
       "male": "male",
       "female": "female",
@@ -124,6 +128,12 @@
       "passport": "passport",
       "id": "indentity document",
       "drivers_license": "driver's license"
+    },
+    "rated": {
+      "early": "E",
+      "middle": "7+",
+      "teen": "12+",
+      "adult": "18+"
     },
     "role": {
       "dev": "Developer",
@@ -149,19 +159,20 @@
       "login": "By continuing, you agree to our",
       "password": "A strong password should have...",
       "domain": "xyz.ca",
-      "error": "take me to"
+      "error": "take me to",
+      "try_again": "Haven't received the code?"
     },
     "confirmation": {
       "title": "Confirmation Required",
       "delete": "Before continuing, make sure this is the item you are willing to delete once this action is permanent"
     },
-    "recover": {
+    "restore": {
       "delete": "was deleted"
     },
     "feedback": {
       "unknown": "unknown",
       "page_loading": "Loading...",
-      "user_not_found": "User not found",
+      "user_not_found": "User not found :(",
       "no_record": "No records were found",
       "empty_basket": "There is no items in your basket",
       "error": "Something went wrong while processing your request",
@@ -188,16 +199,26 @@
       "add_payment": "Add a new payment method"
     }
   },
+  "mail": {
+    "verification_code": {
+      "subject": "Verification code",
+      "greeting": "Hello {name},",
+      "header": "your verification code:",
+      "description": "all you have to do now is to copy this code and paste at the time you get to access the application and the account will be unlocked :)"
+    },
+    "forget_password": {
+      "subject": "Reset Password",
+      "header": "You have requested to reset your password.",
+      "subheader": "We cannot just send you the old password, however, a link was provided for you in order to choose a new one, click on the link below and follow the instructions.",
+      "button": "Click here",
+      "description": "If you did not request it, ignore this email. There is no need to panic, only those who have access to this email can ever change the password."
+    }
+  },
   "locale": {
     "currency": "CAD"
   },
   "navbar": {
     "sign_out": "Sign out"
-  },
-  "agreement": {
-    "cookie_policy": "Cookie Policy",
-    "privacy_policy": "Privacy Policy",
-    "terms_of_service": "Terms of Service"
   },
   "linking_word": {
     "and": "and",

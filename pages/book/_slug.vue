@@ -1,5 +1,5 @@
 <template>
-  <Page :title="book.name">
+  <Page :title="title">
     <template #content v-if="$fetchState.pending">
       <PageLoading />
     </template>
@@ -11,7 +11,7 @@
               <ProductBasket :item="book" @onremove="onRemove" @onadd="onAdd" />
               <gv-divider />
               <div class="item-content">
-                <gv-image :src="$resolve.image.cover(book.id)" />
+                <gv-image :src="$resolve.image.cover(book._id)" />
                 <p>{{ book.description }}</p>
               </div>
               <gv-scroll hide-scrollbar stretch>
@@ -135,7 +135,7 @@
           </gv-card>
         </gv-col>
       </gv-row>
-      <SnackbarUndo ref="recover" :message="recoverMessage" :on-undo="onUndo" />
+      <SnackbarUndo ref="restore" :message="restoreMessage" :on-undo="onUndo" />
       <br />
     </template>
     <template #content v-else>
@@ -162,7 +162,9 @@ export default {
     const { $service, error, params } = this.$nuxt.context;
     try {
       if (params.slug) {
-        this.book = $service.book.find(params.slug);
+        this.book = await $service.book.findWithAuthors(params.slug);
+      } else {
+        error({ statusCode: 404 });
       }
     } catch (err) {
       error({
@@ -173,38 +175,39 @@ export default {
   },
   data: () => ({
     book: null,
+    restoreMessage: "",
   }),
   computed: {
-    recover() {
-      return this.$refs.recover.reference();
+    title() {
+      return this.book
+        ? this.book.name
+        : this.$t("message.feedback.page_loading");
+    },
+    restore() {
+      return this.$refs.restore.reference;
     },
     hasValue() {
       return this.book !== null && Object.keys(this.book).length > 0;
     },
   },
-  data() {
-    return {
-      recoverMessage: "",
-    };
-  },
   methods: {
-    onAdd: function() {
-      this.recover.hide();
+    onAdd: function () {
+      this.restore.hide();
     },
     onRemove: function (name) {
-      this.recoverMessage = helpers.format(
+      this.restoreMessage = helpers.format(
         this.$t("message.feedback.item_removed"),
         name
       );
-      this.recover.show();
+      this.restore.show();
     },
     onUndo: async function () {
-      await this.$service.basket.recover();
+      await this.$service.basket.restore();
     },
   },
   head() {
     return {
-      title: this.book?.name,
+      title: this.title,
     };
   },
 };

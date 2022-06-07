@@ -9,17 +9,17 @@
       <div class="thumbnail">
         <gv-image
           lazyload
-          :src="$resolve.image.cover(item.id)"
+          :src="$resolve.image.cover(item._id)"
           :href="$resolve.book(item.slug)"
         />
-        <gv-inset v-if="isAuthenticated" top>
+        <gv-position v-if="isAuthenticated" top>
           <gv-icon
             value="bookmark"
             class="wishlist-icon"
-            :color="inWishlist(item.id) ? 'red' : 'white'"
-            @onclick="setWishlist(item.id)"
+            :color="inWishlist(item._id)"
+            @onclick="setWishlist(item._id)"
           />
-        </gv-inset>
+        </gv-position>
       </div>
       <div class="side">
         <div class="info">
@@ -27,18 +27,18 @@
           <ProductDiscount
             :price="item.price"
             :discount="item.discount"
-            :count="getCount(item.id)"
+            :count="getCount(item._id)"
           />
         </div>
         <div v-if="item.inStock > 0" class="control">
           <ProductCount
             :min="Math.min(1, item.inStock)"
             :max="item.inStock"
-            :value="getCount(item.id)"
+            :value="getCount(item._id)"
             @oninput="setCount(item, ...arguments)"
           />
           <gv-button
-            v-if="inBasket(item.id)"
+            v-if="inBasket(item._id)"
             sm
             error
             @onclick="removeItem(item)"
@@ -79,27 +79,29 @@ export default {
   },
   computed: {
     ...mapGetters("book", ["book"]),
-    ...mapGetters("user", ["isAuthenticated"]),
+    isAuthenticated() {
+      return this.$auth.loggedIn ?? false;
+    },
   },
   methods: {
     inBasket: function (id) {
       return this.$service.basket.exist(id);
     },
     inWishlist: function (id) {
-      return this.$service.user.inWishlist(id);
+      return this.$service.user.inWishlist(id) ? "red" : "white";
     },
     addItem: async function (item) {
-      const count = this.$service.book.count(item.id);
-      await this.$service.basket.insert(item.id, count);
+      const count = this.$service.session.count(item._id);
+      await this.$service.basket.insert(item._id, count);
       this.$emit("onadd", item.name, count);
     },
     removeItem: async function (item) {
-      await this.$service.basket.delete(item.id);
+      await this.$service.basket.delete(item._id);
       this.$emit("onremove", item.name);
     },
     setCount: async function (item, count) {
-      await this.$service.book.set(item.id, { count: count });
-      await this.$service.basket.set(item.id, count);
+      await this.$service.session.item(item._id, count);
+      await this.$service.basket.set(item._id, count);
     },
     setWishlist: async function (id) {
       await this.$service.user.manageWishlist(id);

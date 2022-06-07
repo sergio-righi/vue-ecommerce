@@ -1,94 +1,102 @@
 import { GetterTree, ActionTree, MutationTree } from 'vuex';
 
 import { helpers } from "@/utils";
-import { Item } from "@/models";
+import { ItemType } from "@/interfaces";
 
-const state = () => ({
+interface StateType {
+  index: number
+  item: ItemType
+  basket: ItemType[]
+}
+
+const state = (): StateType => ({
   index: -1 as number,
-  basket: [] as Item[],
-  item: {} as Item
+  basket: [] as ItemType[],
+  item: {} as ItemType
 });
 
 export type RootState = ReturnType<typeof state>
 
 const mutations: MutationTree<RootState> = {
 
-  set: (state, { id, count }) => {
-    const item = state.basket.find(x => x.bookId === id) ?? {} as Item;
+  set: (state: StateType, params: any) => {
+    const { id, count } = params;
+    const item = state.basket.find(x => x.bookId === id) ?? {} as ItemType;
     item.count = count;
   },
 
-  add: (state, { id, count }) => {
+  add: (state: StateType, params: any) => {
+    const { id, count } = params;
     const item = state.basket.find(x => x.bookId === id);
     if (!item) {
-      state.basket.push(new Item({ bookId: id, count: count, discount: 0, price: 0 }));
+      state.basket.push({ bookId: id, count: count, discount: 0, price: 0 });
     }
   },
 
-  put: (state, item: Item) => {
-    state.item = state.basket.find(x => x.bookId === item.bookId) ?? {} as Item;
+  put: (state: StateType, item: ItemType) => {
+    state.item = state.basket.find(x => x.bookId === item.bookId) ?? {} as ItemType;
     state.item = helpers.deepMerge(state.item, item);
   },
 
-  delete: (state, id: string) => {
-    state.item = state.basket.find(x => x.bookId === id) ?? {} as Item;
+  delete: (state: StateType, id: string) => {
+    state.item = state.basket.find(x => x.bookId === id) ?? {} as ItemType;
     state.index = state.basket.findIndex(x => x.bookId === id);
     state.basket.splice(state.index, 1);
   },
 
-  recover: state => {
+  restore: (state: StateType) => {
     state.basket.splice(state.index, 0, state.item);
-    state.item = {} as Item;
+    state.item = {} as ItemType;
   },
 
-  clear: state => {
-    state.item = {} as Item;
+  clear: (state: StateType) => {
+    state.item = {} as ItemType;
   },
 
-  reset: state => {
-    state.basket = [] as Item[];
+  reset: (state: StateType) => {
+    state.basket = [] as ItemType[];
   }
 
 };
 
 const getters: GetterTree<RootState, RootState> = {
-  sum: state => state.basket.reduce((a, b) => a + b.count, 0),
-  basket: state => state.basket,
-  count: state => state.basket.length,
-  item: state => state.item
+  sum: (state: StateType) => state.basket.reduce((a, b) => a + b.count, 0),
+  basket: (state: StateType) => state.basket,
+  count: (state: StateType) => state.basket.length,
+  item: (state: StateType) => state.item
 };
 
 const actions: ActionTree<RootState, RootState> = {
 
-  all({ commit, state }) {
+  all: ({ commit, state }: any) => {
     commit("all", state.basket);
   },
 
-  set({ commit }, { id, count }) {
-    commit("set", { id, count });
+  add: ({ commit }: any, params: any) => {
+    commit("add", params);
   },
 
-  add({ commit }, { id, count }) {
-    commit("add", { id, count });
+  set: ({ commit }: any, params: any) => {
+    commit("set", params);
   },
 
-  put({ commit }, item) {
+  put: ({ commit }: any, item: ItemType) => {
     commit("put", item);
   },
 
-  delete({ commit, }, id) {
+  delete: ({ commit }: any, id: string) => {
     commit("delete", id);
   },
 
-  recover({ commit }) {
-    commit("recover");
+  restore: ({ commit }: any) => {
+    commit("restore");
   },
 
-  clear({ commit }) {
+  clear: ({ commit }: any) => {
     commit("clear");
   },
 
-  reset({ commit }) {
+  reset: ({ commit }: any) => {
     commit("reset");
   }
 };

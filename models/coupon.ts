@@ -1,39 +1,17 @@
-import { helpers } from "@/utils";
+import { CouponType } from "@/interfaces";
 import { EnumDiscount } from "@/utils/enums";
 
-interface ICoupon {
-    _id?: string;
-    code?: string;
-    startDate?: number;
-    expireDate?: number;
-    discount: number;
-    unit: EnumDiscount;
-}
+export default class CouponModel {
 
-class Coupon implements ICoupon {
-    id?: string;
-    code?: string;
-    startDate?: number;
-    expireDate?: number;
-    discount: number;
-    unit: EnumDiscount;
-
-    constructor(o: ICoupon = { _id: helpers.generateId(), discount: 0, unit: EnumDiscount.fixed }) {
-        this.id = o._id;
-        this.code = o.code;
-        this.startDate = o.startDate;
-        this.expireDate = o.expireDate;
-        this.discount = o.discount;
-        this.unit = o.unit;
+    constructor(params?: CouponType) {
+        Object.assign(this, { discount: 0, unit: EnumDiscount.fixed }, params);
     }
 
-    canCreate() {
+    static canCreate() {
         return true;
     }
 
-    canUpdate() {
+    static canUpdate() {
         return true;
     }
 }
-
-export default Coupon

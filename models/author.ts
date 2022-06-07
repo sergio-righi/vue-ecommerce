@@ -1,32 +1,16 @@
-import { helpers } from "@/utils";
+import { AuthorType } from "@/interfaces";
 
-interface IAuthor {
-    _id?: string;
-    name?: string;
-    briefdescription?: string;
-    deleted: boolean;
-}
+export default class AuthorModel {
 
-class Author implements IAuthor {
-    id?: string;
-    name?: string;
-    briefdescription?: string;
-    deleted: boolean;
-
-    constructor(o: IAuthor = { _id: helpers.generateId(), deleted: false }) {
-        this.id = o._id;
-        this.name = o.name;
-        this.briefdescription = o.briefdescription;
-        this.deleted = o.deleted;
+    constructor(params?: AuthorType) {
+        Object.assign(this, { deleted: false }, params);
     }
 
-    canCreate() {
+    static canCreate() {
         return true;
     }
 
-    canUpdate() {
+    static canUpdate() {
         return true;
     }
 }
-
-export default Author

@@ -1,45 +1,49 @@
 <template>
   <div class="login-content">
-    <Feedback :message="feedback.message" error />
-    <form @submit.prevent="sign_up">
+    <Feedback />
+    <form @submit.prevent="signUp">
       <gv-row>
         <gv-col>
           <gv-input
-            :label="$t('label.name')"
             v-model="user.person.name"
             v-validation.required
+            :label="$t('label.name')"
             autofocus
           />
         </gv-col>
         <gv-col>
           <Username
             v-model="user.username"
+            required
             @onerror="usernameValidation"
-            v-validation.required
           />
         </gv-col>
         <gv-col>
           <Password
-            required
             v-model="user.password"
+            required
             @onerror="passwordValidation"
           />
         </gv-col>
         <gv-col>
-          <Email v-model="user.email" />
+          <Email v-model="user.person.email" required />
         </gv-col>
         <gv-col>
           <gv-button submit primary stretch :disabled="hasError">
-            {{ $t("page.sign_up.title") }}
+            {{ $t("page.authentication.sign_up") }}
           </gv-button>
         </gv-col>
-        <gv-col>
-          <span class="footnote">
-            {{ $t("page.sign_up.has_account") }}
-            <gv-link href="/sign_in" muted>
-              {{ $t("page.sign_in.title") }}
-            </gv-link>
-          </span>
+        <gv-col class="justify-content-center">
+          <gv-space y md bottom>
+            <gv-flexbox align="center" justify="space-evenly">
+              <span class="footnote">
+                {{ $t("page.authentication.has_account") }}
+                <gv-link :href="$resolve.login()" muted>
+                  {{ $t("page.authentication.sign_in") }}
+                </gv-link>
+              </span>
+            </gv-flexbox>
+          </gv-space>
         </gv-col>
       </gv-row>
     </form>
@@ -48,56 +52,60 @@
 
 <script>
 import { Email, Feedback, Username, Password } from "@/components/form";
-import { User } from "@/models";
+import { UserModel, TokenModel } from "@/models";
 
 export default {
-  layout: "login",
-  name: "sign-up",
+  name: "SignUp",
+  auth: "guest",
   components: {
     Email,
     Feedback,
     Username,
     Password,
   },
+  layout: "login",
   data() {
     return {
-      feedback: {
-        message: null,
-      },
-      user: new User(),
+      user: new UserModel(),
       invalidUsername: false,
       invalidPassword: false,
     };
   },
   computed: {
-    hasError: function () {
+    hasError() {
       return this.invalidUsername || this.invalidPassword;
     },
   },
   methods: {
-    async sign_up() {
+    async signUp() {
       if (this.hasError) return;
       try {
-        await this.$service.user.insert(this.user);
-        if (this.user) {
-          this.$router.push({ path: this.redirect ?? this.$resolve.home() });
+        const user = await this.$service.user.create(this.user);
+        if (user) {
+          const token = new TokenModel({ user: user._id });
+          await this.$service.session.login(
+            user.username,
+            user.password,
+            false
+          );
+          await this.$service.token.insertWithCode(token);
+          await this.$service.mail.verificationCode(token.code);
         } else {
-          this.feedback.message = this.$t("message.feedback.error");
+          this.$service.session.feedback(
+            this.$t("message.feedback.error"),
+            true
+          );
         }
       } catch (err) {
-        this.feedback.message = this.$t("message.feedback.error");
+        this.$service.session.feedback(this.$t("message.feedback.error"), true);
       }
     },
-    usernameValidation: function (error) {
+    usernameValidation(error) {
       this.invalidUsername = error;
     },
-    passwordValidation: function (error) {
+    passwordValidation(error) {
       this.invalidPassword = error;
     },
   },
 };
 </script>
-
-<!--<style lang="scss">
-@import "scss/pages/login.scss";
-</style>-->

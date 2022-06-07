@@ -1,34 +1,29 @@
 <template>
   <gv-snackbar
-    ref="snackbar"
     left
     :timeout="0"
-    :message="message"
+    :message="contentMessage"
     :action="$t('action.undo')"
     @onclick="onUndo"
     @onHide="onHide"
   />
 </template>
 
-<script>
-export default {
-  props: {
-    message: {
-      type: String,
-    },
-    onUndo: {
-      type: Function,
-      required: true,
-    },
-    onHide: {
-      type: Function,
-      default: () => {},
-    },
-  },
-  methods: {
-    reference: function () {
-      return this.$refs.snackbar;
-    },
-  },
-};
+<script lang="ts">
+import { Component, Prop, Vue } from "vue-property-decorator";
+
+@Component
+export default class SnackbarUndo extends Vue {
+  @Prop({}) message!: string;
+  @Prop({ default: () => 1 }) onUndo!: Function;
+  @Prop({ required: false, default: () => 1 }) onHide!: Function;
+
+  get reference() {
+    return this.$children[0];
+  }
+
+  get contentMessage() {
+    return `${this.message} ${this.$t("message.snackbar.restore")}`;
+  }
+}
 </script>

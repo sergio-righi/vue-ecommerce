@@ -1,0 +1,30 @@
+{
+  "name": "serverside",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "set NODE_ENV=dev && ts-node index.ts",
+    "start": "set NODE_ENV=production && ts-node index.ts"
+  },
+  "keywords": [],
+  "dependencies": {
+    "cors": "latest",
+    "express": "latest",
+    "fs": "^0.0.1-security",
+    "googleapis": "^100.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "latest",
+    "nodemailer": "^6.7.5"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^17.0.21",
+    "@types/nodemailer": "^6.4.4",
+    "ts-node": "^10.7.0",
+    "tsconfig-paths": "^4.0.0"
+  }
+}

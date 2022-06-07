@@ -10,9 +10,14 @@ enum EnumBook {
   audio = 3
 }
 
+enum EnumCountry {
+  canada = 1,
+  brazil = 2
+}
+
 enum EnumCurrency {
   CAD = 1,
-  BRL = 4.5,
+  BRL = 4,
 }
 
 enum EnumDiscount {
@@ -64,6 +69,19 @@ enum EnumPayment {
   card = 1
 }
 
+enum EnumPhone {
+  mobile = 1,
+  landline = 2,
+  business = 3
+}
+
+enum EnumRated {
+  early = 1,
+  middle = 2,
+  teen = 3,
+  adult = 4
+}
+
 enum EnumRole {
   dev = 1,
   adm = 2,
@@ -87,12 +105,15 @@ enum EnumStatus {
 export {
   EnumAddress,
   EnumBook,
+  EnumCountry,
   EnumCurrency,
   EnumDiscount,
   EnumDocument,
   EnumGender,
   EnumGenre,
   EnumPayment,
+  EnumPhone,
+  EnumRated,
   EnumRole,
   EnumStatus
 }

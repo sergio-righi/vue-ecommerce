@@ -32,12 +32,20 @@ export default {
     this.setTheme();
     this.setLocale();
   },
+  computed: {
+    theme() {
+      return this.isAuthenticated ? this.$auth.user.theme ?? false : this.dark;
+    },
+  },
   methods: {
     setLocale() {
       this.$router.push({ path: this.switchLocalePath(this.$i18n.locale) });
     },
     setTheme() {
-      document.documentElement.setAttribute("theme", "light");
+      document.documentElement.setAttribute(
+        "theme",
+        this.theme ? "dark" : "light"
+      );
     },
   },
 };

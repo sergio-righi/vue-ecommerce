@@ -1,18 +1,22 @@
-export default ({ store, redirect, route, $resolve, $service }: any) => {
-  const page = ["checkout", "order"];
-  const isAuthenticated = store.getters["user/isAuthenticated"];
-  const matches = page.filter(item => route.path.match(item));
+/**
+ * check if the user is authenticated and validated then 
+ * check if there is products in the basket otherwise go back to home screen
+ */
 
-  if (!isAuthenticated && matches.length > 0) {
-    $service.session.redirect(route.path);
-    return redirect($resolve.login());
-  } else if (matches.length > 0) {
-    if (matches.includes(page[0])) {
-      const basket = { ...store.state.basket };
-      const hasProduct = basket.basket.length > 0;
-      if (!hasProduct) {
-        return redirect($resolve.home());
-      }
+export default ({ store, redirect, route, $resolve, $auth }: any) => {
+  const isAuthenticated = $auth.loggedIn
+  if (isAuthenticated) {
+    const { validated } = $auth.user
+    const authorizationPath = $resolve.authorization();
+    const isAuthorization = route.path === authorizationPath;
+    if (!validated && !isAuthorization) {
+      return redirect(authorizationPath);
+    } else if (validated && isAuthorization) {
+      return redirect($resolve.home());
     }
   }
+
+  const basket = { ...store.state.basket };
+  const hasProduct = basket.basket.length > 0;
+  if (!hasProduct) return redirect($resolve.home());
 };

@@ -1,69 +1,129 @@
+// eslint-disable-next-line import/named
 import { GetterTree, ActionTree, MutationTree } from 'vuex';
 
-import { User } from "@/models";
+import { UserModel } from '@/models';
+import { UserType } from "@/interfaces";
 import { helpers } from "@/utils";
 
-const state = () => ({
-  users: [] as User[],
-  user: {} as User,
+interface StateType {
+  index: number
+  users: UserType[]
+  user: UserType
+}
+
+const state = (): StateType => ({
+  index: -1 as number,
+  users: [] as UserType[],
+  user: new UserModel() as UserType
 });
 
 export type RootState = ReturnType<typeof state>
 
 const mutations: MutationTree<RootState> = {
 
-  add(state, user: User) {
-    state.users.push(user);
-    state.user = user;
+  /**
+   * it gets all (not deleted) records on the collection
+   */
+
+  all: (state: StateType, users: UserType[]) => {
+    state.users = users
   },
 
-  put(state, props: any) {
-    state.user = state.users.find((user: User) => user.id === state.user.id) as User;
-    state.user = helpers.deepMerge(state.user, props);
+  /**
+   * it attributes the searched item to the stored value
+   */
+
+  find: (state: StateType, user: UserType) => {
+    state.user = user
   },
 
-  set(state, id: string) {
-    state.user = state.users.find((user: User) => user.id === id) as User;
+  /**
+   * it inserts the new item into the stored list
+   */
+
+  create: (state: StateType, user: UserType) => {
+    state.user = user
+    state.users.push(user)
   },
 
-  clear(state) {
-    state.user = {} as User;
+  /**
+   * it updates the status of an item on the stored list (deleted)
+   */
+
+  soft: (state: StateType) => {
+    state.index = state.users.findIndex(x => x._id === state.user._id);
+    state.users.splice(state.index, 1);
   },
 
-  reset(state) {
-    state.users = [] as User[];
+  /**
+   * it updates the status of an item on the stored list (not deleted)
+   */
+
+  restore: (state: StateType) => {
+    state.users.splice(state.index, 0, state.user);
+  },
+
+  /**
+   * it modified the stored value with the updated ones
+   */
+
+  set: (state: StateType, user: UserType) => {
+    state.user = helpers.deepMerge(state.user, user)
+  },
+
+  /**
+   * it unselects an item from the list
+   */
+
+  clear: (state: StateType) => {
+    state.index = -1;
+    state.user = new UserModel() as UserType
   }
 };
 
 const getters: GetterTree<RootState, RootState> = {
-  users: (state): User[] => state.users,
-  user: (state): User => state.user,
-  wishlist: (state): string[] => state.user?.wishlist ?? [],
-  isAuthenticated: (state): boolean => Object.keys(state.user).length !== 0
+  users: (state: StateType) => state.users.filter(x => !x.deleted),
+  user: (state: StateType) => state.user,
+  wishlist: (state: StateType): string[] => state.user?.wishlist ?? [],
 };
 
 const actions: ActionTree<RootState, RootState> = {
 
-  add({ commit }, user: User) {
-    commit("add", user);
+  all: ({ commit }: any, response: any) => {
+    commit("all", response);
   },
 
-  put({ commit }, props: any) {
-    commit("put", props);
+  find: ({ commit }: any, response: any) => {
+    commit("find", response);
   },
 
-  set({ commit }, id: string) {
-    commit("set", id);
+  create: ({ commit }: any, response: any) => {
+    commit("create", response)
   },
 
-  clear({ commit }) {
+  update: ({ commit }: any, response: any) => {
+    // commit("update", response);
+  },
+
+  soft: ({ commit }: any, response: any) => {
+    commit("soft", response);
+  },
+
+  restore: ({ commit }: any, response: any) => {
+    commit("restore", response);
+  },
+
+  set: ({ commit }: any, response: any) => {
+    commit("set", response);
+  },
+
+  clear: ({ commit }: any) => {
     commit("clear");
   },
 
-  reset({ commit }) {
+  reset: ({ commit }: any) => {
     commit("reset");
   }
-
 };
 
 export default {

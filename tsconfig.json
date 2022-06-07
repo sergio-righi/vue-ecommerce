@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "target": "es6",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "lib": [
-      "ESNext",
+      "es6",
       "ESNext.AsyncIterable",
       "DOM"
     ],
@@ -14,7 +13,9 @@
     "sourceMap": true,
     "strict": true,
     "noEmit": true,
+    "noImplicitAny": false,
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
@@ -24,51 +25,35 @@
       "@/*": [
         "./*"
       ],
-      "assets": [
-        "./assets"
-      ],
-      "components": [
-        "./components"
-      ],
-      "db": [
-        "./db"
-      ],
-      "layouts": [
-        "./layouts"
-      ],
-      "locales": [
-        "./locales"
-      ],
-      "middleware": [
-        "./middleware"
-      ],
-      "models": [
-        "./models"
-      ],
-      "pages": [
-        "./pages"
-      ],
-      "plugins": [
-        "./plugins"
-      ],
-      "services": [
-        "./services"
-      ],
-      "store": [
-        "./store"
-      ],
-      "utils": [
-        "./utils"
+      "@server/*": [
+        "./server/*"
       ]
     },
     "types": [
       "@nuxt/types",
-      "@types/node"
+      "@types/node",
+      "@types/crypto-js",
+      "@nuxtjs/auth-next"
     ]
   },
+  "include": [
+    "**/*.ts",
+    "**/*.vue",
+    "server/**/*",
+    "types/shims-global.d.ts",
+    "types/shims-module.d.ts"
+  ],
   "exclude": [
     "node_modules",
     ".nuxt",
     "dist"
-  ]
+  ],
+  "ts-node": {
+    "require": [
+      "tsconfig-paths/register"
+    ]
+  },
+  "vueCompilerOptions": {
+    "experimentalDisableTemplateSupport": true
+  }
 }

@@ -12,24 +12,19 @@ const fromUTC = (value: string): Date => {
 };
 
 /**
- * It converts date to UTC format
- * @param {Date} value
- * @returns {string}
+ * object array to dropdown list
+ * @param {[any]} o
+ * @param {any} i18n
+ * @param {boolean} index
+ * @returns {[Object]}
  */
 
-const toUTC = (value: Date): number => {
-  return value.getTime();
-};
-
-/**
- * IT capitalizes a string
- * @param {string} value
- * @returns {string}
- */
-
-const toCapitalize = (value: string): string => {
-  const lower = value.toLowerCase();
-  return value.charAt(0).toUpperCase() + lower.slice(1);
+const toDropdownList = (enumerable: Array<any>, i18n: any, index: boolean = false): Object | any => {
+  if (i18n === null) return;
+  return Object.entries(enumerable).map(x => ({
+    value: parseInt(x[0]),
+    text: i18n.tc(x[1], 1)
+  }));
 };
 
 /**
@@ -85,24 +80,15 @@ const deepMerge = (target: any, ...sources: any): any => {
 };
 
 /**
- * It generates ObjectId
- * @param {Math} m
- * @param {DateConstructor} d
- * @param {Function} s
- * @returns {string}
+ * create an instance using a generic constraint
+ * @param t 
+ * @param args 
+ * @returns 
  */
 
-const generateId = (m: Math = Math, d: DateConstructor = Date, h = 16, s: Function = (s: number) => m.floor(s).toString(h)): string =>
-  s(d.now() / 1000) + ' '.repeat(h).replace(/./g, () => s(m.random() * h))
-
-/**
- * It generates OrderId
- * @param {string} value
- * @returns {string}
- */
-
-const generateOrderId = (value: string): string => {
-  return value.replace(/\D/g, "").slice(-7)
+function createInstance<T>(type: new (...constructorArgs: any[]) => T, ...args: any[]): T {
+  // eslint-disable-next-line new-cap
+  return new type(...args);
 }
 
 /**
@@ -127,14 +113,12 @@ const format = function (): string {
 
 const randomFloat = (min: number, max: number): number => Math.random() * (max - min) + min;
 
-export const helpers = {
+export default {
   format,
+  toDropdownList,
   toDictionary,
-  toCapitalize,
   fromUTC,
-  generateId,
-  generateOrderId,
-  toUTC,
+  createInstance,
   deepMerge,
   randomFloat,
 };

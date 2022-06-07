@@ -61,29 +61,40 @@ export default {
   },
   computed: {
     ...mapGetters("basket", ["count", "basket"]),
-    ...mapGetters("user", ["isAuthenticated", "user"]),
     theme: {
       set(theme) {
         this.isAuthenticated
-          ? this.$service.user.update({ theme })
+          ? (this.theme !== theme) & this.$service.user.updateDepth({ theme })
           : (this.dark = theme);
       },
       get() {
-        return this.user.theme ?? this.dark;
+        return this.isAuthenticated
+          ? this.$auth.user.theme ?? false
+          : this.dark;
       },
     },
     locale: {
       set(locale) {
         this.isAuthenticated
-          ? this.$service.user.update({ locale })
+          ? (this.locale !== locale) &
+            this.$service.user.updateDepth({ locale })
           : (this.$i18n.locale = locale);
       },
       get() {
-        return this.user.locale ?? this.$i18n.locale;
+        return this.isAutheticated
+          ? this.$auth.user.locale ?? this.$i18n.locale
+          : this.$i18n.locale;
       },
     },
+    isAuthenticated() {
+      return this.$auth.loggedIn ?? false;
+    },
     letter() {
-      return this.isAuthenticated ? this.user.person.name[0] : "?";
+      if (this.isAuthenticated && "user" in this.$auth) {
+        const user = this.$auth.user ?? {};
+        return "person" in user ? user.person.name?.slice(0, 1) : "";
+      }
+      return "";
     },
     availableLocale() {
       return this.$i18n.locales.filter((item) => item.iso !== this.locale);
@@ -95,11 +106,10 @@ export default {
     },
   },
   methods: {
-    async signOut() {
-      await this.$service.session.logout();
-      this.$router.push({ path: this.$resolve.home() });
+    signOut() {
+      this.$service.session.logout();
     },
-    async signIn() {
+    signIn() {
       this.$router.push({ path: this.$resolve.login() });
     },
     setLocale(locale) {

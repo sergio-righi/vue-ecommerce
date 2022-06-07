@@ -9,15 +9,11 @@
       @input="setReview(item, ...arguments)"
       color="pink"
     />
-    <small
-      >({{ review.count }}
-      {{ $tc("label.review", review.count).toLowerCase() }})</small
-    >
+    <small>({{ count }} {{ $tc("label.review", count).toLowerCase() }})</small>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 export default {
   props: {
     item: {
@@ -26,23 +22,33 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("user", ["isAuthenticated"]),
+    isAuthenticated() {
+      return this.$auth.loggedIn ?? false;
+    },
+    hasReview() {
+      return !!this.review;
+    },
+    count() {
+      return this.hasReview ? this.review.count : 0;
+    },
     review() {
-      return this.$service.book.review(this.item.id);
+      return this.$service.book.review(this.item._id);
     },
     userReview() {
-      return this.review.user ?? this.review.ratio;
+      return this.hasReview ? this.review.user ?? this.review.ratio : null;
     },
     titleReview() {
-      return `${this.review.ratio}/5 ${this.$t("label.overall")}`;
+      return this.hasReview
+        ? `${this.review.ratio}/5 ${this.$t("label.overall")}`
+        : "";
     },
   },
   methods: {
     setReview: async function (item, value) {
       this.$nextTick(async () => {
-        await this.$service.book.setReview(item.id, value);
+        await this.$service.book.setReview(item._id, value);
       });
-    }
+    },
   },
 };
 </script>

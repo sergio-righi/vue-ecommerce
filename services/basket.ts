@@ -1,52 +1,62 @@
-import { Book, Item } from "@/models";
-import { calculation } from "@/utils";
+import { Context } from '@nuxt/types'
 
-export const BasketService = (store: any, i18n: any) => ({
+import { calculation } from "@/utils";
+import { BookType, ItemType } from '@/interfaces';
+
+class BasketService {
+  private readonly i18n: any
+  private readonly store: any
+  static storeName: string = "basket";
+
+  constructor({ store, i18n }: Context) {
+    this.i18n = i18n;
+    this.store = store;
+  }
 
   all() {
-    store.dispatch("basket/all");
-  },
+    this.store.dispatch(`${BasketService.storeName}/all`);
+  }
 
   insert(id: string, count: number) {
-    store.dispatch("basket/add", { id, count });
-  },
+    this.store.dispatch(`${BasketService.storeName}/add`, { id, count });
+  }
 
   set(id: string, count: number) {
-    store.dispatch("basket/set", { id, count });
-  },
+    this.store.dispatch(`${BasketService.storeName}/set`, { id, count });
+  }
 
-  update(item: Item) {
-    store.dispatch("basket/put", item);
-  },
+  update(item: ItemType) {
+    this.store.dispatch(`${BasketService.storeName}/put`, item);
+  }
 
   delete(id: string) {
-    store.dispatch("basket/delete", id);
-  },
+    this.store.dispatch(`${BasketService.storeName}/delete`, id);
+  }
 
-  recover() {
-    store.dispatch("basket/recover");
-  },
+  restore() {
+    this.store.dispatch(`${BasketService.storeName}/restore`);
+  }
 
   clear() {
-    store.dispatch("basket/clear");
-  },
+    this.store.dispatch(`${BasketService.storeName}/clear`);
+  }
 
   reset() {
-    store.dispatch("basket/reset");
-  },
+    this.store.dispatch(`${BasketService.storeName}/reset`);
+  }
 
   count(id: string) {
-    return store.state.basket.basket.find((x: Item) => x.bookId === id)?.count ?? 1;
-  },
+    return this.store.state.basket.basket.find((x: ItemType) => x.bookId === id)?.count ?? 1;
+  }
 
   exist(id: string): boolean {
-    return store.state.basket.basket.find((x: Item) => x.bookId === id) !== undefined;
-  },
+    return this.store.state.basket.basket.find((x: ItemType) => x.bookId === id) !== undefined;
+  }
 
   validate(): boolean {
-    const books = store.state.book.books;
-    for (const item of store.state.basket.basket) {
-      const book = books.find((x: Book) => x.id === item.bookId);
+    const books = this.store.state.book.books;
+    for (const item of this.store.state.basket.basket) {
+      const book = books.find((x: BookType) => x._id === item.bookId);
       if (book) {
         if (book.inStock === 0) {
           this.delete(book.id);
@@ -56,42 +66,43 @@ export const BasketService = (store: any, i18n: any) => ({
       }
     }
     return true;
-  },
+  }
 
   list() {
-    const books = store.state.book.books;
-    return store.state.basket.basket.map((item: Item) => {
-      const book = books.find((x: Book) => x.id === item.bookId);
+    const books = this.store.state.book.books;
+    return this.store.state.basket.basket.map((item: ItemType) => {
+      const book = books.find((x: BookType) => x._id === item.bookId);
       return book ? { ...book, ...item } : null;
     }).filter((x: any) => x);
-  },
+  }
 
   tax() {
     return `${calculation.HST * 100}%`;
-  },
+  }
 
   subtotal() {
     return this.list().reduce(
       (a: number, b: any) =>
-        a + calculation.regularPrice(b.price, i18n, b.count),
+        a + calculation.regularPrice(b.price, this.i18n, b.count),
       0
     );
-  },
+  }
 
   total() {
     return this.list().reduce(
       (a: number, b: any) =>
         a +
         calculation.reducedPrice(
-          calculation.regularPrice(b.price, i18n, b.count),
+          calculation.regularPrice(b.price, this.i18n, b.count),
           b.discount
         ),
       0
     );
-  },
+  }
 
   taxed() {
     return calculation.applyTax(this.total());
-  },
+  }
+}
 
-});
+export { BasketService }

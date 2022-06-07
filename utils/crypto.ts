@@ -21,4 +21,4 @@ const decrypt = (value: string) => {
   return CryptoJS.enc.Utf8.stringify(cipher).toString();
 };
 
-export const crypto = { encrypt, decrypt };
+export default { encrypt, decrypt };

@@ -1,27 +1,23 @@
-import { Plugin } from '@nuxt/types'
+import { Plugin, Context } from '@nuxt/types'
 import { initializeAxios } from 'utils/api'
 
-// const accessor: Plugin = ({ $axios }) => {
-//     initializeAxios($axios)
-// }
-
-const accessor: Plugin = ({ $axios, app }) => {
+const accessor: Plugin = ({ $axios, $auth }: Context) => {
     initializeAxios($axios)
 
+    const authToken = $auth?.strategy.token.get();
+
+    if (authToken) {
+        $axios.onRequest((config: any) => {
+            config.headers.common.Authorization = authToken
+        })
+    }
+
+    // axios error handler
     $axios.onError((error: any) => {
         if (error.response === undefined) {
-            // Display a flash notification
-            app.notify({
-                title: 'Network Error: Please refresh and try again.',
-                type: 'error',
-                duration: -1,
-            })
-
+            console.log('Network Error: Please refresh and try again.');
             throw error
         }
-
-        // Handle other types of errors (e.g., redirect to login on 401 errors)
-
         throw error
     })
 }

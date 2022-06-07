@@ -1,13 +1,19 @@
+import { Context } from '@nuxt/types'
+
 import { BasketService } from "./basket";
-import { OrderService } from "./order";
 import { BookService } from "./book";
+import { MailService } from "./mail";
+import { OrderService } from "./order";
 import { SessionService } from "./session";
+import { TokenService } from "./token";
 import { UserService } from "./user";
 
-export const initializeService = (store: any, i18n: any) => ({
-  book: BookService(store),
-  basket: BasketService(store, i18n),
-  order: OrderService(store),
-  session: SessionService(store),
-  user: UserService(store),
+export const initializeService = (context: Context) => ({
+  book: new BookService(context),
+  basket: new BasketService(context),
+  mail: new MailService(context),
+  order: new OrderService(context),
+  session: new SessionService(context),
+  token: new TokenService(context),
+  user: new UserService(context),
 });

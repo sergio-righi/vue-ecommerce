@@ -4,10 +4,10 @@ const upper = "ABCDEFGHJKLMNPQRSTUVWXYZ";
 const lower = "abcdefghijkmnopqrstuvwxyz";
 
 const run = (dictionary: any, length: any, unique: boolean = true) => {
-  const result = [];
+  const result: Array<string> = [];
   do {
-    const index = Math.floor(Math.random() * dictionary.length + 1);
-    const character = dictionary[index - 1];
+    const index: number = Math.floor(Math.random() * dictionary.length + 1);
+    const character: string = dictionary[index - 1];
     if (unique) {
       if (result[result.length - 1] !== character) {
         result.push(character);
@@ -27,4 +27,4 @@ const generateKey = (length: number = 48) => {
   return run(lower + upper + number, length);
 };
 
-export const token = { generateCode, generateKey };
+export default { generateCode, generateKey };

@@ -1,37 +1,17 @@
-import { Card } from "@/models";
-import { helpers } from "~/utils";
+import { CardType, PaymentType } from "@/interfaces";
 import { EnumPayment } from "@/utils/enums";
 
-interface IPayment {
-  _id?: string;
-  type: EnumPayment;
-  info: Card
-  default: boolean;
-  deleted: boolean;
-}
+export default class PaymentModel {
 
-class Payment implements IPayment {
-  id?: string;
-  type: EnumPayment;
-  info: Card;
-  default: boolean;
-  deleted: boolean;
-
-  constructor(o: IPayment = { _id: helpers.generateId(), type: EnumPayment.card, info: new Card(), default: false, deleted: false }) {
-    this.id = o._id;
-    this.type = o.type;
-    this.info = o.info;
-    this.default = o.default;
-    this.deleted = o.deleted;
+  constructor(params?: PaymentType) {
+    Object.assign(this, { type: EnumPayment.card, info: {} as CardType, default: false, deleted: false }, params);
   }
 
-  canCreate() {
+  static canCreate() {
     return true;
   }
 
-  canUpdate() {
+  static canUpdate() {
     return true;
   }
 }
-
-export default Payment;

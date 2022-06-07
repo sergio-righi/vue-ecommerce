@@ -16,7 +16,7 @@
                 </template>
                 <template #content>
                   <gv-tile-header>
-                    #{{ generateOrderId(order.id) }}
+                    #{{ generateOrderId(order._id) }}
                   </gv-tile-header>
                   <gv-tile-header sub>
                     {{ order.placementDate | timestamp }}
@@ -31,17 +31,20 @@
                 </template>
                 <template #expandable>
                   <gv-divider />
-                  <gv-tile v-for="book in order.books" :key="book.id">
+                  <gv-tile v-for="book in order.books" :key="book.bookId._id">
                     <template #content>
                       <gv-tile-header>
-                        {{ book.name }}
+                        {{ book.bookId.name }}
                       </gv-tile-header>
                       <gv-tile-header sub>
                         {{ book | basket($i18n) }}
                       </gv-tile-header>
                     </template>
                     <template #trailing>
-                      <gv-image :src="$resolve.image.cover(book.id)" />
+                      <gv-image
+                        width="40"
+                        :src="$resolve.image.cover(book.bookId._id)"
+                      />
                     </template>
                   </gv-tile>
                 </template>
@@ -71,13 +74,14 @@ export default {
     Page,
     PageLoading,
   },
+  middleware: "auth",
   data: () => ({
     orders: [],
   }),
   async fetch() {
-    const { $service, error } = this.$nuxt.context;
+    const { $auth, $service, error } = this.$nuxt.context;
     try {
-      this.orders = await $service.order.all();
+      this.orders = await $service.order.allWithBooks($auth.user._id);
     } catch (err) {
       error({
         statusCode: 503,
@@ -92,7 +96,7 @@ export default {
   },
   methods: {
     generateOrderId: function (id) {
-      return helpers.generateOrderId(id);
+      return id.replace(/\D/g, "");
     },
   },
   head() {

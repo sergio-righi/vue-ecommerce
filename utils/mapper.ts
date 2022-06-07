@@ -11,6 +11,11 @@ const books: any = {
     [enumerable.EnumBook.audio]: "enum.book.audio"
 }
 
+const countries: any = {
+    [enumerable.EnumCountry.canada]: "enum.country.canada",
+    [enumerable.EnumCountry.brazil]: "enum.country.brazil",
+}
+
 const discounts: any = {
     [enumerable.EnumDiscount.fixed]: "enum.discount.fixed",
     [enumerable.EnumDiscount.percentage]: "enum.discount.percentage"
@@ -33,6 +38,19 @@ const payments: any = {
     [enumerable.EnumPayment.card]: "enum.payment.card"
 };
 
+const phones: any = {
+    [enumerable.EnumPhone.mobile]: "enum.phone.mobile",
+    [enumerable.EnumPhone.landline]: "enum.phone.landline",
+    [enumerable.EnumPhone.business]: "enum.phone.business"
+};
+
+const rates: any = {
+    [enumerable.EnumRated.early]: "enum.rated.early",
+    [enumerable.EnumRated.middle]: "enum.rated.middle",
+    [enumerable.EnumRated.teen]: "enum.rated.teen",
+    [enumerable.EnumRated.adult]: "enum.rated.adult"
+};
+
 const roles: any = {
     [enumerable.EnumRole.pub]: "enum.role.publisher"
 };
@@ -51,13 +69,16 @@ const status: any = {
     [enumerable.EnumStatus.disputed]: "enum.status.disputed"
 }
 
-const mapper = {
+export const mapper = {
     addresses,
     books,
+    countries,
     discounts,
     documents,
     genders,
     payments,
+    phones,
+    rates,
     roles,
     status,
 };

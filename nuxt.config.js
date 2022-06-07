@@ -38,7 +38,6 @@ export default {
     "~/plugins/filter",
     "~/plugins/resolve",
     "~/plugins/service",
-    "~/plugins/repository",
     "~/plugins/grater-vue",
     "~/plugins/vuex-persist.client",
   ],
@@ -47,13 +46,11 @@ export default {
 
   loading: { color: "white" },
 
-  loadingIndicator: false,
-
-  // loadingIndicator: {
-  //   name: "circle",
-  //   color: "black",
-  //   background: "white",
-  // },
+  loadingIndicator: {
+    name: "circle",
+    color: "black",
+    background: "white",
+  },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: false,
@@ -65,12 +62,50 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["nuxt-i18n", "@nuxtjs/axios"],
+  modules: ["nuxt-i18n", "@nuxtjs/axios", "@nuxtjs/auth-next"],
 
   axios: {
     // proxy: true,
     progress: false,
-    baseUrl: process.env.BASE_URL || "http://localhost:3000/",
+    baseUrl: "http://localhost:4000/",
+  },
+
+  auth: {
+    plugins: [
+      "~/plugins/service.ts",
+      { src: "~/plugins/axios.ts", ssr: false },
+    ],
+    redirect: {
+      login: "/sign_in",
+      home: "/",
+      logout: "/sign_in",
+      callback: "/sign_in",
+    },
+    // resetOnError: true,
+    strategies: {
+      local: {
+        scheme: "refresh",
+        token: {
+          required: true,
+          property: "accessToken",
+        },
+        refreshToken: {
+          data: "refreshToken",
+          property: "refreshToken",
+        },
+        user: {
+          property: "user",
+          autoFetch: true,
+        },
+        endpoints: {
+          login: { url: "/auth/login", method: "post" },
+          refresh: { url: "/auth/refresh", method: "post" },
+          user: { url: "/auth/user", method: "get" },
+          logout: false,
+        },
+      },
+    },
+    watchLoggedIn: true,
   },
 
   alias: {
@@ -96,10 +131,6 @@ export default {
       cookieKey: "i18n_redirected",
       redirectOn: "root",
     },
-  },
-
-  router: {
-    middleware: ["authorization", "authentitcation"],
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

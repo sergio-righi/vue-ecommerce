@@ -1,25 +1,56 @@
+import { Context } from '@nuxt/types'
 
-export const SessionService = (store: any) => ({
+import { crypto } from "@/utils";
 
-  user() {
-    return store.state.user.id;
-  },
+class SessionService {
+  private readonly $auth: any
+  private readonly store: any
+  static storeName: string = "session";
 
-  feedback(message: string, error: boolean = false) {
-    store.dispatch("session/feedback", { message, error });
-  },
-
-  logout() {
-    store.dispatch("user/clear");
-    store.dispatch("session/logout");
-  },
-
-  redirect(path: string) {
-    store.dispatch("session/redirect", path);
-  },
-
-  clear() {
-    store.dispatch("session/clear");
+  constructor({ store, $auth }: Context) {
+    this.store = store;
+    this.$auth = $auth;
   }
 
-});
+  item(id: string, count: number) {
+    this.store.dispatch(`${SessionService.storeName}/item`, { id, count })
+  }
+
+  count(id: string) {
+    return this.store.state.session.items.find((x: any) => x.id === id)?.count ?? 1;
+  }
+
+  feedback(message: string, error: boolean = false) {
+    this.store.dispatch(`${SessionService.storeName}/feedback`, { message, error });
+  }
+
+  async login(username: string, password: string, encrypt: boolean = true) {
+    password = encrypt ? crypto.encrypt(password) : password;
+    await this.$auth.loginWith('local', {
+      data: {
+        username,
+        password
+      },
+    })
+  }
+
+  async logout() {
+    await this.$auth.logout();
+  }
+
+  async fetch() {
+    const user = { ...this.$auth.user }
+    user.validated = true;
+    await this.$auth.setUser(user)
+  }
+
+  redirect(path: string) {
+    this.store.dispatch(`${SessionService.storeName}/redirect`, path);
+  }
+
+  clear() {
+    this.store.dispatch(`${SessionService.storeName}/clear`);
+  }
+}
+
+export { SessionService }

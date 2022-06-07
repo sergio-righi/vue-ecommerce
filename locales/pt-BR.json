@@ -3,22 +3,14 @@
     "home": {
       "title": "Início"
     },
-    "sign_up": {
-      "title": "Inscrever-se",
-      "has_account": "Já possui uma conta?"
-    },
-    "sign_in": {
-      "title": "Entrar",
-      "remeber_me": "Manter conectado",
-      "forgot_password": "Esqueceu a senha?"
-    },
-    "forgot_password": {
-      "title": "Esqueceu a senha",
-      "remember_it": "Conseguiu relembrar?"
-    },
-    "authorization": {
-      "title": "Confirmação de conta",
-      "try_again": "Não recebeu o código?"
+    "authentication": {
+      "sign_in": "Entrar",
+      "sign_up": "Cadastrar",
+      "sign_out": "Sair",
+      "remember_it": "Lembrei! Quero voltar.",
+      "has_account": "Já possui uma conta?",
+      "remember_me": "Manter-se conectado",
+      "forget_password": "Esqueceu sua senha?"
     },
     "error": {
       "401": "Acesso não autorizado.\n\nIsso pode indicar que a requisição não conseguiu identificar as credenciais necessárias para acessar o recurso solicitado.",
@@ -37,6 +29,11 @@
     "checkout": {
       "title": "Últimos detalhes"
     }
+  },
+  "agreement": {
+    "cookie_policy": "Política de Cookies",
+    "privacy_policy": "Política de privacidade",
+    "terms_of_service": "Termos de serviço"
   },
   "action": {
     "agreed": "Entendi",
@@ -117,10 +114,20 @@
       "other": "outro",
       "omit": "prefiro não informar"
     },
+    "country": {
+      "canada": "Canadá",
+      "brazil": "Brasil"
+    },
     "document": {
       "passport": "passaporte",
       "id": "documento de identidade",
       "drivers_license": "carteira de motorista"
+    },
+    "rated": {
+      "early": "E",
+      "middle": "7+",
+      "teen": "12+",
+      "adult": "18+"
     },
     "role": {
       "dev": "Developer",
@@ -146,13 +153,14 @@
       "login": "Ao continuar, você concorda com o nosso",
       "password": "Uma senha forte deve conter...",
       "domain": "xyz.ca",
-      "error": "me leve para"
+      "error": "me leve para",
+      "try_again": "Não recebeu o código?"
     },
     "confirmation": {
       "title": "Confirmação Requirida",
       "delete": "Antes de continuar, tenha certeza de que esse é o item correto uma vez que está ação é permanente"
     },
-    "recover": {
+    "restore": {
       "delete": "foi deletado"
     },
     "feedback": {
@@ -185,16 +193,26 @@
       "add_payment": "Adicionar um novo método de pagamento"
     }
   },
+  "mail": {
+    "verification_code": {
+      "subject": "E-mail de verificação",
+      "greeting": "Olá {name},",
+      "header": "aqui está seu código de verificação de conta:",
+      "description": "tudo que você precisa fazer agora é copiar este código e colar no momento que você for acessar a plataforma e sua conta sera desbloqueada :)"
+    },
+    "forget_password": {
+      "subject": "E-mail de redefinição de senha",
+      "header": "Você solicitou a alteração da sua senha.",
+      "subheader": "Não podemos simplesmente enviar sua senha antiga. Um link único para redefinir sua senha foi gerado para você, clique no link abaixo e siga as instruções.",
+      "button": "Clique aqui",
+      "description": "Se você não solicitou esta alteração, ignore este e-mail. E fique tranquilo, somente quem tem acesso a este e-mail pode alterar a senha da sua conta."
+    }
+  },
   "locale": {
     "currency": "BRL"
   },
   "navbar": {
     "sign_out": "Sair"
-  },
-  "agreement": {
-    "cookie_policy": "Política de Cookies",
-    "privacy_policy": "Política de privacidade",
-    "terms_of_service": "Termos de serviço"
   },
   "linking_word": {
     "and": "e",
