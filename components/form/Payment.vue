@@ -19,7 +19,9 @@
           />
         </template>
         <template #content>
-          <gv-tile-header sub> {{ item.number | masked }} </gv-tile-header>
+          <gv-tile-header sub>
+            {{ getNumber(item.number) | masked }}
+          </gv-tile-header>
         </template>
         <template #trailing>
           <gv-button @onclick="onConfirm(index)" error sm>
@@ -71,12 +73,20 @@
                     :label="$t('label.expiration_year')"
                   />
                 </gv-col>
-                <gv-col>
+                <gv-col sm="8">
                   <gv-select
                     v-model="payment.billingAddress"
                     v-validation.required
                     :label="$tc('label.billing_address', 1)"
                     :items="addressesDropdown"
+                  />
+                </gv-col>
+                <gv-col sm="4">
+                  <gv-input
+                    v-model="payment.cvv"
+                    v-validation.required="{ minLength: 3 }"
+                    :label="$t('label.cvv')"
+                    v-mask="'###'"
                   />
                 </gv-col>
                 <gv-col sm="2">
@@ -95,6 +105,7 @@
 </template>
 
 <script lang="ts">
+import { crypto } from "@/utils";
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { AddressType, CardType } from "@/interfaces";
 import { DialogDelete } from "@/components/helper";
@@ -140,6 +151,7 @@ export default class Payment extends Vue {
   }
 
   onSubmit() {
+    this.payment.number = crypto.encrypt(this.payment.number as string);
     this.items.push(this.payment);
     this.payment = {} as CardType;
     this.$emit("input", this.items);
@@ -165,6 +177,10 @@ export default class Payment extends Vue {
   onChange(item: any, index: number) {
     this.checkedIndex = index;
     this.$emit("onchange", item);
+  }
+
+  getNumber(number: string) {
+    return crypto.decrypt(number);
   }
 }
 </script>

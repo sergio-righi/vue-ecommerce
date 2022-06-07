@@ -82,6 +82,7 @@
     "cardholder": "Cardholder's Name",
     "code": "Code",
     "count": "Count",
+    "cvv": "CVV",
     "detail": "Detail | Details",
     "email": "Email | Emails",
     "expiration_month": "Expiration Month",
@@ -259,6 +260,6 @@
   },
   "disclaimer": {
     "title": "Disclaimer",
-    "message": "This application is strictly for demo purposes and it is not intended to be used for commercial applications. All the information presented here is FAKE and all the actions performed are STORED LOCALLY on user's browser ONLY."
+    "message": "This platform is strictly for demo purposes and it is not intended to be used for commercial applications. All the information presented here is FAKE."
   }
 }

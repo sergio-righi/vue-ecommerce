@@ -67,12 +67,21 @@
     }
   },
   "label": {
-    "address": "Endereço | Endereços",
+    "address": {
+      "self": "Endereço | Endereços",
+      "type": "Tipo",
+      "city": "Cidade",
+      "number": "Número",
+      "country": "País",
+      "province": "Estado",
+      "street": "Rua",
+      "unit": "Complemento",
+      "zipcode": "Código postal"
+    },
     "billing_address": "Endereço de cobrança",
     "cardholder": "Títular do cartão",
-    "city": "Cidade",
     "count": "Quantidade",
-    "country": "País",
+    "cvv": "CVV",
     "email": "Email | Emails",
     "expiration_month": "Mês de expiração",
     "expiration_year": "Ano de expiração",
@@ -82,18 +91,14 @@
     "overall": "Geral",
     "password": "Senha",
     "payment_method": "Método de pagamento",
-    "province": "Estado",
     "review": "Avaliação | Avaliações",
     "shipping": "Entraga",
     "shipping_address": "Endereço de entrega",
     "subtotal": "Subtotal",
     "summary": "Resumo",
-    "street": "Rua",
     "tax": "Imposto",
     "total": "Total",
-    "unit": "Número",
-    "username": "Nome de usuário",
-    "zipcode": "Código postal"
+    "username": "Nome de usuário"
   },
   "placeholder": {
     "search_by_name": "pesquisar por nome"
@@ -253,6 +258,6 @@
   },
   "disclaimer": {
     "title": "Isenção de responsabilidade",
-    "message": "Este aplicativo é estritamente para fins de demonstração e não se destina a ser usado para aplicações comerciais. Todas as informações apresentadas aqui NÃO são reais e todas as ações realizadas são ARMAZENADAS LOCALMENTE no navegador do usuário."
+    "message": "Este aplicativo é estritamente para fins de demonstração e não se destina a ser usado para aplicações comerciais. Todas as informações apresentadas aqui NÃO são reais."
   }
 }
