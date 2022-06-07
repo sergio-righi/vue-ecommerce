@@ -42,7 +42,9 @@
     "continue": "Continue",
     "order": "Place order",
     "reset_filter": "Reset Filter",
-    "checkout": "Proceed to Checkout"
+    "checkout": "Proceed to Checkout",
+    "add_basket": "add to basket",
+    "remove_basket": "remove from basket"
   },
   "agreement": {
     "cookie_policy": "Cookie Policy",
@@ -109,6 +111,10 @@
     "good_evening": "Good Evening"
   },
   "enum": {
+    "address": {
+      "residential": "Residential",
+      "business": "Business"
+    },
     "book": {
       "digital": "Digital",
       "audio": "Audiobook",

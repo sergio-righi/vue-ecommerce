@@ -9,8 +9,8 @@
           v-for="item in filtered.list"
           :key="item.id"
           xs="6"
-          md="4"
-          lg="3"
+          sm="3"
+          lg="2"
         >
           <ProductBook :item="item" @onadd="onAdd" @onremove="onRemove" />
         </gv-col>

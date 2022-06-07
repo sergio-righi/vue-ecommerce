@@ -48,7 +48,9 @@
     "continue": "Continuar",
     "order": "Confirmar pedido",
     "reset_filter": "Limpar filtro",
-    "checkout": "Continuar para o checkout"
+    "checkout": "Continuar para o checkout",
+    "add_basket": "adcionar na cesta",
+    "remove_basket": "remover da cesta"
   },
   "component": {
     "product": {
@@ -103,6 +105,10 @@
     "good_evening": "Boa Noite"
   },
   "enum": {
+    "address": {
+      "residential": "Residencial",
+      "business": "Comercial"
+    },
     "book": {
       "digital": "Digital",
       "audio": "Audiobook",

@@ -1,8 +1,8 @@
 import * as enumerable from "./enums"
 
 const addresses: any = {
-    [enumerable.EnumAddress.billing]: "enum.address.shipping",
-    [enumerable.EnumAddress.shipping]: "enum.address.shipping"
+    [enumerable.EnumAddress.residential]: "enum.address.residential",
+    [enumerable.EnumAddress.business]: "enum.address.business"
 }
 
 const books: any = {

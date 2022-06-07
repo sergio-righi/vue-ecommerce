@@ -8,20 +8,22 @@
     <template #content>
       <div class="thumbnail">
         <gv-image
+          top
           lazyload
           :src="$resolve.image.cover(item._id)"
           :href="$resolve.book(item.slug)"
-        />
-        <gv-position v-if="isAuthenticated" top>
+        >
           <gv-icon
+            v-if="isAuthenticated"
             value="bookmark"
             class="wishlist-icon"
             :color="inWishlist(item._id)"
             @onclick="setWishlist(item._id)"
           />
-        </gv-position>
+          <ProductRating :item="item" :key="item._id" short />
+        </gv-image>
       </div>
-      <div class="side">
+      <div class="footer">
         <div class="info">
           <div class="title">{{ item.name }}</div>
           <ProductDiscount
@@ -31,22 +33,16 @@
           />
         </div>
         <div v-if="item.inStock > 0" class="control">
-          <ProductCount
-            :min="Math.min(1, item.inStock)"
-            :max="item.inStock"
-            :value="getCount(item._id)"
-            @oninput="setCount(item, ...arguments)"
-          />
           <gv-button
             v-if="inBasket(item._id)"
             sm
             error
             @onclick="removeItem(item)"
           >
-            <gv-icon value="basket-remove" />
+            <gv-icon value="basket-remove" /> {{ $t("action.remove_basket") }}
           </gv-button>
           <gv-button v-else primary sm @onclick="addItem(item)">
-            <gv-icon value="basket-plus" />
+            <gv-icon value="basket-plus" /> {{ $t("action.add_basket") }}
           </gv-button>
         </div>
         <div v-else class="control">
@@ -62,14 +58,15 @@
 </template>
 
 <script>
-import { default as ProductCount } from "./ProductCount.vue";
-import { default as ProductDiscount } from "./ProductDiscount.vue";
+import { default as ProductCount } from "./ProductCount";
+import { default as ProductRating } from "./ProductRating";
+import { default as ProductDiscount } from "./ProductDiscount";
 
-import { mapGetters } from "vuex";
 export default {
   components: {
     ProductCount,
     ProductDiscount,
+    ProductRating,
   },
   props: {
     item: {
@@ -78,7 +75,6 @@ export default {
     },
   },
   computed: {
-    ...mapGetters("book", ["book"]),
     isAuthenticated() {
       return this.$auth.loggedIn ?? false;
     },
@@ -88,19 +84,17 @@ export default {
       return this.$service.basket.exist(id);
     },
     inWishlist: function (id) {
-      return this.$service.user.inWishlist(id) ? "red" : "white";
+      return this.$service.user.inWishlist(id) ? "accent" : "white";
     },
     addItem: async function (item) {
-      const count = this.$service.session.count(item._id);
-      await this.$service.basket.insert(item._id, count);
-      this.$emit("onadd", item.name, count);
+      await this.$service.basket.insert(item._id, 1);
+      this.$emit("onadd", item.name, 1);
     },
     removeItem: async function (item) {
       await this.$service.basket.delete(item._id);
       this.$emit("onremove", item.name);
     },
     setCount: async function (item, count) {
-      await this.$service.session.item(item._id, count);
       await this.$service.basket.set(item._id, count);
     },
     setWishlist: async function (id) {

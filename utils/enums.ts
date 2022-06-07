@@ -1,7 +1,7 @@
 
 enum EnumAddress {
-  billing = 1,
-  shipping = 2,
+  residential = 1,
+  business = 2,
 }
 
 enum EnumBook {

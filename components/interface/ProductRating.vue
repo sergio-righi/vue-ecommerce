@@ -1,15 +1,23 @@
 <template>
   <div class="product-rating">
-    <gv-rating
-      decimal
-      icon="heart"
-      :title="titleReview"
-      :value="userReview"
-      :readonly="!isAuthenticated"
-      @input="setReview(item, ...arguments)"
-      color="pink"
-    />
-    <small>({{ count }} {{ $tc("label.review", count).toLowerCase() }})</small>
+    <div v-if="short && review.ratio > 0" class="rating">
+      <gv-icon value="heart" />
+      <span>{{ review.ratio.toFixed(1) }}</span>
+    </div>
+    <template v-else-if="!short">
+      <gv-rating
+        decimal
+        icon="heart"
+        :title="titleReview"
+        :value="userReview"
+        :readonly="!isAuthenticated"
+        @input="setReview(item, ...arguments)"
+        color="pink"
+      />
+      <small
+        >({{ count }} {{ $tc("label.review", count).toLowerCase() }})</small
+      >
+    </template>
   </div>
 </template>
 
@@ -20,6 +28,7 @@ export default {
       type: Object,
       required: true,
     },
+    short: Boolean,
   },
   computed: {
     isAuthenticated() {

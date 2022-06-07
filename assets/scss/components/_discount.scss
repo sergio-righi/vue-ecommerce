@@ -7,6 +7,7 @@
 
   & > .currency {
     margin-top: auto;
+    font-weight: 500;
     line-height: 1.5;
     font-size: $font-size * 0.875;
     margin-right: $default-distance * 0.5;
@@ -14,27 +15,29 @@
 
   & > .wrapper {
     @include d-flex;
-    @include flex-direction(column);
+    // @include flex-direction(column);
+    @include align-items(flex-end);
     @include justify-content(flex-end);
 
     & > .price {
-      font-weight: 500;
+      font-weight: 700;
       line-height: initial;
       font-size: $font-size * 1.25;
 
       &.crossed {
-        line-height: 1;
         font-weight: 300;
         text-align: right;
+        line-height: 1.75;
+        color: var(--gv-color-red);
         font-size: $font-size * 0.75;
         text-decoration: line-through;
+        margin-right: $default-distance * 0.25;
       }
     }
 
     & > .discount {
-      font-weight: 500;
+      font-weight: 700;
       line-height: initial;
-      color: var(--gv-primary);
       font-size: $font-size * 1.5;
     }
   }
