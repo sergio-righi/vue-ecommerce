@@ -43,15 +43,23 @@ export default {
   layout: "login",
   data() {
     return {
+      prevRoute: null,
       user: {
         username: null,
         password: null,
       },
     };
   },
-  // computed: {
-  //   ...mapState("session", ["redirect"]),
-  // },
+  beforeRouteEnter(to, from, next) {
+    next((vm) => {
+      vm.prevRoute = from;
+    });
+  },
+  computed: {
+    prevRoutePath() {
+      return this.prevRoute ? this.prevRoute.path : this.$resolve.home();
+    },
+  },
   methods: {
     async signIn() {
       try {
@@ -59,6 +67,7 @@ export default {
           this.user.username,
           this.user.password
         );
+        this.$router.push(this.prevRoutePath);
       } catch (err) {
         this.$service.session.feedback(
           this.$t(

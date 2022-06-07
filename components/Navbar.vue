@@ -40,7 +40,7 @@
           </template>
         </gv-dropdown>
       </gv-navbar-item>
-      <gv-navbar-item v-else @onclick="signIn">
+      <gv-navbar-item v-else :href="$resolve.login()">
         <gv-icon value="account-circle" />
       </gv-navbar-item>
     </template>
@@ -108,9 +108,6 @@ export default {
   methods: {
     signOut() {
       this.$service.session.logout();
-    },
-    signIn() {
-      this.$router.push({ path: this.$resolve.login() });
     },
     setLocale(locale) {
       this.locale = locale;

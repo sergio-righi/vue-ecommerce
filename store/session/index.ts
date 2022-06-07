@@ -4,14 +4,12 @@ import { FeedbackType } from "@/interfaces"
 
 interface StateType {
   auth: any
-  redirect: string | null
   feedback: FeedbackType
   items: Array<{ id: string, count: number }>
 }
 
 const state = (): StateType => ({
   auth: {},
-  redirect: null,
   feedback: {} as FeedbackType,
   items: [] as { id: string, count: number }[]
 });
@@ -34,10 +32,6 @@ const mutations: MutationTree<RootState> = {
     state.feedback = feedback;
   },
 
-  redirect: (state: StateType, path: string) => {
-    state.redirect = path;
-  },
-
   clear: (state: StateType) => {
     state.feedback = {} as FeedbackType;
   }
@@ -57,10 +51,6 @@ const actions: ActionTree<RootState, RootState> = {
 
   feedback: ({ commit }: any, feedback: FeedbackType) => {
     commit("feedback", feedback);
-  },
-
-  redirect: ({ commit }: any, path: string) => {
-    commit("redirect", path);
   },
 
   clear: ({ commit }: any) => {

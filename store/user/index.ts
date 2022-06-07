@@ -22,22 +22,6 @@ export type RootState = ReturnType<typeof state>
 const mutations: MutationTree<RootState> = {
 
   /**
-   * it gets all (not deleted) records on the collection
-   */
-
-  all: (state: StateType, users: UserType[]) => {
-    state.users = users
-  },
-
-  /**
-   * it attributes the searched item to the stored value
-   */
-
-  find: (state: StateType, user: UserType) => {
-    state.user = user
-  },
-
-  /**
    * it inserts the new item into the stored list
    */
 
@@ -90,11 +74,9 @@ const getters: GetterTree<RootState, RootState> = {
 const actions: ActionTree<RootState, RootState> = {
 
   all: ({ commit }: any, response: any) => {
-    commit("all", response);
   },
 
   find: ({ commit }: any, response: any) => {
-    commit("find", response);
   },
 
   create: ({ commit }: any, response: any) => {

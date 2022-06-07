@@ -18,7 +18,7 @@ class BookService extends BaseService<BookType> {
   }
 
   review(id: string) {
-    const userId = this.$auth.user._id;
+    const userId = this.$auth.loggedIn ? this.$auth.user._id : null;
     const reviews = this.store.state.book.books.find((x: BookType) => x._id === id)?.reviews ?? [] as ReviewType[];
     const user = reviews.find((x: ReviewType) => x.id === userId)?.rating;
     const sum = reviews.reduce((a: number, b: ReviewType) => a + (b.rating ?? 0), 0);
@@ -27,7 +27,7 @@ class BookService extends BaseService<BookType> {
   }
 
   setReview(id: string, value: number) {
-    const userId = this.$auth.user._id;
+    const userId = this.$auth.loggedIn ? this.$auth.user._id : null;
     const reviews = this.store.state.book.books.find((x: BookType) => x._id === id)?.reviews?.filter((x: ReviewType) => x.id !== userId) ?? [] as ReviewType[];
     this.update({ _id: id, reviews: [{ id: userId, rating: value }, ...reviews] } as any);
   }

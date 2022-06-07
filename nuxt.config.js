@@ -77,8 +77,8 @@ export default {
     ],
     redirect: {
       login: "/sign_in",
-      home: "/",
-      logout: "/sign_in",
+      // home: "/",
+      logout: "/",
       callback: "/sign_in",
     },
     // resetOnError: true,

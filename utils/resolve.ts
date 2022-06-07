@@ -6,10 +6,10 @@ const controller = {
   home: '/',
   order: '/order/',
   session: {
-    login: 'sign_in',
-    subscribe: 'sign_up',
-    password: 'forget_password',
-    authorization: 'authorization'
+    login: '/sign_in',
+    subscribe: '/sign_up',
+    password: '/forget_password',
+    authorization: '/authorization'
   }
 }
 

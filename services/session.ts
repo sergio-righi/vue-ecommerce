@@ -44,10 +44,6 @@ class SessionService {
     await this.$auth.setUser(user)
   }
 
-  redirect(path: string) {
-    this.store.dispatch(`${SessionService.storeName}/redirect`, path);
-  }
-
   clear() {
     this.store.dispatch(`${SessionService.storeName}/clear`);
   }
