@@ -6,8 +6,7 @@
           class="brand"
           :src="$resolve.image.root('logo_horizontal.png')"
         />
-        <!-- <div class="title">{{ $t("page.sign_in.title") }}</div> -->
-        <!-- <div class="message">{{ new Date() | greeting($i18n) }}</div> -->
+        <div class="message">{{ new Date() | greeting($i18n) }}</div>
       </div>
       <Nuxt />
       <div class="login-footer">
@@ -50,7 +49,3 @@ export default {
   },
 };
 </script>
-
-<!--<style scoped lang="scss">
-@import "scss/layouts/login.scss";
-</style>-->
