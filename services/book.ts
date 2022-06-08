@@ -32,11 +32,11 @@ class BookService extends BaseService<BookType> {
     this.update({ _id: id, reviews: [{ id: userId, rating: value }, ...reviews] } as any);
   }
 
-  filtered({ name }: any, page: number, count: number): { list: BookType[], count: number } {
+  filtered({ term }: any, page: number, count: number): { list: BookType[], count: number } {
     const from = (page - 1) * count;
     const to = from + count;
     const list = this.store.state.book.books.filter((x: BookType) =>
-      name ? x.name ? x.name.toLowerCase().includes(name.toLowerCase()) : false : true
+      term ? x.name ? x.name.toLowerCase().includes(term.toLowerCase()) : false : true
     ).sort((a: BookType, b: BookType) => a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 1) as BookType[];
     return { list: list.slice(from, to) as BookType[], count: list.length };
   }

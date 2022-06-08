@@ -17,11 +17,20 @@
       "404": "A página que você está procurando não existe. Isto pode ter occorido por um erro de digitação ou a página pode ter sido movida.",
       "500": "Ooops, alguma coisa deu errado.\n\nPedimos desculpas e informamos que estamos trabalhando para corrigir o problema o mais rápido possível. Por favor tente novamente mais tarde."
     },
+    "authors": {
+      "title": "Autor",
+      "create": "New Autor",
+      "update": "Edit Autor",
+      "filter": "e.x. nome do autor"
+    },
     "basket": {
       "title": "Minha cesta"
     },
-    "book": {
-      "title": "Lista de livros"
+    "books": {
+      "title": "Livros",
+      "create": "Novo Livro",
+      "update": "Editar Livro",
+      "filter": "e.x. título do livro"
     },
     "order": {
       "title": "Meus pedidos"
@@ -40,6 +49,7 @@
     "send": "Enviar",
     "update": "Editar",
     "create": "Adicionar",
+    "clear": "Limpar",
     "delete": "Deletar",
     "cancel": "Cancelar",
     "undo": "Desfazer",
@@ -78,13 +88,26 @@
       "unit": "Complemento",
       "zipcode": "Código postal"
     },
+    "dimension": {
+      "width": "Largura",
+      "height": "Altura",
+      "depth": "Espesura",
+      "weight": "Peso",
+      "length": "Número de páginas"
+    },
+    "author": "Autor | Autores",
+    "description": "Descrição",
     "billing_address": "Endereço de cobrança",
+    "briefdescription": "Breve Descrição",
+    "by": "por",
     "cardholder": "Títular do cartão",
     "count": "Quantidade",
     "cvv": "CVV",
     "email": "Email | Emails",
     "expiration_month": "Mês de expiração",
     "expiration_year": "Ano de expiração",
+    "filter": " Filtrar",
+    "genre": "Gênero | Gêneros",
     "item": "Item | Itens",
     "name": "Nome",
     "number": "Número",
@@ -98,7 +121,16 @@
     "summary": "Resumo",
     "tax": "Imposto",
     "total": "Total",
-    "username": "Nome de usuário"
+    "username": "Nome de usuário",
+    "publisher": "Editora",
+    "release_date": "Data de lançamento",
+    "discount": "Desconto",
+    "in_stock": "Em estoque",
+    "price": "Preço",
+    "language": "Idioma",
+    "type": "Tipo",
+    "rated": "Classificação Indicativa",
+    "isbn": "ISBN"
   },
   "placeholder": {
     "search_by_name": "pesquisar por nome"
@@ -119,20 +151,50 @@
       "audio": "Audiobook",
       "physical": "Físico"
     },
+    "country": {
+      "canada": "Canadá",
+      "brazil": "Brasil"
+    },
+    "discount": {
+      "fixed": "Fixo",
+      "percentage": "Porcentagem"
+    },
+    "document": {
+      "passport": "passaporte",
+      "id": "documento de identidade",
+      "drivers_license": "carteira de motorista"
+    },
     "gender": {
       "male": "masculino",
       "female": "feminino",
       "other": "outro",
       "omit": "prefiro não informar"
     },
-    "country": {
-      "canada": "Canadá",
-      "brazil": "Brasil"
-    },
-    "document": {
-      "passport": "passaporte",
-      "id": "documento de identidade",
-      "drivers_license": "carteira de motorista"
+    "genre": {
+      "adventure": "Aventura",
+      "art": "Arte",
+      "children": "Infantil",
+      "contemporary": "Contemporâneo",
+      "cooking": "Culinária",
+      "development": "Desenvolvimento",
+      "dystopian": "Distôpia",
+      "family_relationship": "Relacionamento Familiar",
+      "fantasy": "Fantasia",
+      "guide": "Guia",
+      "health": "Saúde",
+      "historical_fiction": "Ficção histórica",
+      "history": "História",
+      "horror": "Horror",
+      "humor": "Humor",
+      "memoir": "Memórias",
+      "motivational": "Motivacional",
+      "mystery": "Mistério",
+      "paranormal": "Paranormal",
+      "romance": "Romance",
+      "science_fiction": "Ficção científica",
+      "self_help": "Auto-ajuda",
+      "thriller": "Thriller",
+      "travel": "Viagem"
     },
     "rated": {
       "early": "E",

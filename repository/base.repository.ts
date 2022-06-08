@@ -31,7 +31,6 @@ export default class BaseRepository<T> implements RepositoryType<T> {
 
   async findMany(query: any): Promise<T[] | any> {
     const response = await this.context.$axios.post(`${this.controllerName}/many`, query);
-    console.log(response);
     return response.data ? response.data.map((item: any) => helpers.createInstance<T>(this.type, item)) : [];
   }
 

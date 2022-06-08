@@ -11,13 +11,18 @@
               <ProductBasket :item="book" @onremove="onRemove" @onadd="onAdd" />
               <gv-divider />
               <div class="item-content">
+                <span>
+                  {{ $t("label.by") }} <b>{{ book.authors[0].name }}</b>
+                </span>
                 <gv-image :src="$resolve.image.cover(book._id)" />
                 <p>{{ book.description }}</p>
               </div>
               <gv-scroll hide-scrollbar stretch>
                 <template #content>
-                  <ProductInfo v-if="book.age">
-                    <template #icon>{{ book.age }}+</template>
+                  <ProductInfo v-if="book.rated">
+                    <template #icon>
+                      {{ $t($enum.mapper.rates[book.rated]) }}
+                    </template>
                     <template #title>
                       {{ $t("component.product.content_rating") }}
                     </template>

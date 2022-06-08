@@ -34,13 +34,13 @@ export default class BaseService<T> implements ServiceType<T> {
 
   async create(document: T): Promise<T | any> {
     const response = await this.repository.create(document);
-    this.store.dispatch(`${this.storeName}/create`, document);
+    this.store.dispatch(`${this.storeName}/create`, response);
     return response;
   }
 
   async update(document: T): Promise<T | any> {
     const response = await this.repository.update(document);
-    this.store.dispatch(`${this.storeName}/update`, document);
+    this.store.dispatch(`${this.storeName}/update`, response);
     return response;
   }
 

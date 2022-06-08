@@ -19,7 +19,7 @@ const BookSchema: Schema = new Schema(
     reviews: { type: Array },
     genres: { type: Array },
     slug: { type: String },
-    deleted: { type: Boolean }
+    deleted: { type: Boolean, default: false }
   },
   { collection: "eco_books", timestamps: true }
 );

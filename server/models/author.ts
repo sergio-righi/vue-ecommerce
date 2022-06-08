@@ -5,7 +5,7 @@ const AuthorSchema: Schema = new Schema(
   {
     name: { type: String, required: true, },
     briefdescription: { type: String, },
-    deleted: { type: Boolean }
+    deleted: { type: Boolean, default: false }
   },
   { collection: "eco_authors", timestamps: true }
 );

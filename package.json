@@ -13,7 +13,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "core-js": "^3.15.1",
     "crypto-js": "^4.1.1",
-    "grater-vue": "^0.3.9-alpha",
+    "grater-vue": "^0.4.0-alpha",
     "nuxt": "^2.13.3",
     "nuxt-i18n": "^6.28.0",
     "tsconfig-paths": "^4.0.0",

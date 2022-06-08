@@ -31,8 +31,14 @@
             </gv-flexbox>
           </template>
           <template #content>
+            <gv-dropdown-item :href="$resolve.authors()">
+              {{ $t("page.authors.title") }}
+            </gv-dropdown-item>
+            <gv-dropdown-item :href="$resolve.books()">
+              {{ $t("page.books.title") }}
+            </gv-dropdown-item>
             <gv-dropdown-item :href="$resolve.order()">
-              {{ $t("page.order.title") }}
+              {{ $t("page.orders.title") }}
             </gv-dropdown-item>
             <gv-dropdown-item @onclick="signOut">
               {{ $t("navbar.sign_out") }}
@@ -85,6 +91,9 @@ export default {
           ? this.$auth.user.locale ?? this.$i18n.locale
           : this.$i18n.locale;
       },
+    },
+    isAdmin() {
+      return this.$service.session.isAdmin;
     },
     isAuthenticated() {
       return this.$auth.loggedIn ?? false;

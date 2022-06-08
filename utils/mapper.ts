@@ -34,6 +34,33 @@ const genders = {
     [enumerable.EnumGender.other]: "enum.gender.other"
 };
 
+const genres = {
+    [enumerable.EnumGenre.adventure]: "enum.genre.adventure",
+    [enumerable.EnumGenre.art]: "enum.genre.art",
+    [enumerable.EnumGenre.children]: "enum.genre.children",
+    [enumerable.EnumGenre.contemporary]: "enum.genre.contemporary",
+    [enumerable.EnumGenre.cooking]: "enum.genre.cooking",
+    [enumerable.EnumGenre.development]: "enum.genre.development",
+    [enumerable.EnumGenre.dystopian]: "enum.genre.dystopian",
+    [enumerable.EnumGenre.familyRelationship]: "enum.genre.family_relationship",
+    [enumerable.EnumGenre.fantasy]: "enum.genre.fantasy",
+    [enumerable.EnumGenre.guide]: "enum.genre.guide",
+    [enumerable.EnumGenre.health]: "enum.genre.health",
+    [enumerable.EnumGenre.historicalFiction]: "enum.genre.historical_fiction",
+    [enumerable.EnumGenre.history]: "enum.genre.history",
+    [enumerable.EnumGenre.horror]: "enum.genre.horror",
+    [enumerable.EnumGenre.humor]: "enum.genre.humor",
+    [enumerable.EnumGenre.memoir]: "enum.genre.memoir",
+    [enumerable.EnumGenre.motivational]: "enum.genre.motivational",
+    [enumerable.EnumGenre.mystery]: "enum.genre.mystery",
+    [enumerable.EnumGenre.paranormal]: "enum.genre.paranormal",
+    [enumerable.EnumGenre.romance]: "enum.genre.romance",
+    [enumerable.EnumGenre.scienceFiction]: "enum.genre.science_fiction",
+    [enumerable.EnumGenre.selfHelp]: "enum.genre.self_help",
+    [enumerable.EnumGenre.thriller]: "enum.genre.thriller",
+    [enumerable.EnumGenre.travel]: "enum.genre.travel",
+};
+
 const payments: any = {
     [enumerable.EnumPayment.card]: "enum.payment.card"
 };
@@ -76,6 +103,7 @@ export const mapper = {
     discounts,
     documents,
     genders,
+    genres,
     payments,
     phones,
     rates,

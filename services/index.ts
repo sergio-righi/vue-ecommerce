@@ -1,5 +1,6 @@
 import { Context } from '@nuxt/types'
 
+import { AuthorService } from "./author";
 import { BasketService } from "./basket";
 import { BookService } from "./book";
 import { MailService } from "./mail";
@@ -9,6 +10,7 @@ import { TokenService } from "./token";
 import { UserService } from "./user";
 
 export const initializeService = (context: Context) => ({
+  author: new AuthorService(context),
   book: new BookService(context),
   basket: new BasketService(context),
   mail: new MailService(context),

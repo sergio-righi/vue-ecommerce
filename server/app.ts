@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import express from 'express';
 import cors from 'cors';
 
-import { AuthRoute, AuthorRoute, BookRoute, CouponRoute, MailRoute, OrderRoute, PaymentRoute, TokenRoute, UserRoute } from "@server/routes";
+import { AuthRoute, AuthorRoute, BookRoute, CouponRoute, MailRoute, OrderRoute, TokenRoute, UserRoute } from "@server/routes";
 import { db } from "@server/config";
 
 class App {
@@ -45,7 +45,6 @@ class App {
     this.express.use('/coupons', CouponRoute)
     this.express.use('/mails', MailRoute)
     this.express.use('/orders', OrderRoute)
-    this.express.use('/payments', PaymentRoute)
     this.express.use('/tokens', TokenRoute)
     this.express.use('/users', UserRoute)
   }

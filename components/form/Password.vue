@@ -28,8 +28,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator'
-import { crypto } from '@/utils'
+import { Component, Vue, Watch } from "vue-property-decorator";
+import { crypto } from "@/utils";
 
 const Props = Vue.extend({
   props: {
@@ -37,46 +37,45 @@ const Props = Vue.extend({
       type: String,
       default: null,
     },
-    required: Boolean,
   },
-})
+});
 
 @Component
 export default class Password extends Props {
-  visible: boolean = false
-  confirmation: string = ''
-  password: string = this.value
+  visible: boolean = false;
+  confirmation: string = "";
+  password: string = this.value;
 
   get isSuccess(): boolean {
-    return this.hasValue && this.match
+    return this.hasValue && this.match;
   }
 
   get isError(): boolean {
-    return this.hasValue && !this.match
+    return this.hasValue && !this.match;
   }
 
   get hasValue(): boolean {
-    return !!this.confirmation && !!this.password
+    return !!this.confirmation && !!this.password;
   }
 
   get match(): boolean {
-    return this.password === this.confirmation
+    return this.password === this.confirmation;
   }
 
   get inputType(): string {
-    return this.visible ? 'text' : 'password'
+    return this.visible ? "text" : "password";
   }
 
-  @Watch('match')
+  @Watch("match")
   onMatchChanged(value: boolean) {
     if (this.hasValue) {
-      this.$emit('onchange', !value)
+      this.$emit("onchange", !value);
     }
   }
 
-  @Watch('password')
+  @Watch("password")
   onPasswordChanged(value: string) {
-    this.$emit('input', crypto.encrypt(value))
+    this.$emit("input", crypto.encrypt(value));
   }
 }
 </script>

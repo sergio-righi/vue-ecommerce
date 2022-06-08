@@ -81,9 +81,9 @@ const deepMerge = (target: any, ...sources: any): any => {
 
 /**
  * create an instance using a generic constraint
- * @param t 
- * @param args 
- * @returns 
+ * @param {any} type 
+ * @param {any[]} args 
+ * @returns {T}
  */
 
 function createInstance<T>(type: new (...constructorArgs: any[]) => T, ...args: any[]): T {
@@ -113,6 +113,14 @@ const format = function (): string {
 
 const randomFloat = (min: number, max: number): number => Math.random() * (max - min) + min;
 
+/**
+ * it converts a string to slug e.g. My name is X => my-name-is-x
+ * @param {string} value 
+ * @returns {string | null}
+ */
+
+const slug = (value: string): string | null => value ? value.replace(/ +/g, '-').toLowerCase() : null;
+
 export default {
   format,
   toDropdownList,
@@ -121,4 +129,5 @@ export default {
   createInstance,
   deepMerge,
   randomFloat,
+  slug,
 };

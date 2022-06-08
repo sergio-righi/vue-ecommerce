@@ -8,7 +8,7 @@ const CouponSchema: Schema = new Schema(
     expireDate: { type: Number },
     discount: { type: Number },
     unit: { type: Number },
-    deleted: { type: Boolean }
+    deleted: { type: Boolean, default: false }
   },
   { collection: "eco_coupons", timestamps: true }
 );

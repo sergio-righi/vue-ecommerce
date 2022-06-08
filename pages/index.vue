@@ -31,7 +31,7 @@
     <template #content v-else>
       <NoRecord>
         <template #control>
-          <gv-flexbox v-if="filter.name" justify="center">
+          <gv-flexbox v-if="filter.term" justify="center">
             <gv-button @onclick="resetFilter" info sm>
               {{ $t("action.reset_filter") }}
             </gv-button>
@@ -42,9 +42,9 @@
     <template #action v-if="filtered.count">
       <form @submit.prevent="onFilter">
         <gv-input
-          name="name"
+          name="term"
           :label="$t('placeholder.search_by_name')"
-          v-model="form.name"
+          v-model="form.term"
         >
           <template #trailing>
             <gv-button sm primary submit>
@@ -109,7 +109,7 @@ export default {
   methods: {
     resetFilter: function (event) {
       this.filter = {};
-      this.form.name = null;
+      this.form.term = null;
     },
     onFilter: function (event) {
       this.page = 1;
@@ -135,12 +135,12 @@ export default {
     return {
       page: 1,
       form: {
-        name: null,
+        term: null,
       },
       filter: {},
       componentKey: 0,
       snackbarMessage: "",
-      title: this.$t("page.book.title"),
+      title: this.$t("page.books.title"),
     };
   },
   head() {

@@ -1,55 +1,59 @@
 import { GetterTree, ActionTree, MutationTree } from 'vuex';
 
 import { helpers } from "@/utils";
-import { BookType } from "@/interfaces";
+import { AuthorType } from "@/interfaces";
 
 interface StateType {
   index: number
-  book: BookType
-  books: BookType[]
+  author: AuthorType
+  authors: AuthorType[]
 }
 
 const state = (): StateType => ({
   index: -1 as number,
-  book: {} as BookType,
-  books: [] as BookType[]
+  author: {} as AuthorType,
+  authors: [] as AuthorType[]
 });
 
 export type RootState = ReturnType<typeof state>
 
 const mutations: MutationTree<RootState> = {
 
-  all: (state: StateType, books: BookType[]) => {
-    state.books = books;
+  all: (state: StateType, authors: AuthorType[]) => {
+    state.authors = authors;
   },
 
-  find: (state: StateType, book: BookType) => {
-    state.book = book;
+  find: (state: StateType, author: AuthorType) => {
+    state.author = author;
   },
 
-  set: (state: StateType, book: any) => {
-    state.book = helpers.deepMerge(state.book, book)
+  set: (state: StateType, author: any) => {
+    state.author = helpers.deepMerge(state.author, author)
+  },
+
+  create: (state: StateType, author: AuthorType) => {
+    state.authors.push(author);
   },
 
   update: (state: StateType, response: any) => {
     const { _id, ...options } = response;
-    let item = state.books.find(x => x._id === _id) ?? {} as BookType;
+    let item = state.authors.find(x => x._id === _id) ?? {} as AuthorType;
     item = helpers.deepMerge(item, options);
   },
 
   clear: (state: StateType) => {
     state.index = -1;
-    state.book = {} as BookType;
+    state.author = {} as AuthorType;
   },
 
   reset: (state: StateType) => {
-    state.books = [] as BookType[];
+    state.authors = [] as AuthorType[];
   }
 };
 
 const getters: GetterTree<RootState, RootState> = {
-  books: (state: StateType): BookType[] => state.books,
-  book: (state: StateType): BookType => state.book
+  authors: (state: StateType): AuthorType[] => state.authors,
+  author: (state: StateType): AuthorType => state.author
 };
 
 const actions: ActionTree<RootState, RootState> = {
@@ -63,7 +67,12 @@ const actions: ActionTree<RootState, RootState> = {
   },
 
   set: ({ commit }: any, params: any) => {
+    console.log(params);
     commit("set", params);
+  },
+
+  create: ({ commit }: any, response: any) => {
+    commit("create", response)
   },
 
   update: ({ commit }: any, response: any) => {

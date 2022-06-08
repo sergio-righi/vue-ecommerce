@@ -16,13 +16,22 @@
       "404": "The page you were looking for does not exist. You may have mistyped the URL or the page may have moved.",
       "500": "Ooops, something went wrong.\n\nWe apologize and are working to fix the problem. Please try again later."
     },
+    "authors": {
+      "title": "Authors",
+      "create": "New Author",
+      "update": "Edit Author",
+      "filter": "e.g. name of the author"
+    },
     "basket": {
       "title": "My Basket"
     },
-    "book": {
-      "title": "List of books"
+    "books": {
+      "title": "Books",
+      "create": "New Book",
+      "update": "Edit Book",
+      "filter": "e.g. title of the book"
     },
-    "order": {
+    "orders": {
       "title": "My orders"
     },
     "checkout": {
@@ -34,6 +43,7 @@
     "send": "Send",
     "update": "Edit",
     "create": "Add",
+    "clear": "Clean",
     "delete": "Delete",
     "cancel": "Cancel",
     "undo": "Undo",
@@ -77,22 +87,42 @@
       "unit": "Unit",
       "zipcode": "Zipcode"
     },
+    "dimension": {
+      "width": "Width",
+      "height": "Height",
+      "depth": "Tickness",
+      "weight": "Weight",
+      "length": "Length"
+    },
+    "author": "Author | Authors",
     "billing_address": "Billing Address",
-    "birthday": "Birthday",
+    "briefdescription": "Brief description",
+    "by": "by",
     "cardholder": "Cardholder's Name",
     "code": "Code",
     "count": "Count",
     "cvv": "CVV",
+    "description": "Description",
     "detail": "Detail | Details",
+    "discount": "Discount",
     "email": "Email | Emails",
     "expiration_month": "Expiration Month",
     "expiration_year": "Expiration Year",
+    "filter": "Filter",
+    "genre": "Genre | Genres",
+    "in_stock": "In Stock",
+    "isbn": "ISBN",
     "item": "Item | Items",
+    "language": "Language",
     "name": "Name",
     "number": "Number",
     "overall": "Overall",
     "password": "Password",
     "payment_method": "Payment Method",
+    "publisher": "Publisher",
+    "price": "Price",
+    "rated": "Rated",
+    "release_date": "Release Date",
     "review": "Review | Reviews",
     "shipping": "Shipping",
     "shipping_address": "Shipping Address",
@@ -100,6 +130,7 @@
     "summary": "Summary",
     "tax": "HST",
     "total": "Total",
+    "type": "Type",
     "username": "Username"
   },
   "placeholder": {
@@ -125,11 +156,41 @@
       "canada": "Canada",
       "brazil": "Brazil"
     },
+    "discount": {
+      "fixed": "Fixed",
+      "percentage": "Percentage"
+    },
     "gender": {
       "male": "male",
       "female": "female",
       "other": "other",
       "omit": "prefer not to say"
+    },
+    "genre": {
+      "adventure": "Adventure",
+      "art": "Art",
+      "children": "Childrenchildren",
+      "contemporary": "Contemporary",
+      "cooking": "Cooking",
+      "development": "Development",
+      "dystopian": "Dystopian",
+      "family_relationship": "Family Relationship",
+      "fantasy": "Fantasy",
+      "guide": "Guide",
+      "health": "Health",
+      "historical_fiction": "Historical Fiction",
+      "history": "History",
+      "horror": "Horror",
+      "humor": "Humor",
+      "memoir": "Memoir",
+      "motivational": "Motivational",
+      "mystery": "Mystery",
+      "paranormal": "Paranormal",
+      "romance": "Romance",
+      "science_fiction": "Science Fiction",
+      "self_help": "Self Help",
+      "thriller": "Thriller",
+      "travel": "Travel"
     },
     "document": {
       "passport": "passport",

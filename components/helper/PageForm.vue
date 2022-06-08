@@ -4,15 +4,16 @@
     <gv-row>
       <gv-col>
         <gv-button submit primary>
-          {{ isUpdate ? $t('action.update') : $t('action.create') }}
+          {{ isUpdate ? $t("action.update") : $t("action.create") }}
         </gv-button>
       </gv-col>
     </gv-row>
+    <br />
   </form>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from "vue-property-decorator";
 
 const Props = Vue.extend({
   props: {
@@ -21,12 +22,12 @@ const Props = Vue.extend({
       default: false,
     },
   },
-})
+});
 
 @Component
 export default class PageForm extends Props {
   onSubmit(event: any) {
-    this.$emit('onsubmit', event)
+    this.$emit("onsubmit", event);
   }
 }
 </script>

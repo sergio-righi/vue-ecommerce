@@ -1,10 +1,12 @@
 
 const controller = {
   basket: '/basket/',
-  book: '/book/',
+  books: '/books/',
+  authors: '/authors/',
   checkout: '/checkout/',
   home: '/',
   order: '/order/',
+  product: '/product/',
   session: {
     login: '/sign_in',
     subscribe: '/sign_up',
@@ -19,8 +21,8 @@ const Resolve = (localePath: Function) => ({
     return localePath({ path: controller.basket + args.join('/') });
   },
 
-  book: (...args: any[]) => {
-    return localePath({ path: controller.book + args.join('/') });
+  product: (...args: any[]) => {
+    return localePath({ path: controller.product + args.join('/') });
   },
 
   checkout: (...args: any[]) => {
@@ -34,6 +36,16 @@ const Resolve = (localePath: Function) => ({
   order: (...args: any[]) => {
     return localePath({ path: controller.order + args.join('/') });
   },
+
+  // authors module
+
+  author: (...args: any[]) => localePath({ path: controller.authors + 'do/' + args.join('/') }),
+  authors: (...args: any[]) => localePath({ path: controller.authors + args.join('/') }),
+
+  // books module
+
+  book: (...args: any[]) => localePath({ path: controller.books + 'do/' + args.join('/') }),
+  books: (...args: any[]) => localePath({ path: controller.books + args.join('/') }),
 
   // authentication
 

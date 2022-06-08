@@ -91,7 +91,7 @@ export default {
   },
   data() {
     return {
-      title: this.$t("page.order.title"),
+      title: this.$t("page.orders.title"),
     };
   },
   methods: {

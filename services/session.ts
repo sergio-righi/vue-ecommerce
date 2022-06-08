@@ -3,13 +3,23 @@ import { Context } from '@nuxt/types'
 import { crypto } from "@/utils";
 
 class SessionService {
+  private readonly $enum: any
   private readonly $auth: any
   private readonly store: any
   static storeName: string = "session";
 
-  constructor({ store, $auth }: Context) {
+  constructor({ store, $auth, $enum }: Context) {
     this.store = store;
     this.$auth = $auth;
+    this.$enum = $enum;
+  }
+
+  isAdmin() {
+    const { roles } = this.$auth.user;
+    if (roles) {
+      return roles.includes(this.$enum.enumerable.roles.adm);
+    }
+    return false;
   }
 
   item(id: string, count: number) {

@@ -15,7 +15,7 @@ const OrderSchema: Schema = new Schema(
     cancelationDate: { type: Number },
     completedDate: { type: Number },
     books: { type: Array },
-    deleted: { type: Boolean }
+    deleted: { type: Boolean, default: false }
   },
   { collection: "eco_orders", timestamps: true }
 );

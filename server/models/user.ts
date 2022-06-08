@@ -14,7 +14,7 @@ const UserSchema: Schema = new Schema(
     payments: { type: Array },
     theme: { type: Boolean },
     locale: { type: String },
-    deleted: { type: Boolean }
+    deleted: { type: Boolean, default: false }
   },
   { collection: "eco_users", timestamps: true }
 );

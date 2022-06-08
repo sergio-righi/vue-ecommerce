@@ -60,7 +60,7 @@ enum EnumGenre {
   paranormal = 19,
   romance = 20,
   scienceFiction = 21,
-  selfHhelp = 22,
+  selfHelp = 22,
   thriller = 23,
   travel = 24
 }

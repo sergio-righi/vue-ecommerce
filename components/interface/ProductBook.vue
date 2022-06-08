@@ -11,7 +11,7 @@
           top
           lazyload
           :src="$resolve.image.cover(item._id)"
-          :href="$resolve.book(item.slug)"
+          :href="$resolve.product(item.slug)"
         >
           <gv-icon
             v-if="isAuthenticated"
