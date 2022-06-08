@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 import auth from 'jsonwebtoken';
 import * as utils from "@server/utils";
 import { UserModel } from "@server/models";
-import { jwt } from "@server/config";
 import { ServiceType } from "@server/interfaces";
 
 class AuthService {
@@ -38,8 +37,8 @@ class AuthService {
       if (user) {
         this.currentUser = user;
 
-        const accessToken = auth.sign({ email: this.currentUser.email }, jwt.access, this.accessOptions);
-        const refreshToken = auth.sign({ email: this.currentUser.email }, jwt.refresh, this.refreshOptions);
+        const accessToken = auth.sign({ email: this.currentUser.email }, String(process.env.JWT_ACCESS), this.accessOptions);
+        const refreshToken = auth.sign({ email: this.currentUser.email }, String(process.env.JWT_REFRESH), this.refreshOptions);
 
         return { status: 200, data: { accessToken, refreshToken } } as ServiceType
       } else {
@@ -79,7 +78,7 @@ class AuthService {
       if (email) {
         const isValid: boolean = utils.jwt(email, token);
         if (isValid) {
-          const accessToken = auth.sign({ email }, jwt.access, this.accessOptions);
+          const accessToken = auth.sign({ email }, String(process.env.JWT_ACCESS), this.accessOptions);
           return { status: 200, data: { accessToken } } as ServiceType
         }
       }

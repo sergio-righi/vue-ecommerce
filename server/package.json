@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "dev": "set NODE_ENV=dev && ts-node index.ts",
-    "start": "set NODE_ENV=production && node --max-old-space-size=4096 -- node_modules/ts-node/dist/bin -P tsconfig.json index.ts"
+    "dev": "ts-node index.ts",
+    "start": "node --max-old-space-size=4096 -- node_modules/ts-node/dist/bin -P tsconfig.json index.ts"
   },
   "keywords": [],
   "dependencies": {
     "cors": "latest",
+    "dotenv": "^16.0.1",
     "express": "latest",
     "fs": "^0.0.1-security",
     "googleapis": "^100.0.0",

@@ -1,14 +1,16 @@
 import mongoose from "mongoose";
 import express from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
 import { AuthRoute, AuthorRoute, BookRoute, CouponRoute, MailRoute, OrderRoute, TokenRoute, UserRoute } from "@server/routes";
-import { db } from "@server/config";
 
 class App {
   public express: express.Application;
 
   constructor() {
+    dotenv.config();
+
     this.express = express();
     this.setDatabase();
     this.setConfiguration();
@@ -18,11 +20,7 @@ class App {
   }
 
   setDatabase() {
-    const isDev = String(process.env.NODE_ENV).includes('dev')
-    const connectionString = isDev
-      ? `mongodb://${db.dev.domain}:27017/${db.dev.database}`
-      : `mongodb://${db.production.username}:${db.production.password}@${db.production.domain}:27017/${db.production.database}`
-    mongoose.connect(connectionString, {
+    mongoose.connect(String(process.env.MONGODB_URI), {
       useCreateIndex: true,
       useNewUrlParser: true,
       useFindAndModify: false,

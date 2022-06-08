@@ -27,12 +27,11 @@
       ]
     },
     "types": [
-      "@nuxt/types",
       "@types/node",
-      "@types/express",
       "@types/cors",
-      "@types/jsonwebtoken",
+      "@types/express",
       "@types/mongoose",
+      "@types/jsonwebtoken",
       "@types/nodemailer"
     ]
   },

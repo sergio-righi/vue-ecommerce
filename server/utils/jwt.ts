@@ -1,9 +1,8 @@
 import auth from 'jsonwebtoken';
-import { jwt } from "@server/config";
 
 const verifyRefresh = (email: string, token: string): boolean => {
   try {
-    const decoded: any = auth.verify(token, jwt.refresh);
+    const decoded: any = auth.verify(token, String(process.env.JWT_REFRESH));
     return decoded.email === email;
   } catch (error) {
     return false;
