@@ -1,5 +1,5 @@
 import express from "express";
-import { validation } from '@server/middleware';
+import { validation } from '@server/middlewares';
 import { TokensController } from "@server/controllers";
 
 const router = express.Router();

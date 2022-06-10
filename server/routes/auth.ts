@@ -1,5 +1,5 @@
 import express from "express";
-import { jwt } from "@server/middleware";
+import { jwt } from "@server/middlewares";
 import { AuthController } from "@server/controllers";
 
 const router = express.Router();
