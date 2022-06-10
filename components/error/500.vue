@@ -26,9 +26,8 @@ export default {
       required: true,
     },
   },
+  mounted() {
+    console.dir(this.$axios);
+  },
 };
 </script>
-
-<!--<style lang="scss">
-@import "scss/pages/error.scss";
-</style>-->

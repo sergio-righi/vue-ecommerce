@@ -56,8 +56,9 @@ const Resolve = (localePath: Function) => ({
 
   image: {
     cover: (name: string) => {
-      return `http://localhost:4000/cover/${name}.jpg`
+      return `${process.env.baseUrl}/cover/${name}.jpg`
     },
+
     root: (name: string) => {
       return `/${name}`
     }
