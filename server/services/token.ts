@@ -1,15 +1,13 @@
 import mongoose from "mongoose";
-import { TokenModel } from "@server/models";
+import { TokenModel, UserModel } from "@server/models";
 import { UserService } from "@server/services";
 import { ServiceType } from "@server/interfaces";
 
 class TokenService {
-  public readonly token: TokenModel
   public readonly model: mongoose.Model<any>
 
   constructor() {
-    this.token = new TokenModel();
-    this.model = this.token.model;
+    this.model = TokenModel.model;
   }
 
   /**
@@ -24,7 +22,7 @@ class TokenService {
     session.startTransaction();
     try {
       const { user } = document;
-      const tokens: any = await this.token.findMany({ user, done: { $exists: false } });
+      const tokens: any = await TokenModel.findMany({ user, done: { $exists: false } });
 
       tokens.forEach(async item => await this.done(item._id));
       response = await this.model.create(document);
@@ -48,7 +46,7 @@ class TokenService {
 
   async done(id: string): Promise<ServiceType> {
     try {
-      const response = await this.token.update(id, { done: new Date() });
+      const response = await TokenModel.update(id, { done: new Date() });
       return { status: 200, data: response } as ServiceType
     } catch (err) {
       return { status: 500 } as ServiceType
@@ -67,7 +65,7 @@ class TokenService {
     session.startTransaction();
     try {
       const { data } = await this.done(id);
-      const response = await UserService.user.update(data?.user, { validated: state });
+      const response = await UserModel.update(data?.user, { validated: state });
 
       if (response) {
         await session.commitTransaction();
@@ -97,7 +95,7 @@ class TokenService {
     session.startTransaction();
     try {
       const { data } = await this.done(id)
-      const response = await UserService.user.update(data.user, document);
+      const response = await UserModel.update(data.user, document);
 
       if (response) {
         await session.commitTransaction();

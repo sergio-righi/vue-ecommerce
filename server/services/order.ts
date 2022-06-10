@@ -1,14 +1,12 @@
 import mongoose from "mongoose";
-import { BookModel, OrderModel } from "@server/models";
+import { OrderModel } from "@server/models";
 import { ServiceType } from "@server/interfaces";
 
 class OrderService {
-  public readonly order: OrderModel
   public readonly model: mongoose.Model<any>
 
   constructor() {
-    this.order = new OrderModel();
-    this.model = this.order.model;
+    this.model = OrderModel.model;
   }
 
   async allWithBooks(query: any): Promise<ServiceType> {

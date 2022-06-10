@@ -16,7 +16,7 @@ class AuthService {
   };
 
   constructor() {
-    this.model = new UserModel().model;
+    this.model = UserModel.model;
   }
 
   /**
@@ -37,8 +37,8 @@ class AuthService {
       if (user) {
         this.currentUser = user;
 
-        const accessToken = auth.sign({ email: this.currentUser.email }, String(process.env.JWT_ACCESS), this.accessOptions);
-        const refreshToken = auth.sign({ email: this.currentUser.email }, String(process.env.JWT_REFRESH), this.refreshOptions);
+        const accessToken = auth.sign({ email: this.currentUser.email }, String(utils.env.JWT_ACCESS), this.accessOptions);
+        const refreshToken = auth.sign({ email: this.currentUser.email }, String(utils.env.JWT_REFRESH), this.refreshOptions);
 
         return { status: 200, data: { accessToken, refreshToken } } as ServiceType
       } else {
@@ -78,7 +78,7 @@ class AuthService {
       if (email) {
         const isValid: boolean = utils.jwt(email, token);
         if (isValid) {
-          const accessToken = auth.sign({ email }, String(process.env.JWT_ACCESS), this.accessOptions);
+          const accessToken = auth.sign({ email }, String(utils.env.JWT_ACCESS), this.accessOptions);
           return { status: 200, data: { accessToken } } as ServiceType
         }
       }

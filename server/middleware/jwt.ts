@@ -1,4 +1,5 @@
 import auth from "jsonwebtoken";
+import { env } from "@server/utils";
 
 export default (req: any, _: any, next: any) => {
   const authorization = req.headers.authorization;
@@ -13,7 +14,7 @@ export default (req: any, _: any, next: any) => {
 
   let decodedToken: any;
   try {
-    decodedToken = auth.verify(token, String(process.env.JWT_ACCESS));
+    decodedToken = auth.verify(token, String(env.JWT_ACCESS));
   } catch (err: any) {
     err.statusCode = 500;
     throw err;

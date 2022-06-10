@@ -46,8 +46,7 @@ export class BaseModel {
     return this.model.findByIdAndUpdate(id, { deleted: false }, this.returnNew).exec();
   }
 
-  async exists(id: string, query: any): Promise<boolean> {
-    const response = await this.model.findOne({ ...query, deleted: false }).exec();
-    return response && id ? id !== String(response._id) : !!response;
+  exists(id: string, query: any): Promise<any> {
+    return this.model.findOne({ _id: { $ne: id }, ...query, deleted: false }).exec();
   }
 }

@@ -3,12 +3,10 @@ import { BookModel } from "@server/models";
 import { ServiceType } from "@server/interfaces";
 
 class BookService {
-  public readonly book: BookModel
   public readonly model: mongoose.Model<any>
 
   constructor() {
-    this.book = new BookModel();
-    this.model = this.book.model;
+    this.model = BookModel.model;
   }
 
   async findWithAuthors(query: any): Promise<ServiceType> {

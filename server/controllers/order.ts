@@ -5,7 +5,7 @@ import { BaseController } from "./base.controller";
 
 class OrdersController extends BaseController {
   constructor() {
-    super(new OrderModel());
+    super(OrderModel);
   }
 
   async allWithBooks(res: Response, req: Request) {

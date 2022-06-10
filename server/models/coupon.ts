@@ -13,10 +13,12 @@ const CouponSchema: Schema = new Schema(
   { collection: "eco_coupons", timestamps: true }
 );
 
-export class CouponModel extends BaseModel {
+class CouponModel extends BaseModel {
   constructor() {
     super(
       mongoose.model('Coupon', CouponSchema)
     )
   }
 }
+
+export default new CouponModel();

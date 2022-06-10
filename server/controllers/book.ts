@@ -5,7 +5,7 @@ import { BaseController } from "./base.controller";
 
 class BooksController extends BaseController {
   constructor() {
-    super(new BookModel());
+    super(BookModel);
   }
 
   async findWithAuthors(res: Response, req: Request) {

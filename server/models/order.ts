@@ -20,10 +20,12 @@ const OrderSchema: Schema = new Schema(
   { collection: "eco_orders", timestamps: true }
 );
 
-export class OrderModel extends BaseModel {
+class OrderModel extends BaseModel {
   constructor() {
     super(
       mongoose.model('Order', OrderSchema)
     )
   }
 }
+
+export default new OrderModel();

@@ -1,14 +1,15 @@
-import { google } from "googleapis";
+import { env } from '@server/utils';
 import nodemailer from "nodemailer";
+import { OAuth2Client } from 'google-auth-library';
 
-const oauth2Client = new google.auth.OAuth2(
-  String(process.env.MAIL_CLIENTID),
-  String(process.env.MAIL_SECRET),
+const oauth2Client = new OAuth2Client(
+  String(env.MAIL_CLIENTID),
+  String(env.MAIL_SECRET),
   "https://developers.google.com/oauthplayground"
 );
 
 oauth2Client.setCredentials({
-  refresh_token: String(process.env.MAIL_REFRESH)
+  refresh_token: String(env.MAIL_REFRESH)
 });
 
 const createTransporter = async () => {
@@ -22,11 +23,11 @@ const createTransporter = async () => {
     service: "gmail",
     auth: {
       type: "OAuth2",
-      user: String(process.env.MAIL_EMAIL),
+      user: String(env.MAIL_EMAIL),
       accessToken,
-      clientId: String(process.env.MAIL_CLIENTID),
-      clientSecret: String(process.env.MAIL_SECRET),
-      refreshToken: String(process.env.MAIL_REFRESH)
+      clientId: String(env.MAIL_CLIENTID),
+      clientSecret: String(env.MAIL_SECRET),
+      refreshToken: String(env.MAIL_REFRESH)
     }
   }
 

@@ -24,9 +24,6 @@
       ],
       "@/*": [
         "./*"
-      ],
-      "@server/*": [
-        "./server/*"
       ]
     },
     "types": [
@@ -39,13 +36,13 @@
   "include": [
     "**/*.ts",
     "**/*.vue",
-    "server/**/*",
     "types/shims-global.d.ts",
     "types/shims-module.d.ts"
   ],
   "exclude": [
     "node_modules",
     ".nuxt",
+    "server",
     "dist"
   ],
   "ts-node": {

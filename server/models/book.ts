@@ -24,10 +24,12 @@ const BookSchema: Schema = new Schema(
   { collection: "eco_books", timestamps: true }
 );
 
-export class BookModel extends BaseModel {
+class BookModel extends BaseModel {
   constructor() {
     super(
       mongoose.model('Book', BookSchema)
     )
   }
 }
+
+export default new BookModel();

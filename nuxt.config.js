@@ -67,7 +67,7 @@ export default {
   axios: {
     // proxy: true,
     progress: false,
-    baseUrl: "http://localhost:4000/",
+    baseUrl: process.env.BASE_URL || "http://localhost:4000/",
   },
 
   auth: {

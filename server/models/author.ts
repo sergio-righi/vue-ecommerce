@@ -10,10 +10,12 @@ const AuthorSchema: Schema = new Schema(
   { collection: "eco_authors", timestamps: true }
 );
 
-export class AuthorModel extends BaseModel {
+class AuthorModel extends BaseModel {
   constructor() {
     super(
       mongoose.model('Author', AuthorSchema)
     )
   }
 }
+
+export default new AuthorModel();

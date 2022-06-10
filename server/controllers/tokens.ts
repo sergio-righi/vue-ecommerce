@@ -5,7 +5,7 @@ import { BaseController } from "./base.controller";
 
 class TokensController extends BaseController {
   constructor() {
-    super(new TokenModel());
+    super(TokenModel);
   }
 
   async done(res: Response, req: Request) {

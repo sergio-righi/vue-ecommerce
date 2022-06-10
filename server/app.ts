@@ -1,26 +1,34 @@
 import mongoose from "mongoose";
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
+import compression from 'compression';
 
+import { env } from '@server/utils';
 import { AuthRoute, AuthorRoute, BookRoute, CouponRoute, MailRoute, OrderRoute, TokenRoute, UserRoute } from "@server/routes";
 
 class App {
   public express: express.Application;
 
   constructor() {
-    dotenv.config();
-
     this.express = express();
     this.setDatabase();
     this.setConfiguration();
     this.setMiddleware();
     this.setRoutes();
     this.setExtra();
+
+    this.getMemoryUsage();
+  }
+
+  getMemoryUsage() {
+    const used = process.memoryUsage();
+    for (let key in used) {
+      console.log(`${key} ${Math.round(used[key] / 1024 / 1024 * 100) / 100} MB`);
+    }
   }
 
   setDatabase() {
-    mongoose.connect(String(process.env.MONGODB_URI), {
+    mongoose.connect(String(env.MONGODB_URI), {
       useCreateIndex: true,
       useNewUrlParser: true,
       useFindAndModify: false,
@@ -32,6 +40,7 @@ class App {
 
   setConfiguration() {
     this.express.use(cors())
+    this.express.use(compression())
     this.express.use(express.json({ limit: "10mb" }))
     this.express.use(express.urlencoded({ extended: true }))
   }
