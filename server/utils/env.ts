@@ -25,7 +25,7 @@ export default convict({
   },
   mongoose: {
     doc: 'Mongoose connection string',
-    default: 'mongodb://127.0.0.1:27017/vue-nuxt-sample',
+    default: 'mongodb://127.0.0.1:27017/eco',
     env: 'MONGODB_URI',
   },
   cors: {
