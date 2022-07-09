@@ -1,14 +1,13 @@
 import { i18n } from "./utils";
-import { resolve } from "path";
-
-// const JavaScriptObfuscator = require('webpack-obfuscator');
 
 export default {
   ssr: false,
 
-  env: {
-    website: process.env.WEBSITE || "http://localhost:3000",
-    baseUrl: process.env.BASE_URL || "http://localhost:4000/",
+  publicRuntimeConfig: {
+    sso: process.env.SSO_URL,
+    api: process.env.API_URL,
+    apiKey: process.env.API_KEY,
+    vuexKey: process.env.VUEX_KEY,
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -38,12 +37,12 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    "~/plugins/enum",
     "~/plugins/axios",
-    "~/plugins/filter",
-    "~/plugins/resolve",
-    "~/plugins/service",
-    "~/plugins/grater-vue",
+    "~/plugins/enum.client",
+    "~/plugins/filter.client",
+    "~/plugins/service.client",
+    "~/plugins/resolve.client",
+    "~/plugins/grater-vue.client",
     "~/plugins/vuex-persist.client",
   ],
 
@@ -67,55 +66,11 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["nuxt-i18n", "@nuxtjs/axios", "@nuxtjs/auth-next"],
+  modules: ["nuxt-i18n", "@nuxtjs/axios"],
 
   axios: {
-    // proxy: true,
     progress: false,
-    baseUrl: process.env.BASE_URL || "http://localhost:4000/",
-  },
-
-  auth: {
-    plugins: [
-      "~/plugins/service.ts",
-      { src: "~/plugins/axios.ts", ssr: false },
-    ],
-    redirect: {
-      login: "/sign_in",
-      // home: "/",
-      logout: "/",
-      callback: "/sign_in",
-    },
-    // resetOnError: true,
-    strategies: {
-      local: {
-        scheme: "refresh",
-        token: {
-          required: true,
-          property: "accessToken",
-        },
-        refreshToken: {
-          data: "refreshToken",
-          property: "refreshToken",
-        },
-        user: {
-          property: "user",
-          autoFetch: true,
-        },
-        endpoints: {
-          login: { url: "/auth/login", method: "post" },
-          refresh: { url: "/auth/refresh", method: "post" },
-          user: { url: "/auth/user", method: "get" },
-          logout: false,
-        },
-      },
-    },
-    watchLoggedIn: true,
-  },
-
-  alias: {
-    utils: resolve(__dirname, "./utils"),
-    scss: resolve(__dirname, "./assets/scss"),
+    baseUrl: process.env.API_URL
   },
 
   i18n: {
@@ -136,6 +91,10 @@ export default {
       cookieKey: "i18n_redirected",
       redirectOn: "root",
     },
+  },
+
+  router: {
+    middleware: ["authentication"],
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

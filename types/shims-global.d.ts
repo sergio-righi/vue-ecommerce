@@ -25,7 +25,6 @@ declare module '@nuxt/types' {
   }
   interface Context {
     i18n: any
-    $auth: any
     $enum: any
     $resolve: any
     $service: any

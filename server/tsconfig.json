@@ -19,10 +19,7 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "~server/*": [
-        "./*"
-      ],
-      "@server/*": [
+      "@/*": [
         "./*"
       ]
     },
@@ -30,9 +27,7 @@
       "@types/node",
       "@types/cors",
       "@types/express",
-      "@types/mongoose",
-      "@types/jsonwebtoken",
-      "@types/nodemailer"
+      "@types/mongoose"
     ]
   },
   "include": [

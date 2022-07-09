@@ -9,11 +9,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/auth-next": "^5.0.0-1648802546.c9880dc",
     "@nuxtjs/axios": "^5.13.6",
     "core-js": "^3.15.1",
     "crypto-js": "^4.1.1",
-    "grater-vue": "^0.4.0-alpha",
+    "grater-vue": "^0.4.2-alpha",
+    "js-cookie": "^3.0.1",
     "nuxt": "^2.13.3",
     "nuxt-i18n": "^6.28.0",
     "tsconfig-paths": "^4.0.0",

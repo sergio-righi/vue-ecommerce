@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     isAuthenticated() {
-      return this.$auth.loggedIn ?? false;
+      return this.$service.session.isVerified();
     },
     hasReview() {
       return !!this.review;

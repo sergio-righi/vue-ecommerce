@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import { BookModel } from "@server/models";
-import { ServiceType } from "@server/interfaces";
+import { BookModel } from "@/models";
+import { ServiceType } from "@/interfaces";
 
 class BookService {
   public readonly model: mongoose.Model<any>

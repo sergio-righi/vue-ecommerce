@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { CouponModel } from "@server/models";
+import { CouponModel } from "@/models";
 
 class CouponService {
   public readonly model: mongoose.Model<any>

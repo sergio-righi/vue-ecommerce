@@ -25,9 +25,6 @@ export default {
       type: String,
       required: true,
     },
-  },
-  mounted() {
-    console.dir(this.$axios);
-  },
+  }
 };
 </script>

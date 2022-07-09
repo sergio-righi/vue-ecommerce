@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { AuthorModel } from "@server/models";
+import { AuthorModel } from "@/models";
 
 class AuthorService {
   public readonly model: mongoose.Model<any>

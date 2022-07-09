@@ -1,9 +1,9 @@
-import { PersonType, UserType } from "@/interfaces";
+import { UserType } from "@/interfaces";
 
 export default class UserModel {
 
     constructor(params?: UserType) {
-        Object.assign(this, { following: [], wishlist: [], person: {} as PersonType, roles: [], validated: false, theme: false, locale: "en-CA", deleted: false }, params);
+        Object.assign(this, { following: [], wishlist: [], roles: [], theme: false, locale: "en-CA" }, params);
     }
 
     static canCreate() {

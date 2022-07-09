@@ -146,7 +146,7 @@ export default {
     Payment,
     Page,
   },
-  middleware: ["auth", "authorization"],
+  middleware: ["authorization"],
   async fetch() {
     const { $service, error } = this.$nuxt.context;
     try {
@@ -168,7 +168,7 @@ export default {
   computed: {
     ...mapGetters("basket", ["sum"]),
     user() {
-      return this.$auth.user;
+      return this.$service.user.user();
     },
     canSubmit() {
       return this.shippingAddress && this.paymentMethod;

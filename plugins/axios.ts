@@ -1,25 +1,19 @@
-import { Plugin, Context } from '@nuxt/types'
-import { initializeAxios } from 'utils/api'
+import { initializeAxios } from "@/utils/api";
 
-const accessor: Plugin = ({ $axios, $auth }: Context) => {
-    initializeAxios($axios)
+const accessor: any = ({ $axios, $config }: any) => {
+  initializeAxios($axios);
 
-    const authToken = $auth?.strategy.token.get();
+  $axios.onRequest((config: any) => {
+    config.headers.common.Authorization = $config.apiKey;
+  });
 
-    if (authToken) {
-        $axios.onRequest((config: any) => {
-            config.headers.common.Authorization = authToken
-        })
+  $axios.onError((error: any) => {
+    if (error.response === undefined) {
+      console.log("Network Error: Please refresh and try again.");
+      throw error;
     }
+    throw error;
+  });
+};
 
-    // axios error handler
-    $axios.onError((error: any) => {
-        if (error.response === undefined) {
-            console.log('Network Error: Please refresh and try again.');
-            throw error
-        }
-        throw error
-    })
-}
-
-export default accessor
+export default accessor;

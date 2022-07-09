@@ -1,16 +1,11 @@
 import express from "express";
-import { validation } from '@server/middlewares';
-import { UsersController } from "@server/controllers";
+import { auth } from "@/middlewares";
+import { UsersController } from "@/controllers";
 
 const router = express.Router();
 
-router.get("/", (_, res) => UsersController.all(res));
-router.get("/:id", validation, (req, res) => UsersController.find(res, req));
-router.post("/", (req, res) => UsersController.create(res, req));
-router.post("/one", (req, res) => UsersController.findOne(res, req));
-router.post("/exists", (req, res) => UsersController.exists(res, req));
-router.put("/", (req, res) => UsersController.update(res, req));
-router.patch("/soft/:id", validation, (req, res) => UsersController.soft(res, req));
-router.patch("/restore/:id", validation, (req, res) => UsersController.restore(res, req));
+router.post("/", auth, (req, res) => UsersController.add(res, req));
+router.post("/one", auth, (req, res) => UsersController.get(res, req));
+router.put("/", auth, (req, res) => UsersController.edit(res, req));
 
 export default router;

@@ -89,7 +89,7 @@ export default {
     DialogDelete,
     SnackbarUndo,
   },
-  middleware: ["auth", "admin"],
+  middleware: ["admin"],
   data() {
     return {
       page: 1,

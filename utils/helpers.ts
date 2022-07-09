@@ -121,8 +121,22 @@ const randomFloat = (min: number, max: number): number => Math.random() * (max -
 
 const slug = (value: string): string | null => value ? value.replace(/ +/g, '-').toLowerCase() : null;
 
+/**
+ * it runs recursively till the string is converted to JSON object
+ * @param json 
+ * @returns 
+ */
+
+ function toJSON(json: string): any {
+  if (!json) return;
+  let parsed = JSON.parse(json);
+  if (typeof parsed === 'string') parsed = toJSON(parsed);
+  return parsed;
+}
+
 export default {
   format,
+  toJSON,
   toDropdownList,
   toDictionary,
   fromUTC,

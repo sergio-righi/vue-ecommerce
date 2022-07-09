@@ -3,14 +3,6 @@
     "home": {
       "title": "Home"
     },
-    "authentication": {
-      "sign_in": "Sign in",
-      "sign_up": "Sign up",
-      "sign_out": "Sign out",
-      "remember_it": "I've remember it! I'd like to go back.",
-      "has_account": "Already have an account?",
-      "forget_password": "Forget your password?"
-    },
     "error": {
       "401": "Unauthorized access.\n\nIt might indicate that the request lacks valid authentication credentials for the target resource.",
       "404": "The page you were looking for does not exist. You may have mistyped the URL or the page may have moved.",
@@ -55,11 +47,6 @@
     "checkout": "Proceed to Checkout",
     "add_basket": "add to basket",
     "remove_basket": "remove from basket"
-  },
-  "agreement": {
-    "cookie_policy": "Cookie Policy",
-    "privacy_policy": "Privacy Policy",
-    "terms_of_service": "Terms of Service"
   },
   "component": {
     "product": {
@@ -135,12 +122,6 @@
   },
   "placeholder": {
     "search_by_name": "search by name"
-  },
-  "greeting": {
-    "welcome": "Welcome",
-    "good_morning": "Good Morning",
-    "good_afternoon": "Good Afternoon",
-    "good_evening": "Good Evening"
   },
   "enum": {
     "address": {
@@ -224,11 +205,8 @@
   },
   "message": {
     "footnote": {
-      "login": "By continuing, you agree to our",
-      "password": "A strong password should have...",
-      "domain": "xyz.ca",
-      "error": "take me to",
-      "try_again": "Haven't received the code?"
+      "domain": "ecommerce.sergiorighi.com",
+      "error": "take me to"
     },
     "confirmation": {
       "title": "Confirmation Required",
@@ -240,14 +218,10 @@
     "feedback": {
       "unknown": "unknown",
       "page_loading": "Loading...",
-      "user_not_found": "User not found :(",
       "no_record": "No records were found",
       "empty_basket": "There is no items in your basket",
       "error": "Something went wrong while processing your request",
       "success": "The request was successfully processed",
-      "token": "The informed token is not valid or expired",
-      "code": "The informed code does not match the expected",
-      "email": "An email was sent with the instructions to continue processing your request",
       "item_added": "{0} was added to the basket ({1}x)",
       "item_removed": "{0} was removed from the basket",
       "billing_address": "Must have an address to continue",
@@ -267,21 +241,6 @@
       "add_payment": "Add a new payment method"
     }
   },
-  "mail": {
-    "verification_code": {
-      "subject": "Verification code",
-      "greeting": "Hello {name},",
-      "header": "your verification code:",
-      "description": "all you have to do now is to copy this code and paste at the time you get to access the application and the account will be unlocked :)"
-    },
-    "forget_password": {
-      "subject": "Reset Password",
-      "header": "You have requested to reset your password.",
-      "subheader": "We cannot just send you the old password, however, a link was provided for you in order to choose a new one, click on the link below and follow the instructions.",
-      "button": "Click here",
-      "description": "If you did not request it, ignore this email. There is no need to panic, only those who have access to this email can ever change the password."
-    }
-  },
   "locale": {
     "currency": "CAD"
   },
@@ -291,12 +250,6 @@
   "linking_word": {
     "and": "and",
     "or": "or"
-  },
-  "password_policy": {
-    "length": "a minimum of 8 characters",
-    "case": "one uppercase and one lowercase letters",
-    "character": "one letter and one number",
-    "special": "one special character, e.g., ! @ # ? * $ % &"
   },
   "picker": {
     "am": "am",
@@ -310,7 +263,8 @@
   },
   "validation": {
     "match": "do not match",
-    "duplicate": "already exists"
+    "duplicate": "already exists",
+    "required": "required"
   },
   "footer": {
     "powered_by": "This application is powered by",

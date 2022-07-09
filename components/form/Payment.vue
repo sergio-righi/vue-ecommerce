@@ -20,7 +20,7 @@
         </template>
         <template #content>
           <gv-tile-header sub>
-            {{ getNumber(item.number) | masked }}
+            {{ item.number | masked }}
           </gv-tile-header>
         </template>
         <template #trailing>
@@ -105,7 +105,6 @@
 </template>
 
 <script lang="ts">
-import { crypto } from "@/utils";
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { AddressType, CardType } from "@/interfaces";
 import { DialogDelete } from "@/components/helper";
@@ -151,7 +150,7 @@ export default class Payment extends Vue {
   }
 
   onSubmit() {
-    this.payment.number = crypto.encrypt(this.payment.number as string);
+    this.payment.number = this.payment.number;
     this.items.push(this.payment);
     this.payment = {} as CardType;
     this.$emit("input", this.items);
@@ -177,10 +176,6 @@ export default class Payment extends Vue {
   onChange(item: any, index: number) {
     this.checkedIndex = index;
     this.$emit("onchange", item);
-  }
-
-  getNumber(number: string) {
-    return crypto.decrypt(number);
   }
 }
 </script>

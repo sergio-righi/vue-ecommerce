@@ -1,25 +1,16 @@
+import Cookies from 'js-cookie'
+
+import { helpers } from '@/utils';
 import { Context } from '@nuxt/types'
 
-import { crypto } from "@/utils";
-
 class SessionService {
-  private readonly $enum: any
-  private readonly $auth: any
   private readonly store: any
+  private readonly $config: any
   static storeName: string = "session";
 
-  constructor({ store, $auth, $enum }: Context) {
-    this.store = store;
-    this.$auth = $auth;
-    this.$enum = $enum;
-  }
-
-  isAdmin() {
-    const { roles } = this.$auth.user;
-    if (roles) {
-      return roles.includes(this.$enum.enumerable.roles.adm);
-    }
-    return false;
+  constructor(context: Context) {
+    this.store = context.store
+    this.$config = context.$config
   }
 
   item(id: string, count: number) {
@@ -34,24 +25,16 @@ class SessionService {
     this.store.dispatch(`${SessionService.storeName}/feedback`, { message, error });
   }
 
-  async login(username: string, password: string, encrypt: boolean = true) {
-    password = encrypt ? crypto.encrypt(password) : password;
-    await this.$auth.loginWith('local', {
-      data: {
-        username,
-        password
-      },
-    })
+  user(): any {
+    return helpers.toJSON(Cookies.get(this.$config.vuexKey))
   }
 
-  async logout() {
-    await this.$auth.logout();
+  isAuthenticated(): boolean {
+    return this.user() !== null
   }
 
-  async fetch() {
-    const user = { ...this.$auth.user }
-    user.validated = true;
-    await this.$auth.setUser(user)
+  isVerified(): boolean {
+    return this.isAuthenticated() && this.user()?.verified
   }
 
   clear() {

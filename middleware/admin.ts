@@ -3,7 +3,7 @@
  */
 
 export default ({ redirect, $resolve, $service }: any) => {
-  const isAdmin = $service.session.isAdmin;
+  const isAdmin = $service.user.isAdmin();
   if (!isAdmin) {
     return redirect($resolve.home());
   }

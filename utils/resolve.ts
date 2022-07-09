@@ -1,3 +1,4 @@
+import { Context } from '@nuxt/types'
 
 const controller = {
   basket: '/basket/',
@@ -6,66 +7,64 @@ const controller = {
   checkout: '/checkout/',
   home: '/',
   order: '/order/',
-  product: '/product/',
-  session: {
-    login: '/sign_in',
-    subscribe: '/sign_up',
-    password: '/forget_password',
-    authorization: '/authorization'
-  }
+  product: '/product/'
 }
 
-const Resolve = (localePath: Function) => ({
+const Resolve = (context: any) => ({
 
   basket: (...args: any[]) => {
-    return localePath({ path: controller.basket + args.join('/') });
+    return context.localePath({ path: controller.basket + args.join('/') });
   },
 
   product: (...args: any[]) => {
-    return localePath({ path: controller.product + args.join('/') });
+    return context.localePath({ path: controller.product + args.join('/') });
   },
 
   checkout: (...args: any[]) => {
-    return localePath({ path: controller.checkout + args.join('/') });
+    return context.localePath({ path: controller.checkout + args.join('/') });
   },
 
   home: (...args: any[]) => {
-    return localePath({ path: controller.home + args.join('/') });
+    return context.localePath({ path: controller.home + args.join('/') });
   },
 
   order: (...args: any[]) => {
-    return localePath({ path: controller.order + args.join('/') });
+    return context.localePath({ path: controller.order + args.join('/') });
   },
 
   // authors module
 
-  author: (...args: any[]) => localePath({ path: controller.authors + 'do/' + args.join('/') }),
-  authors: (...args: any[]) => localePath({ path: controller.authors + args.join('/') }),
+  author: (...args: any[]) => context.localePath({ path: controller.authors + 'do/' + args.join('/') }),
+  authors: (...args: any[]) => context.localePath({ path: controller.authors + args.join('/') }),
 
   // books module
 
-  book: (...args: any[]) => localePath({ path: controller.books + 'do/' + args.join('/') }),
-  books: (...args: any[]) => localePath({ path: controller.books + args.join('/') }),
+  book: (...args: any[]) => context.localePath({ path: controller.books + 'do/' + args.join('/') }),
+  books: (...args: any[]) => context.localePath({ path: controller.books + args.join('/') }),
 
   // authentication
 
-  login: (...args: any[]) => localePath({ path: controller.session.login + args.join('/') }),
-  subscribe: (...args: any[]) => localePath({ path: controller.session.subscribe + args.join('/') }),
-  password: (...args: any[]) => localePath({ path: controller.session.password + args.join('/') }),
-  authorization: (...args: any[]) => localePath({ path: controller.session.authorization + args.join('/') }),
+  login: (callback: string) => context.$config.sso + '?callback=' + callback,
+  logout: (callback: string) => context.$config.sso + '/logout?callback=' + callback,
+  subscribe: (callback: string) =>
+    context.$config.sso + '/register?callback=' + callback,
+  password: (callback: string) =>
+    context.$config.sso + '/forget-password?callback=' + callback,
+  authorization: (callback: string) =>
+    context.$config.sso + '/authorization?callback=' + callback,
 
   image: {
     cover: (name: string) => {
-      return `${process.env.baseUrl}/cover/${name}.jpg`
+      return `${context.$config.api}/cover/${name}.jpg`
     },
 
     root: (name: string) => {
       return `/${name}`
     }
   }
-
+  
 });
 
-export const initializeResolve = (localePath: Function) => ({
-  ...Resolve(localePath)
+export const initializeResolve = (context: Context) => ({
+  ...Resolve(context),
 });

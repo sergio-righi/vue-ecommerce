@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import { Request, Response } from 'express'
-import { ModelType } from '@server/interfaces';
+import { ModelType } from '@/interfaces';
 
 export class BaseController {
   protected readonly model: ModelType;

@@ -65,7 +65,6 @@
 </template>
 
 <script>
-import { helpers } from "@/utils";
 import { NoRecord, Page } from "@/components";
 import { PageLoading } from "@/components/helper";
 export default {
@@ -74,14 +73,14 @@ export default {
     Page,
     PageLoading,
   },
-  middleware: "auth",
   data: () => ({
     orders: [],
   }),
   async fetch() {
-    const { $auth, $service, error } = this.$nuxt.context;
+    const { $service, error } = this.$nuxt.context;
     try {
-      this.orders = await $service.order.allWithBooks($auth.user._id);
+      const { _id } = $service.user.user()
+      this.orders = await $service.order.allWithBooks(_id)
     } catch (err) {
       error({
         statusCode: 503,

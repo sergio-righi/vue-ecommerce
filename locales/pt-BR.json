@@ -3,15 +3,6 @@
     "home": {
       "title": "Início"
     },
-    "authentication": {
-      "sign_in": "Entrar",
-      "sign_up": "Cadastrar",
-      "sign_out": "Sair",
-      "remember_it": "Lembrei! Quero voltar.",
-      "has_account": "Já possui uma conta?",
-      "remember_me": "Manter-se conectado",
-      "forget_password": "Esqueceu sua senha?"
-    },
     "error": {
       "401": "Acesso não autorizado.\n\nIsso pode indicar que a requisição não conseguiu identificar as credenciais necessárias para acessar o recurso solicitado.",
       "404": "A página que você está procurando não existe. Isto pode ter occorido por um erro de digitação ou a página pode ter sido movida.",
@@ -38,11 +29,6 @@
     "checkout": {
       "title": "Últimos detalhes"
     }
-  },
-  "agreement": {
-    "cookie_policy": "Política de Cookies",
-    "privacy_policy": "Política de privacidade",
-    "terms_of_service": "Termos de serviço"
   },
   "action": {
     "agreed": "Entendi",
@@ -135,12 +121,6 @@
   "placeholder": {
     "search_by_name": "pesquisar por nome"
   },
-  "greeting": {
-    "welcome": "Bem vindo",
-    "good_morning": "Bom Dia",
-    "good_afternoon": "Boa Tarde",
-    "good_evening": "Boa Noite"
-  },
   "enum": {
     "address": {
       "residential": "Residencial",
@@ -223,11 +203,8 @@
   },
   "message": {
     "footnote": {
-      "login": "Ao continuar, você concorda com o nosso",
-      "password": "Uma senha forte deve conter...",
-      "domain": "xyz.ca",
-      "error": "me leve para",
-      "try_again": "Não recebeu o código?"
+      "domain": "ecommerce.sergiorighi.com",
+      "error": "me leve para"
     },
     "confirmation": {
       "title": "Confirmação Requirida",
@@ -239,14 +216,10 @@
     "feedback": {
       "unknown": "desconhecido",
       "page_loading": "Carregando...",
-      "user_not_found": "Usuário não encontrado",
       "no_record": "Nenhum registro foi encontrado",
       "empty_basket": "Não há nenhum item na cesta",
       "error": "Algum problema ocorreu ao tentar processar a requisição",
       "success": "A requisição foi processada com sucesso",
-      "token": "O token informado não é válido ou expirou",
-      "code": "O código informado não corresponde ao esperado",
-      "email": "Um e-mail foi enviado com as instruções para continuar processando sua solicitação",
       "item_added": "{0} foi adicionado a cesta ({1}x)",
       "item_removed": "{0} foi removido da cesta",
       "billing_address": "Deve possuir um endereço para continuar",
@@ -266,21 +239,6 @@
       "add_payment": "Adicionar um novo método de pagamento"
     }
   },
-  "mail": {
-    "verification_code": {
-      "subject": "E-mail de verificação",
-      "greeting": "Olá {name},",
-      "header": "aqui está seu código de verificação de conta:",
-      "description": "tudo que você precisa fazer agora é copiar este código e colar no momento que você for acessar a plataforma e sua conta sera desbloqueada :)"
-    },
-    "forget_password": {
-      "subject": "E-mail de redefinição de senha",
-      "header": "Você solicitou a alteração da sua senha.",
-      "subheader": "Não podemos simplesmente enviar sua senha antiga. Um link único para redefinir sua senha foi gerado para você, clique no link abaixo e siga as instruções.",
-      "button": "Clique aqui",
-      "description": "Se você não solicitou esta alteração, ignore este e-mail. E fique tranquilo, somente quem tem acesso a este e-mail pode alterar a senha da sua conta."
-    }
-  },
   "locale": {
     "currency": "BRL"
   },
@@ -290,12 +248,6 @@
   "linking_word": {
     "and": "e",
     "or": "ou"
-  },
-  "password_policy": {
-    "length": "um minímo de 8 caracteres",
-    "case": "um caracter maiúsculo e um minúsculo",
-    "character": "uma letra e um número",
-    "special": "um caracter especial, ex.: ! @ # ? * $ % &"
   },
   "picker": {
     "am": "am",
@@ -309,7 +261,8 @@
   },
   "validation": {
     "match": "não é igual",
-    "duplicate": "já existe"
+    "duplicate": "já existe",
+    "required": "obrigatório"
   },
   "footer": {
     "powered_by": "Este aplicativo é desenvolvido com",

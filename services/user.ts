@@ -1,59 +1,64 @@
-import { crypto, helpers } from "@/utils";
-
-import { Context } from '@nuxt/types'
+import { Context } from "@nuxt/types";
 import BaseService from "./base.service";
 
-import { UserType } from '@/interfaces';
+import { UserType } from "@/interfaces";
 import { UserRepository } from "@/repository";
 
 class UserService extends BaseService<UserType> {
-  private readonly $auth: any
+  private readonly $enum: any;
   static storeName: string = "user";
 
   constructor(context: Context) {
-    super(context, new UserRepository(context), UserService.storeName)
-    this.$auth = context.$auth
+    super(context, new UserRepository(context), UserService.storeName);
+    this.$enum = context.$enum;
   }
 
-  async findByEmail(email: string) {
-    return await this.findOne({ "person.email": email });
+  async findByUser(id: string) {
+    return await this.findOne({ userId: id });
+  }
+
+  async setUser(user: any) {
+    this.store.dispatch("user/find", user);
   }
 
   async updateDepth(params: any): Promise<void> {
-    const { _id } = this.$auth.user
-    this.$auth.setUser(await this.update({ _id, ...params }));
-  }
-
-  username(username: string) {
-    return this.store.state.user.users.findIndex((x: UserType) => x.username === username) !== -1;
-  }
-
-  login(username: string, password: string) {
-    password = crypto.encrypt(password);
-    const user = this.store.state.user.users.find((x: UserType) => x.username === username && x.password === password);
-    if (user) {
-      this.store.dispatch("user/set", user.id);
+    const { _id } = this.user();
+    if (_id) {
+      await this.update({ _id, ...params });
     }
-    return user;
+  }
+
+  user() {
+    return this.store.state.user.user;
   }
 
   reset() {
     this.store.dispatch("user/reset");
   }
 
+  isAdmin() {
+    const { roles } = this.store.state.user.user;
+    if (roles) {
+      return roles.includes(this.$enum.enumerable.EnumRole.adm);
+    }
+    return false;
+  }
+
   inWishlist(id: string) {
-    return !!this.$auth.user.wishlist.find(item => item === id);
+    const { wishlist } = this.store.state.user.user;
+    return !!wishlist.find((item) => item === id);
   }
 
   async manageWishlist(id: string) {
-    let wishlist = this.$auth.user.wishlist ?? [];
+    const { _id } = this.store.state.user.user;
+    let wishlist = this.store.state.user?.user.wishlist ?? [];
     if (this.inWishlist(id)) {
-      wishlist = [...wishlist.filter((x: string) => x !== id)]
+      wishlist = [...wishlist.filter((x: string) => x !== id)];
     } else {
-      wishlist = [id, ...wishlist]
+      wishlist = [id, ...wishlist];
     }
-    this.$auth.setUser(await this.update({ _id: this.$auth.user._id, wishlist } as any));
+    await this.update({ _id, wishlist } as any);
   }
 }
 
-export { UserService }
+export { UserService };

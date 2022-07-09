@@ -1,4 +1,4 @@
-import { CouponModel } from "@server/models";
+import { CouponModel } from "@/models";
 import { BaseController } from "./base.controller";
 
 class CouponsController extends BaseController {

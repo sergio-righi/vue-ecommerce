@@ -3,13 +3,11 @@ import { GetterTree, ActionTree, MutationTree } from 'vuex';
 import { FeedbackType } from "@/interfaces"
 
 interface StateType {
-  auth: any
   feedback: FeedbackType
   items: Array<{ id: string, count: number }>
 }
 
 const state = (): StateType => ({
-  auth: {},
   feedback: {} as FeedbackType,
   items: [] as { id: string, count: number }[]
 });
@@ -38,9 +36,7 @@ const mutations: MutationTree<RootState> = {
 };
 
 const getters: GetterTree<RootState, RootState> = {
-  logged: (state: StateType) => state.auth.user,
-  feedback: (state: StateType) => state.feedback,
-  isAuthenticated: (state: StateType) => state.auth.loggedIn,
+  feedback: (state: StateType) => state.feedback
 };
 
 const actions: ActionTree<RootState, RootState> = {

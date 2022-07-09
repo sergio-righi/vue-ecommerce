@@ -18,7 +18,7 @@
             value="bookmark"
             class="wishlist-icon"
             :color="inWishlist(item._id)"
-            @onclick="setWishlist(item._id)"
+            @click.native.prevent="setWishlist(item._id)"
           />
           <ProductRating :item="item" :key="item._id" short />
         </gv-image>
@@ -76,7 +76,7 @@ export default {
   },
   computed: {
     isAuthenticated() {
-      return this.$auth.loggedIn ?? false;
+      return this.$service.session.isVerified()
     },
   },
   methods: {

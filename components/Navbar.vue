@@ -31,10 +31,10 @@
             </gv-flexbox>
           </template>
           <template #content>
-            <gv-dropdown-item :href="$resolve.authors()">
+            <gv-dropdown-item v-if="isAdmin" :href="$resolve.authors()">
               {{ $t("page.authors.title") }}
             </gv-dropdown-item>
-            <gv-dropdown-item :href="$resolve.books()">
+            <gv-dropdown-item v-if="isAdmin" :href="$resolve.books()">
               {{ $t("page.books.title") }}
             </gv-dropdown-item>
             <gv-dropdown-item :href="$resolve.order()">
@@ -46,7 +46,7 @@
           </template>
         </gv-dropdown>
       </gv-navbar-item>
-      <gv-navbar-item v-else :href="$resolve.login()">
+      <gv-navbar-item v-else @onclick="signIn">
         <gv-icon value="account-circle" />
       </gv-navbar-item>
     </template>
@@ -70,40 +70,43 @@ export default {
     theme: {
       set(theme) {
         this.isAuthenticated
-          ? (this.theme !== theme) & this.$service.user.updateDepth({ theme })
+          ? this.theme !== theme
+            ? this.$service.user.updateDepth({ theme })
+            : null
           : (this.dark = theme);
       },
       get() {
         return this.isAuthenticated
-          ? this.$auth.user.theme ?? false
+          ? this.$service.user.user().theme ?? false
           : this.dark;
       },
     },
     locale: {
       set(locale) {
         this.isAuthenticated
-          ? (this.locale !== locale) &
-            this.$service.user.updateDepth({ locale })
+          ? this.locale !== locale
+            ? this.$service.user.updateDepth({ locale })
+            : null
           : (this.$i18n.locale = locale);
       },
       get() {
         return this.isAutheticated
-          ? this.$auth.user.locale ?? this.$i18n.locale
+          ? this.$service.user.user().locale ?? this.$i18n.locale
           : this.$i18n.locale;
       },
     },
-    isAdmin() {
-      return this.$service.session.isAdmin;
-    },
-    isAuthenticated() {
-      return this.$auth.loggedIn ?? false;
-    },
     letter() {
-      if (this.isAuthenticated && "user" in this.$auth) {
-        const user = this.$auth.user ?? {};
-        return "person" in user ? user.person.name?.slice(0, 1) : "";
+      if (this.isAuthenticated) {
+        const user = this.$service.session.user();
+        return user.name?.slice(0, 1);
       }
       return "";
+    },
+    isAuthenticated() {
+      return this.$service.session.isVerified();
+    },
+    isAdmin() {
+      return this.$service.user.isAdmin();
     },
     availableLocale() {
       return this.$i18n.locales.filter((item) => item.iso !== this.locale);
@@ -115,8 +118,12 @@ export default {
     },
   },
   methods: {
+    signIn() {
+      window.location.href = this.$resolve.login(window.location.href);
+    },
     signOut() {
-      this.$service.session.logout();
+      this.$service.user.reset();
+      window.location.href = this.$resolve.logout(window.location.href);
     },
     setLocale(locale) {
       this.locale = locale;

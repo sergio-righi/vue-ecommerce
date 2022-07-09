@@ -1,14 +1,47 @@
-import dotenv from 'dotenv';
+import dotenv from 'dotenv'
+import convict from 'convict';
 
 dotenv.config();
-
-export default {
-  PORT: process.env.PORT,
-  MONGODB_URI: process.env.MONGODB_URI,
-  JWT_ACCESS: process.env.JWT_ACCESS,
-  JWT_REFRESH: process.env.JWT_REFRESH,
-  MAIL_EMAIL: process.env.MAIL_EMAIL,
-  MAIL_CLIENTID: process.env.MAIL_CLIENTID,
-  MAIL_SECRET: process.env.MAIL_SECRET,
-  MAIL_REFRESH: process.env.MAIL_REFRESH
-};
+export default convict({
+  env: {
+    default: 'dev',
+    env: 'NODE_ENV',
+  },
+  http: {
+    port: {
+      doc: 'The port to listen on',
+      default: 4001,
+      env: 'PORT',
+    },
+    host: {
+      default: 'http://localhost',
+      env: 'HOST',
+    }
+  },
+  api: {
+    doc: 'Auth key for making requests',
+    default: '',
+    env: 'API_KEY',
+  },
+  mongoose: {
+    doc: 'Mongoose connection string',
+    default: 'mongodb://127.0.0.1:27017/vue-nuxt-sample',
+    env: 'MONGODB_URI',
+  },
+  cors: {
+    default: '*',
+    env: 'CORS_ORIGIN'
+  },
+  authorization: {
+    secret: {
+      doc: 'The signing key for the JWT',
+      default: '',
+      env: 'AUTH_SECRET',
+    },
+    iv: {
+      doc: 'The signing iv for the JWT',
+      default: '',
+      env: 'AUTH_IV',
+    }
+  }
+}).validate()

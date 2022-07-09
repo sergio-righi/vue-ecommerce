@@ -56,7 +56,7 @@ export default {
     PageForm,
     PageLoading,
   },
-  middleware: ["auth", "admin"],
+  middleware: ["admin"],
   async fetch() {
     const { error, params, $service } = this.$nuxt.context;
     try {

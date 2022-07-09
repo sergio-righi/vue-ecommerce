@@ -8,7 +8,6 @@ import { BasketService } from "@/services/basket";
 import { AddressType, BookType, ItemType, OrderType, PaymentType } from '@/interfaces';
 
 class OrderService extends BaseService<OrderType> {
-  private readonly $auth: any
   private readonly bookService: BookService;
   private readonly basketService: BasketService;
   static storeName: string = "order";
@@ -17,7 +16,6 @@ class OrderService extends BaseService<OrderType> {
     super(context, new OrderRepository(context), OrderService.storeName)
     this.bookService = new BookService(context);
     this.basketService = new BasketService(context);
-    this.$auth = context.$auth;
   }
 
   async allWithBooks(id: string): Promise<OrderType[]> {
@@ -29,7 +27,7 @@ class OrderService extends BaseService<OrderType> {
     order.books = this.store.state.basket.basket;
     order.address = address;
     order.payment = payment;
-    order.userId = this.$auth.user._id;
+    order.userId = this.store.state.user.user._id;
 
     for (const item of order.books) {
       const book = this.store.state.book.books.find((x: BookType) => x._id === item.bookId);

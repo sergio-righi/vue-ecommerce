@@ -1,6 +1,6 @@
 import { Response, Request } from "express";
-import { BookModel } from "@server/models";
-import { BookService } from "@server/services";
+import { BookModel } from "@/models";
+import { BookService } from "@/services";
 import { BaseController } from "./base.controller";
 
 class BooksController extends BaseController {

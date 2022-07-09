@@ -67,7 +67,6 @@ const actions: ActionTree<RootState, RootState> = {
   },
 
   set: ({ commit }: any, params: any) => {
-    console.log(params);
     commit("set", params);
   },
 
