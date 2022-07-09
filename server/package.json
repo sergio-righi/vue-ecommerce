@@ -13,6 +13,7 @@
     "dotenv": "^16.0.1",
     "convict": "^6.2.3",
     "express": "latest",
+    "crypto-js": "^4.1.1",
     "compression": "^1.7.4",
     "mongoose": "latest",
     "ts-node": "^10.7.0",
