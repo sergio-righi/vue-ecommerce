@@ -1,6 +1,7 @@
 import { UserModel } from "@/models";
 
 export default async ({ store, $service }: any) => {
+  await $service.session.fetch();
   const { _id } = store.state.user?.user;
   if (!_id) {
     const verified = $service.session.isVerified();

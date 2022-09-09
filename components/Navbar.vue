@@ -61,7 +61,7 @@ export default {
       dark: false,
     };
   },
-  beforeMount() {
+  mounted() {
     this.setTheme(this.theme);
     this.setLocale(this.locale);
   },
@@ -103,7 +103,7 @@ export default {
       return "";
     },
     isAuthenticated() {
-      return this.$service.session.isVerified();
+      return this.$service.session.isAuthenticated();
     },
     isAdmin() {
       return this.$service.user.isAdmin();

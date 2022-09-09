@@ -4,11 +4,13 @@ import { helpers } from '@/utils';
 import { Context } from '@nuxt/types'
 
 class SessionService {
+  private readonly $sso: any
   private readonly store: any
   private readonly $config: any
   static storeName: string = "session";
 
   constructor(context: Context) {
+    this.$sso = context.$sso
     this.store = context.store
     this.$config = context.$config
   }
@@ -25,20 +27,34 @@ class SessionService {
     this.store.dispatch(`${SessionService.storeName}/feedback`, { message, error });
   }
 
-  user(): any {
-    return helpers.toJSON(Cookies.get(this.$config.vuexKey))
+  user() {
+    return this.store.state.session.sso.user;
   }
 
-  isAuthenticated(): boolean {
-    return this.user() !== null
+  isAuthenticated() {
+    return this.store.state.session.sso.isAuthenticated;
   }
 
-  isVerified(): boolean {
-    return this.isAuthenticated() && this.user()?.verified
+  isVerified() {
+    return this.store.state.session.sso.isVerified;
   }
 
   clear() {
     this.store.dispatch(`${SessionService.storeName}/clear`);
+  }
+
+  async fetch() {
+    const payload = Cookies.get(this.$config.vuexKey);
+    if (payload) {
+      const {
+        data: {
+          user
+        }
+      } = await this.$sso.get('/auth/refresh-token', { params: { payload } })
+      this.store.dispatch(`${SessionService.storeName}/fetch`, { user, isAuthenticated: user !== null, isVerified: user?.verified });
+    } else {
+      this.store.dispatch(`${SessionService.storeName}/fetch`, {});
+    }
   }
 }
 

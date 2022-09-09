@@ -45,13 +45,13 @@ const Resolve = (context: any) => ({
   // authentication
 
   login: (callback: string) => context.$config.sso + '?callback=' + callback,
-  logout: (callback: string) => context.$config.sso + '/logout?callback=' + callback,
+  logout: (callback: string) => context.$config.sso + 'logout?callback=' + callback,
   subscribe: (callback: string) =>
-    context.$config.sso + '/register?callback=' + callback,
+    context.$config.sso + 'register?callback=' + callback,
   password: (callback: string) =>
-    context.$config.sso + '/forget-password?callback=' + callback,
+    context.$config.sso + 'forget-password?callback=' + callback,
   authorization: (callback: string) =>
-    context.$config.sso + '/authorization?callback=' + callback,
+    context.$config.sso + 'authorization?callback=' + callback,
 
   image: {
     cover: (name: string) => {
@@ -62,7 +62,7 @@ const Resolve = (context: any) => ({
       return `/${name}`
     }
   }
-  
+
 });
 
 export const initializeResolve = (context: Context) => ({

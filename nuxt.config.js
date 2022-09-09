@@ -6,6 +6,7 @@ export default {
   publicRuntimeConfig: {
     sso: process.env.SSO_URL,
     api: process.env.API_URL,
+    auth: process.env.AUTH_URL,
     apiKey: process.env.API_KEY,
     vuexKey: process.env.VUEX_KEY,
   },
@@ -37,6 +38,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    "~/plugins/sso.client",
     "~/plugins/axios.client",
     "~/plugins/enum.client",
     "~/plugins/filter.client",
@@ -70,7 +72,7 @@ export default {
 
   axios: {
     progress: false,
-    baseUrl: process.env.API_URL
+    baseUrl: process.env.API_URL,
   },
 
   i18n: {

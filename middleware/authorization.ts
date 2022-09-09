@@ -3,7 +3,7 @@
  * check if there is products in the basket otherwise go back to home screen
  */
 
- export default ({ store, redirect, $resolve, $service }: any) => {
+export default ({ store, redirect, $resolve, $service }: any) => {
   const isAuthenticated = $service.session.isAuthenticated()
   const verified = $service.session.isVerified()
 

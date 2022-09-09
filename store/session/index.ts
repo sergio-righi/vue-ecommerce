@@ -3,11 +3,13 @@ import { GetterTree, ActionTree, MutationTree } from 'vuex';
 import { FeedbackType } from "@/interfaces"
 
 interface StateType {
+  sso: any
   feedback: FeedbackType
   items: Array<{ id: string, count: number }>
 }
 
 const state = (): StateType => ({
+  sso: {} as any,
   feedback: {} as FeedbackType,
   items: [] as { id: string, count: number }[]
 });
@@ -30,6 +32,10 @@ const mutations: MutationTree<RootState> = {
     state.feedback = feedback;
   },
 
+  fetch: (state: StateType, params: any) => {
+    state.sso = params;
+  },
+
   clear: (state: StateType) => {
     state.feedback = {} as FeedbackType;
   }
@@ -47,6 +53,10 @@ const actions: ActionTree<RootState, RootState> = {
 
   feedback: ({ commit }: any, feedback: FeedbackType) => {
     commit("feedback", feedback);
+  },
+
+  fetch: ({ commit }: any, params: any) => {
+    commit("fetch", params);
   },
 
   clear: ({ commit }: any) => {
