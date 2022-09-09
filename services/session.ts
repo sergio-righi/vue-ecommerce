@@ -1,18 +1,13 @@
-import Cookies from 'js-cookie'
-
-import { helpers } from '@/utils';
 import { Context } from '@nuxt/types'
 
 class SessionService {
   private readonly $sso: any
   private readonly store: any
-  private readonly $config: any
   static storeName: string = "session";
 
   constructor(context: Context) {
     this.$sso = context.$sso
     this.store = context.store
-    this.$config = context.$config
   }
 
   item(id: string, count: number) {
@@ -44,14 +39,9 @@ class SessionService {
   }
 
   async fetch() {
-    const payload = Cookies.get(this.$config.vuexKey);
-    if (payload) {
-      const {
-        data: {
-          user
-        }
-      } = await this.$sso.get('/auth/refresh-token', { params: { payload } })
-      this.store.dispatch(`${SessionService.storeName}/fetch`, { user, isAuthenticated: user !== null, isVerified: user?.verified });
+    const { data } = await this.$sso.get('/auth/refresh-token');
+    if (data) {
+      this.store.dispatch(`${SessionService.storeName}/fetch`, { user: data.user, isAuthenticated: data.user !== null, isVerified: data.user?.verified });
     } else {
       this.store.dispatch(`${SessionService.storeName}/fetch`, {});
     }
