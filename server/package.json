@@ -9,15 +9,16 @@
   },
   "keywords": [],
   "dependencies": {
-    "cors": "latest",
-    "dotenv": "^16.0.1",
-    "convict": "^6.2.3",
-    "express": "latest",
-    "crypto-js": "^4.1.1",
     "compression": "^1.7.4",
+    "convict": "^6.2.3",
+    "cors": "latest",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.1",
+    "express": "latest",
     "mongoose": "latest",
     "ts-node": "^10.7.0",
-    "tsconfig-paths": "^4.0.0"
+    "tsconfig-paths": "^4.0.0",
+    "typescript": "^4.9.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
