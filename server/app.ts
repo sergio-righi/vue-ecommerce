@@ -47,6 +47,7 @@ class App {
   }
 
   setRoutes() {
+    this.express.options('*', cors())
     this.express.use('/authors', AuthorRoute)
     this.express.use('/books', BookRoute)
     this.express.use('/coupons', CouponRoute)
