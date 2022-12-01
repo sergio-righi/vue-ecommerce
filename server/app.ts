@@ -30,10 +30,8 @@ class App {
   }
 
   setDatabase() {
-    mongoose.connect(env.get('mongoose'), {
-      useUnifiedTopology: true,
-      useNewUrlParser: true,
-    })
+    const connectionString = env.get('mongoose')
+    mongoose.connect(connectionString)
     const databaseConnection = mongoose.connection
     databaseConnection.on(
       'error',
@@ -60,7 +58,7 @@ class App {
     this.express.use('/orders', OrderRoute)
     this.express.use('/users', UserRoute)
   }
-  
+
   setExtra() {
     this.express.use('/cover', express.static('static/image'))
   }
