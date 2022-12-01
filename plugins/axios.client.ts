@@ -4,7 +4,7 @@ const accessor: any = ({ $axios, $config }: any) => {
   initializeAxios($axios);
 
   $axios.onRequest((config: any) => {
-    config.headers.common.Authorization = $config.apiKey;
+    config.headers.apikey = $config.apiKey;
   });
 
   $axios.onError((error: any) => {

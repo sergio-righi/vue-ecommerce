@@ -1,8 +1,8 @@
-import { env, crypto } from '@/utils'
+import { env } from '@/utils'
 
 export default (req: any, res: any, next: any) => {
   try {
-    const authorization = crypto.hash(req.headers.authorization)
+    const { authorization } = req.headers
     const secretKey = env.get('api')
     if (authorization && authorization === secretKey) next()
     else throw new Error('401')
