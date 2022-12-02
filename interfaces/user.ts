@@ -1,5 +1,5 @@
 import { EnumRole } from "@/utils/enums";
-import { AddressType, CardType, DocumentType } from "@/interfaces"
+import { AddressType, CardType, DocumentType, PersonType } from "@/interfaces"
 
 export default interface IUser {
   _id?: string;
@@ -9,6 +9,7 @@ export default interface IUser {
   roles: Array<EnumRole>;
   theme: boolean;
   locale: string;
+  person: PersonType;
   documents?: Array<DocumentType>;
   payments: Array<CardType>;
   addresses: Array<AddressType>;

@@ -1,12 +1,12 @@
 import { Context } from '@nuxt/types'
 
 class SessionService {
-  private readonly $sso: any
+  private readonly $auth: any
   private readonly store: any
   static storeName: string = "session";
 
   constructor(context: Context) {
-    this.$sso = context.$sso
+    this.$auth = context.$auth
     this.store = context.store
   }
 
@@ -22,16 +22,20 @@ class SessionService {
     this.store.dispatch(`${SessionService.storeName}/feedback`, { message, error });
   }
 
-  user() {
-    return this.store.state.session.sso.user;
+  setToken(accessToken: string, refreshToken: string) {
+    this.store.dispatch(`${SessionService.storeName}/setToken`, { accessToken, refreshToken });
+  }
+
+  logout() {
+    this.store.dispatch(`${SessionService.storeName}/logout`);
   }
 
   isAuthenticated() {
-    return this.store.state.session.sso.isAuthenticated;
+    return 'id' in this.user();
   }
 
-  isVerified() {
-    return this.store.state.session.sso.isVerified;
+  user() {
+    return this.store.state.session.user;
   }
 
   clear() {
@@ -39,9 +43,15 @@ class SessionService {
   }
 
   async fetch() {
-    const { data } = await this.$sso.get('/auth/refresh-token');
-    if (data) {
-      this.store.dispatch(`${SessionService.storeName}/fetch`, { user: data.user, isAuthenticated: data.user !== null, isVerified: data.user?.verified });
+    const { accessToken } = this.store.state.session.sso;
+    const response = await this.$auth.get('/auth/fetch', {
+      headers: {
+        'Authorization': accessToken
+      }
+    });
+    if (response.data) {
+      const { user, ...rest } = response.data;
+      this.store.dispatch(`${SessionService.storeName}/fetch`, user);
     } else {
       this.store.dispatch(`${SessionService.storeName}/fetch`, {});
     }

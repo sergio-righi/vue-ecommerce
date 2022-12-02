@@ -38,8 +38,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    "~/plugins/sso.client",
     "~/plugins/axios.client",
+    "~/plugins/auth.client",
     "~/plugins/enum.client",
     "~/plugins/filter.client",
     "~/plugins/service.client",
@@ -96,7 +96,7 @@ export default {
   },
 
   router: {
-    middleware: ["authentication"],
+    middleware: ["sso"],
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

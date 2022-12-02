@@ -76,7 +76,7 @@ export default {
   },
   computed: {
     isAuthenticated() {
-      return this.$service.session.isVerified();
+      return this.$service.session.isAuthenticated();
     },
   },
   methods: {

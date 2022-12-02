@@ -127,7 +127,7 @@ const slug = (value: string): string | null => value ? value.replace(/ +/g, '-')
  * @returns 
  */
 
- function toJSON(json: string): any {
+function toJSON(json: string): any {
   if (!json) return;
   let parsed = JSON.parse(json);
   if (typeof parsed === 'string') parsed = toJSON(parsed);

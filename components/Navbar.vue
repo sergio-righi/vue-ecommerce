@@ -122,7 +122,6 @@ export default {
       window.location.href = this.$resolve.login(window.location.href);
     },
     signOut() {
-      this.$service.user.reset();
       window.location.href = this.$resolve.logout(window.location.href);
     },
     setLocale(locale) {

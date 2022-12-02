@@ -9,6 +9,7 @@ export { default as FeedbackType } from "./feedback";
 export { default as ItemType } from "./item";
 export { default as OrderType } from "./order";
 export { default as PaymentType } from "./payment";
+export { default as PersonType } from "./person";
 export { default as PhoneType } from "./phone";
 export { default as RepositoryType } from "./repository";
 export { default as ReviewType } from "./review";

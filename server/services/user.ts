@@ -33,7 +33,7 @@ class UserService {
     try {
       document = this._runEncrypt(document);
       const response = await this.model
-        .findByIdAndUpdate(id, document, { useFindAndModify: false, new: true })
+        .findOneAndUpdate({ userdId: id }, document, { useFindAndModify: true, new: true })
         .exec();
       return { status: 200, data: this._runDecrypt(response) } as ServiceType;
     } catch (err) {
@@ -43,20 +43,24 @@ class UserService {
 
   _runEncrypt(document: any) {
     if (!document) return document;
-    document.payments = document.payments?.map((item: any) => ({
-      ...item,
-      cvv: null,
-      number: crypto.encrypt(item.number),
-    }));
+    if ("payments" in document) {
+      document.payments = document.payments?.map((item: any) => ({
+        ...item,
+        cvv: null,
+        number: crypto.encrypt(item.number),
+      }));
+    }
     return document;
   }
 
   _runDecrypt(document: any) {
     if (!document) return document;
-    document.payments = document.payments?.map((item: any) => ({
-      ...item,
-      number: crypto.decrypt(item.number),
-    }));
+    if ("payments" in document) {
+      document.payments = document.payments?.map((item: any) => ({
+        ...item,
+        number: crypto.decrypt(item.number),
+      }));
+    }
     return document;
   }
 }
