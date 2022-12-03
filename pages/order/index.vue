@@ -79,8 +79,8 @@ export default {
   async fetch() {
     const { $service, error } = this.$nuxt.context;
     try {
-      const { _id } = $service.user.user()
-      this.orders = await $service.order.allWithBooks(_id)
+      const { _id } = $service.session.user();
+      this.orders = await $service.order.allWithBooks(_id);
     } catch (err) {
       error({
         statusCode: 503,

@@ -29,7 +29,7 @@ export default convict({
     env: 'MONGODB_URI',
   },
   cors: {
-    default: '*',
+    default: '/*/',
     env: 'CORS_ORIGIN'
   },
   authorization: {

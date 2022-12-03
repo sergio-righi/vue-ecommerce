@@ -4,7 +4,7 @@ declare module 'vue/types/vue' {
   interface Vue {
     $t: any
     $tc: any
-    $sso: any
+    $auth: any
     $i18n: any
     $enum: any
   }
@@ -12,7 +12,7 @@ declare module 'vue/types/vue' {
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $sso: any
+    $auth: any
     $enum: any
     $resolve: any
     $service: any
@@ -21,14 +21,14 @@ declare module 'vue/types/vue' {
 
 declare module '@nuxt/types' {
   interface NuxtAppOptions {
-    $sso: any
+    $auth: any
     $enum: any
     $resolve: any
     $service: any
   }
   interface Context {
     i18n: any
-    $sso: any
+    $auth: any
     $enum: any
     $resolve: any
     $service: any

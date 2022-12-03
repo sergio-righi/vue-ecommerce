@@ -4,12 +4,14 @@ import { FeedbackType } from "@/interfaces"
 
 interface StateType {
   sso: any
+  user: any
   feedback: FeedbackType
   items: Array<{ id: string, count: number }>
 }
 
 const state = (): StateType => ({
   sso: {} as any,
+  user: {} as any,
   feedback: {} as FeedbackType,
   items: [] as { id: string, count: number }[]
 });
@@ -33,7 +35,16 @@ const mutations: MutationTree<RootState> = {
   },
 
   fetch: (state: StateType, params: any) => {
+    state.user = params;
+  },
+
+  setToken: (state: StateType, params: any) => {
     state.sso = params;
+  },
+
+  logout: (state: StateType) => {
+    state.sso = {} as any
+    state.user = {} as any
   },
 
   clear: (state: StateType) => {
@@ -42,7 +53,9 @@ const mutations: MutationTree<RootState> = {
 };
 
 const getters: GetterTree<RootState, RootState> = {
-  feedback: (state: StateType) => state.feedback
+  feedback: (state: StateType) => state.feedback,
+  accessToken: (state: StateType) => state.sso.accessToken,
+  refreshToken: (state: StateType) => state.sso.refreshToken,
 };
 
 const actions: ActionTree<RootState, RootState> = {
@@ -57,6 +70,14 @@ const actions: ActionTree<RootState, RootState> = {
 
   fetch: ({ commit }: any, params: any) => {
     commit("fetch", params);
+  },
+
+  setToken: ({ commit }: any, params: any) => {
+    commit("setToken", params);
+  },
+
+  logout: ({ commit }: any) => {
+    commit("logout");
   },
 
   clear: ({ commit }: any) => {

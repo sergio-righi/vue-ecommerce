@@ -23,14 +23,7 @@ export default {
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
-    link: [
-      {
-        rel: "icon",
-        type: "image/x-icon",
-        href: "/favicon.ico",
-        crossorigin: "anonymous",
-      },
-    ],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -38,8 +31,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    "~/plugins/sso.client",
     "~/plugins/axios.client",
+    "~/plugins/auth.client",
     "~/plugins/enum.client",
     "~/plugins/filter.client",
     "~/plugins/service.client",
@@ -96,7 +89,7 @@ export default {
   },
 
   router: {
-    middleware: ["authentication"],
+    middleware: ["sso"],
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

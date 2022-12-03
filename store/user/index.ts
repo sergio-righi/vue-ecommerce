@@ -64,7 +64,7 @@ const getters: GetterTree<RootState, RootState> = {
 };
 
 const actions: ActionTree<RootState, RootState> = {
-  all: ({ commit }: any, response: any) => {},
+  all: ({ commit }: any, response: any) => { },
 
   find: ({ commit }: any, response: any) => {
     commit("find", response);
@@ -78,9 +78,9 @@ const actions: ActionTree<RootState, RootState> = {
     commit("update", response);
   },
 
-  soft: ({ commit }: any, response: any) => {},
+  soft: ({ commit }: any, response: any) => { },
 
-  restore: ({ commit }: any, response: any) => {},
+  restore: ({ commit }: any, response: any) => { },
 
   set: ({ commit }: any, response: any) => {
     commit("set", response);

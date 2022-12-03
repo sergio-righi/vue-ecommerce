@@ -23,7 +23,7 @@ export default class SnackbarUndo extends Vue {
   }
 
   get contentMessage() {
-    return `${this.message} ${this.$t("message.restore")}`;
+    return `${this.message} ${this.$t("message.restore.delete")}`;
   }
 }
 </script>
