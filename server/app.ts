@@ -41,13 +41,15 @@ class App {
 
   setConfiguration() {
     this.express.use(express.json({ limit: '10mb' }))
-    this.express.use(cors())
+    this.express.use(cors({
+      origin: new RegExp(env.get('cors')),
+    }))
     this.express.use(compression())
     this.express.use(express.urlencoded({ extended: true }))
   }
 
   setRoutes() {
-    this.express.options('*', cors())
+    // this.express.options('*', cors())
     this.express.use('/authors', AuthorRoute)
     this.express.use('/books', BookRoute)
     this.express.use('/coupons', CouponRoute)
