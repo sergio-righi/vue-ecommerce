@@ -1,5 +1,0 @@
-export { default as AuthorService } from './author'
-export { default as BookService } from './book'
-export { default as CouponService } from './coupon'
-export { default as OrderService } from './order'
-export { default as UserService } from './user'

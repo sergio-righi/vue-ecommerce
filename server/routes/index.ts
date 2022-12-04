@@ -1,5 +1,0 @@
-export { default as AuthorRoute } from './author'
-export { default as BookRoute } from './book'
-export { default as CouponRoute } from './coupon'
-export { default as OrderRoute } from './order'
-export { default as UserRoute } from './user'
