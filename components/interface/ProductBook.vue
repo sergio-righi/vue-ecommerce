@@ -9,7 +9,6 @@
       <div class="thumbnail">
         <gv-image
           top
-          lazyload
           :src="$resolve.image.cover(item._id)"
           :href="$resolve.product(item.slug)"
         >

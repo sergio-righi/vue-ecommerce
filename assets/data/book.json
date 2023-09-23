@@ -1,0 +1,2453 @@
+[
+    {
+        "_id": "61c6ac09ceb872d9ee1ca45e",
+        "name": "Harry Potter Philosopher's Stone",
+        "slug": "harry-potter-philosopher's-stone",
+        "description": "The first book in the Harry Potter series, where a young wizard named Harry Potter discovers his magical heritage.",
+        "age": 9.0,
+        "language": "English",
+        "authors": [
+            {
+                "_id": "61c6abfe29fe9c8ac5c67b64",
+                "name": "J.K. Rowling",
+                "briefdescription": "Renowned author of the Harry Potter series.",
+                "deleted": false
+            }
+        ],
+        "type": 1.0,
+        "price": 16.99,
+        "discount": 10.0,
+        "inStock": 30.0,
+        "publisher": "Scholastic",
+        "releaseDate": "1997-06-26",
+        "isbn": "978-0-7475-3269-6",
+        "dimension": {
+            "width": 13.5,
+            "height": 20.5,
+            "depth": 4.0,
+            "weight": 0.34,
+            "length": 223
+        },
+        "genres": [
+            "Fantasy",
+            "Young Adult"
+        ],
+        "deleted": false,
+        "reviews": [
+            {
+                "id": "61c6ac09ceb872d9ee1ca45f",
+                "rating": 4.5
+            },
+            {
+                "id": "61c6ac09ceb872d9ee1ca460",
+                "rating": 5.0
+            },
+            {
+                "id": "61c6ac09ceb872d9ee1ca461",
+                "rating": 3.5
+            }
+        ],
+        "updatedAt": "2022-06-07T20:41:36.165-04:00",
+        "rated": 4.0
+    },
+    {
+        "_id": "61c775a4951c0f45dec9a75e",
+        "name": "The Great Gatsby",
+        "slug": "the-great-gatsby",
+        "description": "A classic novel by F. Scott Fitzgerald that explores themes of wealth, love, and the American Dream in the 1920s.",
+        "age": 16.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 15.99,
+        "discount": 0.0,
+        "inStock": 18.0,
+        "publisher": "Charles Scribner's Sons",
+        "releaseDate": "1925-04-10",
+        "isbn": "978-0-7432-7356-5",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 4.0,
+            "weight": 0.34,
+            "length": 180
+        },
+        "genres": [
+            "Classic",
+            "Literary Fiction"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4bc",
+                "name": "F. Scott Fitzgerald",
+                "briefdescription": "Renowned author of 'The Great Gatsby.'",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "61c775a4951c0f45dec9a75f",
+                "rating": 4.8
+            },
+            {
+                "id": "61c775a4951c0f45dec9a760",
+                "rating": 4.7
+            },
+            {
+                "id": "61c775a4951c0f45dec9a761",
+                "rating": 4.9
+            }
+        ],
+        "updatedAt": "2022-06-07T20:25:44.613-04:00",
+        "rated": 4.8
+    },
+    {
+        "_id": "61c775a87d4ec32fb6222142",
+        "name": "To Kill a Mockingbird",
+        "slug": "to-kill-a-mockingbird",
+        "description": "Harper Lee's timeless novel explores themes of racial injustice and moral growth in the American South during the 1930s.",
+        "age": 14.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 13.99,
+        "discount": 0.0,
+        "inStock": 37.0,
+        "publisher": "J. B. Lippincott & Co.",
+        "releaseDate": "1960-07-11",
+        "isbn": "978-0-06-112008-4",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.7,
+            "depth": 4.2,
+            "weight": 0.43,
+            "length": 281
+        },
+        "genres": [
+            "Classic",
+            "Literary Fiction"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4c5",
+                "name": "Harper Lee",
+                "briefdescription": "Pulitzer Prize-winning author of 'To Kill a Mockingbird.'",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "61c775a87d4ec32fb6222143",
+                "rating": 4.7
+            },
+            {
+                "id": "61c775a87d4ec32fb6222144",
+                "rating": 4.8
+            },
+            {
+                "id": "61c775a87d4ec32fb6222145",
+                "rating": 4.9
+            }
+        ],
+        "updatedAt": "2022-06-07T20:28:24.519-04:00",
+        "rated": 4.8
+    },
+    {
+        "_id": "61c775ac9e4f13145d0d843b",
+        "name": "Nineteen Eighty-Four",
+        "slug": "nineteen-eighty-four",
+        "description": "George Orwell's dystopian masterpiece explores a totalitarian society where surveillance and control are omnipresent.",
+        "age": 16.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 23.99,
+        "discount": 0.0,
+        "inStock": 6.0,
+        "publisher": "Secker & Warburg",
+        "releaseDate": "1949-06-08",
+        "isbn": "978-0-452-28423-4",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.7,
+            "depth": 3.0,
+            "weight": 0.34,
+            "length": 328
+        },
+        "genres": [
+            "Dystopian",
+            "Political Fiction"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f7571b202bffed168c49b",
+                "name": "George Orwell",
+                "briefdescription": "Renowned author of 'Nineteen Eighty-Four.'",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "61c775ac9e4f13145d0d843c",
+                "rating": 4.6
+            },
+            {
+                "id": "61c775ac9e4f13145d0d843d",
+                "rating": 4.8
+            },
+            {
+                "id": "61c775ac9e4f13145d0d843e",
+                "rating": 4.7
+            }
+        ],
+        "updatedAt": "2022-06-07T20:21:24.000-04:00",
+        "rated": 4.7
+    },
+    {
+        "_id": "61c775afcf3037f1001c1a89",
+        "name": "The Catcher in the Rye",
+        "slug": "the-catcher-in-the-rye",
+        "description": "J.D. Salinger's novel follows the journey of Holden Caulfield, a disenchanted teenager, through the streets of New York City.",
+        "age": 16.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 24.99,
+        "discount": 0.0,
+        "inStock": 73.0,
+        "publisher": "Little, Brown and Company",
+        "releaseDate": "1951-07-16",
+        "isbn": "978-0-316-76948-4",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.7,
+            "depth": 2.3,
+            "weight": 0.3,
+            "length": 277
+        },
+        "genres": [
+            "Coming of Age",
+            "Literary Fiction"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4b9",
+                "name": "J. D. Salinger",
+                "briefdescription": "Iconic author of 'The Catcher in the Rye.'",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "61c775afcf3037f1001c1a8a",
+                "rating": 4.5
+            },
+            {
+                "id": "61c775afcf3037f1001c1a8b",
+                "rating": 4.6
+            },
+            {
+                "id": "61c775afcf3037f1001c1a8c",
+                "rating": 4.7
+            }
+        ],
+        "updatedAt": "2022-06-07T20:24:07.128-04:00",
+        "rated": 4.6
+    },
+    {
+        "_id": "61c775b329f4d4f2ce0ece4b",
+        "name": "The Lord of the Rings",
+        "slug": "the-lord-of-the-rings",
+        "description": "J.R.R. Tolkien's epic fantasy trilogy follows the adventures of Frodo Baggins and his quest to destroy the One Ring.",
+        "age": 14.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 12.99,
+        "discount": 0.0,
+        "inStock": 46.0,
+        "publisher": "George Allen & Unwin",
+        "releaseDate": "1954-07-29",
+        "isbn": "978-0-345-24011-6",
+        "dimension": {
+            "width": 15.4,
+            "height": 23.7,
+            "depth": 6.0,
+            "weight": 1.5,
+            "length": 1178
+        },
+        "genres": [
+            "Fantasy",
+            "Adventure"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4be",
+                "name": "J.R.R. Tolkien",
+                "briefdescription": "Renowned author of 'The Lord of the Rings.'",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "61c775b329f4d4f2ce0ece4c",
+                "rating": 4.9
+            },
+            {
+                "id": "61c775b329f4d4f2ce0ece4d",
+                "rating": 5.0
+            },
+            {
+                "id": "61c775b329f4d4f2ce0ece4e",
+                "rating": 4.8
+            }
+        ],
+        "updatedAt": "2022-06-07T20:27:06.254-04:00",
+        "rated": 4.9
+    },
+    {
+        "_id": "61c775b5b94d98105aa3e4bf",
+        "name": "Anna Karenina",
+        "slug": "anna-karenina",
+        "description": "Leo Tolstoy's classic novel delves into the complexities of love, society, and morality through the story of Anna Karenina.",
+        "age": 16.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 21.99,
+        "discount": 0.0,
+        "inStock": 7.0,
+        "publisher": "The Russian Messenger",
+        "releaseDate": "1877-08-23",
+        "isbn": "978-0-14-303500-8",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.7,
+            "depth": 4.1,
+            "weight": 0.58,
+            "length": 864
+        },
+        "genres": [
+            "Classic",
+            "Literary Fiction"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c49e",
+                "name": "Leo Tolstoy",
+                "briefdescription": "Iconic author of 'Anna Karenina.'",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "61c775b5b94d98105aa3e4c0",
+                "rating": 4.7
+            },
+            {
+                "id": "61c775b5b94d98105aa3e4c1",
+                "rating": 4.9
+            },
+            {
+                "id": "61c775b5b94d98105aa3e4c2",
+                "rating": 4.8
+            }
+        ],
+        "updatedAt": "2022-07-08T22:15:54.047-04:00",
+        "rated": 4.8
+    },
+    {
+        "_id": "61c775b8f13f03a37321fa93",
+        "name": "One Hundred Years of Solitude",
+        "slug": "one-hundred-years-of-solitude",
+        "description": "Gabriel García Márquez's iconic work tells the multi-generational saga of the Buendía family in the fictional town of Macondo.",
+        "age": 16.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 35.99,
+        "discount": 0.0,
+        "inStock": 8.0,
+        "publisher": "Harper & Row",
+        "releaseDate": "1967-05-30",
+        "isbn": "978-0-06-088328-7",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.7,
+            "depth": 4.3,
+            "weight": 0.64,
+            "length": 448
+        },
+        "genres": [
+            "Magical Realism",
+            "Literary Fiction"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4b1",
+                "name": "Gabriel García Márquez",
+                "briefdescription": "Nobel laureate and author of 'One Hundred Years of Solitude.'",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "61c775b8f13f03a37321fa94",
+                "rating": 4.8
+            },
+            {
+                "id": "61c775b8f13f03a37321fa95",
+                "rating": 4.9
+            },
+            {
+                "id": "61c775b8f13f03a37321fa96",
+                "rating": 4.7
+            }
+        ],
+        "updatedAt": "2022-06-07T20:21:43.214-04:00",
+        "rated": 4.8
+    },
+    {
+        "_id": "61c775bc0bd16e85e597bff6",
+        "name": "Ulysses",
+        "slug": "ulysses",
+        "description": "James Joyce's groundbreaking modernist novel captures a single day in the life of Leopold Bloom as he navigates the streets of Dublin.",
+        "age": 16.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 45.99,
+        "discount": 0.0,
+        "inStock": 5.0,
+        "publisher": "Sylvia Beach",
+        "releaseDate": "1922-02-02",
+        "isbn": "978-0-06-095662-2",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.7,
+            "depth": 5.1,
+            "weight": 0.74,
+            "length": 732
+        },
+        "genres": [
+            "Modernist",
+            "Literary Fiction"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4c6",
+                "name": "James Joyce",
+                "briefdescription": "Renowned author of 'Ulysses.'",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "61c775bc0bd16e85e597bff7",
+                "rating": 4.5
+            },
+            {
+                "id": "61c775bc0bd16e85e597bff8",
+                "rating": 4.6
+            },
+            {
+                "id": "61c775bc0bd16e85e597bff9",
+                "rating": 4.7
+            }
+        ],
+        "updatedAt": "2022-06-07T20:29:00.451-04:00",
+        "rated": 4.6
+    },
+    {
+        "_id": "61c775bf32af36fab6d817fa",
+        "name": "Don Quixote",
+        "slug": "don-quixote",
+        "description": "Miguel de Cervantes' masterpiece chronicles the adventures of the delusional Don Quixote and his loyal squire Sancho Panza.",
+        "age": 16.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 57.99,
+        "discount": 0.0,
+        "inStock": 2.0,
+        "publisher": "Francisco de Robles",
+        "releaseDate": "1605-01-16",
+        "isbn": "978-0-06-018870-2",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.7,
+            "depth": 5.1,
+            "weight": 0.88,
+            "length": 992
+        },
+        "genres": [
+            "Classic",
+            "Adventure"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4a2",
+                "name": "Miguel de Cervantes",
+                "briefdescription": "Author of 'Don Quixote,' considered one of the greatest works in world literature.",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "61c775bf32af36fab6d817fb",
+                "rating": 4.8
+            },
+            {
+                "id": "61c775bf32af36fab6d817fc",
+                "rating": 4.9
+            },
+            {
+                "id": "61c775bf32af36fab6d817fd",
+                "rating": 4.7
+            }
+        ],
+        "updatedAt": "2023-08-13T00:28:42.390-04:00",
+        "rated": 4.8
+    },
+    {
+        "_id": "61c775c2da4ec54e7d29f002",
+        "name": "Pride and Prejudice",
+        "slug": "pride-and-prejudice",
+        "description": "Jane Austen's beloved novel explores themes of class, love, and societal expectations in Regency-era England.",
+        "age": 16.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 11.99,
+        "discount": 0.0,
+        "inStock": 57.0,
+        "publisher": "T. Egerton, Whitehall",
+        "releaseDate": "1813-01-28",
+        "isbn": "978-0-14-143951-8",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.7,
+            "depth": 3.3,
+            "weight": 0.45,
+            "length": 432
+        },
+        "genres": [
+            "Classic",
+            "Romance"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4b3",
+                "name": "Jane Austen",
+                "briefdescription": "Renowned author of 'Pride and Prejudice.'",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "61c775c2da4ec54e7d29f003",
+                "rating": 4.7
+            },
+            {
+                "id": "61c775c2da4ec54e7d29f004",
+                "rating": 4.9
+            },
+            {
+                "id": "61c775c2da4ec54e7d29f005",
+                "rating": 4.8
+            }
+        ],
+        "updatedAt": "2022-06-07T20:22:44.777-04:00",
+        "rated": 4.8
+    },
+    {
+        "_id": "61c775c4040d9f4aa9a6d086",
+        "name": "Moby-Dick",
+        "slug": "moby-dick",
+        "description": "Herman Melville's epic novel tells the harrowing tale of Captain Ahab's obsessive quest for the great white whale, Moby-Dick.",
+        "age": 16.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 20.99,
+        "discount": 0.0,
+        "inStock": 32.0,
+        "publisher": "Richard Bentley",
+        "releaseDate": "1851-10-18",
+        "isbn": "978-1-85326-084-1",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.7,
+            "depth": 6.4,
+            "weight": 1.02,
+            "length": 625
+        },
+        "genres": [
+            "Adventure",
+            "Classic"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4af",
+                "name": "Herman Melville",
+                "briefdescription": "Author of 'Moby-Dick,' one of the most celebrated works in American literature.",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "61c775c4040d9f4aa9a6d087",
+                "rating": 4.5
+            },
+            {
+                "id": "61c775c4040d9f4aa9a6d088",
+                "rating": 4.7
+            },
+            {
+                "id": "61c775c4040d9f4aa9a6d089",
+                "rating": 4.6
+            }
+        ],
+        "updatedAt": "2022-06-07T20:22:44.777-04:00",
+        "rated": 4.6
+    },
+    {
+        "_id": "61c775c763a990c5119b4078",
+        "name": "War and Peace",
+        "slug": "war-and-peace",
+        "description": "Leo Tolstoy's epic novel explores the lives of five aristocratic Russian families during the Napoleonic era.",
+        "age": 16.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 17.99,
+        "discount": 0.0,
+        "inStock": 43.0,
+        "publisher": "The Russian Messenger",
+        "releaseDate": "1869-01-01",
+        "isbn": "978-1-59308-329-2",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.7,
+            "depth": 6.6,
+            "weight": 1.14,
+            "length": 1392
+        },
+        "genres": [
+            "Classic",
+            "Historical Fiction"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c49e",
+                "name": "Leo Tolstoy",
+                "briefdescription": "Author of 'War and Peace,' one of the greatest works of world literature.",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "61c775c763a990c5119b4079",
+                "rating": 4.7
+            },
+            {
+                "id": "61c775c763a990c5119b407a",
+                "rating": 4.6
+            },
+            {
+                "id": "61c775c763a990c5119b407b",
+                "rating": 4.8
+            }
+        ],
+        "updatedAt": "2022-06-07T20:29:21.023-04:00",
+        "rated": 4.7
+    },
+    {
+        "_id": "61c775ca6f5dff1064c8dd44",
+        "name": "Mrs Dalloway",
+        "slug": "mrs-dalloway",
+        "description": "Virginia Woolf's innovative novel follows a day in the life of Clarissa Dalloway as she prepares for a party in post-World War I London.",
+        "age": 16.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 37.99,
+        "discount": 0.0,
+        "inStock": 43.0,
+        "publisher": "The Hogarth Press",
+        "releaseDate": "1925-05-14",
+        "isbn": "978-0-15-662870-9",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.7,
+            "depth": 2.3,
+            "weight": 0.3,
+            "length": 194
+        },
+        "genres": [
+            "Modernist",
+            "Literary Fiction"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4b0",
+                "name": "Virginia Woolf",
+                "briefdescription": "Renowned author of 'Mrs Dalloway.'",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "61c775ca6f5dff1064c8dd45",
+                "rating": 4.5
+            },
+            {
+                "id": "61c775ca6f5dff1064c8dd46",
+                "rating": 4.4
+            },
+            {
+                "id": "61c775ca6f5dff1064c8dd47",
+                "rating": 4.7
+            }
+        ],
+        "updatedAt": "2022-06-07T20:21:05.271-04:00",
+        "rated": 4.5
+    },
+    {
+        "_id": "61c7775442fe64ab5eab0629",
+        "name": "Jane Eyre",
+        "slug": "jane-eyre",
+        "description": "Charlotte Brontë's classic novel tells the story of the orphaned Jane Eyre as she faces adversity and seeks love and independence.",
+        "age": 16.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 23.99,
+        "discount": 0.0,
+        "inStock": 8.0,
+        "publisher": "Smith, Elder & Co.",
+        "releaseDate": "1847-10-16",
+        "isbn": "978-0-14-144114-6",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.7,
+            "depth": 3.6,
+            "weight": 0.45,
+            "length": 608
+        },
+        "genres": [
+            "Classic",
+            "Gothic Fiction"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4ac",
+                "name": "Charlotte Brontë",
+                "briefdescription": "Renowned author of 'Jane Eyre.'",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "61c7775442fe64ab5eab062a",
+                "rating": 4.6
+            },
+            {
+                "id": "61c7775442fe64ab5eab062b",
+                "rating": 4.8
+            },
+            {
+                "id": "61c7775442fe64ab5eab062c",
+                "rating": 4.7
+            }
+        ],
+        "updatedAt": "2022-06-07T20:19:39.304-04:00",
+        "rated": 4.7
+    },
+    {
+        "_id": "61c77758cef5a3988a814b1d",
+        "name": "Adventures of Huckleberry Finn",
+        "slug": "adventures-of-huckleberry-finn",
+        "description": "Mark Twain's classic novel follows the adventures of a young boy, Huck, as he travels down the Mississippi River with a runaway slave, Jim.",
+        "age": 16.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 15.99,
+        "discount": 0.0,
+        "inStock": 8.0,
+        "publisher": "Charles L. Webster And Company",
+        "releaseDate": "1884-12-10",
+        "isbn": "978-0-19-515556-4",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.7,
+            "depth": 3.6,
+            "weight": 0.45,
+            "length": 366
+        },
+        "genres": [
+            "Classic",
+            "Adventure"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629fe718c7ae3356044b228e",
+                "name": "Mark Twain",
+                "briefdescription": "Author of 'Adventures of Huckleberry Finn,' a quintessential American novel.",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "62bf42c61aa30559aeaec9cc",
+                "rating": 2.0
+            },
+            {
+                "id": "629e96add3d9055c74b83154",
+                "rating": 2.0
+            },
+            {
+                "id": "629e9fe717b89e3c488956bc",
+                "rating": 5.0
+            }
+        ],
+        "updatedAt": "2022-12-01T23:17:01.459-04:00",
+        "rated": 3.0
+    },
+    {
+        "_id": "61c7775c180a526136b53ed0",
+        "name": "Crime and Punishment",
+        "slug": "crime-and-punishment",
+        "description": "Fyodor Dostoevsky's psychological thriller explores the moral dilemmas of a young student, Raskolnikov, who commits a murder.",
+        "age": 16.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 21.99,
+        "discount": 0.0,
+        "inStock": 16.0,
+        "publisher": "The Russian Messenger",
+        "releaseDate": "1866-11-14",
+        "isbn": "978-0-14-305814-7",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.7,
+            "depth": 4.3,
+            "weight": 0.6,
+            "length": 544
+        },
+        "genres": [
+            "Classic",
+            "Psychological Thriller"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4b8",
+                "name": "Fyodor Dostoevsky",
+                "briefdescription": "Author of 'Crime and Punishment,' a master of psychological fiction.",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "61c7776c7734302807e2d554",
+                "rating": 4.0
+            },
+            {
+                "id": "61c7776c7734302807e2d555",
+                "rating": 4.5
+            },
+            {
+                "id": "61c7776c7734302807e2d556",
+                "rating": 5.0
+            }
+        ],
+        "updatedAt": "2022-06-07T20:15:14.956-04:00",
+        "rated": 4.5
+    },
+    {
+        "_id": "61c7775f7648c6c1b2735910",
+        "name": "The Brothers Karamazov",
+        "slug": "the-brothers-karamazov",
+        "description": "Fyodor Dostoevsky's masterpiece explores the moral and philosophical dilemmas of the Karamazov brothers.",
+        "age": 16.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 31.99,
+        "discount": 0.0,
+        "inStock": 19.0,
+        "publisher": "The Russian Messenger",
+        "releaseDate": "1880-11-12",
+        "isbn": "978-0-14-044924-2",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.7,
+            "depth": 4.3,
+            "weight": 0.6,
+            "length": 796
+        },
+        "genres": [
+            "Classic",
+            "Philosophical Fiction"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4b8",
+                "name": "Fyodor Dostoevsky",
+                "briefdescription": "Author of 'The Brothers Karamazov,' a master of philosophical fiction.",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "61c7776c7734302807e2d551",
+                "rating": 4.5
+            },
+            {
+                "id": "61c7776c7734302807e2d552",
+                "rating": 3.0
+            },
+            {
+                "id": "61c7776c7734302807e2d553",
+                "rating": 5.0
+            }
+        ],
+        "updatedAt": "2022-06-07T20:15:14.956-04:00",
+        "rated": 4.17
+    },
+    {
+        "_id": "61c777625ea2c27468a984cc",
+        "name": "The Lion, the Witch and the Wardrobe",
+        "slug": "the-lion-the-witch-and-the-wardrobe",
+        "description": "Embark on a magical adventure with the Pevensie siblings in the land of Narnia, where they encounter talking animals and the mystical White Witch.",
+        "age": 8.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 25.99,
+        "discount": 0.0,
+        "inStock": 31.0,
+        "publisher": "Geoffrey Bles",
+        "releaseDate": "1950-10-16",
+        "isbn": "978-0-06-023481-2",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.8,
+            "depth": 3.0,
+            "weight": 0.3,
+            "length": 208
+        },
+        "genres": [
+            "Fantasy",
+            "Children's Literature"
+        ],
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4bf",
+                "name": "C. S. Lewis",
+                "briefdescription": "Author of 'The Chronicles of Narnia' series and a prominent theologian.",
+                "deleted": false
+            }
+        ],
+        "reviews": [
+            {
+                "id": "62bf42c61aa30559aeaec9cc",
+                "rating": 2
+            },
+            {
+                "id": "629e96add3d9055c74b83154",
+                "rating": 2
+            },
+            {
+                "id": "629e9fe717b89e3c488956bc",
+                "rating": 5
+            }
+        ],
+        "updatedAt": "2022-06-07T20:26:15.460-04:00",
+        "rated": 3.0
+    },
+    {
+        "_id": "61c77766199796c9a44c907c",
+        "name": "Frankenstein",
+        "slug": "frankenstein",
+        "description": "Frankenstein; or, The Modern Prometheus is a novel written by Mary Shelley. It tells the story of Victor Frankenstein, a young scientist who creates a grotesque but sentient creature in an unorthodox scientific experiment.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 12.99,
+        "discount": 0.0,
+        "inStock": 12.0,
+        "publisher": "Lackington, Hughes, Harding, Mavor, & Jones",
+        "releaseDate": "1818-01-01",
+        "isbn": "978-0-19-953715-0",
+        "dimension": {
+            "width": 13.1,
+            "height": 20.3,
+            "depth": 4.0,
+            "weight": 0.5,
+            "length": 350
+        },
+        "genres": [
+            "Gothic fiction",
+            "Science fiction",
+            "Horror fiction"
+        ],
+        "reviews": [
+            {
+                "id": "62bf42c61aa30559aeaec9cc",
+                "rating": 4
+            },
+            {
+                "id": "629e96add3d9055c74b83154",
+                "rating": 5
+            },
+            {
+                "id": "629e9fe717b89e3c488956bc",
+                "rating": 4
+            }
+        ],
+        "updatedAt": "2022-06-07T20:17:25.134-04:0",
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4a6",
+                "name": "Mary Shelley",
+                "briefdescription": "English novelist, short-story writer, dramatist, essayist, biographer, and travel writer. Best known for her Gothic novel Frankenstein; or, The Modern Prometheus.",
+                "deleted": false
+            }
+        ],
+        "rated": 4.33
+    },
+    {
+        "_id": "61c77769f861de6560180982",
+        "name": "In Search of Lost Time",
+        "slug": "in-search-of-lost-time",
+        "description": "In Search of Lost Time, also known as Remembrance of Things Past, is a novel by Marcel Proust. It is considered one of the most important works of modernist literature.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 34.99,
+        "discount": 0.0,
+        "inStock": 44.0,
+        "publisher": "Gallimard",
+        "releaseDate": "1913-02-01",
+        "isbn": "978-0-09-936221-0",
+        "dimension": {
+            "width": 13.1,
+            "height": 25.5,
+            "depth": 20.3,
+            "weight": 2.98,
+            "length": 4215
+        },
+        "genres": [
+            "Modernist literature",
+            "Autobiographical novel"
+        ],
+        "reviews": [
+            {
+                "id": "62bf42c61aa30559aeaec9cc",
+                "rating": 5
+            },
+            {
+                "id": "629e96add3d9055c74b83154",
+                "rating": 4
+            },
+            {
+                "id": "629e9fe717b89e3c488956bc",
+                "rating": 5
+            }
+        ],
+        "updatedAt": "2022-06-07T20:17:25.134-04:0",
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4aa",
+                "name": "Marcel Proust",
+                "briefdescription": "French novelist, critic, and essayist best known for his monumental novel In Search of Lost Time. Proust's work is considered one of the most influential works of the 20th century.",
+                "deleted": false
+            }
+        ],
+        "rated": 4.67
+    },
+    {
+        "_id": "61c7776c7734302807e2d550",
+        "name": "The Odyssey",
+        "slug": "the-odyssey",
+        "description": "An epic ancient Greek poem attributed to Homer, which follows the adventures of Odysseus as he tries to return home after the Trojan War.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 41.99,
+        "discount": 0.0,
+        "inStock": 13.0,
+        "publisher": "Penguin Classics",
+        "releaseDate": "1997-01-01",
+        "isbn": "978-0-14-044911-2",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.8,
+            "depth": 4.3,
+            "weight": 0.58,
+            "length": 442
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4c1",
+                "name": "Homer",
+                "briefdescription": "Ancient Greek poet traditionally said to be the author of The Odyssey.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Epic Poetry",
+            "Classical Literature"
+        ],
+        "reviews": [
+            {
+                "id": "61c7776c7734302807e2d551",
+                "rating": 4.5
+            },
+            {
+                "id": "61c7776c7734302807e2d552",
+                "rating": 3.0
+            },
+            {
+                "id": "61c7776c7734302807e2d553",
+                "rating": 5.0
+            }
+        ],
+        "rated": 4.17,
+        "updatedAt": "2022-06-07T20:27:23.621-04:0"
+    },
+    {
+        "_id": "61c7776f8673c573c55286e5",
+        "name": "Animal Farm",
+        "slug": "animal-farm",
+        "description": "A satirical novella by George Orwell, which uses a group of farm animals who rebel against their human farmer as an allegory for the events leading up to the Russian Revolution of 1917.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1,
+        "price": 7.99,
+        "discount": 0,
+        "inStock": 40,
+        "publisher": "Penguin Classics",
+        "releaseDate": "1945-08-17",
+        "isbn": "978-0-45-152634-2",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.05,
+            "depth": 1.9,
+            "weight": 0.17,
+            "length": 144
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f7571b202bffed168c49b",
+                "name": "George Orwell",
+                "briefdescription": "English novelist, essayist, journalist, and critic known for his works on social and political issues.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Satire",
+            "Political Fiction"
+        ],
+        "reviews": [
+            {
+                "id": "61c7776f8673c573c55286e6",
+                "rating": 5.0
+            },
+            {
+                "id": "61c7776f8673c573c55286e7",
+                "rating": 4.5
+            },
+            {
+                "id": "61c7776f8673c573c55286e8",
+                "rating": 4.0
+            }
+        ],
+        "rated": 4.5,
+        "updatedAt": "2022-07-08T22:44:50.474-04:00"
+    },
+    {
+        "_id": "61c77774171fe4d75163f6dd",
+        "name": "Hamlet",
+        "slug": "hamlet",
+        "description": "A tragedy written by William Shakespeare that explores themes of revenge, betrayal, and madness.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 51.99,
+        "discount": 0.0,
+        "inStock": 12.0,
+        "publisher": "Penguin Classics",
+        "releaseDate": "1603-01-01",
+        "isbn": "978-0-14-071454-8",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.05,
+            "depth": 2.54,
+            "weight": 0.2,
+            "length": 400
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4a9",
+                "name": "William Shakespeare",
+                "briefdescription": "English playwright and poet regarded as one of the greatest writers in the English language.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Tragedy",
+            "Drama"
+        ],
+        "reviews": [
+            {
+                "id": "61c77774171fe4d75163f6de",
+                "rating": 5.0
+            },
+            {
+                "id": "61c77774171fe4d75163f6df",
+                "rating": 4.5
+            },
+            {
+                "id": "61c77774171fe4d75163f6e0",
+                "rating": 4.0
+            }
+        ],
+        "rated": 4.5,
+        "updatedAt": "2022-06-07T20:18:23.459-04:0"
+    },
+    {
+        "_id": "61c777770c47894f6f9835fe",
+        "name": "Gone with the Wind",
+        "slug": "gone-with-the-wind",
+        "description": "A historical novel by Margaret Mitchell set against the backdrop of the American Civil War and Reconstruction era.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 42.99,
+        "discount": 0.0,
+        "inStock": 57.0,
+        "publisher": "Macmillan Publishers",
+        "releaseDate": "1936-06-30",
+        "isbn": "978-0-44-667553-6",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.05,
+            "depth": 2.54,
+            "weight": 0.3,
+            "length": 1037
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4a7",
+                "name": "Margaret Mitchell",
+                "briefdescription": "American author best known for her epic novel 'Gone with the Wind.'",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Historical Fiction",
+            "Romance"
+        ],
+        "reviews": [
+            {
+                "id": "61c777770c47894f6f9835ff",
+                "rating": 4.5
+            },
+            {
+                "id": "61c777770c47894f6f983600",
+                "rating": 4.0
+            },
+            {
+                "id": "61c777770c47894f6f983601",
+                "rating": 5.0
+            }
+        ],
+        "rated": 4.5,
+        "updatedAt": "2022-06-07T20:17:50.838-04:0"
+    },
+    {
+        "_id": "61c7777b6bc5ed1249a1f4e1",
+        "name": "The Divine Comedy",
+        "slug": "the-divine-comedy",
+        "description": "An epic poem by Dante Alighieri that explores the journey of the soul through Hell, Purgatory, and Paradise.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 19.99,
+        "discount": 0.0,
+        "inStock": 36.0,
+        "publisher": "Penguin Classics",
+        "releaseDate": "1320-01-01",
+        "isbn": "978-0-14-243722-3",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.05,
+            "depth": 2.54,
+            "weight": 0.3,
+            "length": 688
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4bb",
+                "name": "Dante Alighieri",
+                "briefdescription": "Italian poet, writer, and philosopher known for 'The Divine Comedy.'",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Epic Poetry",
+            "Religious Literature"
+        ],
+        "reviews": [
+            {
+                "id": "61c7777b6bc5ed1249a1f4e2",
+                "rating": 4.5
+            },
+            {
+                "id": "61c7777b6bc5ed1249a1f4e3",
+                "rating": 4.0
+            },
+            {
+                "id": "61c7777b6bc5ed1249a1f4e4",
+                "rating": 5.0
+            }
+        ],
+        "rated": 4.5,
+        "updatedAt": "2022-06-07T20:24:47.447-04:0"
+    },
+    {
+        "_id": "61c7777d35fdf97de91cd39b",
+        "name": "Alice's Adventures in Wonderland",
+        "slug": "alices-adventures-in-wonderland",
+        "description": "A classic novel by Lewis Carroll that follows Alice as she ventures into a fantastical world filled with peculiar creatures and whimsical adventures.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1,
+        "price": 6.99,
+        "discount": 0,
+        "inStock": 83,
+        "publisher": "Penguin Classics",
+        "releaseDate": "1865-11-26",
+        "isbn": "978-0-14-143976-1",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.05,
+            "depth": 2.54,
+            "weight": 0.3,
+            "length": 104
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f7571b202bffed168c49a",
+                "name": "Lewis Carroll",
+                "briefdescription": "English author, mathematician, and logician best known for his imaginative works.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Fantasy",
+            "Children's Literature"
+        ],
+        "reviews": [
+            {
+                "id": "61c7777d35fdf97de91cd39c",
+                "rating": 4.5
+            },
+            {
+                "id": "61c7777d35fdf97de91cd39d",
+                "rating": 4.0
+            },
+            {
+                "id": "61c7777d35fdf97de91cd39e",
+                "rating": 5.0
+            }
+        ],
+        "rated": 4.5,
+        "updatedAt": "2022-12-01T23:17:17.316-04:00"
+    },
+    {
+        "_id": "61c7777f46c6ac801feb926e",
+        "name": "One Thousand and One Nights",
+        "slug": "one-thousand-and-one-nights",
+        "description": "A collection of Middle Eastern folktales and stories, including the tales of Aladdin, Sinbad, and Ali Baba.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 11.99,
+        "discount": 0.0,
+        "inStock": 26.0,
+        "publisher": "Penguin Classics",
+        "releaseDate": "8th century (original), 2020 (English translation)",
+        "isbn": "978-0-14-313391-4",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.05,
+            "depth": 3.81,
+            "weight": 0.5,
+            "length": 400
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4b2",
+                "name": "Hanna Al-Shaykh",
+                "briefdescription": "Lebanese author known for her contemporary retelling of traditional stories.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Folklore",
+            "Short Stories"
+        ],
+        "reviews": [
+            {
+                "id": "61c7777f46c6ac801feb926f",
+                "rating": 4.5
+            },
+            {
+                "id": "61c7777f46c6ac801feb9270",
+                "rating": 4.0
+            },
+            {
+                "id": "61c7777f46c6ac801feb9271",
+                "rating": 4.5
+            }
+        ],
+        "rated": 4.33,
+        "updatedAt": "2022-06-07T20:22:14.523-04:0"
+    },
+    {
+        "_id": "61c7778226a0103d4a2b6c23",
+        "name": "Gulliver's Travels",
+        "slug": "gullivers-travels",
+        "description": "A satirical novel by Jonathan Swift that follows Lemuel Gulliver's adventures in Lilliput and other fantastical lands.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 17.99,
+        "discount": 0.0,
+        "inStock": 58.0,
+        "publisher": "Penguin Classics",
+        "releaseDate": "1726-10-28",
+        "isbn": "978-0-14-143949-5",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.05,
+            "depth": 2.54,
+            "weight": 0.36,
+            "length": 336
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4a8",
+                "name": "Jonathan Swift",
+                "briefdescription": "Anglo-Irish satirist, essayist, and author best known for 'Gulliver's Travels.'",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Satire",
+            "Adventure"
+        ],
+        "reviews": [
+            {
+                "id": "61c7778226a0103d4a2b6c24",
+                "rating": 4.5
+            },
+            {
+                "id": "61c7778226a0103d4a2b6c25",
+                "rating": 4.0
+            },
+            {
+                "id": "61c7778226a0103d4a2b6c26",
+                "rating": 4.5
+            }
+        ],
+        "rated": 4.33,
+        "updatedAt": "2022-06-07T20:22:14.523-04:0"
+    },
+    {
+        "_id": "61c77785f5e088a176f7bc17",
+        "name": "The Stories of Anton Chekhov",
+        "slug": "the-stories-of-anton-chekhov",
+        "description": "A collection of Anton Chekhov's short stories, known for their deep insights into human nature and Russian society.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 16.99,
+        "discount": 0.0,
+        "inStock": 51.0,
+        "publisher": "Penguin Classics",
+        "releaseDate": "Various dates (late 19th century)",
+        "isbn": "978-0-14-044787-3",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.05,
+            "depth": 3.81,
+            "weight": 0.48,
+            "length": 496
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4c4",
+                "name": "Anton Chekhov",
+                "briefdescription": "Russian playwright and short-story writer known for his masterful storytelling.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Short Stories",
+            "Literary Fiction"
+        ],
+        "reviews": [
+            {
+                "id": "61c77785f5e088a176f7bc18",
+                "rating": 4.5
+            },
+            {
+                "id": "61c77785f5e088a176f7bc19",
+                "rating": 4.0
+            },
+            {
+                "id": "61c77785f5e088a176f7bc1a",
+                "rating": 4.5
+            }
+        ],
+        "rated": 4.33,
+        "updatedAt": "2022-06-07T20:28:05.220-04:0"
+    },
+    {
+        "_id": "61c777885378ce4527ad3711",
+        "name": "The Little Prince",
+        "slug": "the-little-prince",
+        "description": "A beloved novella by Antoine de Saint-Exupéry that tells the story of a young prince's adventures and life lessons.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 12.99,
+        "discount": 0.0,
+        "inStock": 61.0,
+        "publisher": "Harcourt, Brace & World",
+        "releaseDate": "1943-04-06",
+        "isbn": "978-0-15-601219-5",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.05,
+            "depth": 1.91,
+            "weight": 0.2,
+            "length": 96
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4c0",
+                "name": "Antoine de Saint-Exupéry",
+                "briefdescription": "French writer, poet, and aviator known for his classic work 'The Little Prince.'",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Children's Literature",
+            "Fantasy"
+        ],
+        "reviews": [
+            {
+                "id": "61c777885378ce4527ad3712",
+                "rating": 4.5
+            },
+            {
+                "id": "61c777885378ce4527ad3713",
+                "rating": 4.0
+            },
+            {
+                "id": "61c777885378ce4527ad3714",
+                "rating": 5.0
+            }
+        ],
+        "rated": 4.5,
+        "updatedAt": "2022-06-07T20:26:51.201-04:0"
+    },
+    {
+        "_id": "61c77988a7fe246034a4d8bd",
+        "name": "Invisible Man",
+        "slug": "invisible-man",
+        "description": "A powerful novel by Ralph Ellison that explores issues of identity, race, and social invisibility.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 27.99,
+        "discount": 0.0,
+        "inStock": 52.0,
+        "publisher": "Vintage Books",
+        "releaseDate": "1952-04-14",
+        "isbn": "978-0-67-973276-1",
+        "dimension": {
+            "width": 13.1,
+            "height": 20.32,
+            "depth": 3.81,
+            "weight": 0.59,
+            "length": 581
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4ab",
+                "name": "Ralph Ellison",
+                "briefdescription": "African American novelist and essayist known for his groundbreaking work 'Invisible Man.'",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Literary Fiction",
+            "Social Commentary"
+        ],
+        "reviews": [
+            {
+                "id": "61c77988a7fe246034a4d8be",
+                "rating": 4.5
+            },
+            {
+                "id": "61c77988a7fe246034a4d8bf",
+                "rating": 4.0
+            },
+            {
+                "id": "61c77988a7fe246034a4d8c0",
+                "rating": 4.5
+            }
+        ],
+        "rated": 4.33,
+        "updatedAt": "2022-06-07T20:19:18.168-04:0"
+    },
+    {
+        "_id": "61c7798fc6d83f2c153efd3d",
+        "name": "Dracula",
+        "slug": "dracula",
+        "description": "Bram Stoker's classic gothic horror novel that introduced Count Dracula to the world.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 31.99,
+        "discount": 0.0,
+        "inStock": 71.0,
+        "publisher": "Penguin Classics",
+        "releaseDate": "1897-05-26",
+        "isbn": "978-0-14-143984-6",
+        "dimension": {
+            "width": 12.7,
+            "height": 19.68,
+            "depth": 3.81,
+            "weight": 0.68,
+            "length": 448
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4a3",
+                "name": "Bram Stoker",
+                "briefdescription": "Irish author best known for his iconic vampire novel, 'Dracula.'",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Gothic Horror",
+            "Vampire Fiction"
+        ],
+        "reviews": [
+            {
+                "id": "62c59ac440fa771cae29b21e",
+                "rating": 5
+            },
+            {
+                "id": "62c59ac440fa771cae29b21f",
+                "rating": 4
+            },
+            {
+                "id": "62c59ac440fa771cae29b220",
+                "rating": 4.5
+            }
+        ],
+        "rated": 4.5,
+        "updatedAt": "2023-08-13T00:28:42.118-04:0"
+    },
+    {
+        "_id": "61c77993801bc0150a9dc8cb",
+        "name": "Slaughterhouse-Five",
+        "slug": "slaughterhouse-five",
+        "description": "Kurt Vonnegut's anti-war novel that blends science fiction with satire to explore the horrors of war.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 16.99,
+        "discount": 0.0,
+        "inStock": 65.0,
+        "publisher": "Dell Publishing",
+        "releaseDate": "1969-03-31",
+        "isbn": "978-0-38-533384-9",
+        "dimension": {
+            "width": 12.7,
+            "height": 20.32,
+            "depth": 1.91,
+            "weight": 0.31,
+            "length": 275
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4b4",
+                "name": "Kurt Vonnegut",
+                "briefdescription": "American author known for his distinctive and satirical style.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Science Fiction",
+            "Satire",
+            "Anti-War"
+        ],
+        "reviews": [
+            {
+                "id": "62c59ac440fa771cae29b221",
+                "rating": 4.5
+            },
+            {
+                "id": "62c59ac440fa771cae29b222",
+                "rating": 5
+            },
+            {
+                "id": "62c59ac440fa771cae29b223",
+                "rating": 4.0
+            }
+        ],
+        "rated": 4.5,
+        "updatedAt": "2022-06-07T20:23:09.194-04:0"
+    },
+    {
+        "_id": "61c779970a3126214baae612",
+        "name": "Fahrenheit 451",
+        "slug": "fahrenheit-451",
+        "description": "Ray Bradbury's dystopian novel depicting a future society where books are banned and burned.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 19.99,
+        "discount": 0.0,
+        "inStock": 57.0,
+        "publisher": "Simon & Schuster",
+        "releaseDate": "1953-10-19",
+        "isbn": "978-1-45-167331-9",
+        "dimension": {
+            "width": 12.7,
+            "height": 20.32,
+            "depth": 1.91,
+            "weight": 0.31,
+            "length": 249
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4a5",
+                "name": "Ray Bradbury",
+                "briefdescription": "American author known for his imaginative and thought-provoking science fiction and fantasy works.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Dystopian",
+            "Science Fiction"
+        ],
+        "reviews": [
+            {
+                "id": "62c59ac440fa771cae29b224",
+                "rating": 4.0
+            },
+            {
+                "id": "62c59ac440fa771cae29b225",
+                "rating": 4.5
+            },
+            {
+                "id": "62c59ac440fa771cae29b226",
+                "rating": 4.0
+            }
+        ],
+        "rated": 4.17,
+        "updatedAt": "2022-06-07T20:17:02.645-04:0"
+    },
+    {
+        "_id": "61c7799902ee06ea9a1be41a",
+        "name": "Madame Bovary",
+        "slug": "madame-bovary",
+        "description": "Gustave Flaubert's novel about the tragic life of Emma Bovary, a young woman trapped in a loveless marriage.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 13.99,
+        "discount": 0.0,
+        "inStock": 16.0,
+        "publisher": "Penguin Classics",
+        "releaseDate": "1857-04-01",
+        "isbn": "978-0-14-044912-9",
+        "dimension": {
+            "width": 13.1,
+            "height": 20.32,
+            "depth": 2.54,
+            "weight": 0.42,
+            "length": 368
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4ae",
+                "name": "Gustave Flaubert",
+                "briefdescription": "French novelist known for his literary realism and meticulous writing style.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Literary Fiction",
+            "Romance"
+        ],
+        "reviews": [
+            {
+                "id": "62c59ac440fa771cae29b227",
+                "rating": 4.5
+            },
+            {
+                "id": "62c59ac440fa771cae29b228",
+                "rating": 4.0
+            },
+            {
+                "id": "62c59ac440fa771cae29b229",
+                "rating": 4.5
+            }
+        ],
+        "rated": 4.33,
+        "updatedAt": "2022-06-07T20:20:28.796-04:0"
+    },
+    {
+        "_id": "61c7799d0b5176bc62ec7888",
+        "name": "The Count of Monte Cristo",
+        "slug": "the-count-of-monte-cristo",
+        "description": "Alexandre Dumas' epic tale of betrayal, revenge, and redemption in 19th-century France.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 24.99,
+        "discount": 0.0,
+        "inStock": 45.0,
+        "publisher": "Penguin Classics",
+        "releaseDate": "1844-08-28",
+        "isbn": "978-0-14-044926-6",
+        "dimension": {
+            "width": 12.7,
+            "height": 20.32,
+            "depth": 5.08,
+            "weight": 0.73,
+            "length": 1276
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4ba",
+                "name": "Alexandre Dumas",
+                "briefdescription": "French novelist known for his historical adventure novels and vivid storytelling.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Adventure",
+            "Historical Fiction"
+        ],
+        "reviews": [
+            {
+                "id": "62c59ac440fa771cae29b230",
+                "rating": 4.7
+            },
+            {
+                "id": "62c59ac440fa771cae29b231",
+                "rating": 4.5
+            },
+            {
+                "id": "62c59ac440fa771cae29b232",
+                "rating": 4.8
+            }
+        ],
+        "rated": 4.67,
+        "updatedAt": "2022-06-07T20:24:27.642-04:0"
+    },
+    {
+        "_id": "61c779a01f07199cf469a09e",
+        "name": "To the Lighthouse",
+        "slug": "to-the-lighthouse",
+        "description": "Virginia Woolf's modernist masterpiece that explores the inner thoughts and experiences of its characters.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 5.99,
+        "discount": 0.0,
+        "inStock": 26.0,
+        "publisher": "Vintage Classics",
+        "releaseDate": "1927-05-05",
+        "isbn": "978-0-15-690739-2",
+        "dimension": {
+            "width": 13.1,
+            "height": 20.32,
+            "depth": 1.27,
+            "weight": 0.34,
+            "length": 209
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4b0",
+                "name": "Virginia Woolf",
+                "briefdescription": "An influential English writer and a key figure in the modernist literary movement.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Modernist Literature",
+            "Fiction"
+        ],
+        "reviews": [
+            {
+                "id": "62c59ac440fa771cae29b233",
+                "rating": 4.6
+            },
+            {
+                "id": "62c59ac440fa771cae29b234",
+                "rating": 4.4
+            },
+            {
+                "id": "62c59ac440fa771cae29b235",
+                "rating": 4.7
+            }
+        ],
+        "rated": 4.57,
+        "updatedAt": "2022-06-07T20:28:44.081-04:0"
+    },
+    {
+        "_id": "61c779a39301b938c80fe4c4",
+        "name": "The Picture of Dorian Gray",
+        "slug": "the-picture-of-dorian-gray",
+        "description": "Oscar Wilde's classic novel about the price of eternal youth and the consequences of moral decay.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 8.99,
+        "discount": 0.0,
+        "inStock": 87.0,
+        "publisher": "Penguin Classics",
+        "releaseDate": "1890-07-20",
+        "isbn": "978-0-14-143957-0",
+        "dimension": {
+            "width": 12.7,
+            "height": 19.68,
+            "depth": 2.54,
+            "weight": 0.45,
+            "length": 253
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4c2",
+                "name": "Oscar Wilde",
+                "briefdescription": "A brilliant Irish writer known for his wit and literary works.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Gothic Fiction",
+            "Classic Literature"
+        ],
+        "reviews": [
+            {
+                "id": "62c59ac440fa771cae29b236",
+                "rating": 4.5
+            },
+            {
+                "id": "62c59ac440fa771cae29b237",
+                "rating": 4.7
+            },
+            {
+                "id": "62c59ac440fa771cae29b238",
+                "rating": 4.4
+            }
+        ],
+        "rated": 4.53,
+        "updatedAt": "2022-06-07T20:27:43.166-04:0"
+    },
+    {
+        "_id": "61c779a825cd1d24717a6743",
+        "name": "The Hobbit",
+        "slug": "the-hobbit",
+        "description": "J.R.R. Tolkien's timeless tale of adventure in Middle-earth.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 18.99,
+        "discount": 0.0,
+        "inStock": 47.0,
+        "publisher": "HarperCollins",
+        "releaseDate": "1937-09-21",
+        "isbn": "978-0-26-110221-7",
+        "dimension": {
+            "width": 14.0,
+            "height": 22.0,
+            "depth": 3.0,
+            "weight": 0.5,
+            "length": 310
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4be",
+                "name": "J.R.R. Tolkien",
+                "briefdescription": "A master storyteller and creator of Middle-earth.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Fantasy",
+            "Adventure"
+        ],
+        "reviews": [
+            {
+                "id": "62c59ac440fa771cae29b239",
+                "rating": 4.8
+            },
+            {
+                "id": "62c59ac440fa771cae29b23a",
+                "rating": 4.7
+            },
+            {
+                "id": "62c59ac440fa771cae29b23b",
+                "rating": 4.9
+            }
+        ],
+        "rated": 4.8,
+        "updatedAt": "2022-06-07T20:25:56.935-04:0"
+    },
+    {
+        "_id": "61c779abde7c799061bd2b8b",
+        "name": "A Christmas Carol",
+        "slug": "a-christmas-carol",
+        "description": "Charles Dickens' timeless holiday tale of redemption.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 21.99,
+        "discount": 0.0,
+        "inStock": 23.0,
+        "publisher": "Penguin Classics",
+        "releaseDate": "1843-12-19",
+        "isbn": "978-0-14-243726-9",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.8,
+            "depth": 2.5,
+            "weight": 0.18,
+            "length": 104
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f748cc4ad1f6a1f430811",
+                "name": "Charles Dickens",
+                "briefdescription": "A renowned Victorian novelist known for his classic works.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Classic",
+            "Fiction"
+        ],
+        "reviews": [
+            {
+                "id": "629e96add3d9055c74b83154",
+                "rating": 4
+            },
+            {
+                "id": "62c5b079fd4a02d1f566d845",
+                "rating": 4.5
+            },
+            {
+                "id": "62c5b079fd4a02d1f566d846",
+                "rating": 4.3
+            }
+        ],
+        "rated": 4.27,
+        "updatedAt": "2022-07-08T22:19:15.582-04:00"
+    },
+    {
+        "_id": "61c779aef99ebb6c1d0da867",
+        "name": "The Scarlet Letter",
+        "slug": "the-scarlet-letter",
+        "description": "Nathaniel Hawthorne's classic novel exploring the consequences of sin.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 22.99,
+        "discount": 0.0,
+        "inStock": 45.0,
+        "publisher": "Penguin Classics",
+        "releaseDate": "1850-03-16",
+        "isbn": "978-0-14-243726-9",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.8,
+            "depth": 2.5,
+            "weight": 0.18,
+            "length": 384
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4c3",
+                "name": "Nathaniel Hawthorne",
+                "briefdescription": "An American novelist and short story writer known for his literary works.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Classic",
+            "Fiction"
+        ],
+        "reviews": [
+            {
+                "id": "62c5b198fd4a02d1f566d847",
+                "rating": 4.2
+            },
+            {
+                "id": "62c5b198fd4a02d1f566d848",
+                "rating": 4.5
+            },
+            {
+                "id": "62c5b198fd4a02d1f566d849",
+                "rating": 4.0
+            }
+        ],
+        "rated": 4.23,
+        "updatedAt": "2022-06-07T20:25:56.935-04:00"
+    },
+    {
+        "_id": "61c779b260551dd4e3f0e1b1",
+        "name": "The Alchemist",
+        "slug": "the-alchemist",
+        "description": "Paulo Coelho's best-selling novel about a shepherd's journey to find his personal legend.",
+        "age": 9.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 33.99,
+        "discount": 0.0,
+        "inStock": 51.0,
+        "publisher": "HarperOne",
+        "releaseDate": "1988-01-01",
+        "isbn": "978-0-06-112241-5",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.8,
+            "depth": 2.3,
+            "weight": 0.21,
+            "length": 208
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4b7",
+                "name": "Paulo Coelho",
+                "briefdescription": "A Brazilian author known for his inspirational works.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Fiction",
+            "Inspirational"
+        ],
+        "reviews": [
+            {
+                "id": "62c5b1b8fd4a02d1f566d84a",
+                "rating": 4.8
+            },
+            {
+                "id": "62c5b1b8fd4a02d1f566d84b",
+                "rating": 4.5
+            },
+            {
+                "id": "62c5b1b8fd4a02d1f566d84c",
+                "rating": 5.0
+            }
+        ],
+        "rated": 4.77,
+        "updatedAt": "2022-06-07T20:23:22.592-04:00"
+    },
+    {
+        "_id": "61c779b56a9a6915fa34a905",
+        "name": "Cloud Atlas",
+        "slug": "cloud-atlas",
+        "description": "David Mitchell's mesmerizing novel that weaves together multiple stories across time and space.",
+        "age": 12.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 11.99,
+        "discount": 0.0,
+        "inStock": 24.0,
+        "publisher": "Random House",
+        "releaseDate": "2004-08-17",
+        "isbn": "978-0-37-550725-0",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.8,
+            "depth": 4.7,
+            "weight": 0.56,
+            "length": 529
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c49f",
+                "name": "David Mitchell",
+                "briefdescription": "An English author known for his innovative storytelling.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Fiction",
+            "Science Fiction",
+            "Literary"
+        ],
+        "reviews": [
+            {
+                "id": "62c5b2f47ae5c23c1a4eb2e6",
+                "rating": 4.9
+            },
+            {
+                "id": "62c5b2f47ae5c23c1a4eb2e7",
+                "rating": 5.0
+            },
+            {
+                "id": "62c5b2f47ae5c23c1a4eb2e8",
+                "rating": 4.7
+            }
+        ],
+        "rated": 4.87,
+        "updatedAt": "2022-07-08T18:12:35.566-04:00"
+    },
+    {
+        "_id": "61c779b83454b91f006c8e31",
+        "name": "Life of Pi",
+        "slug": "life-of-pi",
+        "description": "Yann Martel's captivating novel about survival and storytelling.",
+        "age": 7.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 9.99,
+        "discount": 0.0,
+        "inStock": 21.0,
+        "publisher": "Houghton Mifflin Harcourt",
+        "releaseDate": "2001-09-11",
+        "isbn": "978-0-15-100811-7",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.8,
+            "depth": 3.2,
+            "weight": 0.34,
+            "length": 319
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4ad",
+                "name": "Yann Martel",
+                "briefdescription": "A Canadian author known for his imaginative storytelling.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Fiction",
+            "Adventure",
+            "Literary"
+        ],
+        "reviews": [
+            {
+                "id": "62c5b47356bda6753f6d8f50",
+                "rating": 4.8
+            },
+            {
+                "id": "62c5b47356bda6753f6d8f51",
+                "rating": 4.5
+            },
+            {
+                "id": "62c5b47356bda6753f6d8f52",
+                "rating": 4.7
+            }
+        ],
+        "rated": 4.67,
+        "updatedAt": "2022-06-07T20:20:08.451-04:00"
+    },
+    {
+        "_id": "61c779bbfe2c3889d19be2d2",
+        "name": "The Girl with the Dragon Tattoo",
+        "slug": "the-girl-with-the-dragon-tattoo",
+        "description": "A gripping thriller by Stieg Larsson.",
+        "age": 16.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 23.99,
+        "discount": 0.0,
+        "inStock": 35.0,
+        "publisher": "Vintage Crime/Black Lizard",
+        "releaseDate": "2005-09-16",
+        "isbn": "978-0-30-794948-6",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.8,
+            "depth": 4.2,
+            "weight": 0.49,
+            "length": 590
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4bd",
+                "name": "Stieg Larsson",
+                "briefdescription": "Swedish author and journalist known for his Millennium series.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Thriller",
+            "Mystery",
+            "Crime"
+        ],
+        "reviews": [
+            {
+                "id": "62c5b59056bda6753f6d8f53",
+                "rating": 4.7
+            },
+            {
+                "id": "62c5b59056bda6753f6d8f54",
+                "rating": 4.6
+            },
+            {
+                "id": "62c5b59056bda6753f6d8f55",
+                "rating": 4.8
+            }
+        ],
+        "rated": 4.7,
+        "updatedAt": "2022-06-07T20:25:11.562-04:00"
+    },
+    {
+        "_id": "61c779bff11361251e79aac7",
+        "name": "Dune",
+        "slug": "dune",
+        "description": "A classic science fiction novel by Frank Herbert.",
+        "age": 12.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 15.99,
+        "discount": 0.0,
+        "inStock": 52.0,
+        "publisher": "Ace Books",
+        "releaseDate": "1965-08-01",
+        "isbn": "978-0-44-101359-3",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.8,
+            "depth": 4.2,
+            "weight": 0.49,
+            "length": 694
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4a4",
+                "name": "Frank Herbert",
+                "briefdescription": "American science fiction author known for the Dune series.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Science Fiction",
+            "Fantasy"
+        ],
+        "reviews": [
+            {
+                "id": "62c5b6a6d85699c55a8d12d9",
+                "rating": 4.9
+            },
+            {
+                "id": "62c5b6a6d85699c55a8d12da",
+                "rating": 4.8
+            },
+            {
+                "id": "62c5b6a6d85699c55a8d12db",
+                "rating": 5.0
+            }
+        ],
+        "rated": 4.9,
+        "updatedAt": "2022-06-07T20:16:42.874-04:00"
+    },
+    {
+        "_id": "61c779c40215035ed35360fb",
+        "name": "Da Vinci Code",
+        "slug": "da-vince-code",
+        "description": "A thrilling mystery novel by Dan Brown.",
+        "age": 15.0,
+        "language": "English",
+        "type": 1.0,
+        "price": 11.99,
+        "discount": 0.0,
+        "inStock": 45.0,
+        "publisher": "Doubleday",
+        "releaseDate": "2003-03-18",
+        "isbn": "978-0-38-550420-1",
+        "dimension": {
+            "width": 13.1,
+            "height": 19.8,
+            "depth": 4.3,
+            "weight": 0.58,
+            "length": 454
+        },
+        "deleted": false,
+        "authors": [
+            {
+                "_id": "629f77cbb202bffed168c4a1",
+                "name": "Dan Brown",
+                "briefdescription": "American author known for his thriller novels.",
+                "deleted": false
+            }
+        ],
+        "genres": [
+            "Mystery",
+            "Thriller"
+        ],
+        "reviews": [
+            {
+                "id": "62c5b71ad85699c55a8d12de",
+                "rating": 4.5
+            },
+            {
+                "id": "62c5b71ad85699c55a8d12df",
+                "rating": 4.8
+            },
+            {
+                "id": "62c5b71ad85699c55a8d12e0",
+                "rating": 4.7
+            }
+        ],
+        "rated": 4.67,
+        "updatedAt": "2022-06-07T20:15:43.856-04:0"
+    }
+]

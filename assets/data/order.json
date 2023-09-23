@@ -1,0 +1,242 @@
+[
+    {
+        "_id": "62c8e4da47327d27581bf90a",
+        "books": [
+            {
+                "bookId": "61c7777d35fdf97de91cd39b",
+                "count": 1,
+                "discount": 0,
+                "price": 6.99
+            },
+            {
+                "bookId": "61c7776f8673c573c55286e5",
+                "count": 1,
+                "discount": 0,
+                "price": 7.99
+            },
+            {
+                "bookId": "61c775b5b94d98105aa3e4bf",
+                "count": 1,
+                "discount": 0,
+                "price": 21.99
+            }
+        ],
+        "deleted": false,
+        "placementDate": 1657332953994.0,
+        "status": 8,
+        "discount": 0,
+        "address": {
+            "province": "RS",
+            "city": "Santa Maria",
+            "street": "Rua Justino Couto",
+            "number": "535",
+            "zipcode": "97070-500",
+            "country": 2,
+            "type": 1
+        },
+        "userId": "62c8b3314781a74fc8076324",
+        "createdAt": "2022-07-08T22:15:54.056-04:00",
+        "updatedAt": "2022-07-08T22:15:54.056-04:00",
+        "__v": 0
+    },
+    {
+        "_id": "62c8e5a315cd4e12c057f7bc",
+        "books": [
+            {
+                "bookId": "61c779abde7c799061bd2b8b",
+                "count": 1,
+                "discount": 0,
+                "price": 21.99
+            },
+            {
+                "bookId": "61c77758cef5a3988a814b1d",
+                "count": 1,
+                "discount": 0,
+                "price": 15.99
+            }
+        ],
+        "deleted": false,
+        "placementDate": 1657333155554.0,
+        "status": 8,
+        "discount": 0,
+        "address": {
+            "province": "RS",
+            "city": "Santa Maria",
+            "street": "Rua Justino Couto",
+            "number": "535",
+            "zipcode": "97070-500",
+            "country": 2,
+            "type": 1
+        },
+        "payment": {
+            "cardholder": "SERGIO R H RIGHI",
+            "number": "RkPZM5Vz6jqsuz61M4UCXAen/HLZkB8ctzk+NMMBG7o=",
+            "expirationMonth": 4,
+            "expirationYear": 2024,
+            "billingAddress": {
+                "province": "RS",
+                "city": "Santa Maria",
+                "street": "Rua Justino Couto",
+                "number": "535",
+                "zipcode": "97070-500",
+                "country": 2,
+                "type": 1
+            },
+            "cvv": null
+        },
+        "userId": "62c8b3314781a74fc8076324",
+        "createdAt": "2022-07-08T22:19:15.597-04:00",
+        "updatedAt": "2022-07-08T22:19:15.597-04:00",
+        "__v": 0
+    },
+    {
+        "_id": "62c8eba187924200166fb961",
+        "books": [
+            {
+                "bookId": "61c77758cef5a3988a814b1d",
+                "count": 1,
+                "discount": 0,
+                "price": 15.99
+            },
+            {
+                "bookId": "61c7777d35fdf97de91cd39b",
+                "count": 1,
+                "discount": 0,
+                "price": 6.99
+            },
+            {
+                "bookId": "61c7776f8673c573c55286e5",
+                "count": 1,
+                "discount": 0,
+                "price": 7.99
+            }
+        ],
+        "deleted": false,
+        "placementDate": 1657334689972.0,
+        "status": 8,
+        "discount": 0,
+        "address": {
+            "country": 1,
+            "province": "ON",
+            "city": "Toronto",
+            "street": "Horton Blvd",
+            "number": "27",
+            "zipcode": "M1J 1K7",
+            "type": 1
+        },
+        "payment": {
+            "cardholder": "SERGIO R H RIGHI",
+            "number": "d6OSCwMTAoxIeCtRVAPpKBvrB2kIQCh5wAQNTpVwD1w=",
+            "expirationMonth": 4,
+            "expirationYear": 2024,
+            "billingAddress": {
+                "country": 1,
+                "province": "ON",
+                "city": "Toronto",
+                "street": "Horton Blvd",
+                "number": "27",
+                "zipcode": "M1J 1K7",
+                "type": 1
+            },
+            "cvv": null
+        },
+        "userId": "62c8eb7d87924200166fb95b",
+        "createdAt": "2022-07-08T22:44:49.853-04:00",
+        "updatedAt": "2022-07-08T22:44:49.853-04:00",
+        "__v": 0
+    },
+    {
+        "_id": "63896e2de95a6c17195b54f3",
+        "userId": "63896b67ef6976379a32ba4e",
+        "payment": {
+            "billingAddress": {
+                "country": 1,
+                "province": "ON",
+                "city": "Toronto",
+                "street": "Topaz Gate",
+                "number": "18",
+                "zipcode": "M2M 2Z7",
+                "type": 1
+            },
+            "cardholder": "SERGIO R H RIGHI",
+            "number": "aDOnEJqpO/YskogVD+jbMY8vA9qM4Vu+wAJamYpJAvk=",
+            "expirationMonth": 5,
+            "expirationYear": 2024,
+            "cvv": null
+        },
+        "address": {
+            "country": 1,
+            "province": "ON",
+            "city": "Toronto",
+            "street": "Topaz Gate",
+            "number": "18",
+            "zipcode": "M2M 2Z7",
+            "type": 1
+        },
+        "status": 8,
+        "discount": 0,
+        "placementDate": 1669951021426.0,
+        "books": [
+            {
+                "bookId": "61c77758cef5a3988a814b1d",
+                "count": 1,
+                "discount": 0,
+                "price": 15.99
+            }
+        ],
+        "deleted": false,
+        "createdAt": "2022-12-01T23:17:01.454-04:00",
+        "updatedAt": "2022-12-01T23:17:01.454-04:00",
+        "__v": 0
+    },
+    {
+        "_id": "64d85bfa518e7c746e752ed1",
+        "userId": "6388ee3581aae9189cfb86ca",
+        "payment": {
+            "billingAddress": {
+                "country": 1,
+                "province": "ON",
+                "city": "Toronto",
+                "street": "Topaz Gate",
+                "number": "18",
+                "zipcode": "M2M 2Z7",
+                "type": 1
+            },
+            "cardholder": "SERGIO R H RIGHI",
+            "number": "aDOnEJqpO/YskogVD+jbMY8vA9qM4Vu+wAJamYpJAvk=",
+            "expirationMonth": 5,
+            "expirationYear": 2024,
+            "cvv": null
+        },
+        "address": {
+            "country": 1,
+            "province": "ON",
+            "city": "Toronto",
+            "street": "Topaz Gate",
+            "number": "18",
+            "zipcode": "M2M 2Z7",
+            "type": 1
+        },
+        "status": 8,
+        "discount": 0,
+        "placementDate": 1691900921418.0,
+        "books": [
+            {
+                "bookId": "61c775bf32af36fab6d817fa",
+                "count": 1,
+                "discount": 0,
+                "price": 57.99
+            },
+            {
+                "bookId": "61c7798fc6d83f2c153efd3d",
+                "count": 1,
+                "discount": 0,
+                "price": 31.99
+            }
+        ],
+        "deleted": false,
+        "createdAt": "2023-08-13T00:28:42.160-04:00",
+        "updatedAt": "2023-08-13T00:28:42.160-04:00",
+        "__v": 0
+    }
+]

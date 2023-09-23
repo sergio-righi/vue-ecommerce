@@ -1,0 +1,277 @@
+[
+    {
+        "_id": "61c6abfe29fe9c8ac5c67b64",
+        "name": "J.K. Rowling",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f748cc4ad1f6a1f430811",
+        "name": "Charles Dickens",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f7571b202bffed168c49a",
+        "name": "Lewis Carroll",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f7571b202bffed168c49b",
+        "name": "George Orwell",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c49e",
+        "name": "Leo Tolstoy",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c49f",
+        "name": "David Mitchell",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4a0",
+        "name": "Michel R. Katz",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4a1",
+        "name": "Dan Brown",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4a2",
+        "name": "Miguel de Cervantes",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4a3",
+        "name": "Bram Stoker",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4a4",
+        "name": "Frank Herbert",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4a5",
+        "name": "Ray Bradbury",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4a6",
+        "name": "Mary Shelley",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4a7",
+        "name": "Margaret Mitchell",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4a8",
+        "name": "Jonathan Swift",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4a9",
+        "name": "William Shakespare",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4aa",
+        "name": "Marcel Proust",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4ab",
+        "name": "Ralph Ellison",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4ac",
+        "name": "Charlotte Brontë",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4ad",
+        "name": "Yann Martel",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4ae",
+        "name": "Gustave Flaubert",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4af",
+        "name": "Herman Melville",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4b0",
+        "name": "Virginia Woolf",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4b1",
+        "name": "Gabriel García Márquez",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4b2",
+        "name": "Hanna Al-Shaykh",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4b3",
+        "name": "Jane Austen",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4b4",
+        "name": "Kurt Vonnegut",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4b5",
+        "name": "Ryan North",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4b6",
+        "name": "Albert Montevs",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4b7",
+        "name": "Paulo Coelho",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4b8",
+        "name": "Fyodor Dostoevsky",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4b9",
+        "name": "J. D. Salinger",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4ba",
+        "name": "Alexandre Dumas",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4bb",
+        "name": "Dante Alighieri",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4bc",
+        "name": "F. Scott Fitzgerald",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4bd",
+        "name": "Stieg Larsson",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4be",
+        "name": "J. R. R. Tolkien",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4bf",
+        "name": "C. S. Lewis",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4c0",
+        "name": "Antoine de Saint-Exupéry",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4c1",
+        "name": "Homer",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4c2",
+        "name": "Oscar Wilde",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4c3",
+        "name": "Nathaniel Hawthorne",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4c4",
+        "name": "Anton Chekhov",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4c5",
+        "name": "Harper Lee",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629f77cbb202bffed168c4c6",
+        "name": "James Joyce",
+        "briefdescription": "",
+        "deleted": false
+    },
+    {
+        "_id": "629fe718c7ae3356044b228e",
+        "name": "Mark Twain",
+        "deleted": false
+    }
+]

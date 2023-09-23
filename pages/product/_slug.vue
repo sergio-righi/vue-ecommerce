@@ -16,13 +16,15 @@
                 </span>
                 <gv-image :src="$resolve.image.cover(book._id)" />
                 <p>{{ book.description }}</p>
+                <p>
+                  <b>{{ $tc("label.genre", book.genres.length) }}:</b>
+                  {{ book.genres.join(", ") }}
+                </p>
               </div>
               <gv-scroll hide-scrollbar stretch>
                 <template #content>
-                  <ProductInfo v-if="book.rated">
-                    <template #icon>
-                      {{ $t($enum.mapper.rates[book.rated]) }}
-                    </template>
+                  <ProductInfo v-if="book.age">
+                    <template #icon> {{ book.age }}+ </template>
                     <template #title>
                       {{ $t("component.product.content_rating") }}
                     </template>

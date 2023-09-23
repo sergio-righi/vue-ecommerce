@@ -1,0 +1,217 @@
+[
+    {
+        "_id": "62c8a8e0005b5c526cf93348",
+        "wishlist": [],
+        "roles": [],
+        "addresses": [
+            {
+                "country": 1,
+                "province": "ON",
+                "city": "Toronto",
+                "street": "Topaz Gate",
+                "number": "18",
+                "zipcode": "M2M 2Z7",
+                "type": 1
+            }
+        ],
+        "documents": [],
+        "payments": [
+            {
+                "billingAddress": {
+                    "country": 1,
+                    "province": "ON",
+                    "city": "Toronto",
+                    "street": "Topaz Gate",
+                    "number": "18",
+                    "zipcode": "M2M 2Z7",
+                    "type": 1
+                },
+                "cardholder": "SERGIO R H RIGHI",
+                "number": "aDOnEJqpO/YskogVD+jbMY8vA9qM4Vu+wAJamYpJAvk=",
+                "expirationMonth": 5,
+                "expirationYear": 2024,
+                "cvv": null
+            }
+        ],
+        "theme": true,
+        "locale": "en-CA",
+        "userId": "62c8a8c46111343327d3be6e",
+        "createdAt": "2022-07-08T18:00:00.745-04:00",
+        "updatedAt": "2023-08-13T00:29:10.816-04:00",
+        "__v": 0
+    },
+    {
+        "_id": "62c8b3314781a74fc8076324",
+        "wishlist": [],
+        "roles": [],
+        "addresses": [
+            {
+                "country": 1,
+                "province": "ON",
+                "city": "Toronto",
+                "street": "Horton Blvd",
+                "number": "27",
+                "zipcode": "M1J 1K7",
+                "type": 1
+            },
+            {
+                "province": "RS",
+                "city": "Santa Maria",
+                "street": "Rua Justino Couto",
+                "number": "535",
+                "zipcode": "97070-500",
+                "country": 2,
+                "type": 1
+            }
+        ],
+        "documents": [],
+        "payments": null,
+        "theme": false,
+        "locale": "en-CA",
+        "userId": "62c8b2e2e43a640574eb1a55",
+        "createdAt": "2022-07-08T18:44:01.799-04:00",
+        "updatedAt": "2022-07-08T22:19:39.557-04:00",
+        "__v": 0
+    },
+    {
+        "_id": "62c8eb7d87924200166fb95b",
+        "wishlist": [],
+        "roles": [],
+        "addresses": [
+            {
+                "country": 1,
+                "province": "ON",
+                "city": "Toronto",
+                "street": "Horton Blvd",
+                "number": "27",
+                "zipcode": "M1J 1K7",
+                "type": 1
+            }
+        ],
+        "documents": [],
+        "payments": [
+            {
+                "cardholder": "SERGIO R H RIGHI",
+                "number": "d6OSCwMTAoxIeCtRVAPpKBvrB2kIQCh5wAQNTpVwD1w=",
+                "expirationMonth": 4,
+                "expirationYear": 2024,
+                "billingAddress": {
+                    "country": 1,
+                    "province": "ON",
+                    "city": "Toronto",
+                    "street": "Horton Blvd",
+                    "number": "27",
+                    "zipcode": "M1J 1K7",
+                    "type": 1
+                },
+                "cvv": null
+            }
+        ],
+        "theme": false,
+        "locale": "en-CA",
+        "userId": "62c8af7ae43a640574eb1a37",
+        "createdAt": "2022-07-08T22:44:13.711-04:00",
+        "updatedAt": "2022-07-08T22:44:47.645-04:00",
+        "__v": 0
+    },
+    {
+        "_id": "631a7f391e7e250016122e08",
+        "wishlist": [],
+        "roles": [],
+        "addresses": [],
+        "documents": [],
+        "payments": [],
+        "theme": false,
+        "locale": "en-CA",
+        "userId": "62a669abc4ad1f6a1f442b85",
+        "createdAt": "2022-09-08T19:48:09.333-04:00",
+        "updatedAt": "2022-09-08T19:48:09.333-04:00",
+        "__v": 0
+    },
+    {
+        "_id": "631a8a671e7e250016122e4c",
+        "wishlist": [],
+        "roles": [],
+        "addresses": [],
+        "documents": [],
+        "payments": [],
+        "theme": false,
+        "locale": "en-CA",
+        "userId": "62a64298efb8299479b4464f",
+        "createdAt": "2022-09-08T20:35:51.761-04:00",
+        "updatedAt": "2022-09-08T20:35:51.761-04:00",
+        "__v": 0
+    },
+    {
+        "_id": "631a8e921e7e250016122e65",
+        "wishlist": [],
+        "roles": [],
+        "addresses": [],
+        "documents": [],
+        "payments": [],
+        "theme": false,
+        "locale": "en-CA",
+        "userId": "631a8c66c29b684709f39340",
+        "createdAt": "2022-09-08T20:53:38.050-04:00",
+        "updatedAt": "2022-09-08T20:53:38.050-04:00",
+        "__v": 0
+    },
+    {
+        "_id": "632398e2e768e70016fe963d",
+        "wishlist": [],
+        "roles": [],
+        "addresses": [],
+        "documents": [],
+        "payments": [],
+        "theme": false,
+        "locale": "en-CA",
+        "userId": "62a66728c4ad1f6a1f442a26",
+        "createdAt": "2022-09-15T17:28:02.458-04:00",
+        "updatedAt": "2022-09-15T17:28:02.458-04:00",
+        "__v": 0
+    },
+    {
+        "_id": "63896834d19dd3ec7c23466e",
+        "userId": "638961a042d0780602fa753a",
+        "wishlist": [],
+        "roles": [],
+        "addresses": [],
+        "documents": [],
+        "payments": [],
+        "createdAt": "2022-12-01T22:51:32.292-04:00",
+        "updatedAt": "2022-12-01T22:51:32.292-04:00",
+        "__v": 0
+    },
+    {
+        "_id": "6389698fd19dd3ec7c234679",
+        "userId": "6388c452bb783361d67c6c51",
+        "wishlist": [],
+        "roles": [],
+        "addresses": [],
+        "documents": [],
+        "payments": [],
+        "theme": false,
+        "locale": "en-CA",
+        "createdAt": "2022-12-01T22:57:19.169-04:00",
+        "updatedAt": "2022-12-01T22:57:19.169-04:00",
+        "__v": 0
+    },
+    {
+        "_id": "63896bbbe95a6c17195b548f",
+        "userId": "63896b67ef6976379a32ba4e",
+        "person": {
+            "name": "Sergio",
+            "email": "sergio_rhr@hotmail.com"
+        },
+        "wishlist": [],
+        "roles": [],
+        "addresses": [],
+        "documents": [],
+        "payments": [],
+        "theme": false,
+        "locale": "en-CA",
+        "createdAt": "2022-12-01T23:06:35.222-04:00",
+        "updatedAt": "2022-12-01T23:06:35.222-04:00",
+        "__v": 0
+    }
+]

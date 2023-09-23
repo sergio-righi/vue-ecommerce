@@ -55,7 +55,8 @@ const Resolve = (context: any) => ({
 
   image: {
     cover: (name: string) => {
-      return `${context.$config.api}cover/${name}.jpg`
+      return `/images/${name}.jpg`
+      // return `${context.$config.api}cover/${name}.jpg`
     },
 
     root: (name: string) => {

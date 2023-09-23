@@ -46,9 +46,9 @@
           </template>
         </gv-dropdown>
       </gv-navbar-item>
-      <gv-navbar-item v-else @onclick="signIn">
+      <!-- <gv-navbar-item v-else @onclick="signIn">
         <gv-icon value="account-circle" />
-      </gv-navbar-item>
+      </gv-navbar-item> -->
     </template>
   </gv-navbar>
 </template>

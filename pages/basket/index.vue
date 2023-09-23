@@ -66,7 +66,7 @@
               <gv-divider />
             </template>
             <template #footer>
-              <gv-button primary stretch :href="$resolve.checkout()">
+              <gv-button disabled stretch>
                 {{ $t("action.checkout") }}
               </gv-button>
             </template>
